@@ -1,0 +1,76 @@
+/* ==========================================================================
+   MAYNGAN TRAVEL - BASE.CSS (RESET & TYPOGRAPHY CHUNG)
+   Mục đích: Định dạng mặc định cho toàn trang, chống vỡ layout
+   ========================================================================== */
+
+/* --- 1. RESET (XÓA ĐỊNH DẠNG MẶC ĐỊNH CỦA TRÌNH DUYỆT) --- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Bắt buộc: Giúp tính toán kích thước hộp (box) chuẩn xác, không bị phình to khi thêm padding */
+}
+
+/* --- 2. BODY (THÂN TRANG WEB) --- */
+body {
+  font-family: var(--font-body);       /* Dùng font Inter cho dễ đọc */
+  font-size: var(--text-base);         /* Cỡ chữ chuẩn 16px */
+  color: var(--text-dark);             /* Màu chữ mặc định là xanh rêu đậm */
+  background-color: var(--bg-primary); /* Nền toàn trang màu trắng kem */
+  line-height: 1.6;                    /* Khoảng cách giữa các dòng chữ giúp dễ đọc hơn */
+}
+
+/* --- 3. HEADINGS (CÁC THẺ TIÊU ĐỀ H1 -> H6) --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading); /* Dùng font Montserrat cho sang trọng */
+  color: var(--text-dark);
+  line-height: 1.3;                 /* Tiêu đề thì khoảng cách dòng hẹp hơn đoạn văn thường */
+}
+h1 { font-size: var(--text-3xl); font-weight: 800; } /* Dùng cho: Tiêu đề to nhất trang chủ */
+h2 { font-size: var(--text-2xl); font-weight: 700; } /* Dùng cho: Tên các phần (VD: "Tour Nổi Bật", "Về Chúng Tôi") */
+h3 { font-size: var(--text-xl);  font-weight: 600; } /* Dùng cho: Tên các tour trong từng ô card */
+
+/* --- 4. LINKS (THẺ LIÊN KẾT) --- */
+a {
+  color: var(--color-primary);    /* Màu xanh mặc định */
+  text-decoration: none;          /* Xóa dấu gạch chân xấu xí của thẻ <a> */
+  transition: var(--transition);  /* Đổi màu mượt mà khi rê chuột */
+}
+a:hover {
+  color: var(--color-primary-dark); /* Rê chuột vào thì tối màu đi một chút */
+}
+
+/* --- 5. IMAGES (HÌNH ẢNH) --- */
+img {
+  max-width: 100%;       /* Bắt buộc: Ảnh không bao giờ bị tràn ra khỏi khung chứa nó */
+  height: auto;          /* Tỉ lệ ảnh luôn được giữ nguyên */
+  display: block;
+  object-fit: cover;     /* Giúp ảnh lấp đầy khung mà không bị méo (rất quan trọng cho ảnh tour) */
+}
+
+/* --- 6. LIST (DANH SÁCH UL/OL) --- */
+ul, ol {
+  list-style: none;      /* Xóa mấy dấu chấm đen chấm tròn mặc định của thẻ danh sách */
+}
+
+/* --- 7. CONTAINER & SECTION (BỐ CỤC KHUNG CHUẨN) --- */
+/* Cách dùng: <div class="section"><div class="container"> Nội dung </div></div> */
+
+.container {
+  max-width: 1200px;             /* Bóp nội dung lại ở giữa màn hình (giới hạn 1200px) */
+  margin: 0 auto;                /* Tự động căn giữa màn hình */
+  padding: 0 var(--space-lg);    /* Chống dính mép màn hình khi xem trên điện thoại */
+}
+
+.section {
+  padding: var(--space-2xl) 0;   /* Tạo khoảng cách lề trên/dưới cho mỗi khu vực lớn (VD: Khu vực Tour mới, Khu vực Tin tức) */
+}
+
+.section-alt {
+  background: var(--bg-secondary); /* Dùng thêm class này nếu muốn section đó có nền kem xám cho bớt nhàm chán */
+}
+
+.section-title {
+  font-size: var(--text-2xl);
+  text-align: center;              /* Căn giữa tiêu đề của section */
+  margin-bottom: var(--space-xl);  /* Đẩy lề dưới để cách xa phần nội dung bên dưới nó */
+}

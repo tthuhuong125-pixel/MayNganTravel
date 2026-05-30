@@ -1,0 +1,112 @@
+/* ==========================================================================
+   MAYNGAN TRAVEL - COMPONENTS.CSS (THÀNH PHẦN TÁI SỬ DỤNG)
+   Mục đích: Nút bấm, thẻ tour, thẻ tag - Dùng chung cho toàn dự án
+   ========================================================================== */
+
+/* ── 1. BUTTONS (NÚT BẤM) ── */
+/* Lưu ý: Luôn gọi class "btn" trước, rồi mới cộng thêm màu. 
+   VD: <button class="btn btn-cta">Đặt tour ngay</button> */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);             /* Khoảng cách nếu trong nút có cả icon và chữ */
+  padding: 10px 22px;               /* Đô phình của nút (trên/dưới 10px, trái/phải 22px) */
+  border-radius: var(--radius-sm);  /* Bo tròn các góc */
+  font-weight: 600;
+  cursor: pointer;                  /* Rê chuột vào biến thành hình bàn tay */
+  border: none;
+  transition: var(--transition);    /* Hiệu ứng chuyển màu mượt mà */
+}
+
+.btn-primary {
+  background: var(--color-primary); /* Nút màu xanh lá chính */
+  color: var(--text-white);
+}
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-cta {
+  background: var(--color-cta);     /* Nút MÀU CAM nổi bật (Dùng cho hành động quan trọng nhất) */
+  color: var(--text-white);
+}
+
+.btn-outline {
+  background: transparent;                   /* Nút rỗng (chỉ có viền màu xanh) */
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+}
+
+/* ── 2. TOUR CARD (THẺ HIỂN THỊ TOUR) ── */
+/* Cách dùng: Tạo 1 div tổng có class "tour-card", bên trong chia làm ảnh và thân.
+   VD: Giao diện lưới danh sách tour Sapa, Hà Giang... */
+
+.tour-card {
+  background: #fff;
+  border-radius: var(--radius-md);       /* Bo góc thẻ tour */
+  border: 0.5px solid var(--border-color);
+  overflow: hidden;                      /* Cắt bỏ những phần bị tràn ra khỏi góc bo tròn */
+  transition: var(--transition);
+}
+
+.tour-card:hover {
+  transform: translateY(-4px);           /* Rê chuột vào thẻ tour sẽ nẩy lên một chút */
+  box-shadow: var(--shadow-md);          /* ...và đổ bóng tạo cảm giác 3D */
+}
+
+.tour-card__img {
+  height: 200px;                         /* Cố định chiều cao ảnh tour để các thẻ bằng nhau tăm tắp */
+}
+
+.tour-card__body {
+  padding: var(--space-md);              /* Khoảng cách từ nội dung chữ chữ dội ra viền thẻ */
+}
+
+.tour-card__price {
+  color: var(--color-cta);               /* Chữ giá tiền luôn có màu cam nổi bật */
+  font-size: var(--text-lg);
+  font-weight: 700;                      /* In đậm giá tiền */
+}
+
+/* ── 3. BADGES (NHÃN DÁN THÔNG BÁO NHỎ) ── */
+/* Dùng để dán đè lên góc ảnh tour. VD: <span class="badge badge--hot">Tour Hot</span> */
+
+.badge {
+  display: inline-flex;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);     /* Bo tròn xoe 2 đầu */
+  font-size: var(--text-xs);             /* Chữ rất nhỏ */
+  font-weight: 600;
+}
+
+.badge--hot {
+  background: var(--color-cta);          /* Nhãn màu cam rực ("Khuyến mãi", "Hot") */
+  color: #fff;
+}
+.badge--new {
+  background: var(--color-primary-bg);   /* Nhãn nền xanh lá nhạt ("Tour mới") */
+  color: var(--color-primary-dark);
+}
+.badge--xuyen {
+  background: #EEEDFE;                   /* Nhãn màu tím nhẹ ("Tour xuyên Việt") */
+  color: #3C3489;
+}
+
+/* ── 4. CHIPS (NÚT LỌC TÌM KIẾM ĐIỂM ĐẾN) ── */
+/* Dùng cho bộ lọc điểm đến. VD: <div class="chip chip--active">Hà Giang</div> */
+
+.chip {
+  padding: 5px 14px;
+  border-radius: var(--radius-full);      /* Nút dạng viên thuốc */
+  border: 0.5px solid var(--border-color);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.chip--active {
+  background: var(--color-primary);       /* Khi người dùng click chọn điểm đến này thì nó đổi nền xanh */
+  color: var(--text-white);
+  border-color: var(--color-primary);
+}

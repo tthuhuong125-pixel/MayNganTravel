@@ -1,0 +1,359 @@
+/*
+  ============================================================
+  header.css — Mây Ngàn Travel
+  Yêu cầu: variables.css + base.css + components.css load trước
+  Người phụ trách: Hương — không ai sửa file này nếu chưa hỏi
+  ============================================================
+*/
+
+
+/* ══════════════════════════════════════════════════════════
+   1. HEADER WRAPPER
+   ══════════════════════════════════════════════════════════ */
+.main-header {
+    background-color: var(--bg-primary);          /* #FAFAF7 — trắng kem, KHÔNG dùng vàng làm nền */
+    border-bottom: 0.5px solid var(--border-color); /* đường kẻ mỏng phân cách header vs nội dung */
+    position: sticky;                               /* dính đầu trang khi cuộn */
+    top: 0;
+    z-index: 1000;                                  /* luôn nằm trên mọi element khác */
+    box-shadow: var(--shadow-sm);                   /* bóng nhẹ tạo chiều sâu */
+}
+
+.header-container {
+    max-width: 1200px;                              /* giới hạn chiều rộng nội dung */
+    margin: 0 auto;                                 /* căn giữa */
+    padding: 0 var(--space-lg);                     /* 24px 2 bên */
+    height: 68px;                                   /* chiều cao header cố định */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   2. LOGO
+   ══════════════════════════════════════════════════════════ */
+.brand-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);                           /* khoảng cách giữa ảnh và text logo */
+    text-decoration: none;
+    flex-shrink: 0;                                 /* không co lại khi nav chiếm chỗ */
+}
+
+/* [ẢNH LOGO] — hiện khi đã có file logo.png */
+.brand-logo {
+    height: 40px;                                   /* chỉnh số này cho vừa với logo thật */
+    width: auto;
+    object-fit: contain;
+}
+
+/* [TEXT LOGO] — dùng tạm khi chưa có ảnh */
+.brand-text {
+    font-family: var(--font-heading);               /* Montserrat */
+    font-size: var(--text-xl);                      /* 20px */
+    font-weight: 800;
+    color: var(--text-dark);                        /* #1F2E22 */
+    letter-spacing: 0.06em;
+    font-style: normal;
+}
+
+.brand-text em {
+    color: var(--color-primary);                    /* "NGÀN" màu xanh rừng #3D7A5C */
+    font-style: normal;
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   3. NAVIGATION LIST
+   ══════════════════════════════════════════════════════════ */
+.main-nav { flex: 1; }                              /* nav chiếm phần giữa còn lại */
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 2px;
+    justify-content: center;                        /* căn giữa các mục nav */
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 9px;
+    font-size: var(--text-sm);                      /* 14px */
+    font-weight: 500;
+    color: var(--text-dark);                      /* #5A6B5C */
+    text-decoration: none;
+    border-radius: var(--radius-sm);                /* 6px */
+    transition: var(--transition);
+    white-space: nowrap;                            /* không xuống dòng */
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: var(--bg-secondary);          /* nền kem khi hover */
+    color: var(--text-dark);                        /* chữ đậm hơn khi hover */
+}
+
+/* Mũi tên ▾ tự động thêm cho nav item có dropdown */
+.nav-link--arrow::after {
+    content: '▾';
+    font-size: 10px;
+    opacity: 0.5;
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+
+.nav-item--dropdown:hover .nav-link--arrow::after,
+.nav-item--dropdown.open .nav-link--arrow::after {
+    transform: rotate(180deg);                      /* xoay mũi tên khi mở dropdown (hover hoặc chạm) */
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   4. DROPDOWN — KHUNG CHUNG
+   ══════════════════════════════════════════════════════════ */
+.nav-item--dropdown {
+    position: relative;                             /* làm gốc cho dropdown absolute */
+}
+
+/* Ẩn dropdown mặc định — hiện khi hover vào nav item */
+.dropdown-simple,
+.dropdown-mega {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);                          /* cách nav link 6px */
+    left: 0;
+    background: var(--bg-primary);
+    border: 0.5px solid var(--border-color-light);
+    border-radius: var(--radius-md);                /* 10px */
+    box-shadow: var(--shadow-md);
+    padding: var(--space-sm);                       /* 8px */
+    z-index: 100;
+    animation: dropFade 0.15s ease;                 /* animation xuất hiện mượt */
+}
+
+.nav-item--dropdown:hover .dropdown-simple,
+.nav-item--dropdown.open .dropdown-simple,
+.nav-item--dropdown:hover .dropdown-mega,
+.nav-item--dropdown.open .dropdown-mega {
+    display: block;                                 /* hiện khi hover hoặc click (hỗ trợ touch) */
+}
+
+/* Animation dropdown xuất hiện */
+@keyframes dropFade {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   5. DROPDOWN ĐƠN (Blog, Về chúng tôi, Thông tin)
+   ══════════════════════════════════════════════════════════ */
+.dropdown-simple {
+    min-width: 210px;
+}
+
+.dropdown-simple--wide {
+    min-width: 250px;                               /* rộng hơn cho mục Thông tin & Hướng dẫn */
+}
+
+.dropdown-item {
+    display: block;
+    padding: 8px 10px;
+    font-size: var(--text-sm);                      /* 14px */
+    color: var(--text-medium);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+.dropdown-item:hover {
+    background: var(--bg-secondary);
+    color: var(--text-dark);
+    padding-left: 14px;                             /* dịch nhẹ sang phải khi hover */
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   6. MEGA MENU (Khám phá — 2 cột Tây Bắc / Đông Bắc)
+   ══════════════════════════════════════════════════════════ */
+.dropdown-mega {
+    min-width: 460px;
+    left: -100px;                                   /* dịch sang trái để căn giữa hơn */
+}
+
+/* Override display:block — mega menu dùng grid 2 cột */
+.nav-item--dropdown:hover .dropdown-mega,
+.nav-item--dropdown.open .dropdown-mega {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xs);
+}
+
+.mega-col {
+    padding: var(--space-xs) var(--space-sm);
+}
+
+/* Đường kẻ dọc phân cách 2 cột */
+.mega-col:first-child {
+    border-right: 0.5px solid var(--border-color-light);
+}
+
+/* Tiêu đề vùng (Tây Bắc / Đông Bắc) */
+.mega-region {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-dark);
+    padding: 4px var(--space-sm);
+    margin-bottom: var(--space-xs);
+    letter-spacing: 0.03em;
+}
+
+/* Link từng địa điểm */
+.mega-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 10px;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    color: var(--text-medium);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.mega-item:hover {
+    background: var(--bg-secondary);
+    color: var(--text-dark);
+}
+
+/* Mùa đẹp nhất — text nhỏ màu xanh bên phải */
+.mega-season {
+    font-size: 10px;
+    color: var(--color-primary);                    /* #3D7A5C xanh rừng */
+    font-weight: 500;
+    margin-left: var(--space-sm);
+    white-space: nowrap;
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   7. NÚT ĐẶT TOUR + navToggle MOBILE
+   ══════════════════════════════════════════════════════════ */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    flex-shrink: 0;                                 /* không co lại */
+}
+
+/* Nút "Đặt tour" — cam nổi bật góc phải */
+.btn-dat-tour {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 18px;
+    background: var(--color-cta);                   /* #E8693A cam */
+    color: var(--text-white);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.btn-dat-tour:hover {
+    background: var(--color-cta-dark);              /* cam tối hơn khi hover */
+    transform: translateY(-1px);
+}
+
+/* navToggle — 3 gạch ngang, chỉ hiện trên mobile */
+.navToggle {
+    display: none;                                  /* ẩn trên desktop */
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+.navToggle span {
+    display: block;
+    height: 2px;
+    background: var(--text-dark);
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+/* navToggle animation khi menu đang mở */
+.navToggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navToggle.open span:nth-child(2) { opacity: 0; }
+.navToggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+
+/* ══════════════════════════════════════════════════════════
+   8. RESPONSIVE
+   ══════════════════════════════════════════════════════════ */
+
+/* Tablet — thu nhỏ font nav */
+@media (max-width: 1100px) {
+    .nav-link      { font-size: 12px; padding: 6px 7px; }
+    .mega-season   { display: none; }              /* ẩn text mùa cho gọn */
+    .dropdown-mega { min-width: 340px; left: -60px; }
+}
+
+/* Mobile — ẩn nav, hiện navToggle */
+@media (max-width: 768px) {
+
+    .main-nav          { display: none; }           /* ẩn nav mặc định */
+    .main-nav.open     { display: block; }          /* hiện khi navToggle được bấm */
+    .navToggle         { display: flex; }           /* hiện nút navToggle */
+    .btn-dat-tour      { display: none; }           /* ẩn nút Đặt tour để tiết kiệm chỗ */
+
+    /* Nav mở ra thành menu dọc */
+    .nav-list {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        position: absolute;
+        top: 68px; left: 0; right: 0;              /* mở ra ngay dưới header */
+        background: var(--bg-primary);
+        border-bottom: 0.5px solid var(--border-color);
+        box-shadow: var(--shadow-md);
+        padding: var(--space-sm) 0;
+    }
+
+    .nav-link { width: 100%; padding: 12px var(--space-lg); }
+
+    /* Dropdown trên mobile — hiện thẳng trong luồng, không absolute */
+    .dropdown-simple,
+    .dropdown-mega {
+        position: static;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        padding-left: var(--space-xl);              /* thụt vào để phân cấp rõ */
+        animation: none;
+        display: none;
+    }
+
+    /* Khi nav item được click (toggle bằng JS) */
+    .nav-item--dropdown.open .dropdown-simple,
+    .nav-item--dropdown.open .dropdown-mega {
+        display: block;
+    }
+
+    .dropdown-mega        { grid-template-columns: 1fr; } /* 1 cột thay vì 2 cột */
+    .mega-col:first-child { border-right: none; }         /* bỏ đường kẻ dọc */
+    .mega-season          { display: inline; }            /* hiện lại text mùa */
+}
