@@ -1,0 +1,817 @@
+body{
+    font-family: Arial;
+    margin:0;
+    background: #FAFAF7; /* #FAFAF7 - Nền chính */
+}
+html{
+scroll-behavior:smooth;
+}
+
+
+/* LAYOUT */
+
+
+.container{
+    display:flex;
+    gap:30px;
+    padding:30px 50px;
+    align-items:flex-start; /* quan trọng để 2 cột không kéo dài bằng nhau */
+}
+
+
+/* LEFT */
+
+.left{
+flex:3;
+}
+
+/* TITLE */
+
+
+.tour-title{
+font-size:28px;
+font-weight:700;
+margin-bottom:10px;
+color: #1F2E22; /* #3D7A5C - Xanh chính */
+}
+
+
+/* Khối bao quanh dòng thông tin phụ */
+.tag-header {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    margin-top: -5px;    /* Đẩy sát lên gần tiêu đề một chút */
+    margin-bottom: 20px; /* Giãn khoảng cách vừa phải với khối ảnh bên dưới */
+}
+
+
+/* Định dạng riêng cho các tag Mã Tour */
+.tag-badge-1 {
+    background-color: #FFFCEB; /* Vàng kem cực nhạt bổ trợ cho tone vàng */
+    padding: 5px 12px;
+    border-radius: 20px;       /* Bo tròn dạng viên thuốc */
+    font-size: 13.5px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--color-accent); /* #D4A017 - Vàng accent */
+    color: var(--color-accent);
+}
+.tag-badge-2 {
+    background-color: #FFF2F0; /* Hồng cam nhạt bổ trợ cho tone cam */
+    padding: 5px 12px;
+    border-radius: 20px;       /* Bo tròn dạng viên thuốc */
+    font-size: 13.5px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--color-cta); /* #E8693A - Cam CTA */
+    color: var(--color-cta);
+}
+.tag-badge-3 {
+    background-color: #EBF7F1; /* Xanh nhạt bổ trợ cho tone xanh */
+    padding: 5px 12px;
+    border-radius: 20px;       /* Bo tròn dạng viên thuốc nhìn rất hiện đại */
+    font-size: 13.5px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--color-secondary); /* #5FA67A - Xanh phụ */
+    color: var(--color-primary); /* #3D7A5C - Xanh chính */
+}
+
+
+/* SLIDER */
+
+
+.slider{
+position:relative;
+width: 100%;
+overflow: hidden;
+border-radius: 8px;
+}
+
+
+.main-img{
+width:100%;
+border-radius:10px;
+height:580px;
+object-fit:cover;
+}
+
+
+/* Đảm bảo ảnh lớn luôn khít khung hình */
+.slider #mainImage {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+.slider-transition {
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+
+/* BUTTON */
+.slider .prev,
+.slider .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10 ;
+    background: rgba(31, 46, 34, 0.5); /* Phủ mờ bằng tone rêu tối của hệ thống */
+    color: #ffffff;
+    border: none;
+    padding: 10px 14px;
+    cursor: pointer;
+    border-radius:6px;
+}
+.slider .prev { left: 15px; }
+.slider .next { right: 15px; }
+
+/* GALLERY */
+
+.gallery{
+display:flex;
+gap:10px;
+margin-top:12px;
+}
+
+.gallery img{
+width:120px;
+height:80px;
+object-fit:cover;
+border-radius:8px;
+cursor:pointer;
+opacity:0.8;
+transition:0.3s;
+}
+
+.gallery img:hover{
+opacity:1;
+transform:scale(1.05);
+}
+
+/* TABS */
+
+.tabs{
+display:flex;
+gap:30px;
+margin-top:20px;
+border-bottom:2px solid var(--bg-secondary); /* #F0EDE4 - Nền phụ làm đường biên kẻ */
+padding-bottom:10px;
+}
+
+.tabs a{
+font-weight:600;
+cursor:pointer;
+color: #7A8A80; /* Màu chữ phụ mờ trung tính */
+text-decoration:none;
+}
+
+.tabs .active{
+color: var(--text-main); /* #1F2E22 - Chữ chính */
+border-bottom:3px solid var(--color-primary); /* #3D7A5C - Xanh chính làm highlight line */
+padding-bottom:8px;
+}
+
+/* CONTENT */
+
+.tour-content {
+    margin-top: 30px;
+    border-bottom: 1px solid var(--bg-secondary);
+}
+
+
+.tour-content h2 {
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+
+/* Gộp p, ul của Tổng quan và nội dung Lịch trình dùng chung định dạng chữ */
+.tour-content p,
+.tour-content ul,
+.timeline-content {
+    color: var(--text-main); /* #1F2E22 - Toàn bộ font dùng màu chữ chính hệ thống */
+    line-height: 1.6;
+    text-align: justify;
+}
+
+
+/* Khoảng cách đoạn văn */
+.tour-content p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+/* Định dạng danh sách ul/li */
+.tour-content ul {
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+
+.tour-content li {
+    list-style-position: outside;
+    margin-bottom: 10px;
+}
+
+
+/* Ép thẻ b/strong luôn in đậm chuẩn chỉnh */
+.tour-content b,
+.tour-content strong {
+    font-weight: bold;
+}
+
+/* RIGHT */
+
+/* CARD */
+.right{
+background: #ffffff;
+padding:28px;
+border-radius:12px;
+width:360px;
+box-shadow: 0 4px 20px rgba(31, 46, 34, 0.08); /* Đổ bóng mịn ăn theo tone chữ chính rêu tối */
+position: sticky;
+top: 20px;  
+}
+
+/* PRICE */
+.price{
+font-size:24px;
+font-weight:600;
+margin-bottom:15px;
+color: var(--text-main);
+}
+
+.price span{
+color: var(--color-cta); /* #E8693A - Cam bắt mắt cho giá tiền */
+font-weight:700;
+}
+
+/* INFO */
+.tour-info{
+list-style:none;
+padding:0;
+margin:0 0 15px 0;
+}
+
+.tour-info li{
+display:flex;
+align-items:center;
+gap:12px;
+margin-bottom:14px;
+color: var(--text-main);
+font-size:15px;
+}
+
+.tour-info i{
+width:22px;
+font-size:16px;
+color: var(--color-secondary); /* #5FA67A - Icon thông tin dùng màu xanh phụ nhẹ nhàng */
+}
+
+.location{
+color: var(--color-accent); /* #D4A017 - Màu vàng nghệ */
+}
+
+/* TOUR NAME */
+.tour-name{
+margin:10px 0 15px 0;
+font-weight:600;
+color: var(--text-main);
+}
+
+/* BOOK BUTTON */
+.book-btn{
+width:100%;
+background: var(--color-primary); /* #3D7A5C - Nút chính dùng màu xanh lục chủ đạo */
+color: white;
+border:none;
+padding:14px;
+font-size:17px;
+font-weight:600;
+border-radius:8px;
+cursor:pointer;
+transition: background 0.2s;
+}
+.book-btn:hover {
+    background: #31624A; /* Hạ nhẹ tone xanh chính khi hovers */
+}
+
+/* POLICY */
+
+/* POLICY BOX */
+.policy{
+background:#eaf6e5 !important;
+padding:18px;
+border-radius:12px;
+margin-top:15px;
+}
+
+/* từng dòng */
+.policy-item{
+display:flex;
+align-items:flex-start;
+gap:12px;
+margin-bottom:15px;
+}
+
+/* icon */
+.policy-item i{
+font-size:20px;
+color: var(--color-primary); /* #3D7A5C - Dấu tích cam kết ăn theo màu xanh chủ đạo */
+margin-top:3px;
+}
+
+/* text */
+.policy-item p{
+margin:0;
+font-size:15px;
+line-height:1.5;
+color: var(--text-main);
+}
+
+.policy-item b{
+font-weight:600;
+}
+
+.policy-item:last-child {
+    margin-bottom: 0;
+}
+
+
+/* CONTACT BUTTON */
+.contact{
+display:flex;
+gap:12px;
+margin-top:18px;
+}
+
+.btn-outline{
+flex:1;
+border:1px solid #E8693A; /* Dùng màu nền phụ làm đường viền nút mảnh */
+padding:10px;
+border-radius:8px;
+background: white;
+font-size:14px;
+cursor:pointer;
+display: flex;  
+align-items: center;    
+justify-content: center;
+gap: 8px;              
+text-decoration: none;
+color: #E8693A;  
+transition: background 0.2s;
+}
+.btn-outline:hover {
+    background: #ffefe9;
+}
+
+
+/* LỊCH TRÌNH */
+/* Khung bọc từng ngày */
+.timeline-item {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+
+/* Đường kẻ dọc nét đứt */
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 28px;
+    bottom: -10px;
+    border-left: 1px dashed var(--color-secondary); /* #5FA67A - Đường line nét đứt xanh nhẹ dịu mắt */
+}
+
+.timeline-item:last-child::before {
+    display: none;
+}
+
+/* Thanh tiêu đề ngày */
+.timeline-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.timeline-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/* Icon nút bấm + / - */
+.icon-toggle {
+    font-size: 20px;
+    color: #5FA67A;
+    background-color: transparent;
+    z-index: 2;
+}
+
+
+/* Xử lý ẩn/hiện nội trình chi tiết */
+.timeline-content {
+    display: none;
+    padding-left: 32px;
+    margin-top: 8px;
+}
+
+.timeline-item.active .timeline-content {
+    display: block;
+}
+
+
+/* 3. MODULE BOX DỊCH VỤ (ĐỐI XỨNG)  */
+/* Khung bọc chung chia đôi 2 cột */
+.services-container {
+    display: flex;
+    gap: 25px;               /* Khoảng cách giữa 2 hộp */
+    margin-top: 40px;        /* Đẩy cách xa tiêu đề "Dịch vụ" ra một chút để nhường chỗ cho icon trồi lên */
+    margin-bottom: 20px;
+}
+
+
+/* Định dạng chung cho cả 2 hộp dịch vụ */
+.service-box {
+    flex: 1;                
+    position: relative;    
+    padding: 25px 25px 25px 25px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+}
+
+
+/* Tiêu đề riêng của từng hộp */
+.service-box h3 {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--text-main);
+}
+
+
+/* Tắt định dạng danh sách mặc định của trình duyệt */
+.service-box ul {
+    list-style: none ;
+    padding-left: 0 ;
+    margin: 0 ;
+}
+
+
+/* Từng dòng gạch đầu dòng */
+.service-box li {
+    position: relative;
+    padding-left: 22px;       /* Dịch chữ qua phải để nhường chỗ cho dấu tích/chéo */
+    margin-bottom: 12px;
+    font-size: 14.5px;
+    line-height: 1.6;
+}
+
+
+.service-box li strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--text-main);
+}
+
+
+.service-box li p {
+    margin: 2px 0 !important;
+    font-size: 14px;
+    color: var(--text-main);
+}
+
+
+/* Thiết lập icon huy hiệu tròn bay lên nằm giữa viền trên */
+.badge-icon {
+    position: absolute;
+    top: -24px;              
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 45px;        
+    background-color: #fff;   /* Nền trắng bên dưới để che đường viền hộp */
+    border-radius: 50%;
+    line-height: 1;
+}
+
+
+/* MÀU SẮC RIÊNG CHO TỪNG BÊN (XANH / ĐỎ) */
+/* 1. Hộp bao gồm (Màu xanh lá nhẹ) */
+.include-box {
+    background-color: #F3FAF6; /* Khai triển tone nền xanh lục siêu nhạt */
+    border-color: #E2F2EA;
+}
+.include-box .badge-icon { color: var(--color-primary); }
+
+
+/* Tự động chèn dấu tích ✓ trước mỗi thẻ li của bên bao gồm */
+.include-box li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--color-primary); /* #3D7A5C */
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+/* 2. Hộp KHÔNG bao gồm (Màu đỏ hồng nhẹ) */
+.exclude-box {
+    background-color: #FFF5F4; /* Khai triển tone nền cam đỏ siêu nhạt hài hòa dải màu */
+    border-color: #FEE4E1;
+}
+.exclude-box .badge-icon { color: var(--color-cta); /* #E8693A */ }
+
+
+/* Tự động chèn dấu x trước mỗi thẻ li của bên không bao gồm */
+.exclude-box li::before {
+    content: "✕";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: var(--color-cta); /* #E8693A */
+    font-weight: bold;
+    font-size: 13px;
+}
+
+
+/* 4. POPUP ĐẶT TOUR (MODAL)  */
+/* Lớp nền phủ mờ toàn trang - Mặc định ẩn (display: none) */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(31, 46, 34, 0.6); /* Đổi màu nền che mờ sang tone rêu thẫm chữ chính */
+    z-index: 9999; /* Luôn luôn nằm trên cùng tất cả phần tử khác */
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Hộp nội dung màu trắng ở giữa */
+.popup-content {
+    background-color: #fff;
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 5px 25px rgba(31, 46, 34, 0.2);
+    animation: fadeInPopup 0.3s ease; /* Hiệu ứng mở hiện hình mượt */
+}
+
+
+@keyframes fadeInPopup {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Nút đóng (X) ở góc phải */
+.close-popup {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.close-popup:hover { color: var(--text-main); }
+
+
+.popup-content h2 {
+    text-align: center;
+    margin: 0 0 5px 0;
+    font-size: 20px;
+    color: var(--color-primary); /* #3D7A5C */
+}
+.popup-tour-name {
+    text-align: center;
+    margin: 0 0 20px 0;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+
+/* Định dạng các ô nhập liệu */
+.form-group {
+    margin-bottom: 15px;
+}
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+.form-row .form-group { flex: 1; }
+
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-main);
+}
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--bg-secondary); /* Dùng màu nền phụ làm viền xám kem lịch sự */
+    border-radius: 6px;
+    font-size: 14.5px;
+    box-sizing: border-box;
+}
+.form-group input:focus {
+    border-color: var(--color-primary); /* Focus vào đổi sang xanh lục thương hiệu */
+    outline: none;
+}
+
+
+/* Định dạng chuẩn cho ô chọn ngày dạng select xổ xuống */
+#popupDate {
+    width: 100%;
+    height: 40px;            /* Chiều cao 40px bằng khít ô Số lượng người */
+    padding: 0 10px;
+    border: 1px solid var(--bg-secondary);  
+    border-radius: 5px;      /* Bo góc nhẹ đồng bộ */
+    font-size: 14px;
+    color: var(--text-main);
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;           /* Bỏ đường viền đen mặc định của trình duyệt khi click */
+    box-sizing: border-box;  /* Đảm bảo tính cả padding vào độ cao */
+    transition: border-color 0.2s;
+}
+
+
+/* Hiệu ứng khi người dùng click chọn vào ô ngày */
+#popupDate:focus {
+    border-color: var(--color-primary);   
+}
+
+
+/* Định dạng trạng thái lỗi (Nền hồng nhạt, viền đỏ) khi validate thất bại */
+#popupDate.input-error {
+    border-color: var(--color-cta) ; /* Dùng luôn sắc đỏ cam của dải màu báo lỗi đồng bộ */
+    background-color: #FFF5F4 ; 
+}
+
+
+/* Hộp hiển thị giá tiền */
+.form-price-box {
+    background-color: var(--bg-primary); /* #FAFAF7 */
+    padding: 15px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    border: 1px dashed var(--color-secondary);
+}
+.form-price-box span { font-size: 14.5px; color: var(--text-main); }
+.form-price-box strong { font-size: 20px; color: var(--color-cta); /* #E8693A - Cam CTA nổi bật */ font-weight: 700; }
+
+
+/* Nút xác nhận đặt */
+.btn-submit-booking {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--color-primary); /* #3D7A5C */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn-submit-booking:hover { background-color: #31624A; }
+
+
+/* Dòng chữ nhắc nhở màu đỏ dưới ô nhập */
+.error-message {
+    color: var(--color-cta); /* Đồng bộ dải màu đỏ cam cảnh báo */
+    font-size: 13px;
+    margin-top: 5px;
+    display: none; /* Mặc định ẩn đi, lỗi mới hiện */
+    text-align: left;
+}
+
+
+/* Khi có lỗi: Đổi viền đỏ và đổi nền ô nhập sang màu hồng nhạt */
+.form-group input.input-error {
+    border-color: var(--color-cta) !important;
+    background-color: #FFF5F4 !important; 
+}
+
+
+/* Hộp nội dung nhỏ gọn cho thông báo thành công */
+.success-popup-content {
+    background-color: #fff;
+    width: 100%;
+    max-width: 400px; /* Nhỏ gọn hơn form điền thông tin */
+    padding: 35px 25px;
+    border-radius: 12px; /* Bo góc mượt */
+    text-align: center;
+    box-shadow: 0 5px 25px rgba(31, 46, 34, 0.2);
+    animation: fadeInPopup 0.3s ease;
+}
+
+
+/* Định dạng cụm icon tích xanh */
+.success-icon-box {
+    font-size: 80px; /* Icon to rõ ràng ở giữa */
+    color: var(--color-secondary);  /* #5FA67A - Dùng xanh phụ dịu nhẹ báo trạng thái an toàn */
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+
+/* Định dạng dòng chữ thông báo */
+.success-message-text {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-main);
+    margin: 0 0 25px 0;
+    line-height: 1.4;
+}
+
+
+/* Nút bấm đóng màu xanh để khách tắt đi */
+.btn-close-success {
+    padding: 10px 30px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn-close-success:hover {
+    background-color: #31624A;
+}
+
+
+
+
+
+
+/* ================= 1. BIẾN MÀU & FONT THAY ĐỔI THEO DẢI MÀU CỦA HƯƠNG ================= */
+:root {
+    --bg-primary: #FAFAF7;       /* Nền chính - Kem sáng */
+    --bg-secondary: #F0EDE4;     /* Nền phụ - Kem tối làm layout phân tách khối */
+    --color-primary: #3D7A5C;    /* Xanh chính - Xanh lục đậm thương hiệu */
+    --color-secondary: #5FA67A;  /* Xanh phụ - Xanh lá mạ dịu mắt */
+    --color-accent: #D4A017;     /* Vàng accent - Điểm xuyết icon và nhãn dán tiêu biểu */
+    --color-cta: #E8693A;        /* Cam CTA - Giá tiền, Nút quan trọng, Trạng thái lỗi */
+    --text-main: #1F2E22;        /* Chữ chính - Màu đen rêu siêu thẫm, tăng tương phản */
+}
+
+
+/* ================= 2. RESET CƠ BẢN & FONT MONTSERRAT ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+
+h1, h2, h3, .brand-name, .company-name { font-weight: 700; }
+nav ul li a, .footer-title, .btn-main { font-weight: 500; }
+p, li, span, .contact-infoStrong { font-weight: 300; }
+
+
+/* Khối Policy bổ sung gán lại biến */
+.policy {
+    background: var(--bg-secondary);
+    padding: 18px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+.policy-item { display: flex; gap: 14px; margin-bottom: 16px; }
+.policy-item i { color: var(--color-primary); margin-top: 3px; }
