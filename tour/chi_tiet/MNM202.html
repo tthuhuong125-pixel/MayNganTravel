@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Mù Cang Chải 3N2Đ — Mây Ngàn Travel</title>
+
+    <!-- ✅ FIX 1: Load đúng font của nhóm (Be Vietnam Pro + Inter), xóa Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- ✅ FIX 2: Import CSS đúng thứ tự — variables trước, chitiet sau cùng -->
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/chitiet.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ✅ FIX 3: Bọc .container (base.css căn giữa) + .chitiet-layout (2 cột) -->
+    <div class="container">
+    <div class="chitiet-layout">
+
+        <div class="left">
+            <h1 class="tour-title">
+                TOUR MÙ CANG CHẢI 3N2Đ
+                <span class="tag-header">
+                    <span class="badge badge--hot">HOT</span>
+                </span>
+            </h1>
+
+            <div class="slider">
+                <button class="prev">❮</button>
+                <img id="mainImage" class="main-img" src="/Ảnh/5. Mù Cang Chải/MNM202/MNM202_01.jpg">
+                <button class="next">❯</button>
+            </div>
+
+            <div class="gallery">
+                <img src="/Ảnh/5. Mù Cang Chải/MNM202/MNM202_01.jpg">
+                <img src="/Ảnh/5. Mù Cang Chải/MNM202/MNM202_02.jpg">
+                <img src="/Ảnh/5. Mù Cang Chải/MNM202/MNM202_03.jpg">
+                <img src="/Ảnh/5. Mù Cang Chải/MNM202/MNM202_04.jpg">
+                <img src="/Ảnh/5. Mù Cang Chải/MNM202/MNM202_05.jpg">
+                <img src="/Ảnh/5. Mù Cang Chải/MNM202/MNM202_06.jpg">
+            </div>
+
+            <div class="tabs">
+                <a href="#tongquan" class="active">Tổng quan</a>
+                <a href="#lichtrinh">Lịch trình</a>
+                <a href="#dichvu">Dịch vụ</a>
+                <a href="#tourtuongtu">Tour tương tự</a>
+            </div>
+
+            <div id="tongquan" class="tour-content">
+                <h2>Tổng quan
+                    <span class="dest-tag dest-tag--primary">Mù Cang Chải</span>
+                </h2>
+                <p>Hành trình 3 ngày 2 đêm đưa lữ khách rời xa những xô bồ chốn phồn hoa, ngược dòng tìm về miền Tây Bắc mây ngàn, nơi đất trời hòa ca cùng những mùa vàng rực rỡ. Chuyến đi là dải lụa mềm dẫn bạn xuyên qua những cung đèo ngoạn mục, đắm mình trong hơi ấm của mạch suối khoáng thanh khiết nơi Trạm Tấu, và rồi ngỡ ngàng trước những sóng lúa mênh mang của Di tích quốc gia Ruộng bậc thang Mù Cang Chải. Hãy để tâm hồn được rộng mở giữa thung lũng Lìm Mông sương giăng, nhấp một ngụm trà Shan Tuyết cổ thụ để thấy thanh xuân mình thêm phần rực rỡ nơi miền non nước Yên Bái.</p>
+                <p><b>Đặc điểm nổi bật:</b></p>
+                <ul>
+                    <li>Đắm mình thư giãn, gột rửa những mệt mỏi trong làn nước khoáng nóng tự nhiên Trạm Tấu (43-45 độ C) trong vắt, lấp lánh sỏi cuội.</li>
+                    <li>Chinh phục đèo Khau Phạ - "Một trong tứ đại đỉnh đèo vùng núi Đông - Tây Bắc" sừng sững và phóng tầm mắt ôm trọn thung lũng Lìm Mông thơ mộng.</li>
+                    <li>Thỏa sức lưu giữ khoảnh khắc thanh xuân tại những kiệt tác thiên nhiên Mù Cang Chải: danh thắng Đồi Mâm Xôi (La Pán Tẩn) và Ruộng bậc thang Móng Ngựa uốn lượn hình bán nguyệt rực sắc vàng.</li>
+                    <li>Khám phá không khí nhộn nhịp của phiên chợ vùng cao và trải nghiệm nét đẹp văn hóa khi nghỉ đêm, dùng bữa tại khu nhà sàn của đồng bào dân tộc Thái ở thị trấn Nghĩa Lộ.</li>
+                    <li>Ghé thăm khu sinh thái Suối Giàng hoang sơ, chạm tay vào những gốc chè thủy tổ hàng trăm tuổi và thưởng thức hương vị chè Shan Tuyết thanh tao.</li>
+                    <li>Thả bộ và hít hà mùi lúa chín mộc mạc, thơm ngát tỏa ra từ cánh đồng Mường Lò mênh mông.</li>
+                </ul>
+            </div>
+
+            <div id="lichtrinh" class="tour-content">
+                <h2>Lịch trình</h2>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <i class="fa-solid fa-circle-plus icon-toggle"></i>
+                        <h3>NGÀY 01: HÀ NỘI - TRẠM TẤU - NGHĨA LỘ</h3>
+                    </div>
+                    <div class="timeline-content">
+                        <p><b>Buổi Sáng:</b><br>
+                        Chuyến xe và Hướng dẫn viên đón lữ khách tại điểm hẹn, lăn bánh rời thủ đô xuôi theo quốc lộ 32 (hướng Sơn Tây) tiến về Nghĩa Lộ, Yên Bái. Trên đường đi, đoàn dừng chân để quý khách tự do nghỉ ngơi và dùng bữa sáng (chi phí tự túc).</p>
+
+                        <p><b>Buổi Trưa:</b><br>
+                        Quý khách thưởng thức bữa trưa ngon miệng mang hương vị địa phương tại nhà hàng.</p>
+                        
+                        <p><b>Buổi Chiều:</b><br>
+                        Chuyến đi đưa bạn đến với Suối khoáng nóng Trạm Tấu nằm lọt thỏm giữa khung cảnh thiên nhiên hùng vĩ. Quý khách sẽ được ngâm mình thư giãn trong mạch nước ngầm tự nhiên, thanh khiết và cực kỳ tốt cho sức khỏe. Chiều muộn, đoàn di chuyển về thị trấn Nghĩa Lộ làm thủ tục nhận phòng.</p>
+
+                        <p><b>Buổi Tối:</b><br>
+                        Quý khách tự do dạo bước, khám phá vẻ đẹp bình yên của thị trấn Nghĩa Lộ về đêm. Bạn cũng có thể cùng bạn bè tham gia ca hát tại các điểm karaoke với dàn âm thanh hoành tráng nhưng mức chi phí vô cùng phải chăng (chi phí tự túc).</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <i class="fa-solid fa-circle-plus icon-toggle"></i>
+                        <h3>NGÀY 02: NGHĨA LỘ - MÙ CANG CHẢI - NGHĨA LỘ</h3>
+                    </div>
+                    <div class="timeline-content">
+                        <p><b>Buổi Sáng:</b><br>
+                        Đón nắng sớm và dùng điểm tâm tại khách sạn, lữ khách bắt đầu hành trình chinh phục đèo Khau Phạ - một trong tứ đại đỉnh đèo vĩ đại nhất miền Bắc. Đứng trên đỉnh đèo, bạn sẽ được thu trọn vào tầm mắt thung lũng Lìm Mông êm đềm với những sóng lúa đan xen mây khói.</p>
+                        
+                        <p><b>Buổi Trưa:</b><br>
+                        Đoàn nghỉ ngơi và nạp lại năng lượng với bữa trưa tại nhà hàng.</p>
+
+                        <p><b>Buổi Chiều:</b><br>
+                        Quý khách bước vào hành trình thám hiểm "thiên đường ruộng bậc thang" Mù Cang Chải tại La Pán Tẩn. Lữ khách có thể tự do thuê xe ôm tiến sâu vào bản để ngắm nhìn Đồi Mâm Xôi nổi tiếng. Tiếp đó, bạn sẽ phải ngẩn ngơ trước vẻ đẹp của Ruộng bậc thang Móng Ngựa đang đổ vàng rực rỡ, uốn lượn khéo léo tựa dải lụa mềm mại vắt ngang đồi. Sau khi thỏa sức ngắm nhìn, đoàn lên xe trở về.</p>
+
+                        <p><b>Buổi Tối:</b><br>
+                        Về tới Nghĩa Lộ, đoàn dùng bữa tối ấm cúng tại khu nhà sàn truyền thống của người Thái, thảnh thơi tận hưởng không gian núi rừng êm ả.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <i class="fa-solid fa-circle-plus icon-toggle"></i>
+                        <h3>NGÀY 03: NGHĨA LỘ - SUỐI GIÀNG - HÀ NỘI</h3>
+                    </div>
+                    <div class="timeline-content">
+                        <p><b>Buổi Sáng:</b><br>
+                        Quý khách dậy sớm đón bình minh trong trẻo, dùng bữa sáng và dạo chơi phiên chợ nhộn nhịp tại thị trấn Nghĩa Lộ. Tiếp nối hành trình, đoàn di chuyển đến khu sinh thái Suối Giàng nằm cạnh dãy Fansipan hùng vĩ. Quý khách dạo bước giữa những đồi chè bạt ngàn, chiêm ngưỡng gốc chè cổ thụ và nhâm nhi tách chè Shan Tuyết ấm nóng. Rời Suối Giàng, lữ khách sẽ được đi qua cánh đồng Mường Lò, hít hà hương lúa mới thơm ngát đang độ chín rộ.</p>
+
+                        <p><b>Buổi Trưa:</b><br>
+                        Đoàn dừng chân dùng bữa trưa tại nhà hàng.</p>
+                        
+                        <p><b>Buổi Chiều:</b><br>
+                        Chuyến xe lăn bánh đưa quý khách trở về Hà Nội. Dọc đường, đoàn sẽ dừng lại để bạn thỏa sức mua sắm các sản vật địa phương về làm quà. Về đến điểm hẹn ban đầu, Hướng dẫn viên chia tay đoàn, khép lại hành trình đầy ắp những kỷ niệm đẹp đẽ.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="dichvu" class="tour-content">
+                <h2>Dịch vụ</h2>
+                <div class="services-container">
+                    <div class="service-box include-box">
+                        <div class="badge-icon"><i class="fa-solid fa-circle-check"></i></div>
+                        <h3>DỊCH VỤ BAO GỒM</h3>
+                        <ul>
+                            <li>Phương tiện: Xe ô tô du lịch (16-29 chỗ tùy số lượng khách) đời mới, máy lạnh êm ái cùng lái xe thân thiện, giàu kinh nghiệm chạy tuyến Tây Bắc.</li>
+                            <li>Lưu trú: Khách sạn tiêu chuẩn, đầy đủ tiện nghi ấm cúng (bố trí 2 - 3 khách/phòng).</li>
+                            <li>Ẩm thực: Trọn gói các bữa ăn theo lịch trình, bao gồm bữa chính tiêu chuẩn 150.000 VNĐ/bữa và bữa phụ 40.000 VNĐ/bữa.</li>
+                            <li>Vé tham quan: Trọn gói vé vào cửa 1 lần tại các điểm tham quan đã nêu trong lịch trình.</li>
+                            <li>Nhân sự: Hướng dẫn viên vui vẻ, nhiệt tình và am hiểu địa phương đồng hành suốt tour.</li>
+                            <li>Tiện ích: Nước uống tinh khiết (01 chai 500ml/người/ngày) và Bảo hiểm du lịch với mức bồi thường tối đa 30.000.000 VNĐ/trường hợp.</li>
+                            <li>Thuế: Đã bao gồm thuế VAT trong giá tour.</li>
+                        </ul>
+                    </div>
+                    <div class="service-box exclude-box">
+                        <div class="badge-icon"><i class="fa-solid fa-circle-xmark"></i></div>
+                        <h3>DỊCH VỤ KHÔNG BAO GỒM</h3>
+                        <ul>
+                            <li>Các loại đồ uống gọi thêm trong bữa ăn và chi phí mua sắm, vui chơi cá nhân.</li>
+                            <li>Vé tắm suối khoáng nóng tự nhiên tại Trạm Tấu.</li>
+                            <li>Chi phí thuê xe ôm chuyên chở vào sâu trong khu vực bản Chế Cu Nha, La Pán Tẩn (Đồi Mâm xôi, Móng ngựa...).</li>
+                            <li>Tiền bồi dưỡng (tip) khích lệ dành cho Hướng dẫn viên và bác tài.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right">
+            <h2 class="price">Giá từ <span>3.280.000đ</span></h2>
+
+            <ul class="tour-info">
+                <li><i class="fa-solid fa-ticket"></i><span>Mã Tour: MNM202</span></li>
+                <li><i class="fa-regular fa-clock"></i><span>Thời gian: 3N2Đ</span></li>
+                <li><i class="fa-solid fa-plane"></i><span>Phương tiện: Xe du lịch</span></li>
+                <li><i class="fa-solid fa-location-dot"></i><span>Khởi hành: <b class="location">Hà Nội</b></span></li>
+            </ul>
+
+            <h3 class="tour-name">MÙ CANG CHẢI 3N2Đ</h3>
+
+            <!-- ✅ FIX 5: Thêm class "btn btn-primary" từ components.css, giữ "book-btn" để JS vẫn tìm được -->
+            <button class="btn btn-primary book-btn">Đặt Ngay</button>
+
+            <div class="policy">
+                <div class="policy-item">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <p><b>Cam kết vững vàng</b> - Sát cánh suốt mọi hành trình</p>
+                </div>
+                <div class="policy-item">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <p><b>Hỗ trợ huỷ chỗ</b> - Tối đa 24h trước khi khởi hành</p>
+                </div>
+            </div>
+
+            <div class="contact">
+                <!-- ✅ FIX 6: Đổi .btn-outline → .btn-contact để tránh xung đột với components.css -->
+                <a href="tel:0395863773" class="btn-contact">
+                    <i class="fa-solid fa-phone"></i>Gọi Hotline
+                </a>
+                <a href="https://zalo.me/0395863773" target="_blank" class="btn-contact">
+                    <i class="fa-regular fa-comment"></i>Liên hệ tư vấn
+                </a>
+            </div>
+        </div>
+
+    </div><!-- /.chitiet-layout -->
+    </div><!-- /.container -->
+
+
+    <!-- POPUP ĐẶT TOUR -->
+    <div id="bookingPopup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <h2>ĐĂNG KÝ ĐẶT TOUR</h2>
+            <p class="popup-tour-name">Mã Tour: MNM202</p>
+
+            <form id="bookingForm" novalidate>
+                <div class="form-group">
+                    <label>Họ và tên</label>
+                    <input type="text" id="popupName" placeholder="Nhập họ tên của bạn">
+                    <span class="error-message" id="nameError"></span>
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại</label>
+                    <input type="tel" id="popupPhone" placeholder="Nhập số điện thoại">
+                    <span class="error-message" id="phoneError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="popupEmail">Email</label>
+                    <input type="email" id="popupEmail" placeholder="Nhập email">
+                    <span class="error-message" id="emailError"></span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="popupDate">Ngày khởi hành</label>
+                        <select id="popupDate" name="tour_date">
+                            <option value="">-- Chọn ngày khởi hành --</option>
+
+                            <option value="2026-09-08">08/09/2026</option>
+                            <option value="2026-09-15">15/09/2026</option>
+                            <option value="2026-09-20">20/09/2026</option>
+                            <option value="2026-09-25">25/09/2026</option>
+
+                            <option value="2026-10-08">08/10/2026</option>
+                            <option value="2026-10-15">15/10/2026</option>
+                            <option value="2026-10-20">20/10/2026</option>
+                            <option value="2026-10-25">25/10/2026</option>
+
+                        </select>
+                        <span class="error-message" id="dateError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Số lượng người</label>
+                        <input type="number" id="popupQuantity" min="1" value="1">
+                        <span class="error-message" id="quantityError"></span>
+                    </div>
+                </div>
+                <div class="form-price-box">
+                    <span>Tổng tiền tạm tính:</span>
+                    <strong id="popupTotalPrice">3.280.000đ</strong>
+                </div>
+                <button type="submit" class="btn-submit-booking">Xác Nhận Đặt Tour</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- POPUP THÀNH CÔNG -->
+    <div id="successPopup" class="popup-overlay">
+        <div class="success-popup-content">
+            <div class="success-icon-box">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <p class="success-message-text">Yêu cầu đặt tour của bạn đã được ghi nhận!</p>
+            <p style="font-size: 14px; color: #666; margin-top: -15px; margin-bottom: 25px;">
+                Nhân viên tư vấn sẽ liên hệ lại với bạn trong giây lát.
+            </p>
+            <button id="btnCloseSuccess" class="btn-close-success">Đóng</button>
+        </div>
+    </div>
+
+    <script src="/js/chitiet.js" defer></script>
+</body>
+</html>
