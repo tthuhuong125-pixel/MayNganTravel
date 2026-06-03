@@ -1,0 +1,277 @@
+/* ===== PROMO BANNER ===== */
+.promo-banner-container {
+  width: 100%;
+  overflow: hidden;
+}
+.promo-banner-wrapper img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* ===== HEADER BAR ===== */
+.promo-header-bar {
+  max-width: 1200px;
+  margin: var(--space-xl) auto var(--space-md) auto;
+  padding: 0 var(--space-lg) var(--space-sm) var(--space-lg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color-light);
+}
+
+.promo-header-title {
+  font-family: var(--font-heading) !important; /* Đổi sang font tiêu đề Be Vietnam Pro */
+  font-size: var(--text-3xl) !important;       /* Sử dụng cỡ chữ 32px chuẩn hệ thống */
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--text-dark) !important;          /* Màu chữ mặc định cho tiêu đề chính */
+  text-align: center; 
+  margin: 0;
+  width: 100%;
+}
+
+/* ===== GRID LIST — Đã sửa cố định kích thước để tự động căn giữa khi có 1, 2 hoặc 3 tour ===== */
+.promo-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 340px));
+  justify-content: center;         
+  gap: var(--space-lg);                        
+  max-width: 1200px;
+  margin: var(--space-lg) auto 0;
+  padding: 0 var(--space-lg) var(--space-xl);  
+}
+
+/* ===== CARD ===== */
+.promo-row-card {
+  background: var(--bg-white);                /* Nền trắng thuần */
+  border-radius: var(--radius-lg);             /* Bo góc 16px dành riêng cho card tour */
+  overflow: hidden;
+  border: 1px solid var(--border-color-light); /* Đường viền mờ nhạt sang trọng */
+  box-shadow: var(--shadow-sm);                /* Đổ bóng nhẹ lúc đứng yên */
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);               /* Thời gian hiệu ứng mượt 0.25s chuẩn */
+}
+.promo-row-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);                /* Đổ bóng vừa khi rê chuột vào */
+}
+.promo-row-card.is-hidden {
+  display: none;
+}
+
+/* ===== IMAGE BOX ===== */
+.promo-row-card__img-box {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  flex-shrink: 0;
+}
+.promo-row-card__img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+.promo-row-card:hover .promo-row-card__img-box img {
+  transform: scale(1.06);
+}
+
+/* ===== BADGE ===== */
+.promo-row-card__badge {
+  position: absolute;
+  top: var(--space-md);                        /* Đẩy lùi vào 16px cho cân đối */
+  left: var(--space-md);
+  background: var(--color-cta);                /* Đổi sang màu Cam HOT thương hiệu */
+  color: var(--text-white);                    /* Chữ trắng nổi bật */
+  font-size: var(--text-xs);                   /* Cỡ chữ nhỏ 12px chú thích */
+  font-weight: 700;
+  padding: 5px 13px;
+  border-radius: var(--radius-sm);             /* Bo góc nhẹ 6px cho tag/badge */
+  letter-spacing: 0.3px;
+  z-index: 2;
+}
+
+/* ===== CONTENT ===== */
+.promo-row-card__content {
+  padding: var(--space-md) var(--space-md) var(--space-md); /* Pad 16px đều đặn các góc */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Mã tour */
+.promo-row-card__meta {
+  font-size: var(--text-xs);                   /* Đồng bộ cỡ chữ nhỏ 12px */
+  color: var(--text-light);                    /* Dùng màu chữ phụ mờ mượt */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: var(--space-xs);
+}
+.promo-row-card__meta strong {
+  color: var(--text-dark);                     /* Mã viết hoa nổi bật */
+}
+
+/* Tiêu đề tour */
+.promo-row-card__title-link {
+  text-decoration: none;
+}
+.promo-row-card__title {
+  font-family: var(--font-heading);            /* Đổi sang phông tiêu đề của web */
+  font-size: var(--text-base);                 /* Chuẩn kích thước 16px */
+  font-weight: 700;
+  color: var(--text-dark);                     /* Xanh rêu đậm dễ đọc */
+  line-height: 1.45;
+  margin: 0 0 var(--space-sm);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.9em;
+}
+.promo-row-card__title-link:hover .promo-row-card__title {
+  color: var(--color-primary);                 /* Đổi sang màu xanh rừng khi hover */
+}
+
+/* Thông số (thời gian, điểm đi, phương tiện) */
+.promo-row-card__specs-line {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);                   /* Hạ nhẹ xuống cỡ 12px để vừa vặn các màn hình */
+  color: var(--text-medium);                   
+  margin-bottom: var(--space-xs);
+  line-height: 1.6;
+  letter-spacing: -0.2px;                      /* Thu hẹp khoảng cách các chữ một chút cho gọn */
+  
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;                           /* Ép buộc nằm trên cùng 1 hàng */
+  overflow: visible;                           /* Để hiển thị an toàn không bị cắt cụt */
+  white-space: nowrap;                         /* Không cho xuống dòng */
+  gap: var(--space-xs);                        /* Khoảng cách giữa icon và cụm chữ là 4px */
+}
+/* Lịch khởi hành */
+.promo-row-card__schedule-info {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-medium);
+  margin-bottom: 0;
+  line-height: 1.6;
+  flex: 1;                                     /* Giữ nguyên logic kéo dãn của bạn */
+}
+
+/* ===== FOOTER ===== */
+.promo-row-card__footer {
+  display: flex;
+  flex-direction: column;   
+  align-items: flex-start;  
+  justify-content: flex-start;
+  gap: var(--space-md);                        /* Khoảng cách 16px giữa cụm giá và nút */
+  margin-top: var(--space-md);
+  border-top: 1px solid var(--border-color-light);
+  padding-top: var(--space-md);
+}
+
+/* Giá */
+.promo-row-card__price-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  line-height: 1;
+}
+.promo-row-card__old-price {
+  font-size: var(--text-sm);
+  color: var(--text-light);                    /* Dùng màu text-light có sẵn */
+  text-decoration: line-through;
+}
+.promo-row-card__current-price {
+  font-size: var(--text-2xl);                  /* Cỡ 24px to rõ ràng, nổi bật */
+  font-weight: 800;
+  color: var(--color-cta);                     /* Đổi sang màu Cam đặc chuẩn quy định giá tiền */
+  line-height: 1;
+}
+
+/* Nút Xem chi tiết */
+.btn-cta {
+  display: block;
+  width: 100%;             
+  box-sizing: border-box;
+  text-align: center;      
+  background: var(--color-primary-dark);        /* Xanh rêu đậm thương hiệu Mây Ngàn */
+  color: var(--text-white);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  padding: 12px 0;         
+  border-radius: var(--radius-sm);             /* Bo góc nhẹ 6px theo quy ước form/nút nhỏ */
+  text-decoration: none;
+  white-space: nowrap;
+  transition: var(--transition);
+  letter-spacing: 0.2px;
+}
+.btn-cta:hover {
+  background: var(--color-primary);            /* Hover đổi sang tone xanh rừng tươi sáng hơn */
+}
+
+/* ===== PAGINATION ===== */
+.promo-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xs) 0 var(--space-xl);
+}
+.promo-page-btn {
+  min-width: 42px;
+  height: 42px;
+  padding: 0 var(--space-md);
+  border: 1px solid var(--border-color);       /* Màu viền thẻ tour / ô nhập liệu */
+  background: var(--bg-white);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--text-medium);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.promo-page-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.promo-page-btn--active {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: var(--text-white);
+}
+.promo-page-btn--disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+  .promo-list {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+  }
+}
+@media (max-width: 820px) {
+  .promo-list {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md);
+    padding: 0 var(--space-md) var(--space-lg);
+  }
+  .promo-header-title {
+    font-size: var(--text-2xl) !important;       /* Thu nhỏ về 24px trên tablet */
+  }
+}
+@media (max-width: 500px) {
+  .promo-list {
+    grid-template-columns: 1fr;
+  }
+  .promo-row-card__current-price {
+    font-size: var(--text-lg);                 /* Thu nhỏ về 18px trên mobile */
+  }
+}
