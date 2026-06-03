@@ -24,44 +24,20 @@ html { scroll-behavior: smooth; }
 /* ==========================================================
    2. TIÊU ĐỀ & TAG HEADER
    ========================================================== */
+
 .tour-title {
     font-size: 28px;
     font-weight: 700;
-    margin-bottom: 10px;
-    color: var(--text-dark); /* ✅ FIX: --text-main → --text-dark (variables.css) */
+    color: var(--text-dark);
+    margin-bottom: 20px; 
+    line-height: 1.4;    
 }
 
 .tag-header {
-    display: flex;
-    gap: 7px;
-    align-items: center;
-    margin-top: -5px;
-    margin-bottom: 20px;
-}
-
-/* Các tag đặc thù của trang chi tiết (Mã tour, loại tour...)
-   Dùng bên cạnh .badge từ components.css cho nhãn HOT/NEW */
-.tag-badge-1 {
-    background-color: #FFFCEB;
-    padding: 5px 12px;
-    border-radius: var(--radius-full);
-    font-size: var(--text-sm);
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    border: 1px solid var(--color-accent);
-    color: var(--color-accent);
-}
-.tag-badge-3 {
-    background-color: var(--color-primary-bg);
-    padding: 5px 12px;
-    border-radius: var(--radius-full);
-    font-size: var(--text-sm);
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    border: 1px solid var(--color-primary-light);
-    color: var(--color-primary);
+    display: inline-flex; 
+    vertical-align: middle; 
+    transform: translateY(-2px);
+    margin-left: 7px;     
 }
 
 /* ==========================================================
@@ -250,10 +226,18 @@ html { scroll-behavior: smooth; }
    HTML: <button class="btn btn-primary book-btn"> */
 .book-btn {
     width: 100%;
+    box-sizing: border-box;
+    border: none;
     padding: 14px;
     font-size: var(--text-lg);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-md); /* Độ bo tròn mềm mại đồng bộ dải màu mới */
+    cursor: pointer;
+    /* Căn giữa chữ chữ Đặt Ngay */
+    display: block; 
+    text-align: center;
+    transition: background-color 0.2s ease;
 }
+
 
 /* ==========================================================
    7. POLICY & CONTACT

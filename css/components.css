@@ -93,16 +93,20 @@
 }
 
 .badge--hot {
-  background: var(--color-cta);          /* Nhãn màu cam rực ("Khuyến mãi", "Hot") */
+  background: var(--color-cta);          /* Nhãn màu cam rực ("Hot") */
   color: #fff;
 }
 .badge--new {
-  background: var(--color-primary-bg);   /* Nhãn nền xanh lá nhạt ("Tour mới") */
-  color: var(--color-primary-dark);
+  background: #3D7A5C;   /* Nhãn nền xanh lá nhạt ("Tour mới") */
+  color: #fff;
+}
+.badge--sale {
+  background: #ebac0c;   /* ("Khuyến mãi") */
+  color: #fff;
 }
 .badge--xuyen {
-  background: #EEEDFE;                   /* Nhãn màu tím nhẹ ("Tour xuyên Việt") */
-  color: #3C3489;
+  background: #821ad6;                   /* Xuyên việt */
+  color: #fff;
 }
 
 /* ── 4. CHIPS (NÚT LỌC TÌM KIẾM ĐIỂM ĐẾN) ── */

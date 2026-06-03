@@ -135,11 +135,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const phoneInput = document.getElementById("popupPhone");
     const dateInput = document.getElementById("popupDate");
     const quantityInput = document.getElementById("popupQuantity");
+    const emailInput = document.getElementById("popupEmail");
 
     const nameError = document.getElementById("nameError");
     const phoneError = document.getElementById("phoneError");
     const dateError = document.getElementById("dateError");
     const quantityError = document.getElementById("quantityError");
+    const emailError = document.getElementById("emailError");
 
     // A. Xử lý thời gian thực cho ô HỌ VÀ TÊN
     if (nameInput) {
@@ -180,6 +182,20 @@ document.addEventListener("DOMContentLoaded", () => {
             // Điều kiện: Không trống, phải là số hợp lệ và lớn hơn 0
             if (this.value.trim() !== "" && !isNaN(quantityValue) && quantityValue > 0) {
                 quantityError.style.display = "none";
+                this.classList.remove("input-error");
+            }
+        });
+    }
+
+    // E. Xử lý thời gian thực cho ô EMAIL
+    if (emailInput) {
+        emailInput.addEventListener("input", function() {
+            // Biểu thức chính quy kiểm tra định dạng email chuẩn (chứa @, tên miền, không dấu...)
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            // Điều kiện: Không trống và phải đúng định dạng cấu trúc email
+            if (this.value.trim() !== "" && emailRegex.test(this.value.trim())) {
+                emailError.style.display = "none";
                 this.classList.remove("input-error");
             }
         });
@@ -281,12 +297,14 @@ if (bookingForm) {
         const phoneInput = document.getElementById("popupPhone");
         const dateInput = document.getElementById("popupDate");
         const quantityInput = document.getElementById("popupQuantity");
+        const emailInput = document.getElementById("popupEmail");
 
         // Khai báo các thẻ chứa câu báo lỗi tương ứng
         const nameError = document.getElementById("nameError");
         const phoneError = document.getElementById("phoneError");
         const dateError = document.getElementById("dateError");
         const quantityError = document.getElementById("quantityError");
+        const emailError = document.getElementById("emailError");
 
         // Cờ đánh dấu trạng thái form, mặc định là đúng (true)
         let isValid = true;
@@ -342,6 +360,27 @@ if (bookingForm) {
         } else {
             quantityError.style.display = "none";
             quantityInput.classList.remove("input-error");
+        }
+
+        // ---- E. KIỂM TRA EMAIL (THÊM MỚI) ----
+        if (emailInput && emailError) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex kiểm tra định dạng email tiêu chuẩn
+            const emailValue = emailInput.value.trim();
+
+            if (emailValue === "") {
+                emailError.textContent = "Email không được để trống";
+                emailError.style.display = "block";
+                emailInput.classList.add("input-error");
+                isValid = false;
+            } else if (!emailRegex.test(emailValue)) {
+                emailError.textContent = "Định dạng email không hợp lệ (Ví dụ: abc@gmail.com)";
+                emailError.style.display = "block";
+                emailInput.classList.add("input-error");
+                isValid = false;
+            } else {
+                emailError.style.display = "none";
+                emailInput.classList.remove("input-error");
+            }
         }
 
         // CHỈ KHI TẤT CẢ Ô NHẬP LIỆU HỢP LỆ (isValid vẫn bằng true)
