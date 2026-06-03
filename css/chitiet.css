@@ -1,399 +1,343 @@
-body{
-    font-family: Arial;
-    margin:0;
-    background: #FAFAF7; /* #FAFAF7 - Nền chính */
-}
-html{
-scroll-behavior:smooth;
-}
+/* ==========================================================================
+   MAYNGAN TRAVEL - CHITIET.CSS
+   Trang chi tiết tour — Style riêng của Phương Anh
+   Yêu cầu import TRƯỚC: variables.css → base.css → components.css → chitiet.css
+   ========================================================================== */
 
+/* ✅ scroll-behavior giữ ở đây vì base.css chưa có — nhắc Hương thêm vào base.css */
+html { scroll-behavior: smooth; }
 
-/* LAYOUT */
-
-
-.container{
-    display:flex;
-    gap:30px;
-    padding:30px 50px;
-    align-items:flex-start; /* quan trọng để 2 cột không kéo dài bằng nhau */
-}
-
-
-/* LEFT */
-
-.left{
-flex:3;
+/* ==========================================================
+   1. LAYOUT TRANG CHI TIẾT (2 CỘT)
+   ✅ FIX: Đổi từ .container → .chitiet-layout
+   Tránh xung đột với .container của base.css
+   ========================================================== */
+.chitiet-layout {
+    display: flex;
+    gap: 30px;
+    padding: 30px 0;
+    align-items: flex-start;
 }
 
-/* TITLE */
+.left  { flex: 3; }
 
-
-.tour-title{
-font-size:28px;
-font-weight:700;
-margin-bottom:10px;
-color: #1F2E22; /* #3D7A5C - Xanh chính */
+/* ==========================================================
+   2. TIÊU ĐỀ & TAG HEADER
+   ========================================================== */
+.tour-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-dark); /* ✅ FIX: --text-main → --text-dark (variables.css) */
 }
 
-
-/* Khối bao quanh dòng thông tin phụ */
 .tag-header {
     display: flex;
     gap: 7px;
     align-items: center;
-    margin-top: -5px;    /* Đẩy sát lên gần tiêu đề một chút */
-    margin-bottom: 20px; /* Giãn khoảng cách vừa phải với khối ảnh bên dưới */
+    margin-top: -5px;
+    margin-bottom: 20px;
 }
 
-
-/* Định dạng riêng cho các tag Mã Tour */
+/* Các tag đặc thù của trang chi tiết (Mã tour, loại tour...)
+   Dùng bên cạnh .badge từ components.css cho nhãn HOT/NEW */
 .tag-badge-1 {
-    background-color: #FFFCEB; /* Vàng kem cực nhạt bổ trợ cho tone vàng */
+    background-color: #FFFCEB;
     padding: 5px 12px;
-    border-radius: 20px;       /* Bo tròn dạng viên thuốc */
-    font-size: 13.5px;
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
     font-weight: 500;
     display: inline-flex;
     align-items: center;
-    border: 1px solid var(--color-accent); /* #D4A017 - Vàng accent */
+    border: 1px solid var(--color-accent);
     color: var(--color-accent);
 }
-.tag-badge-2 {
-    background-color: #FFF2F0; /* Hồng cam nhạt bổ trợ cho tone cam */
-    padding: 5px 12px;
-    border-radius: 20px;       /* Bo tròn dạng viên thuốc */
-    font-size: 13.5px;
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    border: 1px solid var(--color-cta); /* #E8693A - Cam CTA */
-    color: var(--color-cta);
-}
 .tag-badge-3 {
-    background-color: #EBF7F1; /* Xanh nhạt bổ trợ cho tone xanh */
+    background-color: var(--color-primary-bg);
     padding: 5px 12px;
-    border-radius: 20px;       /* Bo tròn dạng viên thuốc nhìn rất hiện đại */
-    font-size: 13.5px;
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
     font-weight: 500;
     display: inline-flex;
     align-items: center;
-    border: 1px solid var(--color-secondary); /* #5FA67A - Xanh phụ */
-    color: var(--color-primary); /* #3D7A5C - Xanh chính */
+    border: 1px solid var(--color-primary-light);
+    color: var(--color-primary);
 }
 
-
-/* SLIDER */
-
-
-.slider{
-position:relative;
-width: 100%;
-overflow: hidden;
-border-radius: 8px;
+/* ==========================================================
+   3. SLIDER & GALLERY
+   ========================================================== */
+.slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--radius-md);
 }
 
-
-.main-img{
-width:100%;
-border-radius:10px;
-height:580px;
-object-fit:cover;
+.main-img {
+    width: 100%;
+    border-radius: var(--radius-md);
+    height: 580px;
+    object-fit: cover;
 }
 
-
-/* Đảm bảo ảnh lớn luôn khít khung hình */
 .slider #mainImage {
     width: 100%;
     display: block;
     object-fit: cover;
 }
+
 .slider-transition {
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-
-/* BUTTON */
 .slider .prev,
 .slider .next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 10 ;
-    background: rgba(31, 46, 34, 0.5); /* Phủ mờ bằng tone rêu tối của hệ thống */
+    z-index: 10;
+    background: rgba(31, 46, 34, 0.5);
     color: #ffffff;
     border: none;
     padding: 10px 14px;
     cursor: pointer;
-    border-radius:6px;
+    border-radius: var(--radius-sm);
 }
 .slider .prev { left: 15px; }
 .slider .next { right: 15px; }
 
-/* GALLERY */
-
-.gallery{
-display:flex;
-gap:10px;
-margin-top:12px;
+.gallery {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
 }
 
-.gallery img{
-width:120px;
-height:80px;
-object-fit:cover;
-border-radius:8px;
-cursor:pointer;
-opacity:0.8;
-transition:0.3s;
+.gallery img {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    opacity: 0.8;
+    transition: var(--transition);
 }
 
-.gallery img:hover{
-opacity:1;
-transform:scale(1.05);
+.gallery img:hover {
+    opacity: 1;
+    transform: scale(1.05);
 }
 
-/* TABS */
-
-.tabs{
-display:flex;
-gap:30px;
-margin-top:20px;
-border-bottom:2px solid var(--bg-secondary); /* #F0EDE4 - Nền phụ làm đường biên kẻ */
-padding-bottom:10px;
+/* ==========================================================
+   4. TABS ĐIỀU HƯỚNG NỘI DUNG
+   ========================================================== */
+.tabs {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    border-bottom: 2px solid var(--bg-secondary);
+    padding-bottom: 10px;
 }
 
-.tabs a{
-font-weight:600;
-cursor:pointer;
-color: #7A8A80; /* Màu chữ phụ mờ trung tính */
-text-decoration:none;
+.tabs a {
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text-light); /* ✅ FIX: #7A8A80 → var(--text-light) */
+    text-decoration: none;
+    transition: var(--transition);
 }
 
-.tabs .active{
-color: var(--text-main); /* #1F2E22 - Chữ chính */
-border-bottom:3px solid var(--color-primary); /* #3D7A5C - Xanh chính làm highlight line */
-padding-bottom:8px;
+.tabs .active {
+    color: var(--text-dark); /* ✅ FIX: --text-main → --text-dark */
+    border-bottom: 3px solid var(--color-primary);
+    padding-bottom: 8px;
 }
 
-/* CONTENT */
-
+/* ==========================================================
+   5. NỘI DUNG TOUR (TỔNG QUAN, LỊCH TRÌNH...)
+   ========================================================== */
 .tour-content {
     margin-top: 30px;
     border-bottom: 1px solid var(--bg-secondary);
 }
 
-
 .tour-content h2 {
     margin-bottom: 10px;
-    color: var(--text-main);
+    color: var(--text-dark); /* ✅ FIX */
 }
 
-
-/* Gộp p, ul của Tổng quan và nội dung Lịch trình dùng chung định dạng chữ */
 .tour-content p,
 .tour-content ul,
 .timeline-content {
-    color: var(--text-main); /* #1F2E22 - Toàn bộ font dùng màu chữ chính hệ thống */
+    color: var(--text-dark); /* ✅ FIX */
     line-height: 1.6;
     text-align: justify;
 }
 
+.tour-content p  { margin: 10px 0; }
 
-/* Khoảng cách đoạn văn */
-.tour-content p {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-
-/* Định dạng danh sách ul/li */
 .tour-content ul {
     padding-left: 20px;
     margin-bottom: 10px;
+    list-style: disc; /* Hiện dấu chấm cho danh sách nội dung tour */
 }
-
 
 .tour-content li {
     list-style-position: outside;
     margin-bottom: 10px;
 }
 
-
-/* Ép thẻ b/strong luôn in đậm chuẩn chỉnh */
 .tour-content b,
-.tour-content strong {
-    font-weight: bold;
+.tour-content strong { font-weight: bold; }
+
+/* ==========================================================
+   6. SIDEBAR PHẢI — GIÁ & ĐẶT TOUR
+   ========================================================== */
+.right {
+    background: #fff;
+    padding: 28px;
+    border-radius: var(--radius-lg);
+    width: 360px;
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 20px;
 }
 
-/* RIGHT */
-
-/* CARD */
-.right{
-background: #ffffff;
-padding:28px;
-border-radius:12px;
-width:360px;
-box-shadow: 0 4px 20px rgba(31, 46, 34, 0.08); /* Đổ bóng mịn ăn theo tone chữ chính rêu tối */
-position: sticky;
-top: 20px;  
+.price {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--text-dark); /* ✅ FIX */
 }
 
-/* PRICE */
-.price{
-font-size:24px;
-font-weight:600;
-margin-bottom:15px;
-color: var(--text-main);
+.price span {
+    color: var(--color-cta);
+    font-weight: 700;
 }
 
-.price span{
-color: var(--color-cta); /* #E8693A - Cam bắt mắt cho giá tiền */
-font-weight:700;
+.tour-info {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
 }
 
-/* INFO */
-.tour-info{
-list-style:none;
-padding:0;
-margin:0 0 15px 0;
+.tour-info li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    color: var(--text-dark); /* ✅ FIX */
+    font-size: var(--text-base);
 }
 
-.tour-info li{
-display:flex;
-align-items:center;
-gap:12px;
-margin-bottom:14px;
-color: var(--text-main);
-font-size:15px;
+.tour-info i {
+    width: 22px;
+    font-size: 16px;
+    color: var(--color-primary-light); /* ✅ FIX: --color-secondary → --color-primary-light */
 }
 
-.tour-info i{
-width:22px;
-font-size:16px;
-color: var(--color-secondary); /* #5FA67A - Icon thông tin dùng màu xanh phụ nhẹ nhàng */
+.location {
+    color: var(--color-accent);
 }
 
-.location{
-color: var(--color-accent); /* #D4A017 - Màu vàng nghệ */
+.tour-name {
+    margin: 10px 0 15px 0;
+    font-weight: 600;
+    color: var(--text-dark); /* ✅ FIX */
 }
 
-/* TOUR NAME */
-.tour-name{
-margin:10px 0 15px 0;
-font-weight:600;
-color: var(--text-main);
+/* ✅ FIX: .book-btn chỉ override kích thước — màu sắc lấy từ .btn-primary (components.css)
+   HTML: <button class="btn btn-primary book-btn"> */
+.book-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: var(--text-lg);
+    border-radius: var(--radius-md);
 }
 
-/* BOOK BUTTON */
-.book-btn{
-width:100%;
-background: var(--color-primary); /* #3D7A5C - Nút chính dùng màu xanh lục chủ đạo */
-color: white;
-border:none;
-padding:14px;
-font-size:17px;
-font-weight:600;
-border-radius:8px;
-cursor:pointer;
-transition: background 0.2s;
-}
-.book-btn:hover {
-    background: #31624A; /* Hạ nhẹ tone xanh chính khi hovers */
+/* ==========================================================
+   7. POLICY & CONTACT
+   ========================================================== */
+.policy {
+    background: var(--color-primary-bg); /* ✅ FIX: #eaf6e5 → var(--color-primary-bg), bỏ !important */
+    padding: 18px;
+    border-radius: var(--radius-lg);
+    margin-top: 15px;
 }
 
-/* POLICY */
-
-/* POLICY BOX */
-.policy{
-background:#eaf6e5 !important;
-padding:18px;
-border-radius:12px;
-margin-top:15px;
+.policy-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 15px;
 }
 
-/* từng dòng */
-.policy-item{
-display:flex;
-align-items:flex-start;
-gap:12px;
-margin-bottom:15px;
+.policy-item:last-child { margin-bottom: 0; }
+
+.policy-item i {
+    font-size: 20px;
+    color: var(--color-primary);
+    margin-top: 3px;
 }
 
-/* icon */
-.policy-item i{
-font-size:20px;
-color: var(--color-primary); /* #3D7A5C - Dấu tích cam kết ăn theo màu xanh chủ đạo */
-margin-top:3px;
+.policy-item p {
+    margin: 0;
+    font-size: var(--text-base);
+    line-height: 1.5;
+    color: var(--text-dark); /* ✅ FIX */
 }
 
-/* text */
-.policy-item p{
-margin:0;
-font-size:15px;
-line-height:1.5;
-color: var(--text-main);
+.policy-item b { font-weight: 600; }
+
+.contact {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
 }
 
-.policy-item b{
-font-weight:600;
+/* ✅ FIX: Đổi tên .btn-outline → .btn-contact
+   Tránh xung đột với .btn-outline trong components.css (màu xanh)
+   .btn-contact dùng màu cam (CTA) phù hợp với ngữ cảnh liên hệ */
+.btn-contact {
+    flex: 1;
+    border: 1px solid var(--color-cta);
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    background: white;
+    font-size: var(--text-sm);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--color-cta);
+    transition: var(--transition);
 }
 
-.policy-item:last-child {
-    margin-bottom: 0;
+.btn-contact:hover {
+    background: #fff2ee;
 }
 
-
-/* CONTACT BUTTON */
-.contact{
-display:flex;
-gap:12px;
-margin-top:18px;
-}
-
-.btn-outline{
-flex:1;
-border:1px solid #E8693A; /* Dùng màu nền phụ làm đường viền nút mảnh */
-padding:10px;
-border-radius:8px;
-background: white;
-font-size:14px;
-cursor:pointer;
-display: flex;  
-align-items: center;    
-justify-content: center;
-gap: 8px;              
-text-decoration: none;
-color: #E8693A;  
-transition: background 0.2s;
-}
-.btn-outline:hover {
-    background: #ffefe9;
-}
-
-
-/* LỊCH TRÌNH */
-/* Khung bọc từng ngày */
+/* ==========================================================
+   8. LỊCH TRÌNH (TIMELINE ACCORDION)
+   ========================================================== */
 .timeline-item {
     position: relative;
     padding-bottom: 10px;
 }
 
-
-/* Đường kẻ dọc nét đứt */
 .timeline-item::before {
     content: "";
     position: absolute;
     left: 10px;
     top: 28px;
     bottom: -10px;
-    border-left: 1px dashed var(--color-secondary); /* #5FA67A - Đường line nét đứt xanh nhẹ dịu mắt */
+    border-left: 1px dashed var(--color-primary-light); /* ✅ FIX: --color-secondary → --color-primary-light */
 }
 
-.timeline-item:last-child::before {
-    display: none;
-}
+.timeline-item:last-child::before { display: none; }
 
-/* Thanh tiêu đề ngày */
 .timeline-header {
     display: flex;
     align-items: center;
@@ -404,186 +348,153 @@ transition: background 0.2s;
 
 .timeline-header h3 {
     margin: 0;
-    font-size: 16px;
+    font-size: var(--text-base);
     font-weight: 700;
-    color: var(--text-main);
+    color: var(--text-dark); /* ✅ FIX */
 }
 
-/* Icon nút bấm + / - */
 .icon-toggle {
     font-size: 20px;
-    color: #5FA67A;
+    color: var(--color-primary-light);
     background-color: transparent;
     z-index: 2;
 }
 
-
-/* Xử lý ẩn/hiện nội trình chi tiết */
 .timeline-content {
     display: none;
     padding-left: 32px;
     margin-top: 8px;
 }
 
-.timeline-item.active .timeline-content {
-    display: block;
-}
+.timeline-item.active .timeline-content { display: block; }
 
-
-/* 3. MODULE BOX DỊCH VỤ (ĐỐI XỨNG)  */
-/* Khung bọc chung chia đôi 2 cột */
+/* ==========================================================
+   9. DỊCH VỤ (BAO GỒM / KHÔNG BAO GỒM)
+   ========================================================== */
 .services-container {
     display: flex;
-    gap: 25px;               /* Khoảng cách giữa 2 hộp */
-    margin-top: 40px;        /* Đẩy cách xa tiêu đề "Dịch vụ" ra một chút để nhường chỗ cho icon trồi lên */
+    gap: 25px;
+    margin-top: 40px;
     margin-bottom: 20px;
 }
 
-
-/* Định dạng chung cho cả 2 hộp dịch vụ */
 .service-box {
-    flex: 1;                
-    position: relative;    
-    padding: 25px 25px 25px 25px;
-    border-radius: 8px;
+    flex: 1;
+    position: relative;
+    padding: 25px;
+    border-radius: var(--radius-sm);
     border: 1px solid transparent;
 }
 
-
-/* Tiêu đề riêng của từng hộp */
 .service-box h3 {
     text-align: center;
-    font-size: 17px;
+    font-size: var(--text-lg);
     font-weight: 700;
     letter-spacing: 0.5px;
     margin-top: 0;
     margin-bottom: 20px;
-    color: var(--text-main);
+    color: var(--text-dark); /* ✅ FIX */
 }
 
-
-/* Tắt định dạng danh sách mặc định của trình duyệt */
 .service-box ul {
-    list-style: none ;
-    padding-left: 0 ;
-    margin: 0 ;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
 }
 
-
-/* Từng dòng gạch đầu dòng */
 .service-box li {
     position: relative;
-    padding-left: 22px;       /* Dịch chữ qua phải để nhường chỗ cho dấu tích/chéo */
+    padding-left: 22px;
     margin-bottom: 12px;
     font-size: 14.5px;
     line-height: 1.6;
 }
 
-
 .service-box li strong {
     display: block;
     margin-bottom: 4px;
-    color: var(--text-main);
+    color: var(--text-dark); /* ✅ FIX */
 }
-
 
 .service-box li p {
-    margin: 2px 0 !important;
-    font-size: 14px;
-    color: var(--text-main);
+    margin: 2px 0;
+    font-size: var(--text-sm);
+    color: var(--text-dark); /* ✅ FIX */
 }
 
-
-/* Thiết lập icon huy hiệu tròn bay lên nằm giữa viền trên */
 .badge-icon {
     position: absolute;
-    top: -24px;              
+    top: -24px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 45px;        
-    background-color: #fff;   /* Nền trắng bên dưới để che đường viền hộp */
+    font-size: 45px;
+    background-color: #fff;
     border-radius: 50%;
     line-height: 1;
 }
 
-
-/* MÀU SẮC RIÊNG CHO TỪNG BÊN (XANH / ĐỎ) */
-/* 1. Hộp bao gồm (Màu xanh lá nhẹ) */
 .include-box {
-    background-color: #F3FAF6; /* Khai triển tone nền xanh lục siêu nhạt */
+    background-color: #F3FAF6;
     border-color: #E2F2EA;
 }
 .include-box .badge-icon { color: var(--color-primary); }
-
-
-/* Tự động chèn dấu tích ✓ trước mỗi thẻ li của bên bao gồm */
 .include-box li::before {
     content: "✓";
     position: absolute;
     left: 0;
     top: 0;
-    color: var(--color-primary); /* #3D7A5C */
+    color: var(--color-primary);
     font-weight: bold;
     font-size: 15px;
 }
 
-
-/* 2. Hộp KHÔNG bao gồm (Màu đỏ hồng nhẹ) */
 .exclude-box {
-    background-color: #FFF5F4; /* Khai triển tone nền cam đỏ siêu nhạt hài hòa dải màu */
+    background-color: #FFF5F4;
     border-color: #FEE4E1;
 }
-.exclude-box .badge-icon { color: var(--color-cta); /* #E8693A */ }
-
-
-/* Tự động chèn dấu x trước mỗi thẻ li của bên không bao gồm */
+.exclude-box .badge-icon { color: var(--color-cta); }
 .exclude-box li::before {
     content: "✕";
     position: absolute;
     left: 0;
     top: 1px;
-    color: var(--color-cta); /* #E8693A */
+    color: var(--color-cta);
     font-weight: bold;
     font-size: 13px;
 }
 
-
-/* 4. POPUP ĐẶT TOUR (MODAL)  */
-/* Lớp nền phủ mờ toàn trang - Mặc định ẩn (display: none) */
+/* ==========================================================
+   10. POPUP ĐẶT TOUR & FORM
+   ========================================================== */
 .popup-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(31, 46, 34, 0.6); /* Đổi màu nền che mờ sang tone rêu thẫm chữ chính */
-    z-index: 9999; /* Luôn luôn nằm trên cùng tất cả phần tử khác */
+    background-color: rgba(31, 46, 34, 0.6);
+    z-index: 9999;
     display: none;
     align-items: center;
     justify-content: center;
 }
 
-
-/* Hộp nội dung màu trắng ở giữa */
 .popup-content {
     background-color: #fff;
     width: 100%;
     max-width: 500px;
     padding: 30px;
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
     position: relative;
-    box-shadow: 0 5px 25px rgba(31, 46, 34, 0.2);
-    animation: fadeInPopup 0.3s ease; /* Hiệu ứng mở hiện hình mượt */
+    box-shadow: var(--shadow-lg);
+    animation: fadeInPopup 0.3s ease;
 }
-
 
 @keyframes fadeInPopup {
     from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-
-/* Nút đóng (X) ở góc phải */
 .close-popup {
     position: absolute;
     top: 15px;
@@ -591,227 +502,170 @@ transition: background 0.2s;
     font-size: 28px;
     color: #ccc;
     cursor: pointer;
-    transition: color 0.2s;
+    transition: var(--transition);
 }
-.close-popup:hover { color: var(--text-main); }
-
+.close-popup:hover { color: var(--text-dark); }
 
 .popup-content h2 {
     text-align: center;
     margin: 0 0 5px 0;
-    font-size: 20px;
-    color: var(--color-primary); /* #3D7A5C */
+    font-size: var(--text-xl);
+    color: var(--color-primary);
 }
+
 .popup-tour-name {
     text-align: center;
     margin: 0 0 20px 0;
     font-weight: 600;
-    color: var(--text-main);
+    color: var(--text-dark); /* ✅ FIX */
 }
 
+.form-group { margin-bottom: 15px; }
 
-/* Định dạng các ô nhập liệu */
-.form-group {
-    margin-bottom: 15px;
-}
 .form-row {
     display: flex;
     gap: 15px;
 }
 .form-row .form-group { flex: 1; }
 
-
 .form-group label {
     display: block;
-    font-size: 14px;
+    font-size: var(--text-sm);
     font-weight: 600;
     margin-bottom: 5px;
-    color: var(--text-main);
+    color: var(--text-dark); /* ✅ FIX */
 }
+
 .form-group input {
     width: 100%;
     padding: 10px;
-    border: 1px solid var(--bg-secondary); /* Dùng màu nền phụ làm viền xám kem lịch sự */
-    border-radius: 6px;
+    border: 1px solid var(--bg-secondary);
+    border-radius: var(--radius-sm);
     font-size: 14.5px;
     box-sizing: border-box;
+    font-family: var(--font-body);
 }
+
 .form-group input:focus {
-    border-color: var(--color-primary); /* Focus vào đổi sang xanh lục thương hiệu */
+    border-color: var(--color-primary);
     outline: none;
 }
 
-
-/* Định dạng chuẩn cho ô chọn ngày dạng select xổ xuống */
 #popupDate {
     width: 100%;
-    height: 40px;            /* Chiều cao 40px bằng khít ô Số lượng người */
+    height: 40px;
     padding: 0 10px;
-    border: 1px solid var(--bg-secondary);  
-    border-radius: 5px;      /* Bo góc nhẹ đồng bộ */
-    font-size: 14px;
-    color: var(--text-main);
+    border: 1px solid var(--bg-secondary);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    color: var(--text-dark); /* ✅ FIX */
     background-color: #fff;
     cursor: pointer;
-    outline: none;           /* Bỏ đường viền đen mặc định của trình duyệt khi click */
-    box-sizing: border-box;  /* Đảm bảo tính cả padding vào độ cao */
-    transition: border-color 0.2s;
+    outline: none;
+    box-sizing: border-box;
+    transition: var(--transition);
+    font-family: var(--font-body);
 }
 
+#popupDate:focus { border-color: var(--color-primary); }
 
-/* Hiệu ứng khi người dùng click chọn vào ô ngày */
-#popupDate:focus {
-    border-color: var(--color-primary);   
-}
-
-
-/* Định dạng trạng thái lỗi (Nền hồng nhạt, viền đỏ) khi validate thất bại */
 #popupDate.input-error {
-    border-color: var(--color-cta) ; /* Dùng luôn sắc đỏ cam của dải màu báo lỗi đồng bộ */
-    background-color: #FFF5F4 ; 
+    border-color: var(--color-cta);
+    background-color: #FFF5F4;
 }
 
-
-/* Hộp hiển thị giá tiền */
 .form-price-box {
-    background-color: var(--bg-primary); /* #FAFAF7 */
+    background-color: var(--bg-primary);
     padding: 15px;
-    border-radius: 6px;
+    border-radius: var(--radius-sm);
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 20px 0;
-    border: 1px dashed var(--color-secondary);
+    border: 1px dashed var(--color-primary-light); /* ✅ FIX: --color-secondary → --color-primary-light */
 }
-.form-price-box span { font-size: 14.5px; color: var(--text-main); }
-.form-price-box strong { font-size: 20px; color: var(--color-cta); /* #E8693A - Cam CTA nổi bật */ font-weight: 700; }
 
+.form-price-box span {
+    font-size: 14.5px;
+    color: var(--text-dark); /* ✅ FIX */
+}
 
-/* Nút xác nhận đặt */
+.form-price-box strong {
+    font-size: var(--text-xl);
+    color: var(--color-cta);
+    font-weight: 700;
+}
+
 .btn-submit-booking {
     width: 100%;
     padding: 12px;
-    background-color: var(--color-primary); /* #3D7A5C */
+    background-color: var(--color-primary);
     color: white;
     border: none;
-    border-radius: 6px;
-    font-size: 16px;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-lg);
     font-weight: 700;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: var(--transition);
+    font-family: var(--font-body);
 }
-.btn-submit-booking:hover { background-color: #31624A; }
 
+.btn-submit-booking:hover {
+    background-color: var(--color-primary-dark); /* ✅ FIX: #31624A → var(--color-primary-dark) */
+}
 
-/* Dòng chữ nhắc nhở màu đỏ dưới ô nhập */
 .error-message {
-    color: var(--color-cta); /* Đồng bộ dải màu đỏ cam cảnh báo */
-    font-size: 13px;
+    color: var(--color-cta);
+    font-size: var(--text-xs);
     margin-top: 5px;
-    display: none; /* Mặc định ẩn đi, lỗi mới hiện */
+    display: none;
     text-align: left;
 }
 
-
-/* Khi có lỗi: Đổi viền đỏ và đổi nền ô nhập sang màu hồng nhạt */
 .form-group input.input-error {
-    border-color: var(--color-cta) !important;
-    background-color: #FFF5F4 !important; 
+    border-color: var(--color-cta);
+    background-color: #FFF5F4;
 }
 
-
-/* Hộp nội dung nhỏ gọn cho thông báo thành công */
+/* POPUP THÀNH CÔNG */
 .success-popup-content {
     background-color: #fff;
     width: 100%;
-    max-width: 400px; /* Nhỏ gọn hơn form điền thông tin */
+    max-width: 400px;
     padding: 35px 25px;
-    border-radius: 12px; /* Bo góc mượt */
+    border-radius: var(--radius-lg);
     text-align: center;
-    box-shadow: 0 5px 25px rgba(31, 46, 34, 0.2);
+    box-shadow: var(--shadow-lg);
     animation: fadeInPopup 0.3s ease;
 }
 
-
-/* Định dạng cụm icon tích xanh */
 .success-icon-box {
-    font-size: 80px; /* Icon to rõ ràng ở giữa */
-    color: var(--color-secondary);  /* #5FA67A - Dùng xanh phụ dịu nhẹ báo trạng thái an toàn */
+    font-size: 80px;
+    color: var(--color-primary-light);
     margin-bottom: 20px;
     line-height: 1;
 }
 
-
-/* Định dạng dòng chữ thông báo */
 .success-message-text {
-    font-size: 18px;
+    font-size: var(--text-lg);
     font-weight: 500;
-    color: var(--text-main);
+    color: var(--text-dark); /* ✅ FIX */
     margin: 0 0 25px 0;
     line-height: 1.4;
 }
 
-
-/* Nút bấm đóng màu xanh để khách tắt đi */
 .btn-close-success {
     padding: 10px 30px;
     background-color: var(--color-primary);
     color: white;
     border: none;
-    border-radius: 6px;
-    font-size: 15px;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-base);
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: var(--transition);
 }
+
 .btn-close-success:hover {
-    background-color: #31624A;
+    background-color: var(--color-primary-dark); /* ✅ FIX: #31624A → var(--color-primary-dark) */
 }
-
-
-
-
-
-
-/* ================= 1. BIẾN MÀU & FONT THAY ĐỔI THEO DẢI MÀU CỦA HƯƠNG ================= */
-:root {
-    --bg-primary: #FAFAF7;       /* Nền chính - Kem sáng */
-    --bg-secondary: #F0EDE4;     /* Nền phụ - Kem tối làm layout phân tách khối */
-    --color-primary: #3D7A5C;    /* Xanh chính - Xanh lục đậm thương hiệu */
-    --color-secondary: #5FA67A;  /* Xanh phụ - Xanh lá mạ dịu mắt */
-    --color-accent: #D4A017;     /* Vàng accent - Điểm xuyết icon và nhãn dán tiêu biểu */
-    --color-cta: #E8693A;        /* Cam CTA - Giá tiền, Nút quan trọng, Trạng thái lỗi */
-    --text-main: #1F2E22;        /* Chữ chính - Màu đen rêu siêu thẫm, tăng tương phản */
-}
-
-
-/* ================= 2. RESET CƠ BẢN & FONT MONTSERRAT ================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--bg-primary);
-    color: var(--text-main);
-    line-height: 1.6;
-}
-
-
-h1, h2, h3, .brand-name, .company-name { font-weight: 700; }
-nav ul li a, .footer-title, .btn-main { font-weight: 500; }
-p, li, span, .contact-infoStrong { font-weight: 300; }
-
-
-/* Khối Policy bổ sung gán lại biến */
-.policy {
-    background: var(--bg-secondary);
-    padding: 18px;
-    border-radius: 12px;
-    margin-top: 20px;
-}
-.policy-item { display: flex; gap: 14px; margin-bottom: 16px; }
-.policy-item i { color: var(--color-primary); margin-top: 3px; }
