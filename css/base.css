@@ -55,11 +55,7 @@ ul, ol {
 /* Cách dùng: <div class="section"><div class="container"> Nội dung </div></div> */
 
 .container {
-<<<<<<< HEAD
-  max-width: 1280px;             /* Bóp nội dung lại ở giữa màn hình (giới hạn 1200px) */
-=======
   max-width: 1280px;             /* Bóp nội dung lại ở giữa màn hình (giới hạn 1280px) */
->>>>>>> 39f27b59fbaf9108486d006033bdd793cfa4611b
   margin: 0 auto;                /* Tự động căn giữa màn hình */
   padding: 0 var(--space-lg);    /* Chống dính mép màn hình khi xem trên điện thoại */
 }

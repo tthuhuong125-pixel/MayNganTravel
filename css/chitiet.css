@@ -383,7 +383,7 @@ html { scroll-behavior: smooth; }
 .service-box li {
     position: relative;
     padding-left: 22px;
-    margin-bottom: margin-bottom: var(--space-md);
+    margin-bottom: var(--space-md);
     font-size: var(--text-sm);
     line-height: 1.6;
 }

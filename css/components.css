@@ -169,17 +169,12 @@
   border-radius: var(--radius-full);
   font-size: var(--text-xs);
   font-weight: 500;
-  background: var(--bg-secondary);
-  color: var(--text-medium);
-  border: 0.5px solid var(--border-color);
+  background: var(--color-primary-bg);       /* màu xanh nhạt cho cả 2 */
+  color: var(--color-primary-dark);           /* chữ xanh đậm cho cả 2 */
+  border: 0.5px solid var(--color-primary-light); /* viền xanh cho cả 2 */
 }
 
-/* Điểm đến CHÍNH — tự chèn ★ bằng CSS, không cần viết trong HTML */
-.dest-tag--primary {
-  background: var(--color-primary-bg);
-  color: var(--color-primary-dark);
-  border-color: var(--color-primary-light);
-}
+/* Điểm chính — chỉ thêm ★, không đổi màu */
 .dest-tag--primary::before {
   content: "★";
   margin-right: 3px;
