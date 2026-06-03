@@ -1,128 +1,188 @@
 /* ==========================================================================
    MAYNGAN TRAVEL - COMPONENTS.CSS (THÀNH PHẦN TÁI SỬ DỤNG)
-   Mục đích: Nút bấm, thẻ tour, thẻ tag - Dùng chung cho toàn dự án
+   Mục đích: Nút bấm, thẻ tour, badge, chip, form — Dùng chung toàn dự án
+   Lưu ý: KHÔNG hardcode màu hex ở đây — mọi màu đều lấy từ variables.css
    ========================================================================== */
 
-/* ── 1. BUTTONS (NÚT BẤM) ── */
-/* Lưu ý: Luôn gọi class "btn" trước, rồi mới cộng thêm màu. 
-   VD: <button class="btn btn-cta">Đặt tour ngay</button> */
 
+/* ══════════════════════════════════════════════════════════
+   1. BUTTONS (NÚT BẤM)
+   Cách dùng: <button class="btn btn-cta">Đặt tour ngay</button>
+   Luôn gọi class "btn" trước, rồi mới thêm loại màu
+   ══════════════════════════════════════════════════════════ */
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-sm);             /* Khoảng cách nếu trong nút có cả icon và chữ */
-  padding: 10px 22px;               /* Đô phình của nút (trên/dưới 10px, trái/phải 22px) */
-  border-radius: var(--radius-sm);  /* Bo tròn các góc */
+  gap: var(--space-sm);              /* Khoảng cách giữa icon và chữ bên trong nút */
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
   font-weight: 600;
-  cursor: pointer;                  /* Rê chuột vào biến thành hình bàn tay */
+  cursor: pointer;
   border: none;
-  transition: var(--transition);    /* Hiệu ứng chuyển màu mượt mà */
+  transition: var(--transition);
 }
 
+/* Nút xanh chính — dùng cho hành động phụ như "Xem thêm", "Khám phá" */
 .btn-primary {
-  background: var(--color-primary); /* Nút màu xanh lá chính */
+  background: var(--color-primary);
   color: var(--text-white);
 }
 .btn-primary:hover {
   background: var(--color-primary-dark);
 }
 
+/* Nút cam — dùng cho hành động QUAN TRỌNG NHẤT như "Đặt tour ngay" */
 .btn-cta {
-  background: var(--color-cta);     /* Nút MÀU CAM nổi bật (Dùng cho hành động quan trọng nhất) */
+  background: var(--color-cta);
   color: var(--text-white);
 }
+.btn-cta:hover {
+  background: var(--color-cta-dark);
+}
 
+/* Nút viền — dùng khi cần nút phụ cạnh nút chính, VD: "Liên hệ tư vấn" */
 .btn-outline {
-  background: transparent;                   /* Nút rỗng (chỉ có viền màu xanh) */
+  background: transparent;
   color: var(--color-primary);
   border: 1.5px solid var(--color-primary);
 }
-
-.btn-cta:hover {
-  background: var(--color-cta-dark); /* đã có biến rồi, thêm vào là xong */
-}
-
 .btn-outline:hover {
   background: var(--color-primary);
   color: var(--text-white);
 }
 
 
-/* ── 2. TOUR CARD (THẺ HIỂN THỊ TOUR) ── */
-/* Cách dùng: Tạo 1 div tổng có class "tour-card", bên trong chia làm ảnh và thân.
-   VD: Giao diện lưới danh sách tour Sapa, Hà Giang... */
-
+/* ══════════════════════════════════════════════════════════
+   2. TOUR CARD (THẺ HIỂN THỊ TOUR)
+   Cách dùng:
+   <div class="tour-card">
+     <img class="tour-card__img" src="...">
+     <div class="tour-card__body">
+       <p class="tour-card__price">2.990.000đ</p>
+     </div>
+   </div>
+   ══════════════════════════════════════════════════════════ */
 .tour-card {
-  background: #fff;
-  border-radius: var(--radius-md);       /* Bo góc thẻ tour */
+  background: var(--bg-white);                /* Nền trắng cho thẻ tour */
+  border-radius: var(--radius-md);
   border: 0.5px solid var(--border-color);
-  overflow: hidden;                      /* Cắt bỏ những phần bị tràn ra khỏi góc bo tròn */
+  overflow: hidden;                           /* Cắt phần ảnh tràn ra ngoài góc bo */
   transition: var(--transition);
 }
 
 .tour-card:hover {
-  transform: translateY(-4px);           /* Rê chuột vào thẻ tour sẽ nẩy lên một chút */
-  box-shadow: var(--shadow-md);          /* ...và đổ bóng tạo cảm giác 3D */
+  transform: translateY(-4px);               /* Nẩy lên nhẹ khi rê chuột */
+  box-shadow: var(--shadow-md);
 }
 
+/* Ảnh tour — KHÔNG set height ở đây, mỗi trang tự set */
 .tour-card__img {
   width: 100%;
-  object-fit: cover; 
-  display: block;                       
+  object-fit: cover;                         /* Ảnh lấp đầy khung, không bị méo */
+  display: block;
 }
 
 .tour-card__body {
-  padding: var(--space-md);              /* Khoảng cách từ nội dung chữ chữ dội ra viền thẻ */
+  padding: var(--space-md);
 }
 
+/* Giá tiền — luôn màu cam nổi bật */
 .tour-card__price {
-  color: var(--color-cta);               /* Chữ giá tiền luôn có màu cam nổi bật */
+  color: var(--color-cta);
   font-size: var(--text-lg);
-  font-weight: 700;                      /* In đậm giá tiền */
+  font-weight: 700;
 }
 
-/* ── 3. BADGES (NHÃN DÁN THÔNG BÁO NHỎ) ── */
-/* Dùng để dán đè lên góc ảnh tour. VD: <span class="badge badge--hot">Tour Hot</span> */
 
+/* ══════════════════════════════════════════════════════════
+   3. BADGES (NHÃN DÁN)
+   Cách dùng: <span class="badge badge--hot">HOT</span>
+   Thường đặt absolute đè lên góc ảnh tour
+   ══════════════════════════════════════════════════════════ */
 .badge {
   display: inline-flex;
   padding: 3px 10px;
-  border-radius: var(--radius-full);     /* Bo tròn xoe 2 đầu */
-  font-size: var(--text-xs);             /* Chữ rất nhỏ */
+  border-radius: var(--radius-full);         /* Viên thuốc tròn 2 đầu */
+  font-size: var(--text-xs);
   font-weight: 600;
 }
 
+/* Nền cam đặc — tour đang hot, bán chạy */
 .badge--hot {
-  background: var(--color-cta);          /* Nhãn màu cam rực ("Hot") */
-  color: #fff;
+  background: var(--color-cta);
+  color: var(--text-white);
 }
+
+/* Nền xanh đặc — tour mới ra */
 .badge--new {
-  background: #3D7A5C;   /* Nhãn nền xanh lá nhạt ("Tour mới") */
-  color: #fff;
+  background: var(--color-primary);          /* Đổi từ #3D7A5C → dùng biến */
+  color: var(--text-white);
 }
+
+/* Nền cam nhạt + viền cam — tour đang khuyến mãi */
+/* Khác với badge--hot (nền đặc) để phân biệt 2 loại */
 .badge--sale {
-  background: #ebac0c;   /* ("Khuyến mãi") */
-  color: #fff;
+  background: var(--color-cta-bg);          /* Cam nhạt 12% */
+  color: var(--color-cta);                  /* Chữ cam */
+  border: 1.5px solid var(--color-cta);     /* Viền cam */
 }
+
+/* ── Sửa .badge--xuyen (hiện tại nền đặc → đổi sang kiểu như badge--sale) ── */
 .badge--xuyen {
-  background: #821ad6;                   /* Xuyên việt */
-  color: #fff;
+  background: var(--color-xuyen-bg);      /* Tím nhạt 10% */
+  color: var(--color-xuyen);              /* Chữ tím */
+  border: 1.5px solid var(--color-xuyen); /* Viền tím */
 }
 
-/* ── 4. CHIPS (NÚT LỌC TÌM KIẾM ĐIỂM ĐẾN) ── */
-/* Dùng cho bộ lọc điểm đến. VD: <div class="chip chip--active">Hà Giang</div> */
 
+/* ══════════════════════════════════════════════════════════
+   4. CHIPS (NÚT LỌC ĐIỂM ĐẾN)
+   Cách dùng:
+   <div class="chip">Hà Giang</div>
+   <div class="chip chip--active">Sapa</div>   ← đang được chọn
+   ══════════════════════════════════════════════════════════ */
 .chip {
   padding: 5px 14px;
-  border-radius: var(--radius-full);      /* Nút dạng viên thuốc */
+  border-radius: var(--radius-full);
   border: 0.5px solid var(--border-color);
   font-size: var(--text-sm);
   cursor: pointer;
   transition: var(--transition);
 }
 
+/* Trạng thái đang được chọn — nền xanh */
 .chip--active {
-  background: var(--color-primary);       /* Khi người dùng click chọn điểm đến này thì nó đổi nền xanh */
+  background: var(--color-primary);
   color: var(--text-white);
   border-color: var(--color-primary);
 }
+
+/* ── Thêm mới: DESTINATION TAGS (tag điểm đến chính/phụ trên card tour) ──
+   Cách dùng:
+   <span class="dest-tag dest-tag--primary">MCC</span>  → ★MCC  (điểm chính)
+   <span class="dest-tag">Sapa</span>                   → Sapa  (điểm phụ)
+   ──────────────────────────────────────────────────── */
+.dest-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  background: var(--bg-secondary);
+  color: var(--text-medium);
+  border: 0.5px solid var(--border-color);
+}
+
+/* Điểm đến CHÍNH — tự chèn ★ bằng CSS, không cần viết trong HTML */
+.dest-tag--primary {
+  background: var(--color-primary-bg);
+  color: var(--color-primary-dark);
+  border-color: var(--color-primary-light);
+}
+.dest-tag--primary::before {
+  content: "★";
+  margin-right: 3px;
+  font-size: 10px;
+}
+

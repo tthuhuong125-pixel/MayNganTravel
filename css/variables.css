@@ -8,61 +8,64 @@
   --bg-primary: #FAFAF7;       /* Dùng làm màu nền chính của cả trang web (thẻ body) */
   --bg-secondary: #F0EDE4;     /* Dùng cho các khối (section) phụ để chia tách nội dung, tránh nhàm chán */
   --bg-dark: #1F2E22;          /* Dùng cho chân trang (footer) hoặc lớp phủ đen mờ (overlay) trên ảnh */
+  --bg-white: #FFFFFF;         /* Dùng cho nền thẻ tour (card), popup, dropdown — trắng thuần */
 
   /* --- 2. MÀU CHÍNH (PRIMARY - XANH RỪNG) - Tone màu thương hiệu --- */
-  --color-primary: #3D7A5C;       /* Dùng cho logo, icon chính, đường kẻ trang trí */
-  --color-primary-light: #5FA67A; /* Dùng khi rê chuột (hover) vào các phần tử màu xanh chính */
-  --color-primary-hover: #5FA67A; /* Dùng riêng cho hover btn-primary */
-  --color-primary-dark: #2D5A3D;  /* Dùng khi bấm (active) vào nút hoặc cần nhấn mạnh màu xanh đậm */
-  --color-primary-bg: #E1F5EE;    /* Dùng làm màu nền rất nhạt cho các thẻ nhãn (tag) như "Tour sinh thái" */
+  --color-primary: #3D7A5C;        /* Dùng cho logo, nút chính, chip đang chọn, icon */
+  --color-primary-light: #5FA67A;  /* Dùng khi rê chuột (hover) vào các phần tử màu xanh chính */
+  --color-primary-dark: #2D5A3D;   /* Dùng khi bấm (active) vào nút hoặc cần nhấn mạnh màu xanh đậm */
+  --color-primary-bg: #E1F5EE;     /* Dùng làm màu nền rất nhạt cho badge "Tour mới", tag điểm đến */
 
   /* --- 3. MÀU NỔI BẬT (ACCENT & CTA) - Dùng để thu hút ánh nhìn --- */
-  --color-accent: #D4A017;        /* Màu Vàng: Dùng cho sao đánh giá (rating), giá tiền, icon đặc biệt */
-  --color-cta: #E8693A;           /* Màu Cam: Dùng cho các nút quan trọng nhất như "Đặt tour ngay", sale */
-  --color-cta-dark: #C4502A;      /* Màu Cam tối: Dùng khi rê chuột (hover) vào nút "Đặt tour" */
+  --color-accent: #D4A017;         /* Màu Vàng: Dùng cho sao đánh giá (rating), icon đặc biệt */
+  --color-cta: #E8693A;            /* Màu Cam đặc: Dùng cho nút "Đặt tour ngay", badge HOT, giá tiền */
+  --color-cta-dark: #C4502A;       /* Màu Cam tối: Dùng khi rê chuột (hover) vào nút "Đặt tour" */
+  --color-cta-bg: rgba(232, 105, 58, 0.12); /* Màu Cam nhạt: Dùng cho nền badge "Khuyến mãi" */
+  /* Thêm vào nhóm 3. MÀU NỔI BẬT, ngay dưới --color-cta-bg */
+  --color-xuyen-bg: rgba(130, 26, 214, 0.10); /* Tím nhạt: nền badge xuyên vùng */
+  --color-xuyen: #821AD6;          /* Màu Tím: Dùng riêng cho badge "Tour xuyên vùng" */
 
-  /* --- 4. MÀU CHỮ (TEXT COLORS) - Dùng cho thuộc tính color --- */
-  --text-dark: #1F2E22;           /* Dùng cho các Thẻ Tiêu đề (h1, h2, h3) cần đọc rõ ràng nhất */
-  --text-medium: #5A6B5C;         /* Dùng cho văn bản thông thường (đoạn văn p, mô tả tour) để đỡ mỏi mắt */
-  --text-light: #9AAE9C;          /* Dùng cho chữ phụ, ngày tháng, chữ mờ trong ô nhập liệu (placeholder) */
-  --text-white: #FFFFFF;          /* Dùng cho chữ nằm trên nền tối hoặc chữ trên nút bấm màu cam/xanh */
+  /* --- 5. MÀU CHỮ (TEXT COLORS) - Dùng cho thuộc tính color --- */
+  --text-dark: #1F2E22;            /* Dùng cho Tiêu đề (h1, h2, h3) cần đọc rõ ràng nhất */
+  --text-medium: #5A6B5C;          /* Dùng cho văn bản thông thường (đoạn văn p, mô tả tour) */
+  --text-light: #9AAE9C;           /* Dùng cho chữ phụ, ngày tháng, placeholder ô nhập liệu */
+  --text-white: #FFFFFF;           /* Dùng cho chữ trên nền tối hoặc chữ trên nút bấm màu cam/xanh */
 
-  /* --- 5. ĐƯỜNG VIỀN (BORDERS) - Dùng cho thuộc tính border hoặc border-color --- */
-  --border-color: #E2DDD5;        /* Dùng kẻ viền cho các ô (card) tour du lịch, viền ô nhập liệu */
-  --border-color-light: #EDE9E1;  /* Dùng cho các đường kẻ ngang mờ (hr) phân cách các dòng chữ */
+  /* --- 6. ĐƯỜNG VIỀN (BORDERS) - Dùng cho thuộc tính border hoặc border-color --- */
+  --border-color: #E2DDD5;         /* Dùng kẻ viền cho thẻ tour (card), ô nhập liệu */
+  --border-color-light: #EDE9E1;   /* Dùng cho các đường kẻ ngang mờ (hr) phân cách nội dung */
 
-  /* --- 6. PHÔNG CHỮ & CỠ CHỮ (TYPOGRAPHY) --- */
-  /* Cách dùng: font-family: var(--font-heading); hoặc font-size: var(--text-base); */
-  --font-heading: 'Be Vietnam Pro', sans-serif; /* Dùng riêng cho Tiêu đề (h1, h2, h3...) tạo vẻ hiện đại */
-  --font-body: 'Inter', sans-serif;         /* Dùng cho phần thân bài, mô tả, chữ dễ đọc */
-  
-  --text-xs: 0.75rem;             /* (12px) Dùng cho chú thích siêu nhỏ, link phụ ở footer */
-  --text-sm: 0.875rem;            /* (14px) Dùng cho thanh menu phụ, thông tin ngày giờ tour */
-  --text-base: 1rem;              /* (16px) Cỡ chữ CHUẨN cho toàn bộ đoạn văn bản (p) */
-  --text-lg: 1.125rem;            /* (18px) Dùng cho đoạn mở bài (intro) hoặc tiêu đề con */
-  --text-xl: 1.25rem;             /* (20px) Dùng cho tiêu đề của từng ô tour (card title) */
-  --text-2xl: 1.5rem;             /* (24px) Dùng cho tiêu đề phụ trong các trang chi tiết tour */
-  --text-3xl: 2rem;               /* (32px) Dùng cho Tiêu đề chính to nhất của cả trang (h1) */
+  /* --- 7. PHÔNG CHỮ & CỠ CHỮ (TYPOGRAPHY) --- */
+  --font-heading: 'Be Vietnam Pro', sans-serif; /* Dùng riêng cho Tiêu đề (h1, h2, h3) */
+  --font-body: 'Inter', sans-serif;             /* Dùng cho thân bài, mô tả, chữ dễ đọc */
 
-  /* --- 7. KHOẢNG CÁCH (SPACING) - Dùng cho margin, padding, gap --- */
-  --space-xs: 4px;                /* Cực nhỏ: Dùng tạo khe hở giữa icon và chữ đứng cạnh nhau */
-  --space-sm: 8px;                /* Nhỏ: Khoảng cách giữa các dòng chữ, hoặc padding cho nút nhỏ */
-  --space-md: 16px;               /* Chuẩn: Khoảng đệm (padding) tiêu chuẩn cho mọi khung/hộp (card) */
-  --space-lg: 24px;               /* Lớn: Khoảng cách giữa các phần tử lớn (cách tiêu đề với đoạn văn) */
-  --space-xl: 48px;               /* Rất lớn: Khoảng cách giữa các khu vực (section) liền kề nhau */
-  --space-2xl: 80px;              /* Cực đại: Thường dùng đẩy lề trên/dưới (margin) của nguyên một khối lớn */
+  --text-xs: 0.75rem;    /* (12px) Chú thích nhỏ, link phụ footer */
+  --text-sm: 0.875rem;   /* (14px) Menu phụ, thông tin ngày giờ tour */
+  --text-base: 1rem;     /* (16px) Cỡ chữ CHUẨN cho toàn bộ đoạn văn */
+  --text-lg: 1.125rem;   /* (18px) Giá tiền tour, intro */
+  --text-xl: 1.25rem;    /* (20px) Tiêu đề card tour */
+  --text-2xl: 1.5rem;    /* (24px) Tiêu đề phụ trong trang chi tiết */
+  --text-3xl: 2rem;      /* (32px) Tiêu đề chính to nhất (h1) */
 
-  /* --- 8. BO GÓC (BORDER RADIUS) - Dùng cho thuộc tính border-radius --- */
-  --radius-sm: 6px;               /* Bo góc nhẹ: Dùng cho ô nhập form, nhãn dán (tag) nhỏ */
-  --radius-md: 10px;              /* Bo góc vừa: Dùng cho nút bấm chuẩn (button), hình ảnh minh họa nhỏ */
-  --radius-lg: 16px;              /* Bo góc lớn: Dùng cho các khung chứa tour (card), hình ảnh to */
-  --radius-full: 999px;           /* Tròn xoe: Dành cho ảnh đại diện (avatar), nút hình tròn */
+  /* --- 8. KHOẢNG CÁCH (SPACING) - Dùng cho margin, padding, gap --- */
+  --space-xs: 4px;    /* Cực nhỏ: khe giữa icon và chữ */
+  --space-sm: 8px;    /* Nhỏ: padding nút nhỏ, khoảng cách dòng */
+  --space-md: 16px;   /* Chuẩn: padding tiêu chuẩn cho card, hộp */
+  --space-lg: 24px;   /* Lớn: khoảng cách giữa các phần tử lớn */
+  --space-xl: 48px;   /* Rất lớn: khoảng cách giữa các section */
+  --space-2xl: 80px;  /* Cực đại: margin lớn cho khối section */
 
-  /* --- 9. ĐỔ BÓNG (SHADOWS) - Dùng cho thuộc tính box-shadow --- */
-  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.08);   /* Bóng nhẹ: Dùng cho thanh menu nổi hoặc dropdown */
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);  /* Bóng vừa: Dùng cho các thẻ (card) tour nổi lên khỏi nền */
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);  /* Bóng sâu/đậm: Dùng cho popup thông báo (modal) che màn hình */
+  /* --- 9. BO GÓC (BORDER RADIUS) - Dùng cho thuộc tính border-radius --- */
+  --radius-sm: 6px;     /* Nhẹ: ô nhập form, tag nhỏ */
+  --radius-md: 10px;    /* Vừa: nút bấm, ảnh nhỏ */
+  --radius-lg: 16px;    /* Lớn: card tour, ảnh to */
+  --radius-full: 999px; /* Tròn xoe: badge, chip, avatar */
 
-  /* --- 10. HIỆU ỨNG (TRANSITION) --- */
-  --transition: all 0.25s ease;   /* Mượt mà: Dùng chèn vào nút bấm (transition: var(--transition);) để khi hover không bị giật */
+  /* --- 10. ĐỔ BÓNG (SHADOWS) - Dùng cho thuộc tính box-shadow --- */
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.08);   /* Nhẹ: menu nổi, dropdown */
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);  /* Vừa: card tour khi hover */
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);  /* Đậm: popup, modal */
+
+  /* --- 11. HIỆU ỨNG (TRANSITION) --- */
+  --transition: all 0.25s ease; /* Dùng cho nút bấm, hover để chuyển màu mượt mà */
 }
