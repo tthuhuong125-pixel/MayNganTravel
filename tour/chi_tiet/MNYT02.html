@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Y Tý - Bắc Hà 3N2Đ — Mây Ngàn Travel</title>
+
+    <!-- ✅ FIX 1: Load đúng font của nhóm (Be Vietnam Pro + Inter), xóa Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- ✅ FIX 2: Import CSS đúng thứ tự — variables trước, chitiet sau cùng -->
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/chitiet.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ✅ FIX 3: Bọc .container (base.css căn giữa) + .chitiet-layout (2 cột) -->
+    <div class="container">
+    <div class="chitiet-layout">
+
+        <div class="left">
+            <h1 class="tour-title">
+                TOUR Y TÝ - BẮC HÀ 3N2Đ
+                <span class="tag-header">
+                    <span class="badge badge--new">NEW</span>
+                </span>
+            </h1>
+
+            <div class="slider">
+                <button class="prev">❮</button>
+                <img id="mainImage" class="main-img" src="/Ảnh/2. Y Tý/MNYT02/MNYT02_01.jpg">
+                <button class="next">❯</button>
+            </div>
+
+            <div class="gallery">
+                <img src="/Ảnh/2. Y Tý/MNYT02/MNYT02_01.jpg">
+                <img src="/Ảnh/2. Y Tý/MNYT02/MNYT02_02.jpg">
+                <img src="/Ảnh/2. Y Tý/MNYT02/MNYT02_03.jpg">
+                <img src="/Ảnh/2. Y Tý/MNYT02/MNYT02_04.jpg">
+                <img src="/Ảnh/2. Y Tý/MNYT02/MNYT02_05.jpg">
+                <img src="/Ảnh/2. Y Tý/MNYT02/MNYT02_06.jpg">
+            </div>
+
+            <div class="tabs">
+                <a href="#tongquan" class="active">Tổng quan</a>
+                <a href="#lichtrinh">Lịch trình</a>
+                <a href="#dichvu">Dịch vụ</a>
+                <a href="#tourtuongtu">Tour tương tự</a>
+            </div>
+
+            <div id="tongquan" class="tour-content">
+                <h2>Tổng quan</h2>
+                <p>Chuyến đi lý tưởng để bạn cùng bạn bè tận hưởng một hành trình du xuân đó là săn mây Y Tý. Đến đây, bạn không chỉ bị hấp dẫn bởi "mùa mây", mà còn trải nghiệm văn hóa độc đáo của đồng bào dân tộc vùng cao Bắc Hà.</p>
+                <p><b>Đặc điểm nổi bật:</b></p>
+                <ul>
+                    <li>Y Tý nằm trong vùng núi cao, nổi tiếng với cảnh quan thiên nhiên hoang sơ, nhẹ nhàng. Đây là nơi bạn có thể thấy các ngọn đồi xanh, rừng cỏ, thung lũng nước biển trong xanh mang đến sự yên bình, và đặc biệt là cảnh tuyết phủ đất trong mùa đông vô cùng lạnh giá. Nơi đây là nơi sinh sống của nhiều dân tộc thiểu số, trong đó Kinh, H’Mong, và Dao là ba dân tộc sống chủ yếu tại đây. Du khách có cơ hội tìm hiểu về văn hóa và phong tục truyền thống của các dân tộc này thông qua các cuộc giao lưu với địa phương của nơi đây.</li>
+                    <li>Mùa đông Y Tý thường kéo dài từ tháng 11 đến tháng 2 năm sau. Đây là thời gian thường được chọn để du lịch Y Tý bầu không khí mát mẻ có những ngày thời tiết hạ thấp, đặc biệt là vào dịp Tết Nguyên Đán, sẽ xuất hiện cảnh quan tuyết trắng rất đẹp và ấn tượng khi đến đây. Bạn có thể trải nghiệm cảnh ngọn đồi nhấp nhô, nhà sàn và cây cỏ phủ đầy tuyết trắng xóa cả một vùng. Nếu bạn là người yêu tuyết và lạnh, mùa đông là sự lựa chọn hoàn hảo dành cho bạn khi du lịch Y Tý.</li>
+                    <li>Bắc Hà có khí hậu trong lành mát mẻ, mang nhiều sắc thái đa dạng. Nằm ở độ cao trung bình 1.000m - 1. 400m, khí hậu Bắc Hà ít nhiều mang sắc thái xứ ôn đới, với nhiệt độ trung bình 18- 22°C. Từ tháng 6 đến tháng 9, Bắc Hà có mưa nhiều. Cuối năm, khi mùa đông đến, nhiệt độ ở Bắc Hà có thể xuống 0 độ, đôi khi có băng giá.</li>
+                </ul>
+            </div>
+
+            <div id="lichtrinh" class="tour-content">
+                <h2>Lịch trình</h2>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <i class="fa-solid fa-circle-plus icon-toggle"></i>
+                        <h3>NGÀY 01: HÀ NỘI - BẮC HÀ - DINH HOÀNG A TƯỞNG - TRANG TRẠI RAU CỦ</h3>
+                    </div>
+                    <div class="timeline-content">
+                        <p><b>Buổi Sáng:</b><br>
+                        Xe và HDV PYS Travel đón Quý khách tại điểm tập trung khởi hành đi Bắc Hà.Trên đường đi đoàn ăn sáng tại điểm dừng chân (chi phí tự túc).</p>
+
+                        <p><b>Buổi Trưa:</b><br>
+                        Đoàn thưởng thức bữa trưa tại nhà hàng.</p>
+                        <p>Sau ăn trưa, Quý khách thăm quan chụp ảnh tại  Dinh Hoàng A Tưởng.</p>
+                        <p>Dinh thự Hoàng A Tưởng nằm ngay trung tâm thị trấn Bắc Hà, được xây dựng vào năm 1914 và hoàn thành sau 7 năm. Công trình mang đậm dấu ấn kiến trúc Á – Âu kết hợp, do hai kiến trúc sư người Pháp và Trung Quốc thiết kế cho vua Mèo Hoàng Yến Tchao. Toàn bộ dinh thự được xây bằng gạch, đá và vôi mật ong, với họa tiết trang trí tinh xảo, hành lang vòm cao và những ô cửa sổ đối xứng tạo vẻ uy nghi, bề thế. Trải qua gần một thế kỷ, dinh thự vẫn giữ nguyên nét cổ kính, trở thành biểu tượng lịch sử và văn hóa đặc sắc của vùng cao Bắc Hà, thu hút du khách đến chiêm ngưỡng và tìm hiểu về cuộc sống quyền quý của tầng lớp thổ ty xưa.</p>
+                        
+                        <p><b>Buổi Chiều:</b><br>
+                        Quý khách thăm quan chụp ảnh tại Trang trại Rau Củ  nghiên cứu rau củ. Bên cạnh việc nghiên cứu, sản xuất giống rau quả, trại nghiên cứu và sản xuất rau quả Bắc Hà còn là một trong những khu du lịch sinh thái tại Bắc Hà thu hút đông đảo khách du lịch đến khám phá, trải nghiệm, đặc biệt là mỗi khi đến mùa hoa quả. Các loại hoa như: Hoa cải vàng, hoa mận,... vào mùa thi nhau khoe sắc rực rỡ.</p>
+
+                        <p><b>Buổi Tối:</b><br>
+                        Qúy khách thưởng thức bữa tối với những món ăn đặc sẳn vùng cao trong tiết trời se lạnh.. Sau bữa tối Quý khách nghỉ đêm tại Homestay Bắc Hà.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <i class="fa-solid fa-circle-plus icon-toggle"></i>
+                        <h3>NGÀY 02: CHỢ CÁN CẤU - Y TÝ</h3>
+                    </div>
+                    <div class="timeline-content">
+                        <p><b>Buổi Sáng:</b><br>
+                        Quý khách ăn sáng tại nhà hàng. Sau đó đoàn tự do tản bộ khám phá chợ  Cán Cấu. Phiên chợ nổi tiếng bởi còn giữ được những nét nguyên sơ và mang đậm nét đặc trưng của các dân tộc vùng cao Việt Nam.</p>
+
+                        <p><b>Buổi Trưa:</b><br>
+                        Đoàn thưởng thức bữa trưa tại tp Lào Cai.</p>
+                        <p>Sau khi dùng bữa trưa, đoàn lên xe khởi hành tới Y Tý.</p>
+                        <p>Ngược dòng Sông Hồng, xe đưa đoàn đến cột cờ Lũng Pô, dừng chân ngắm cảnh và lưu lại những tấm ảnh làm kỷ niệm nơi bắt đầu của con sông Hồng chảy vào Đất Việt. Dọc đường đi đoàn cũng ngắm nhìn những thửa ruộng bậc thang trải dài theo sườn núi.</p>
+                        <p>Đoàn sẽ đến với vùng đất “ngàn mây” Ngải Thầu. Quý khách thực hiện “săn mây” trong chuyến đi lên vùng đất cao 2000m này. Ở những mỏm núi cao của đường đi Ngải Thầu – Y Tý bạn sẽ được mục sở thị một khung cảnh hết sức ngoạn mục của mây trời trước mắt. Ngôn từ có lẽ không thể nói hết vẻ đẹp của mây trắng cuộn thành từng cụm lớn trôi nhẹ nhàng ngang núi cao – nơi bạn đang dừng chân.</p>
+
+                        <p><b>Buổi Chiều:</b><br>
+                        Đoàn về trung tâm Y Tý, nhận phòng homestay. Quý khách tự do thăm quan Y Tý. Những ngôi nhà trình tường mộc mạc nằm lặng lẽ trong sương mây của vùng cao tạo thành bức tranh tuyệt đẹp của thiên nhiên và cuộc sống con người ở mảnh đất vùng cao mang vẻ đẹp bình yên này.</p>
+
+                        <p><b>Buổi Tối:</b><br>
+                         Quý khách ăn tối với những món ăn mang đậm bản sắc vùng cao, thưởng thức những ly rượu ấm nồng trong tiết trời se lạnh.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <i class="fa-solid fa-circle-plus icon-toggle"></i>
+                        <h3>NGÀY 03: Y TÝ - CHOẢN THÈN - MƯỜNG HUM - HÀ NỘI</h3>
+                    </div>
+                    <div class="timeline-content">
+                        <p><b>Buổi Sáng:</b><br>
+                        Đoàn ăn sáng và trả phòng.</p>
+                        <p>Đoàn thăm quan bản Công viên Choản Thèn Y Tý - là tên gọi ưu ái của những người dân địa phương và khách du lịch khi tới khoảng đất trống nằm cuối con đường xuyên qua bản Choản Thèn. Nếu may mắn tới đây vào một ngày đẹp trời, địa điểm này sẽ là nơi ngắm mây rất lý tưởng. Những đứa trẻ bản địa cũng thường vui đùa ở đây và bạn có thể thả sức chơi hay trò chuyện với chúng.</p>
+                        <p>Quý khách lên xe khởi hành về Mường Hum, trên đường đi, quý khách có thể ghé chân ngắm nhìn những ngôi nhà Trình Tường như cây nấm khổng lồ được làm bằng đất mọc giữa rừng già của người Hà Nhì, tìm hiểu tập tục, lối sống của người dân nơi đây. Đến Mường Hum dịp Tết Nguyên Đán, du khách sẽ được hòa mình vào không khí rộn ràng của phiên chợ vùng cao, thưởng thức đặc sản dân tộc và chiêm ngưỡng sắc màu rực rỡ trong trang phục truyền thống của người Mông, Dao, Hà Nhì… – tất cả tạo nên một bức tranh mùa xuân rực rỡ giữa núi rừng Tây Bắc.</p>
+                        
+                        <p><b>Buổi Trưa:</b><br>
+                        Đoàn nghỉ ngơi ăn trưa tại Mường Hum thưởng thức món cá suối thơm ngon.</p>
+
+                        <p><b>Buổi Chiều:</b><br>
+                        Xe đưa đoàn về lại Hà Nội.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="dichvu" class="tour-content">
+                <h2>Dịch vụ</h2>
+                <div class="services-container">
+                    <div class="service-box include-box">
+                        <div class="badge-icon"><i class="fa-solid fa-circle-check"></i></div>
+                        <h3>DỊCH VỤ BAO GỒM</h3>
+                        <ul>
+                            <li>Xe ô tô du lịch đảm bảo chất lượng, lái xe có kinh nghiệm vùng cao.</li>
+                            <li>Nhà nghỉ /Homestay/Khách sạn tiêu chuẩn ở Y Tý và Bắc Hà.</li>
+                            <li>Các bữa ăn tại các nhà hàng: 05 bữa 150.000VNĐ/ bữa, 02 bữa sáng: 40.000VNĐ/ bữa.</li>
+                            <li>Vé tham quan du lịch.</li>
+                            <li>Hướng dẫn viên dẫn đoàn am hiểu, nhiệt tình, chu đáo.</li>
+                            <li>Bảo hiểm du lịch.</li>
+                            <li>Nước uống 500ml/người/ngày.</li>
+                            <li>Thuế VAT.</li>
+                        </ul>
+                    </div>
+                    <div class="service-box exclude-box">
+                        <div class="badge-icon"><i class="fa-solid fa-circle-xmark"></i></div>
+                        <h3>DỊCH VỤ KHÔNG BAO GỒM</h3>
+                        <ul>
+                            <li>Đồ uống, điện thoại, chi phí giặt là hoặc chi phí cá nhân khác.</li>
+                            <li>Ăn uống ngoài chương trình.</li>
+                            <li>TIP cho HDV và lái xe.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right">
+            <h2 class="price">Giá từ <span>3.718.000đ</span></h2>
+
+            <ul class="tour-info">
+                <li><i class="fa-solid fa-ticket"></i><span>Mã Tour: MNYT02</span></li>
+                <li><i class="fa-regular fa-clock"></i><span>Thời gian: 3N2Đ</span></li>
+                <li><i class="fa-solid fa-plane"></i><span>Phương tiện: Xe du lịch</span></li>
+                <li><i class="fa-solid fa-location-dot"></i><span>Khởi hành: <b class="location">Hà Nội</b></span></li>
+            </ul>
+
+            <h3 class="tour-name">Y TÝ | BẮC HÀ</h3>
+
+            <!-- ✅ FIX 5: Thêm class "btn btn-primary" từ components.css, giữ "book-btn" để JS vẫn tìm được -->
+            <button class="btn btn-primary book-btn">Đặt Ngay</button>
+
+            <div class="policy">
+                <div class="policy-item">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <p><b>Cam kết vững vàng</b> - Sát cánh suốt mọi hành trình</p>
+                </div>
+                <div class="policy-item">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <p><b>Hỗ trợ huỷ chỗ</b> - Tối đa 24h trước khi khởi hành</p>
+                </div>
+            </div>
+
+            <div class="contact">
+                <!-- ✅ FIX 6: Đổi .btn-outline → .btn-contact để tránh xung đột với components.css -->
+                <a href="tel:0395863773" class="btn-contact">
+                    <i class="fa-solid fa-phone"></i>Gọi Hotline
+                </a>
+                <a href="https://zalo.me/0395863773" target="_blank" class="btn-contact">
+                    <i class="fa-regular fa-comment"></i>Liên hệ tư vấn
+                </a>
+            </div>
+        </div>
+
+    </div><!-- /.chitiet-layout -->
+    </div><!-- /.container -->
+
+
+    <!-- POPUP ĐẶT TOUR -->
+    <div id="bookingPopup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <h2>ĐĂNG KÝ ĐẶT TOUR</h2>
+            <p class="popup-tour-name">Mã Tour: MNYT02</p>
+
+            <form id="bookingForm" novalidate>
+                <div class="form-group">
+                    <label>Họ và tên</label>
+                    <input type="text" id="popupName" placeholder="Nhập họ tên của bạn">
+                    <span class="error-message" id="nameError"></span>
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại</label>
+                    <input type="tel" id="popupPhone" placeholder="Nhập số điện thoại">
+                    <span class="error-message" id="phoneError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="popupEmail">Email</label>
+                    <input type="email" id="popupEmail" placeholder="Nhập email">
+                    <span class="error-message" id="emailError"></span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="popupDate">Ngày khởi hành</label>
+                        <select id="popupDate" name="tour_date">
+                            <option value="">-- Chọn ngày khởi hành --</option>
+
+                            <option value="2026-06-08">08/06/2026</option>
+                            <option value="2026-06-15">15/06/2026</option>
+                            <option value="2026-06-20">20/06/2026</option>
+                            <option value="2026-06-25">25/06/2026</option>
+
+                            <option value="2026-09-08">08/09/2026</option>
+                            <option value="2026-09-15">15/09/2026</option>
+                            <option value="2026-09-20">20/09/2026</option>
+                            <option value="2026-09-25">25/09/2026</option>
+
+                            <option value="2026-10-08">08/10/2026</option>
+                            <option value="2026-10-15">15/10/2026</option>
+                            <option value="2026-10-20">20/10/2026</option>
+                            <option value="2026-10-25">25/10/2026</option>
+                        </select>
+                        <span class="error-message" id="dateError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Số lượng người</label>
+                        <input type="number" id="popupQuantity" min="1" value="1">
+                        <span class="error-message" id="quantityError"></span>
+                    </div>
+                </div>
+                <div class="form-price-box">
+                    <span>Tổng tiền tạm tính:</span>
+                    <strong id="popupTotalPrice">3.718.000đ</strong>
+                </div>
+                <button type="submit" class="btn-submit-booking">Xác Nhận Đặt Tour</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- POPUP THÀNH CÔNG -->
+    <div id="successPopup" class="popup-overlay">
+        <div class="success-popup-content">
+            <div class="success-icon-box">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <p class="success-message-text">Yêu cầu đặt tour của bạn đã được ghi nhận!</p>
+            <p style="font-size: 14px; color: #666; margin-top: -15px; margin-bottom: 25px;">
+                Nhân viên tư vấn sẽ liên hệ lại với bạn trong giây lát.
+            </p>
+            <button id="btnCloseSuccess" class="btn-close-success">Đóng</button>
+        </div>
+    </div>
+
+    <script src="/js/chitiet.js" defer></script>
+</body>
+</html>
