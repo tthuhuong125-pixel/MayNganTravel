@@ -236,10 +236,23 @@ const closePopupBtn = document.querySelector(".close-popup");
 const popupQuantityInput = document.getElementById("popupQuantity");
 const popupTotalPrice = document.getElementById("popupTotalPrice");
 
-// Tìm nút Đặt Ngay theo class chuẩn của ông
+// Tìm nút Đặt Ngay theo class
 const datNgayBtn = document.querySelector(".book-btn");
 
-const BASE_PRICE = 8228000; // Giá gốc 1 người: 8.228.000đ
+// Tự động lấy giá trị từ thẻ span duy nhất bên trong h2.price
+const priceSpan = document.querySelector(".price span");
+let BASE_PRICE = 0;
+
+if (priceSpan) {
+    // Đọc chuỗi chữ hiển thị (Ví dụ: "2.550.000đ")
+    let priceText = priceSpan.textContent; 
+    
+    // Xóa sạch tất cả các ký tự KHÔNG phải là số (xóa dấu chấm, xóa chữ đ)
+    let cleanPrice = priceText.replace(/\D/g, ""); 
+    
+    // Chuyển chuỗi số sạch thành kiểu số nguyên để làm toán nhân số lượng
+    BASE_PRICE = parseInt(cleanPrice) || 0; 
+}
 
 // Hàm định dạng số thành chuỗi tiền tệ tiếng Việt
 function formatMoney(amount) {
