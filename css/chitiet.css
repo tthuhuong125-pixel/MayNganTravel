@@ -26,7 +26,6 @@ html { scroll-behavior: smooth; }
    ========================================================== */
 
 .tour-title {
-    font-size: 28px;
     font-weight: 700;
     color: var(--text-dark);
     margin-bottom: 20px; 
@@ -139,28 +138,30 @@ html { scroll-behavior: smooth; }
 
 .tour-content h2 {
     margin-bottom: 10px;
-    color: var(--text-dark); /* ✅ FIX */
+    color: var(--text-dark);
+    display: flex;           /* thêm */
+    align-items: center;     /* thêm — căn giữa dọc giữa chữ h2 và tag nhỏ */
+    gap: var(--space-sm);    /* thêm — khoảng cách giữa chữ và tag */
 }
 
 .tour-content p,
 .tour-content ul,
 .timeline-content {
     color: var(--text-dark); /* ✅ FIX */
-    line-height: 1.6;
     text-align: justify;
 }
 
-.tour-content p  { margin: 10px 0; }
+.tour-content p  { margin: var(--space-sm) 0; }
 
 .tour-content ul {
     padding-left: 20px;
-    margin-bottom: 10px;
+    margin-bottom: var(--space-sm);
     list-style: disc; /* Hiện dấu chấm cho danh sách nội dung tour */
 }
 
 .tour-content li {
     list-style-position: outside;
-    margin-bottom: 10px;
+    margin-bottom: var(--space-sm);
 }
 
 .tour-content b,
@@ -222,20 +223,13 @@ html { scroll-behavior: smooth; }
     color: var(--text-dark); /* ✅ FIX */
 }
 
-/* ✅ FIX: .book-btn chỉ override kích thước — màu sắc lấy từ .btn-primary (components.css)
-   HTML: <button class="btn btn-primary book-btn"> */
+/* Chỉ override kích thước — không khai lại thứ .btn đã có */
 .book-btn {
     width: 100%;
-    box-sizing: border-box;
-    border: none;
     padding: 14px;
     font-size: var(--text-lg);
-    border-radius: var(--radius-md); /* Độ bo tròn mềm mại đồng bộ dải màu mới */
-    cursor: pointer;
-    /* Căn giữa chữ chữ Đặt Ngay */
-    display: block; 
-    text-align: center;
-    transition: background-color 0.2s ease;
+    border-radius: var(--radius-md);
+    justify-content: center; /* căn giữa chữ trong inline-flex */
 }
 
 
@@ -300,7 +294,7 @@ html { scroll-behavior: smooth; }
 }
 
 .btn-contact:hover {
-    background: #fff2ee;
+    background: var(--color-cta-bg);
 }
 
 /* ==========================================================
@@ -389,8 +383,8 @@ html { scroll-behavior: smooth; }
 .service-box li {
     position: relative;
     padding-left: 22px;
-    margin-bottom: 12px;
-    font-size: 14.5px;
+    margin-bottom: margin-bottom: var(--space-md);
+    font-size: var(--text-sm);
     line-height: 1.6;
 }
 
@@ -412,7 +406,7 @@ html { scroll-behavior: smooth; }
     left: 50%;
     transform: translateX(-50%);
     font-size: 45px;
-    background-color: #fff;
+    background-color: var(--bg-white);
     border-radius: 50%;
     line-height: 1;
 }
@@ -484,7 +478,7 @@ html { scroll-behavior: smooth; }
     top: 15px;
     right: 20px;
     font-size: 28px;
-    color: #ccc;
+    color: var(--text-light);
     cursor: pointer;
     transition: var(--transition);
 }
@@ -525,7 +519,7 @@ html { scroll-behavior: smooth; }
     padding: 10px;
     border: 1px solid var(--bg-secondary);
     border-radius: var(--radius-sm);
-    font-size: 14.5px;
+    font-size: var(--text-sm);
     box-sizing: border-box;
     font-family: var(--font-body);
 }
@@ -570,7 +564,7 @@ html { scroll-behavior: smooth; }
 }
 
 .form-price-box span {
-    font-size: 14.5px;
+    font-size: var(--text-sm);
     color: var(--text-dark); /* ✅ FIX */
 }
 
@@ -652,4 +646,12 @@ html { scroll-behavior: smooth; }
 
 .btn-close-success:hover {
     background-color: var(--color-primary-dark); /* ✅ FIX: #31624A → var(--color-primary-dark) */
+}
+
+/* Khoảng cách riêng cho dest-tags trong trang chi tiết */
+.dest-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin: 8px 0 14px;
 }
