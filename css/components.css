@@ -38,6 +38,16 @@
   border: 1.5px solid var(--color-primary);
 }
 
+.btn-cta:hover {
+  background: var(--color-cta-dark); /* đã có biến rồi, thêm vào là xong */
+}
+
+.btn-outline:hover {
+  background: var(--color-primary);
+  color: var(--text-white);
+}
+
+
 /* ── 2. TOUR CARD (THẺ HIỂN THỊ TOUR) ── */
 /* Cách dùng: Tạo 1 div tổng có class "tour-card", bên trong chia làm ảnh và thân.
    VD: Giao diện lưới danh sách tour Sapa, Hà Giang... */
@@ -56,7 +66,9 @@
 }
 
 .tour-card__img {
-  height: 200px;                         /* Cố định chiều cao ảnh tour để các thẻ bằng nhau tăm tắp */
+  width: 100%;
+  object-fit: cover; 
+  display: block;                       
 }
 
 .tour-card__body {

@@ -44,7 +44,6 @@ img {
   max-width: 100%;       /* Bắt buộc: Ảnh không bao giờ bị tràn ra khỏi khung chứa nó */
   height: auto;          /* Tỉ lệ ảnh luôn được giữ nguyên */
   display: block;
-  object-fit: cover;     /* Giúp ảnh lấp đầy khung mà không bị méo (rất quan trọng cho ảnh tour) */
 }
 
 /* --- 6. LIST (DANH SÁCH UL/OL) --- */
@@ -61,16 +60,3 @@ ul, ol {
   padding: 0 var(--space-lg);    /* Chống dính mép màn hình khi xem trên điện thoại */
 }
 
-.section {
-  padding: var(--space-2xl) 0;   /* Tạo khoảng cách lề trên/dưới cho mỗi khu vực lớn (VD: Khu vực Tour mới, Khu vực Tin tức) */
-}
-
-.section-alt {
-  background: var(--bg-secondary); /* Dùng thêm class này nếu muốn section đó có nền kem xám cho bớt nhàm chán */
-}
-
-.section-title {
-  font-size: var(--text-2xl);
-  text-align: center;              /* Căn giữa tiêu đề của section */
-  margin-bottom: var(--space-xl);  /* Đẩy lề dưới để cách xa phần nội dung bên dưới nó */
-}

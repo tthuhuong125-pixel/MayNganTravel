@@ -12,6 +12,7 @@
   /* --- 2. MÀU CHÍNH (PRIMARY - XANH RỪNG) - Tone màu thương hiệu --- */
   --color-primary: #3D7A5C;       /* Dùng cho logo, icon chính, đường kẻ trang trí */
   --color-primary-light: #5FA67A; /* Dùng khi rê chuột (hover) vào các phần tử màu xanh chính */
+  --color-primary-hover: #5FA67A; /* Dùng riêng cho hover btn-primary */
   --color-primary-dark: #2D5A3D;  /* Dùng khi bấm (active) vào nút hoặc cần nhấn mạnh màu xanh đậm */
   --color-primary-bg: #E1F5EE;    /* Dùng làm màu nền rất nhạt cho các thẻ nhãn (tag) như "Tour sinh thái" */
 
