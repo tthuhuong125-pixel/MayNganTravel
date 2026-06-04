@@ -18,6 +18,10 @@
 </head>
 
 <body>
+    <div id="header-placeholder" 
+         data-path="../../main/header.html" 
+         data-root="../../">
+    </div>
 
     <!-- ✅ FIX 3: Bọc .container (base.css căn giữa) + .chitiet-layout (2 cột) -->
     <div class="container">
@@ -26,6 +30,9 @@
         <div class="left">
             <h1 class="tour-title">
                 TOUR HÀ GIANG - HOÀNG SU PHÌ - XÍN MÂN - BẮC HÀ 3N2Đ
+                <span class="tag-header">
+                    <span class="badge badge--sale">SALE</span>
+                </span>
             </h1>
 
             <div class="slider">
@@ -158,10 +165,13 @@
         </div>
 
         <div class="right">
-            <h2 class="price">Giá từ <span>2.590.000đ</span></h2>
+            <h2 class="price">
+                Giá từ <span>2.331.000đ</span>
+                <span class="price-old">2.590.000đ</span>
+            </h2>
 
             <ul class="tour-info">
-                <li><i class="fa-solid fa-ticket"></i><span>Mã Tour: MHGC05</span></li>
+                <li><i class="fa-solid fa-ticket"></i><span>Mã Tour: MNHG05</span></li>
                 <li><i class="fa-regular fa-clock"></i><span>Thời gian: 3N2Đ</span></li>
                 <li><i class="fa-solid fa-plane"></i><span>Phương tiện: Xe du lịch</span></li>
                 <li><i class="fa-solid fa-location-dot"></i><span>Khởi hành: <b class="location">Hà Nội</b></span></li>
@@ -247,7 +257,7 @@
                 </div>
                 <div class="form-price-box">
                     <span>Tổng tiền tạm tính:</span>
-                    <strong id="popupTotalPrice">2.590.000đ</strong>
+                    <strong id="popupTotalPrice">2.331.000đ</strong>
                 </div>
                 <button type="submit" class="btn-submit-booking">Xác Nhận Đặt Tour</button>
             </form>
@@ -267,6 +277,13 @@
             <button id="btnCloseSuccess" class="btn-close-success">Đóng</button>
         </div>
     </div>
+
+    <div id="footer-placeholder" 
+         data-path="../../main/footer.html" 
+         data-root="../../">
+    </div>
+
+    <script src="../../js/main.js"></script>
 
     <script src="/js/chitiet.js" defer></script>
 </body>

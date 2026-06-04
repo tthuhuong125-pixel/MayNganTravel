@@ -181,15 +181,28 @@ html { scroll-behavior: smooth; }
 }
 
 .price {
-    font-size: var(--text-2xl);
+    font-size: 22px;
     font-weight: 600;
     margin-bottom: 15px;
     color: var(--text-dark); /* ✅ FIX */
+
+    /* 🛠️ THÊM: Ép các thành phần bên trong h2 xếp hàng ngang, căn đều chân chữ */
+    display: flex;
+    align-items: baseline; 
+    gap: 7px;             /* Khoảng cách giữa giá mới và giá gốc bị gạch bỏ */
 }
 
 .price span {
     color: var(--color-cta);
     font-weight: 700;
+}
+
+/* 🛠️ THÊM MỚI: Định dạng riêng cho thẻ giá gốc cũ (nhỏ hơn, mờ đi và gạch ngang) */
+.price .price-old {
+    font-size: 14px;               /* Định dạng chữ nhỏ hơn hẳn dải giá chính */
+    color: #999999;                /* Màu xám làm chìm số tiền cũ */
+    text-decoration: line-through; /* Tạo đường gạch ngang qua số tiền gốc */
+    font-weight: 400;              /* Để nét chữ thanh mảnh, không bị đậm */
 }
 
 .tour-info {

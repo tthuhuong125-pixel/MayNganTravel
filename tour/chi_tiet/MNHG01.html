@@ -18,6 +18,10 @@
 </head>
 
 <body>
+    <div id="header-placeholder" 
+         data-path="../../main/header.html" 
+         data-root="../../">
+    </div>
 
     <!-- ✅ FIX 3: Bọc .container (base.css căn giữa) + .chitiet-layout (2 cột) -->
     <div class="container">
@@ -178,7 +182,10 @@
         </div>
 
         <div class="right">
-            <h2 class="price">Giá từ <span>7.380.000đ</span></h2>
+            <h2 class="price">
+                Giá từ <span>6.273.000đ</span>
+                <span class="price-old">7.380.000đ</span>
+            </h2>
 
             <ul class="tour-info">
                 <li><i class="fa-solid fa-ticket"></i><span>Mã Tour: MNHG01</span></li>
@@ -267,7 +274,7 @@
                 </div>
                 <div class="form-price-box">
                     <span>Tổng tiền tạm tính:</span>
-                    <strong id="popupTotalPrice">7.380.000đ</strong>
+                    <strong id="popupTotalPrice">6.273.000đ</strong>
                 </div>
                 <button type="submit" class="btn-submit-booking">Xác Nhận Đặt Tour</button>
             </form>
@@ -287,6 +294,13 @@
             <button id="btnCloseSuccess" class="btn-close-success">Đóng</button>
         </div>
     </div>
+
+    <div id="footer-placeholder" 
+         data-path="../../main/footer.html" 
+         data-root="../../">
+    </div>
+
+    <script src="../../js/main.js"></script>
 
     <script src="/js/chitiet.js" defer></script>
 </body>
