@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Mây Ngàn Travel</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS — đúng thứ tự -->
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/blog.css">
+</head>
+<body>
+
+  <!-- ── HEADER ─────────────────────────────── -->
+  <div id="header-placeholder"></div>
+
+  <!-- ── NỘI DUNG CHÍNH ─────────────────────── -->
+  <main>
+
+    <!-- Hero section tiêu đề trang -->
+    <section class="blog-page-hero">
+      <div class="container">
+        <p class="blog-page-label">KHÁM PHÁ & HỌC HỎI</p>
+        <h1 class="blog-page-title">Tin tức & Cẩm nang du lịch</h1>
+        <p class="blog-page-desc">Cập nhật mùa du lịch, kinh nghiệm khám phá và những điều cần biết khi đặt chân đến miền núi phía Bắc.</p>
+      </div>
+    </section>
+
+    <section class="blog-content-section">
+      <div class="container">
+
+        <!-- ── TAB LỌC ─────────────────────── -->
+        <div class="blog-tab-bar">
+          <button class="blog-tab active" data-tab="all">Tất cả (6)</button>
+          <button class="blog-tab" data-tab="news">Tin tức (3)</button>
+          <button class="blog-tab" data-tab="guide">Cẩm nang (3)</button>
+        </div>
+
+        <!-- ── LAYOUT MAGAZINE (tab "Tất cả") ─ -->
+        <div class="blog-view" id="view-all">
+
+          <!-- Hàng trên: Bài nổi bật trái + 3 bài list phải -->
+          <div class="mag-row-top">
+
+            <!-- BÀI NỔI BẬT -->
+            <article class="mag-featured" data-cat="news">
+              <!--
+                CHÈN ẢNH: thay đổi src bên dưới thành đường dẫn ảnh thật
+                Kích thước đề xuất: 800x500px
+                Ví dụ: src="../assets/images/blog/ha-giang-hoa.jpg"
+              -->
+              <div class="mag-featured-img">
+                <img src="../assets/images/blog/ha-giang-hoa.jpg"
+                     alt="Hoa tam giác mạch Hà Giang"
+                     class="mag-featured-photo">
+                <div class="mag-featured-overlay">
+                  <span class="blog-tag blog-tag--news">Tin tức</span>
+                  <h2 class="mag-featured-title">Hà Giang tháng 10 — Mùa hoa tam giác mạch nở rộ khắp cao nguyên đá Đồng Văn</h2>
+                  <div class="article-meta">
+                    <span>15/10/2026</span>
+                    <span class="meta-dot">·</span>
+                    <span>5 phút đọc</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3 BÀI LIST PHẢI -->
+            <div class="mag-side-list">
+
+              <article class="mag-side-item" data-cat="news">
+                <!--
+                  CHÈN ẢNH: kích thước đề xuất 200x150px
+                  Ví dụ: src="../assets/images/blog/mcc-mua-vang.jpg"
+                -->
+                <div class="mag-side-img">
+                  <img src="../assets/images/blog/mcc-mua-vang.jpg" alt="Mù Cang Chải mùa vàng">
+                </div>
+                <div class="mag-side-body">
+                  <span class="blog-tag blog-tag--news">Tin tức</span>
+                  <h3 class="mag-side-title">Mùa vàng Mù Cang Chải 2026 — Lịch khai hội ruộng bậc thang</h3>
+                  <div class="article-meta">
+                    <span>08/10/2026</span>
+                    <span class="meta-dot">·</span>
+                    <span>3 phút đọc</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="mag-side-item" data-cat="guide">
+                <!--
+                  CHÈN ẢNH: kích thước đề xuất 200x150px
+                  Ví dụ: src="../assets/images/blog/sapa-kinh-nghiem.jpg"
+                -->
+                <div class="mag-side-img">
+                  <img src="../assets/images/blog/sapa-kinh-nghiem.jpg" alt="Kinh nghiệm Sapa">
+                </div>
+                <div class="mag-side-body">
+                  <span class="blog-tag blog-tag--guide">Cẩm nang</span>
+                  <h3 class="mag-side-title">Kinh nghiệm du lịch Sapa tự túc dành cho người lần đầu</h3>
+                  <div class="article-meta">
+                    <span>05/10/2026</span>
+                    <span class="meta-dot">·</span>
+                    <span>7 phút đọc</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="mag-side-item" data-cat="guide">
+                <!--
+                  CHÈN ẢNH: kích thước đề xuất 200x150px
+                  Ví dụ: src="../assets/images/blog/tour-nhom.jpg"
+                -->
+                <div class="mag-side-img">
+                  <img src="../assets/images/blog/tour-nhom.jpg" alt="Tour nhóm hay đoàn">
+                </div>
+                <div class="mag-side-body">
+                  <span class="blog-tag blog-tag--guide">Cẩm nang</span>
+                  <h3 class="mag-side-title">Đi tour nhóm nhỏ hay đoàn lớn — Nên chọn loại nào?</h3>
+                  <div class="article-meta">
+                    <span>01/10/2026</span>
+                    <span class="meta-dot">·</span>
+                    <span>5 phút đọc</span>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+          <!-- Đường kẻ phân cách -->
+          <hr class="blog-divider">
+
+          <!-- Hàng dưới: 3 bài có số thứ tự -->
+          <div class="mag-row-bottom">
+
+            <article class="mag-bottom-item" data-cat="news">
+              <div class="mag-bottom-num">04</div>
+              <div class="mag-bottom-body">
+                <span class="blog-tag blog-tag--news">Tin tức</span>
+                <h3 class="mag-bottom-title">Cao Bằng — Thác Bản Giốc đẹp nhất vào tháng 9 mỗi năm</h3>
+                <p class="mag-bottom-desc">Tháng 9 là thời điểm nước từ thượng nguồn đổ về nhiều nhất, tạo nên khung cảnh thác Bản Giốc hùng vĩ và trắng xóa...</p>
+                <div class="article-meta">
+                  <span>25/09/2026</span>
+                  <span class="meta-dot">·</span>
+                  <span>4 phút đọc</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="mag-bottom-item" data-cat="guide">
+              <div class="mag-bottom-num">05</div>
+              <div class="mag-bottom-body">
+                <span class="blog-tag blog-tag--guide">Cẩm nang</span>
+                <h3 class="mag-bottom-title">Nên mặc gì khi đi tour miền núi mùa đông? Gợi ý từ A–Z</h3>
+                <p class="mag-bottom-desc">Mùa đông ở Sapa và Mù Cang Chải có thể xuống dưới 5°C về đêm. Chuẩn bị trang phục đúng cách giúp bạn thoải mái suốt hành trình...</p>
+                <div class="article-meta">
+                  <span>20/09/2026</span>
+                  <span class="meta-dot">·</span>
+                  <span>6 phút đọc</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="mag-bottom-item" data-cat="news">
+              <div class="mag-bottom-num">06</div>
+              <div class="mag-bottom-body">
+                <span class="blog-tag blog-tag--news">Tin tức</span>
+                <h3 class="mag-bottom-title">Mộc Châu mùa hoa ban trắng 2027 — Dự kiến nở rộ từ tháng 2</h3>
+                <p class="mag-bottom-desc">Hoa ban trắng bung nở trên những ngọn đồi Mộc Châu từ cuối tháng 1 đến giữa tháng 3, tạo nên cảnh tượng thơ mộng hiếm có...</p>
+                <div class="article-meta">
+                  <span>15/09/2026</span>
+                  <span class="meta-dot">·</span>
+                  <span>3 phút đọc</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ── LAYOUT LƯỚI (tab Tin tức / Cẩm nang) ── -->
+        <div class="blog-view blog-grid-view hidden" id="view-filtered">
+          <!-- JS sẽ tự động render các card vào đây khi click tab -->
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ────────────────────────────── -->
+  <div id="footer-placeholder"></div>
+  <button id="backToTop" title="Lên đầu trang" aria-label="Lên đầu trang">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/blog.js"></script>
+</body>
+</html>

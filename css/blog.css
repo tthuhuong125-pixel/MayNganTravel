@@ -1,0 +1,370 @@
+/* ==========================================================================
+   MAYNGAN TRAVEL - BLOG.CSS
+   Trang tổng hợp Tin tức & Cẩm nang du lịch
+   Người phụ trách: Nhi
+   ========================================================================== */
+
+
+/* ── HERO SECTION ─────────────────────────────────────────── */
+.blog-page-hero {
+  background: var(--bg-dark);               /* Nền xanh tối */
+  padding: 48px 0 40px;
+  text-align: center;
+}
+
+.blog-page-label {
+  font-size: var(--text-xs);
+  color: var(--color-primary-light);        /* Xanh nhạt */
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.blog-page-title {
+  font-size: var(--text-3xl);
+  color: var(--text-white);
+  margin-bottom: 12px;
+}
+
+.blog-page-desc {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+
+/* ── KHU VỰC NỘI DUNG ─────────────────────────────────────── */
+.blog-content-section {
+  padding: 40px 0 80px;
+}
+
+
+/* ── TAB LỌC ─────────────────────────────────────────────── */
+.blog-tab-bar {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 28px;
+  border-bottom: 0.5px solid var(--border-color);
+  padding-bottom: 0;
+}
+
+.blog-tab {
+  padding: 10px 18px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-light);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;    /* Đường gạch dưới — mặc định trong suốt */
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--font-body);
+}
+
+.blog-tab:hover {
+  color: var(--text-dark);
+}
+
+.blog-tab.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary); /* Đường gạch xanh khi active */
+  font-weight: 600;
+}
+
+
+/* ── NHÃN LOẠI BÀI VIẾT ──────────────────────────────────── */
+.blog-tag {
+  display: inline-flex;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: var(--radius-full);
+  margin-bottom: 7px;
+}
+
+.blog-tag--news {
+  background: var(--color-primary-bg);      /* Nền xanh nhạt */
+  color: var(--color-primary-dark);
+}
+
+.blog-tag--guide {
+  background: rgba(212, 160, 23, 0.12);    /* Nền vàng nhạt */
+  color: #8a6500;
+  border: 0.5px solid var(--color-accent);
+}
+
+
+/* ── THÔNG TIN META (ngày, thời gian đọc) ───────────────── */
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-xs);
+  color: var(--text-light);
+  margin-top: 8px;
+}
+
+.meta-dot { opacity: 0.5; }
+
+
+/* ══════════════════════════════════════════════════════════
+   MAGAZINE LAYOUT — LAYOUT TỔNG HỢP
+   ══════════════════════════════════════════════════════════ */
+
+/* Hàng trên: bài nổi bật + 3 bài list */
+.mag-row-top {
+  display: grid;
+  grid-template-columns: 1fr 340px;        /* Bài chính chiếm phần lớn */
+  gap: 20px;
+  margin-bottom: 24px;
+  align-items: stretch;
+}
+
+/* ── BÀI NỔI BẬT (trái) ─────────────────── */
+.mag-featured {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.mag-featured-img {
+  position: relative;
+  height: 380px;                           /* Chiều cao ảnh lớn */
+}
+
+/* 
+  CHÈN ẢNH: ảnh này sẽ lấp đầy khung 
+  đặt src vào thẻ <img class="mag-featured-photo">
+*/
+.mag-featured-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                       /* Ảnh lấp đầy không méo */
+  display: block;
+}
+
+/* Lớp tối đè lên ảnh để chữ dễ đọc */
+.mag-featured-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 24px 20px 20px;
+  background: linear-gradient(
+    transparent,
+    rgba(0, 0, 0, 0.75)                   /* Gradient tối từ trong suốt → đen */
+  );
+}
+
+.mag-featured-title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-white);
+  line-height: 1.4;
+  margin-top: 6px;
+}
+
+/* ── 3 BÀI LIST PHẢI ────────────────────── */
+.mag-side-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 0.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-white);
+}
+
+.mag-side-item {
+  display: flex;
+  gap: 12px;
+  padding: 14px 14px;
+  border-bottom: 0.5px solid var(--border-color);
+  align-items: flex-start;
+  transition: var(--transition);
+}
+
+.mag-side-item:last-child { border-bottom: none; }
+
+.mag-side-item:hover {
+  background: var(--bg-primary);           /* Nền kem nhạt khi hover */
+}
+
+/* 
+  CHÈN ẢNH: ảnh thumbnail nhỏ bên trái
+  src đặt vào thẻ <img> bên trong .mag-side-img
+  Kích thước đề xuất: 80x80px
+*/
+.mag-side-img {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.mag-side-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mag-side-body { flex: 1; }
+
+.mag-side-title {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-dark);
+  line-height: 1.45;
+}
+
+
+/* ── ĐƯỜNG KẺ PHÂN CÁCH ─────────────────── */
+.blog-divider {
+  border: none;
+  border-top: 0.5px solid var(--border-color);
+  margin: 0 0 24px;
+}
+
+
+/* ── HÀNG DƯỚI: 3 BÀI SỐ THỨ TỰ ─────── */
+.mag-row-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.mag-bottom-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px;
+  border: 0.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-white);
+  transition: var(--transition);
+}
+
+.mag-bottom-item:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+/* Số thứ tự lớn màu nhạt */
+.mag-bottom-num {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--border-color);              /* Màu rất nhạt, làm nền trang trí */
+  line-height: 1;
+  flex-shrink: 0;
+  width: 36px;
+  font-family: var(--font-heading);
+}
+
+.mag-bottom-body { flex: 1; }
+
+.mag-bottom-title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.mag-bottom-desc {
+  font-size: var(--text-xs);
+  color: var(--text-medium);
+  line-height: 1.65;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;                   /* Giới hạn 2 dòng, thêm ... nếu dài hơn */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   GRID VIEW — khi click tab Tin tức / Cẩm nang
+   ══════════════════════════════════════════════════════════ */
+.blog-grid-view {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Ẩn/hiện view bằng JS */
+.hidden { display: none !important; }
+
+/* Card bài viết trong grid view */
+.blog-card {
+  border: 0.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-white);
+  transition: var(--transition);
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* 
+  CHÈN ẢNH: thẻ <img> bên trong .blog-card-img
+  Kích thước đề xuất: 400x250px
+*/
+.blog-card-img {
+  height: 180px;
+  overflow: hidden;
+}
+
+.blog-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.blog-card:hover .blog-card-img img {
+  transform: scale(1.04);                  /* Ảnh phóng to nhẹ khi hover card */
+}
+
+.blog-card-body { padding: var(--space-md); }
+
+.blog-card-title {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.45;
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+
+.blog-card-desc {
+  font-size: var(--text-sm);
+  color: var(--text-medium);
+  line-height: 1.65;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .mag-row-top {
+    grid-template-columns: 1fr;            /* Xếp dọc trên tablet */
+  }
+  .mag-featured-img { height: 280px; }
+  .mag-row-bottom { grid-template-columns: 1fr 1fr; }
+  .blog-grid-view { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+  .blog-page-title { font-size: var(--text-2xl); }
+  .mag-row-bottom { grid-template-columns: 1fr; }
+  .blog-grid-view { grid-template-columns: 1fr; }
+  .mag-side-item { flex-direction: column; }
+  .mag-side-img { width: 100%; height: 140px; }
+}
