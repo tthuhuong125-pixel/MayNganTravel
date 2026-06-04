@@ -11,19 +11,19 @@
    1. HEADER WRAPPER
    ══════════════════════════════════════════════════════════ */
 .main-header {
-    background-color: var(--bg-primary);          /* #FAFAF7 — trắng kem, KHÔNG dùng vàng làm nền */
-    border-bottom: 0.5px solid var(--border-color); /* đường kẻ mỏng phân cách header vs nội dung */
-    position: sticky;                               /* dính đầu trang khi cuộn */
+    background-color: var(--bg-primary);
+    border-bottom: 0.5px solid var(--border-color);
+    position: sticky;
     top: 0;
-    z-index: 1000;                                  /* luôn nằm trên mọi element khác */
-    box-shadow: var(--shadow-sm);                   /* bóng nhẹ tạo chiều sâu */
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
 }
 
 .header-container {
-    max-width: 1200px;                              /* giới hạn chiều rộng nội dung */
-    margin: 0 auto;                                 /* căn giữa */
-    padding: 0 var(--space-lg);                     /* 24px 2 bên */
-    height: 68px;                                   /* chiều cao header cố định */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    height: 68px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -37,30 +37,35 @@
 .brand-link {
     display: flex;
     align-items: center;
-    gap: var(--space-sm);                           /* khoảng cách giữa ảnh và text logo */
+    gap: var(--space-sm);
     text-decoration: none;
-    flex-shrink: 0;                                 /* không co lại khi nav chiếm chỗ */
+    flex-shrink: 0;
 }
 
-/* [ẢNH LOGO] — hiện khi đã có file logo.png */
 .brand-logo {
-    height: 40px;                                   /* chỉnh số này cho vừa với logo thật */
+    height: 40px;
     width: auto;
     object-fit: contain;
 }
 
-/* [TEXT LOGO] — dùng tạm khi chưa có ảnh */
 .brand-text {
-    font-family: var(--font-heading);               /* Montserrat */
-    font-size: var(--text-xl);                      /* 20px */
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
     font-weight: 800;
-    color: var(--text-dark);                        /* #1F2E22 */
+    color: var(--color-primary);
     letter-spacing: 0.06em;
     font-style: normal;
 }
+.brand-text .brand-suffix { 
+    color: var(--text-light);
+    font-weight: 400;                  /* Mỏng hơn nữa */
+    font-size: var(--text-sm);         /* Nhỏ hơn so với MÂY NGÀN */
+    letter-spacing: 0.12em;            /* Giãn chữ ra trông thanh hơn */
+    margin-left: 6px;                  /* Tách xa MÂY NGÀN một chút */
+}
 
 .brand-text em {
-    color: var(--color-primary);                    /* "NGÀN" màu xanh rừng #3D7A5C */
+    color: var(--color-primary);
     font-style: normal;
 }
 
@@ -68,14 +73,14 @@
 /* ══════════════════════════════════════════════════════════
    3. NAVIGATION LIST
    ══════════════════════════════════════════════════════════ */
-.main-nav { flex: 1; }                              /* nav chiếm phần giữa còn lại */
+.main-nav { flex: 1; }
 
 .nav-list {
     display: flex;
     align-items: center;
     list-style: none;
     gap: 2px;
-    justify-content: center;                        /* căn giữa các mục nav */
+    justify-content: center;
 }
 
 .nav-link {
@@ -83,22 +88,21 @@
     align-items: center;
     gap: 4px;
     padding: 6px 9px;
-    font-size: var(--text-sm);                      /* 14px */
+    font-size: var(--text-sm);
     font-weight: 500;
-    color: var(--text-dark);                      /* #5A6B5C */
+    color: var(--text-dark);
     text-decoration: none;
-    border-radius: var(--radius-sm);                /* 6px */
+    border-radius: var(--radius-sm);
     transition: var(--transition);
-    white-space: nowrap;                            /* không xuống dòng */
+    white-space: nowrap;
 }
 
 .nav-link:hover,
 .nav-link.active {
-    background-color: var(--bg-secondary);          /* nền kem khi hover */
-    color: var(--text-dark);                        /* chữ đậm hơn khi hover */
+    background-color: var(--bg-secondary);
+    color: var(--text-dark);
 }
 
-/* Mũi tên ▾ tự động thêm cho nav item có dropdown */
 .nav-link--arrow::after {
     content: '▾';
     font-size: 10px;
@@ -109,43 +113,57 @@
 
 .nav-item--dropdown:hover .nav-link--arrow::after,
 .nav-item--dropdown.open .nav-link--arrow::after {
-    transform: rotate(180deg);                      /* xoay mũi tên khi mở dropdown (hover hoặc chạm) */
+    transform: rotate(180deg);
 }
 
 
 /* ══════════════════════════════════════════════════════════
    4. DROPDOWN — KHUNG CHUNG
+   FIX HOVER: Thêm cầu nối vô hình giữa nav link và dropdown
+   để chuột di chuyển xuống không bị mất hover
    ══════════════════════════════════════════════════════════ */
 .nav-item--dropdown {
-    position: relative;                             /* làm gốc cho dropdown absolute */
+    position: relative;
 }
 
-/* Ẩn dropdown mặc định — hiện khi hover vào nav item */
+/*
+  FIX HOVER GAP: Tạo vùng trong suốt cao 8px ngay dưới nav link,
+  giúp chuột di chuyển từ link xuống dropdown không bị gián đoạn.
+  Đây là lý do dropdown hay biến mất khi di chuột xuống.
+*/
+.nav-item--dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 8px;
+}
+
 .dropdown-simple,
 .dropdown-mega {
     display: none;
     position: absolute;
-    top: calc(100% + 6px);                          /* cách nav link 6px */
+    top: calc(100% + 8px);                         /* Phải khớp với height của ::after */
     left: 0;
     background: var(--bg-primary);
     border: 0.5px solid var(--border-color-light);
-    border-radius: var(--radius-md);                /* 10px */
+    border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
-    padding: var(--space-sm);                       /* 8px */
+    padding: var(--space-sm);
     z-index: 100;
-    animation: dropFade 0.15s ease;                 /* animation xuất hiện mượt */
+    animation: dropFade 0.15s ease;
 }
 
 .nav-item--dropdown:hover .dropdown-simple,
 .nav-item--dropdown.open .dropdown-simple,
 .nav-item--dropdown:hover .dropdown-mega,
 .nav-item--dropdown.open .dropdown-mega {
-    display: block;                                 /* hiện khi hover hoặc click (hỗ trợ touch) */
+    display: block;
 }
 
-/* Animation dropdown xuất hiện */
 @keyframes dropFade {
-    from { opacity: 0; transform: translateY(-6px); }
+    from { opacity: 0; transform: translateY(-4px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
@@ -158,13 +176,13 @@
 }
 
 .dropdown-simple--wide {
-    min-width: 250px;                               /* rộng hơn cho mục Thông tin & Hướng dẫn */
+    min-width: 210px;
 }
 
 .dropdown-item {
     display: block;
     padding: 8px 10px;
-    font-size: var(--text-sm);                      /* 14px */
+    font-size: var(--text-sm);
     color: var(--text-medium);
     text-decoration: none;
     border-radius: var(--radius-sm);
@@ -174,106 +192,101 @@
 .dropdown-item:hover {
     background: var(--bg-secondary);
     color: var(--text-dark);
-    padding-left: 14px;                             /* dịch nhẹ sang phải khi hover */
+    padding-left: 14px;
 }
 
 
 /* ══════════════════════════════════════════════════════════
-   6. MEGA MENU (Khám phá — 2 cột Tây Bắc / Đông Bắc)
+   6. MEGA MENU (Khám phá — hiển thị NGANG, text thuần)
    ══════════════════════════════════════════════════════════ */
 .dropdown-mega {
-    min-width: 460px;
-    left: -100px;                                   /* dịch sang trái để căn giữa hơn */
+    min-width: 540px;
+    left: -140px;
+    padding: 10px var(--space-md);
 }
 
-/* Override display:block — mega menu dùng grid 2 cột */
-.nav-item--dropdown:hover .dropdown-mega,
-.nav-item--dropdown.open .dropdown-mega {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-xs);
-}
-
-.mega-col {
-    padding: var(--space-xs) var(--space-sm);
-}
-
-/* Đường kẻ dọc phân cách 2 cột */
-.mega-col:first-child {
-    border-right: 0.5px solid var(--border-color-light);
-}
-
-/* Tiêu đề vùng (Tây Bắc / Đông Bắc) */
-.mega-region {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--text-dark);
-    padding: 4px var(--space-sm);
-    margin-bottom: var(--space-xs);
-    letter-spacing: 0.03em;
-}
-
-/* Link từng địa điểm */
-.mega-item {
+/* Mỗi vùng là 1 hàng ngang */
+.mega-group {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 7px 10px;
-    border-radius: var(--radius-sm);
+    gap: 0;
+    padding: 7px 0;
+}
+
+.mega-group + .mega-group {
+    border-top: 0.5px solid var(--border-color-light);
+}
+
+/* Tên vùng — là link, cố định width để 2 hàng thẳng cột */
+.mega-region-link {
     font-size: var(--text-sm);
-    color: var(--text-medium);
+    font-weight: 700;
+    color: var(--color-primary);
     text-decoration: none;
+    white-space: nowrap;
+    width: 90px;
+    flex-shrink: 0;
+    padding: 4px 0;
     transition: var(--transition);
 }
 
-.mega-item:hover {
-    background: var(--bg-secondary);
-    color: var(--text-dark);
+.mega-region-link:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
 }
 
-/* Mùa đẹp nhất — text nhỏ màu xanh bên phải */
-.mega-season {
-    font-size: 10px;
-    color: var(--color-primary);                    /* #3D7A5C xanh rừng */
-    font-weight: 500;
-    margin-left: var(--space-sm);
-    white-space: nowrap;
+/* Đường kẻ dọc ngăn cách vùng và địa điểm */
+.mega-sep {
+    width: 0.5px;
+    height: 16px;
+    background: var(--border-color);
+    margin: 0 14px;
+    flex-shrink: 0;
 }
 
+/* Hàng địa điểm */
+.mega-dest-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+/* Link địa điểm — text thuần, không chip */
+.mega-dest-item {
+    font-size: var(--text-sm);
+    color: var(--text-medium);
+    text-decoration: none;
+    padding: 4px 10px;
+    transition: var(--transition);
+    position: relative;
+}
+
+/* Dấu · phân cách giữa các địa điểm */
+.mega-dest-item + .mega-dest-item::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--border-color);
+}
+
+.mega-dest-item:hover {
+    color: var(--color-primary);
+}
 
 /* ══════════════════════════════════════════════════════════
-   7. NÚT ĐẶT TOUR + navToggle MOBILE
+   7. NÚT HEADER + navToggle MOBILE
+   (Đã bỏ .btn-dat-tour)
    ══════════════════════════════════════════════════════════ */
 .header-actions {
     display: flex;
     align-items: center;
     gap: var(--space-sm);
-    flex-shrink: 0;                                 /* không co lại */
+    flex-shrink: 0;
 }
 
-/* Nút "Đặt tour" — cam nổi bật góc phải */
-.btn-dat-tour {
-    display: inline-flex;
-    align-items: center;
-    padding: 8px 18px;
-    background: var(--color-cta);                   /* #E8693A cam */
-    color: var(--text-white);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: var(--radius-sm);
-    transition: var(--transition);
-    white-space: nowrap;
-}
-
-.btn-dat-tour:hover {
-    background: var(--color-cta-dark);              /* cam tối hơn khi hover */
-    transform: translateY(-1px);
-}
-
-/* navToggle — 3 gạch ngang, chỉ hiện trên mobile */
+/* navToggle — chỉ hiện trên mobile */
 .navToggle {
-    display: none;                                  /* ẩn trên desktop */
+    display: none;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
@@ -295,7 +308,6 @@
     transition: var(--transition);
 }
 
-/* navToggle animation khi menu đang mở */
 .navToggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .navToggle.open span:nth-child(2) { opacity: 0; }
 .navToggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -304,29 +316,22 @@
 /* ══════════════════════════════════════════════════════════
    8. RESPONSIVE
    ══════════════════════════════════════════════════════════ */
-
-/* Tablet — thu nhỏ font nav */
 @media (max-width: 1100px) {
     .nav-link      { font-size: 12px; padding: 6px 7px; }
-    .mega-season   { display: none; }              /* ẩn text mùa cho gọn */
-    .dropdown-mega { min-width: 340px; left: -60px; }
+    .dropdown-mega { min-width: 480px; left: -120px; }
 }
 
-/* Mobile — ẩn nav, hiện navToggle */
 @media (max-width: 768px) {
+    .main-nav          { display: none; }
+    .main-nav.open     { display: block; }
+    .navToggle         { display: flex; }
 
-    .main-nav          { display: none; }           /* ẩn nav mặc định */
-    .main-nav.open     { display: block; }          /* hiện khi navToggle được bấm */
-    .navToggle         { display: flex; }           /* hiện nút navToggle */
-    .btn-dat-tour      { display: none; }           /* ẩn nút Đặt tour để tiết kiệm chỗ */
-
-    /* Nav mở ra thành menu dọc */
     .nav-list {
         flex-direction: column;
         align-items: stretch;
         gap: 0;
         position: absolute;
-        top: 68px; left: 0; right: 0;              /* mở ra ngay dưới header */
+        top: 68px; left: 0; right: 0;
         background: var(--bg-primary);
         border-bottom: 0.5px solid var(--border-color);
         box-shadow: var(--shadow-md);
@@ -335,25 +340,85 @@
 
     .nav-link { width: 100%; padding: 12px var(--space-lg); }
 
-    /* Dropdown trên mobile — hiện thẳng trong luồng, không absolute */
+    /* Trên mobile dropdown dạng static */
     .dropdown-simple,
     .dropdown-mega {
         position: static;
         box-shadow: none;
         border: none;
         border-radius: 0;
-        padding-left: var(--space-xl);              /* thụt vào để phân cấp rõ */
+        padding-left: var(--space-xl);
         animation: none;
         display: none;
+        min-width: unset;
     }
 
-    /* Khi nav item được click (toggle bằng JS) */
     .nav-item--dropdown.open .dropdown-simple,
     .nav-item--dropdown.open .dropdown-mega {
         display: block;
     }
 
-    .dropdown-mega        { grid-template-columns: 1fr; } /* 1 cột thay vì 2 cột */
-    .mega-col:first-child { border-right: none; }         /* bỏ đường kẻ dọc */
-    .mega-season          { display: inline; }            /* hiện lại text mùa */
+    /* Trên mobile: chips xuống dòng bình thường */
+    .mega-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .mega-group-label { width: auto; }
+
+    .mega-dest-row { flex-wrap: wrap; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   SUBMENU (Nested flyout — Tây Bắc / Đông Bắc)
+   ══════════════════════════════════════════════════════════ */
+
+/* Item cha có chứa submenu con */
+.dropdown-item--has-sub {
+    position: relative;
+}
+
+/* Mũi tên › bên phải item cha */
+.dropdown-item--has-sub > .dropdown-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.sub-arrow {
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1;
+}
+
+/* Submenu con — ẩn mặc định */
+.dropdown-sub {
+    display: none;
+    position: absolute;
+    top: -6px;
+    left: 100%;                              /* Trượt ra bên phải */
+    min-width: 160px;
+    background: var(--bg-primary);
+    border: 0.5px solid var(--border-color-light);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-sm);
+    z-index: 101;
+    animation: dropFade 0.15s ease;
+}
+
+/* Hiện submenu khi hover vào item cha */
+.dropdown-item--has-sub:hover .dropdown-sub {
+    display: block;
+}
+
+/* Cầu nối để chuột di chuyển sang submenu không bị mất */
+.dropdown-item--has-sub::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -8px;
+    width: 8px;
+    height: 100%;
 }
