@@ -1,8 +1,14 @@
-/* 1. Thiết lập Banner đỉnh trang */
+/* ==========================================================================
+   CSS HỆ THỐNG VĂN BẢN CHÍNH SÁCH & TRANG ĐIỀU HƯỚNG TRUNG TÂM (GỘP CHUNG)
+   ========================================================================== */
+
+/* ==========================================
+   1. THIẾT LẬP BANNER ĐỈNH TRANG (GIỮ NGUYÊN)
+   ========================================== */
 .policy-banner {
     position: relative;
     width: 100%;
-    height: 350px;
+    height: 400px;
     background-image: url('/images/2_YTy/MNYT01/MNYT01_01.jpg');
     background-size: cover;
     background-position: center;
@@ -29,78 +35,86 @@
 }
 
 .policy-banner-content h1 {
-    font-family: var(--font-heading); /* */
+    font-family: var(--font-heading);
     font-size: 42px;
-    color: var(--text-white); /* */
+    color: var(--text-white);
     margin: 0;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* 2. Khung Container ôm sát lề, rộng rãi thoáng đãng */
+/* ==========================================
+   2. KHUNG CONTAINER ÔM SÁT LỀ (GIỮ NGUYÊN)
+   ========================================== */
 .policy-container {
     width: 100%;
-    max-width: 1400px; /* Layout nới rộng thoải mái, hạn chế tối đa lề trống thừa */
-    margin: var(--space-xl) auto; /* Khoảng cách cách section */
-    padding: 0 var(--space-xl); /* */
+    max-width: 1400px;
+    margin: -60px auto var(--space-xl) auto; /* 1. Đẩy margin-top âm chung cho tất cả các trang */
+    padding: 0 var(--space-xl);
+    position: relative;                      /* 2. Kích hoạt thuộc tính định vị */
+    z-index: 10;                             /* 3. Ép khung nổi lên trên lớp banner overlay */
+    box-sizing: border-box;
 }
 
 /* Khối card nền trắng sạch sẽ */
 .policy-card {
-    background: var(--bg-white); /* */
+    background: var(--bg-white);
     padding: var(--space-xl) 60px; /* Đẩy padding trái phải rộng ra cho thoáng nội dung */
-    border-radius: var(--radius-lg); /* */
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md); /* Giúp đè nhẹ mượt mà lên phần banner phía trên */
 }
 
-/* 3. Cấu trúc trình bày văn bản tối giản theo mẫu mới */
+/* ==========================================
+   3. CẤU TRÚC TRÌNH BÀY VĂN BẢN (GIỮ NGUYÊN)
+   ========================================== */
 .policy-section {
     margin-bottom: var(--space-lg); /* Khoảng cách rộng rãi giữa mục 1, mục 2, mục 3 */
 }
 
 .policy-title {
-    font-family: var(--font-heading); /* */
+    font-family: var(--font-heading);
     font-size: var(--text-2xl); /* Cỡ chữ 24px chuẩn tiêu đề phụ */
     font-weight: 700;
-    color: var(--text-dark); /* */
+    color: var(--text-dark);
     margin-top: 0;
-    margin-bottom: var(--space-md); /* */
+    margin-bottom: var(--space-md);
 }
 
 .policy-text {
-    font-family: var(--font-body); /* */
-    font-size: var(--text-base); /* */
+    font-family: var(--font-body);
+    font-size: var(--text-base);
     line-height: 1.7;
     color: var(--text-dark); /* Sử dụng chữ xanh rêu đậm theo mẫu */
-    margin-bottom: var(--space-sm); /* */
+    margin-bottom: var(--space-sm);
 }
 
 /* Kiểu chữ in nghiêng cho chú thích nhỏ */
 .policy-text--italic {
     font-style: italic;
-    color: var(--text-medium); /* */
-    margin-bottom: var(--space-md); /* */
+    color: var(--text-medium);
+    margin-bottom: var(--space-md);
 }
 
 /* Khối nội dung con thụt lề nhẹ vào trong */
 .policy-sub-content {
-    margin-top: var(--space-md); /* */
+    margin-top: var(--space-md);
 }
 
 .policy-sub-title {
-    font-family: var(--font-body); /* */
-    font-size: var(--text-base); /* */
+    font-family: var(--font-body);
+    font-size: var(--text-base);
     font-weight: 700;
-    color: var(--text-dark); /* */
+    color: var(--text-dark);
     margin-top: 0;
-    margin-bottom: var(--space-sm); /* */
+    margin-bottom: var(--space-sm);
 }
 
 .policy-sub-heading {
-    font-family: var(--font-heading); /* */
+    font-family: var(--font-heading);
     font-size: var(--text-lg); /* Nổi bật hơn text thường một chút (18px) */
     font-weight: 700;
-    color: var(--text-dark); /* */
+    color: var(--text-dark);
     margin-top: 0;
-    margin-bottom: var(--space-sm); /* */
+    margin-bottom: var(--space-sm);
 }
 
 /* Định dạng danh sách text trơn không chấm tròn, thụt lề chuẩn */
@@ -113,27 +127,219 @@
 
 .policy-list li, 
 .policy-ordered-list li {
-    font-family: var(--font-body); /* */
-    font-size: var(--text-base); /* */
+    font-family: var(--font-body);
+    font-size: var(--text-base);
     line-height: 1.7;
     color: var(--text-dark);
-    margin-bottom: var(--space-sm); /* */
+    margin-bottom: var(--space-sm);
 }
 
-/* =====================================
-   STYLE CHO TRANG HÌNH THỨC THANH TOÁN
-   ===================================== */
 
-/* Khung chứa chia 2 cột */
+/* =============================================
+   4. BỔ SUNG: STYLE CHO TRANG CHUNG ĐIỀU HƯỚNG 
+   ============================================= */
+
+/* Lời chào đầu trang */
+.hub-welcome {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.hub-welcome h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    color: var(--text-dark);
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Ép icon đầu đoạn văn về màu xanh rêu chủ đạo */
+.hub-welcome h2 i {
+    color: var(--color-primary);
+}
+
+.hub-welcome p {
+    font-size: var(--text-base);
+    color: var(--text-medium);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Grid 3 cột theo đúng thiết kế mẫu */
+.hub-grid-primary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+/* Thẻ card điều hướng con */
+.hub-nav-card {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: var(--transition);
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Hiệu ứng nhấc nhẹ lên và đổi màu viền khi hover */
+.hub-nav-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary-light);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Khung bọc tròn chứa icon */
+.hub-card-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    background-color: var(--color-primary-bg); /* Nền rêu nhạt */
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+}
+
+.hub-card-icon-wrapper i {
+    font-size: 18px;
+    color: var(--color-primary); /* Icon rêu thương hiệu */
+}
+
+/* Màu cam nhạt cảnh báo dịu mắt riêng cho mục Hoàn Hủy */
+.hub-card-icon-wrapper.icon-warning {
+    background-color: var(--color-cta-bg);
+}
+.hub-card-icon-wrapper.icon-warning i {
+    color: var(--color-cta);
+}
+
+.hub-card-info h3 {
+    margin: 0 0 8px 0;
+    font-family: var(--font-heading);
+    font-size: var(--text-md);
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.hub-card-info p {
+    margin: 0 0 20px 0;
+    font-size: var(--text-xs);
+    color: var(--text-medium);
+    line-height: 1.5;
+    min-height: 65px; /* Giữ cân bằng chiều cao cho cả 3 card hàng ngang */
+}
+
+/* Link điều hướng "Xem chi tiết" ở đáy card */
+.hub-card-link {
+    font-size: var(--text-xs);
+    color: var(--color-primary);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: auto; /* Ép dòng link bám sát đáy card */
+    transition: gap 0.2s ease;
+}
+
+.hub-nav-card:hover .hub-card-link {
+    gap: 10px; /* Mũi tên dịch phải mượt mà khi hover */
+    color: var(--color-primary-dark);
+}
+
+/* Vạch ngăn nét đứt tinh tế */
+.hub-divider {
+    border: none;
+    border-top: 1px dashed var(--border-color);
+    margin: var(--space-lg) 0;
+}
+
+/* Danh sách pháp lý phụ nằm ngang */
+.hub-legal-section h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-md);
+    color: var(--text-dark);
+    font-weight: 700;
+    margin: 0 0 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hub-list-secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.hub-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background-color: var(--bg-primary);
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.hub-list-item:hover {
+    background-color: var(--color-primary-bg);
+    border-color: var(--color-primary-light);
+}
+
+.hub-item-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.hub-item-left i {
+    font-size: 16px;
+    color: var(--text-medium);
+    width: 20px;
+    text-align: center;
+}
+
+.hub-item-left span {
+    font-size: var(--text-sm);
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.hub-chevron {
+    font-size: 14px;
+    color: var(--text-light);
+    transition: transform 0.2s ease;
+}
+
+.hub-list-item:hover .hub-chevron {
+    transform: translateX(4px);
+}
+
+
+/* ==========================================
+   5. STYLE CHO TRANG HÌNH THỨC THANH TOÁN (GIỮ NGUYÊN)
+   ========================================== */
 .payment-container {
     display: flex;
     gap: 30px;
     align-items: flex-start;
     margin-top: 15px;
-    flex-wrap: wrap; /* Tự động xuống hàng mượt mà trên điện thoại */
+    flex-wrap: wrap;
 }
 
-/* Khối QR bên trái */
 .payment-qr-box {
     flex: 0 0 250px;
     max-width: 250px;
@@ -149,13 +355,11 @@
     display: block;
 }
 
-/* Khối thông tin bên phải */
 .payment-info-box {
     flex: 1;
     min-width: 300px;
 }
 
-/* Định dạng bảng giống hệt ảnh mẫu */
 .payment-table {
     width: 100%;
     border-collapse: collapse;
@@ -167,7 +371,6 @@
     border-bottom: 1px solid #f0f0f0;
 }
 
-/* Đổ nền xám xen kẽ cho các dòng (Row striped) giống mẫu */
 .payment-table tr:nth-child(odd) {
     background-color: #f9f9f9;
 }
@@ -182,19 +385,16 @@
     color: #333333;
 }
 
-/* Cột tiêu đề bên trái */
 .payment-table td.label-cell {
     width: 30%;
     color: #666666;
 }
 
-/* Cột nội dung bên phải */
 .payment-table td.value-cell {
     width: 70%;
-    text-transform: uppercase; /* Viết hoa toàn bộ tên và ngân hàng giống ảnh */
+    text-transform: uppercase;
 }
 
-/* Khối ghi chú chữ nhỏ phía dưới */
 .payment-note {
     font-size: 13.5px;
     color: #555555;
@@ -203,19 +403,4 @@
 
 .payment-note p {
     margin: 5px 0;
-}
-
-/* Responsive cho màn hình điện thoại nhỏ */
-@media (max-width: 600px) {
-    .payment-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .payment-qr-box {
-        flex: 0 0 220px;
-        margin-bottom: 15px;
-    }
-    .payment-table td.label-cell {
-        width: 40%;
-    }
 }
