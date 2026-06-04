@@ -21,6 +21,8 @@
   --color-cta: #E8693A;            /* Màu Cam đặc: Dùng cho nút "Đặt tour ngay", badge HOT, giá tiền */
   --color-cta-dark: #C4502A;       /* Màu Cam tối: Dùng khi rê chuột (hover) vào nút "Đặt tour" */
   --color-cta-bg: rgba(232, 105, 58, 0.12); /* Màu Cam nhạt: Dùng cho nền badge "Khuyến mãi" */
+  --color-accent-light: #F5C842;   /* Vàng sáng hơn cho footer */
+  --color-cta-light:    #FF8C5A;   /* Cam sáng hơn cho footer */
   /* Thêm vào nhóm 3. MÀU NỔI BẬT, ngay dưới --color-cta-bg */
   --color-xuyen-bg: rgba(130, 26, 214, 0.10); /* Tím nhạt: nền badge xuyên vùng */
   --color-xuyen: #821AD6;          /* Màu Tím: Dùng riêng cho badge "Tour xuyên vùng" */
