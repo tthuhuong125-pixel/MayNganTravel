@@ -1,0 +1,278 @@
+/* ==========================================================================
+   MAYNGAN TRAVEL - TRANG_DANH_SACH_TOURS.CSS
+   Kế thừa toàn bộ hệ thống token từ variables.css & components.css
+   ========================================================================== */
+
+.tour-page-wrapper {
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-xl);
+}
+
+.page-title-block {
+  margin-bottom: var(--space-lg);
+}
+
+.page-title-block h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.badge-recommend {
+  background-color: #E2ECD8;
+  color: var(--color-primary-dark);
+  font-size: var(--text-xs);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+}
+
+/* BỐ CỤC CHÍNH (LAYOUT SPLIT) */
+.layout-main {
+  display: flex;
+  gap: var(--space-xl);
+  align-items: flex-start;
+}
+
+/* 1. SIDEBAR BỘ LỌC BÊN TRÁI */
+.filter-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background-color: #FFFDF9; /* Nền kem nhẹ phối cùng mockup */
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.filter-group {
+  border-bottom: 1px solid var(--border-color-light);
+  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.filter-group:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.filter-group__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: var(--space-sm);
+  position: relative;
+}
+
+/* Tạo mũi tên nhỏ đi kèm title bộ lọc */
+.filter-group__title::after {
+  content: "▾";
+  position: absolute;
+  right: 0;
+  color: var(--text-light);
+}
+
+.filter-group__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--text-sm);
+  color: var(--text-dark);
+  cursor: pointer;
+}
+
+.checkbox-label input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-primary); /* Đổi màu checkbox sang xanh rừng thương hiệu */
+  cursor: pointer;
+}
+
+/* 2. KHU VỰC HIỂN THỊ TOURS BÊN PHẢI */
+.tours-content {
+  flex-1: 1;
+  width: 100%;
+}
+
+.section-label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--text-light);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+
+/* Bộ lọc chips điểm đến */
+.destination-filter {
+  margin-bottom: var(--space-md);
+}
+
+.chips-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+/* Định dạng thanh sắp xếp */
+.sort-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.sort-bar .section-label {
+  margin-bottom: 0;
+}
+
+.sort-options {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.sort-btn {
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
+  padding: 6px 14px;
+  font-size: var(--text-sm);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--text-medium);
+}
+
+.sort-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.sort-btn.active {
+  background-color: var(--color-primary);
+  color: var(--text-white);
+  border-color: var(--color-primary);
+}
+
+/* Thống kê số lượng tìm thấy */
+.results-count {
+  font-size: var(--text-sm);
+  color: var(--text-medium);
+  margin-bottom: var(--space-md);
+}
+
+/* LƯỚI TOURS - CHI CHẼ ĐÚNG 4 CỘT */
+.tours-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Ép 4 tour trên 1 hàng */
+  gap: var(--space-md);
+}
+
+/* Sửa đổi bổ sung cấu trúc thẻ tour-card */
+.tour-card__img-holder {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-secondary);
+  aspect-ratio: 16 / 10;
+}
+
+/* Hiệu ứng zoom mượt mà khi rê chuột vào ảnh tour */
+.tour-card:hover .tour-card__img {
+  transform: scale(1.06);
+}
+
+.tour-card__img {
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.tour-card__title {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+  color: var(--text-dark);
+  line-height: 1.4;
+  /* Giới hạn tên tour trong 1 dòng không bị vỡ layout */
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tour-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: var(--space-sm);
+}
+
+.tour-card__info {
+  font-size: var(--text-xs);
+  color: var(--text-light);
+  margin-bottom: var(--space-xs);
+}
+
+/* NÚT BACK TO TOP */
+.back-to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 44px;
+  height: 44px;
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  z-index: 999;
+}
+
+.back-to-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top-btn:hover {
+  background-color: var(--color-primary);
+  color: var(--text-white);
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
+}
+
+/* RESPONSIVE LAYOUT */
+@media (max-width: 1200px) {
+  .tours-grid {
+    grid-template-columns: repeat(3, 1fr); /* Màn vừa chuyển thành 3 cột */
+  }
+}
+
+@media (max-width: 992px) {
+  .layout-main {
+    flex-direction: column;
+  }
+  .filter-sidebar {
+    width: 100%;
+  }
+  .tours-grid {
+    grid-template-columns: repeat(2, 1fr); /* Màn máy tính bảng thành 2 cột */
+  }
+}
+
+@media (max-width: 576px) {
+  .tours-grid {
+    grid-template-columns: 1fr; /* Điện thoại thành 1 cột */
+  }
+}
