@@ -151,7 +151,7 @@ html { scroll-behavior: smooth; }
     text-align: justify;
 }
 
-.tour-content p  { margin: var(--space-sm) 0; }
+.tour-content p  { margin: var(--space-lg) 0; }
 
 .tour-content ul {
     padding-left: 20px;

@@ -1,0 +1,221 @@
+/* 1. Thiết lập Banner đỉnh trang */
+.policy-banner {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    background-image: url('/Ảnh/2. Y Tý/MNYT01/MNYT01_01.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.policy-banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.203); /* Lớp phủ đen mờ bảo toàn độ tương phản cho text */
+    z-index: 1;
+}
+
+.policy-banner-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.policy-banner-content h1 {
+    font-family: var(--font-heading); /* */
+    font-size: 42px;
+    color: var(--text-white); /* */
+    margin: 0;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* 2. Khung Container ôm sát lề, rộng rãi thoáng đãng */
+.policy-container {
+    width: 100%;
+    max-width: 1400px; /* Layout nới rộng thoải mái, hạn chế tối đa lề trống thừa */
+    margin: var(--space-xl) auto; /* Khoảng cách cách section */
+    padding: 0 var(--space-xl); /* */
+}
+
+/* Khối card nền trắng sạch sẽ */
+.policy-card {
+    background: var(--bg-white); /* */
+    padding: var(--space-xl) 60px; /* Đẩy padding trái phải rộng ra cho thoáng nội dung */
+    border-radius: var(--radius-lg); /* */
+}
+
+/* 3. Cấu trúc trình bày văn bản tối giản theo mẫu mới */
+.policy-section {
+    margin-bottom: var(--space-lg); /* Khoảng cách rộng rãi giữa mục 1, mục 2, mục 3 */
+}
+
+.policy-title {
+    font-family: var(--font-heading); /* */
+    font-size: var(--text-2xl); /* Cỡ chữ 24px chuẩn tiêu đề phụ */
+    font-weight: 700;
+    color: var(--text-dark); /* */
+    margin-top: 0;
+    margin-bottom: var(--space-md); /* */
+}
+
+.policy-text {
+    font-family: var(--font-body); /* */
+    font-size: var(--text-base); /* */
+    line-height: 1.7;
+    color: var(--text-dark); /* Sử dụng chữ xanh rêu đậm theo mẫu */
+    margin-bottom: var(--space-sm); /* */
+}
+
+/* Kiểu chữ in nghiêng cho chú thích nhỏ */
+.policy-text--italic {
+    font-style: italic;
+    color: var(--text-medium); /* */
+    margin-bottom: var(--space-md); /* */
+}
+
+/* Khối nội dung con thụt lề nhẹ vào trong */
+.policy-sub-content {
+    margin-top: var(--space-md); /* */
+}
+
+.policy-sub-title {
+    font-family: var(--font-body); /* */
+    font-size: var(--text-base); /* */
+    font-weight: 700;
+    color: var(--text-dark); /* */
+    margin-top: 0;
+    margin-bottom: var(--space-sm); /* */
+}
+
+.policy-sub-heading {
+    font-family: var(--font-heading); /* */
+    font-size: var(--text-lg); /* Nổi bật hơn text thường một chút (18px) */
+    font-weight: 700;
+    color: var(--text-dark); /* */
+    margin-top: 0;
+    margin-bottom: var(--space-sm); /* */
+}
+
+/* Định dạng danh sách text trơn không chấm tròn, thụt lề chuẩn */
+.policy-list, 
+.policy-ordered-list {
+    margin: 0;
+    padding: 0;
+    padding-left: 20px;
+}
+
+.policy-list li, 
+.policy-ordered-list li {
+    font-family: var(--font-body); /* */
+    font-size: var(--text-base); /* */
+    line-height: 1.7;
+    color: var(--text-dark);
+    margin-bottom: var(--space-sm); /* */
+}
+
+/* =====================================
+   STYLE CHO TRANG HÌNH THỨC THANH TOÁN
+   ===================================== */
+
+/* Khung chứa chia 2 cột */
+.payment-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin-top: 15px;
+    flex-wrap: wrap; /* Tự động xuống hàng mượt mà trên điện thoại */
+}
+
+/* Khối QR bên trái */
+.payment-qr-box {
+    flex: 0 0 250px;
+    max-width: 250px;
+    border: 1px solid #e0e0e0;
+    padding: 8px;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+.payment-qr-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Khối thông tin bên phải */
+.payment-info-box {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Định dạng bảng giống hệt ảnh mẫu */
+.payment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.payment-table tr {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Đổ nền xám xen kẽ cho các dòng (Row striped) giống mẫu */
+.payment-table tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.payment-table tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.payment-table td {
+    padding: 12px 15px;
+    vertical-align: middle;
+    color: #333333;
+}
+
+/* Cột tiêu đề bên trái */
+.payment-table td.label-cell {
+    width: 30%;
+    color: #666666;
+}
+
+/* Cột nội dung bên phải */
+.payment-table td.value-cell {
+    width: 70%;
+    text-transform: uppercase; /* Viết hoa toàn bộ tên và ngân hàng giống ảnh */
+}
+
+/* Khối ghi chú chữ nhỏ phía dưới */
+.payment-note {
+    font-size: 13.5px;
+    color: #555555;
+    line-height: 1.6;
+}
+
+.payment-note p {
+    margin: 5px 0;
+}
+
+/* Responsive cho màn hình điện thoại nhỏ */
+@media (max-width: 600px) {
+    .payment-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .payment-qr-box {
+        flex: 0 0 220px;
+        margin-bottom: 15px;
+    }
+    .payment-table td.label-cell {
+        width: 40%;
+    }
+}
