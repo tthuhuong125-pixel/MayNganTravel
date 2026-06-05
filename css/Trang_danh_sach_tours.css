@@ -1,47 +1,46 @@
 /* ==========================================================================
-   MAYNGAN TRAVEL - TRANG_DANH_SACH_TOURS.CSS
-   Kế thừa toàn bộ hệ thống token từ variables.css & components.css
+   MAYNGAN TRAVEL — TRANG_DANH_SACH_TOURS.CSS
+   CSS riêng cho trang danh sách tour
+   Kế thừa: variables.css → base.css → components.css → components_additions.css
+   File này CHỈ chứa override / bố cục riêng của trang — không redefine components
    ========================================================================== */
 
+
+/* ══════════════════════════════════════════════════════════
+   BỐ CỤC TRANG
+   ══════════════════════════════════════════════════════════ */
 .tour-page-wrapper {
   padding-top: var(--space-lg);
-  padding-bottom: var(--space-xl);
+  padding-bottom: var(--space-2xl);
 }
 
 .page-title-block {
   margin-bottom: var(--space-lg);
 }
 
-.page-title-block h2 {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-}
-
-.badge-recommend {
-  background-color: #E2ECD8;
-  color: var(--color-primary-dark);
-  font-size: var(--text-xs);
-  padding: 4px 10px;
-  border-radius: var(--radius-full);
-  font-weight: 600;
-}
-
-/* BỐ CỤC CHÍNH (LAYOUT SPLIT) */
+/* Layout 2 cột: sidebar trái + content phải */
 .layout-main {
   display: flex;
   gap: var(--space-xl);
   align-items: flex-start;
 }
 
-/* 1. SIDEBAR BỘ LỌC BÊN TRÁI */
+
+/* ══════════════════════════════════════════════════════════
+   SIDEBAR BỘ LỌC
+   ══════════════════════════════════════════════════════════ */
 .filter-sidebar {
-  width: 260px;
+  width: 240px;
   flex-shrink: 0;
-  background-color: #FFFDF9; /* Nền kem nhẹ phối cùng mockup */
+  background: #FFFDF9;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: var(--space-md);
+  /* Dính khi cuộn — header cao ~60px nên top: 80px */
+  position: sticky;
+  top: 80px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
 }
 
 .filter-group {
@@ -49,7 +48,6 @@
   padding-bottom: var(--space-md);
   margin-bottom: var(--space-md);
 }
-
 .filter-group:last-child {
   border-bottom: none;
   padding-bottom: 0;
@@ -62,15 +60,15 @@
   font-weight: 700;
   color: var(--text-dark);
   margin-bottom: var(--space-sm);
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
 }
-
-/* Tạo mũi tên nhỏ đi kèm title bộ lọc */
 .filter-group__title::after {
   content: "▾";
-  position: absolute;
-  right: 0;
   color: var(--text-light);
+  font-size: var(--text-sm);
 }
 
 .filter-group__content {
@@ -87,56 +85,57 @@
   color: var(--text-dark);
   cursor: pointer;
 }
-
-.checkbox-label input {
+.checkbox-label input[type="checkbox"] {
   width: 16px;
   height: 16px;
-  accent-color: var(--color-primary); /* Đổi màu checkbox sang xanh rừng thương hiệu */
+  accent-color: var(--color-primary);
   cursor: pointer;
+  flex-shrink: 0;
 }
 
-/* 2. KHU VỰC HIỂN THỊ TOURS BÊN PHẢI */
+
+/* ══════════════════════════════════════════════════════════
+   KHU VỰC CONTENT TOUR
+   ══════════════════════════════════════════════════════════ */
 .tours-content {
-  flex-1: 1;
-  width: 100%;
+  flex: 1;
+  min-width: 0;       /* ngăn overflow trong flexbox */
 }
 
 .section-label {
+  display: block;
   font-size: var(--text-xs);
   font-weight: 700;
   color: var(--text-light);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: var(--space-sm);
-  display: block;
 }
 
-/* Bộ lọc chips điểm đến */
+/* ── Chips điểm đến ── */
 .destination-filter {
   margin-bottom: var(--space-md);
 }
-
 .chips-group {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-sm);
 }
 
-/* Định dạng thanh sắp xếp */
+/* ── Thanh sắp xếp ── */
 .sort-bar {
   display: flex;
   align-items: center;
   gap: var(--space-md);
   margin-bottom: var(--space-md);
+  flex-wrap: wrap;
 }
-
-.sort-bar .section-label {
-  margin-bottom: 0;
-}
+.sort-bar .section-label { margin-bottom: 0; }
 
 .sort-options {
   display: flex;
   gap: var(--space-xs);
+  flex-wrap: wrap;
 }
 
 .sort-btn {
@@ -144,88 +143,66 @@
   border: 1px solid var(--border-color);
   padding: 6px 14px;
   font-size: var(--text-sm);
+  font-family: var(--font-body);
   border-radius: var(--radius-full);
+  color: var(--text-medium);
   cursor: pointer;
   transition: var(--transition);
-  color: var(--text-medium);
 }
-
 .sort-btn:hover {
   border-color: var(--color-primary);
   color: var(--color-primary);
 }
-
 .sort-btn.active {
-  background-color: var(--color-primary);
+  background: var(--color-primary);
   color: var(--text-white);
   border-color: var(--color-primary);
 }
 
-/* Thống kê số lượng tìm thấy */
+/* ── Bộ đếm ── */
 .results-count {
   font-size: var(--text-sm);
   color: var(--text-medium);
   margin-bottom: var(--space-md);
 }
 
-/* LƯỚI TOURS - CHI CHẼ ĐÚNG 4 CỘT */
+
+/* ══════════════════════════════════════════════════════════
+   LƯỚI TOUR — khai báo DUY NHẤT ở đây
+   components_additions.css định nghĩa .tour-card (thẻ đơn)
+   File này định nghĩa .tours-grid (lưới chứa các thẻ)
+   ══════════════════════════════════════════════════════════ */
 .tours-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Ép 4 tour trên 1 hàng */
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-md);
 }
 
-/* Sửa đổi bổ sung cấu trúc thẻ tour-card */
-.tour-card__img-holder {
-  position: relative;
-  overflow: hidden;
-  background-color: var(--bg-secondary);
-  aspect-ratio: 16 / 10;
-}
+/*
+  FIX 3: Bỏ "height: 190px" trên img.
+  components_additions.css dùng aspect-ratio: 16/10 trên .tour-card__img-wrap
+  và height: 100% trên .tour-card__img → chiều cao tự tính theo tỉ lệ.
+  Override height sẽ phá vỡ aspect-ratio.
+*/
 
-/* Hiệu ứng zoom mượt mà khi rê chuột vào ảnh tour */
-.tour-card:hover .tour-card__img {
-  transform: scale(1.06);
-}
-
-.tour-card__img {
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.tour-card__title {
+/* Giới hạn title 2 dòng trong lưới 3 cột */
+.tours-grid .tour-card__title {
   font-size: var(--text-sm);
-  font-weight: 700;
-  margin-bottom: var(--space-xs);
-  color: var(--text-dark);
-  line-height: 1.4;
-  /* Giới hạn tên tour trong 1 dòng không bị vỡ layout */
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  -webkit-line-clamp: 2;
+  min-height: 2.8em;
 }
 
-.tour-card__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin-bottom: var(--space-sm);
-}
 
-.tour-card__info {
-  font-size: var(--text-xs);
-  color: var(--text-light);
-  margin-bottom: var(--space-xs);
-}
-
-/* NÚT BACK TO TOP */
+/* ══════════════════════════════════════════════════════════
+   BACK TO TOP
+   ══════════════════════════════════════════════════════════ */
 .back-to-top-btn {
   position: fixed;
   bottom: 30px;
   right: 30px;
   width: 44px;
   height: 44px;
-  background-color: var(--bg-white);
+  background: var(--bg-white);
   color: var(--text-dark);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-full);
@@ -237,42 +214,46 @@
   opacity: 0;
   visibility: hidden;
   transition: var(--transition);
-  z-index: 999;
+  z-index: 900;
 }
-
 .back-to-top-btn.show {
   opacity: 1;
   visibility: visible;
 }
-
 .back-to-top-btn:hover {
-  background-color: var(--color-primary);
+  background: var(--color-primary);
   color: var(--text-white);
   border-color: var(--color-primary);
   transform: translateY(-3px);
 }
 
-/* RESPONSIVE LAYOUT */
-@media (max-width: 1200px) {
-  .tours-grid {
-    grid-template-columns: repeat(3, 1fr); /* Màn vừa chuyển thành 3 cột */
-  }
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════════════ */
+
+/* Màn hình < 1100px: sidebar hẹp hơn, grid 2 cột */
+@media (max-width: 1100px) {
+  .filter-sidebar { width: 200px; }
+  .tours-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 992px) {
-  .layout-main {
-    flex-direction: column;
-  }
+/* Tablet < 900px: sidebar xếp lên trên */
+@media (max-width: 900px) {
+  .layout-main { flex-direction: column; }
   .filter-sidebar {
     width: 100%;
+    position: static;
+    max-height: none;
+    overflow-y: visible;
   }
-  .tours-grid {
-    grid-template-columns: repeat(2, 1fr); /* Màn máy tính bảng thành 2 cột */
-  }
+  .tours-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
-@media (max-width: 576px) {
-  .tours-grid {
-    grid-template-columns: 1fr; /* Điện thoại thành 1 cột */
-  }
+@media (max-width: 680px) {
+  .tours-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 440px) {
+  .tours-grid { grid-template-columns: 1fr; }
 }
