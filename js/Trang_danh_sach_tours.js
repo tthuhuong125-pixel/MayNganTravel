@@ -76,7 +76,11 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       /* ── Hiện / ẩn ── */
-      const show = okDuration && okDeparture && okDest && okPrice;
+      let okSort = true;
+      if (currentSort === 'banchay') okSort = card.getAttribute('data-hot') === '1';
+      if (currentSort === 'moinhat') okSort = card.getAttribute('data-new') === '1';
+
+      const show = okDuration && okDeparture && okDest && okPrice && okSort;
       card.style.display = show ? '' : 'none';
       if (show) visibleCount++;
     });
@@ -93,13 +97,11 @@ document.addEventListener("DOMContentLoaded", function () {
           return parseInt(b.getAttribute('data-price-num'), 10)
                - parseInt(a.getAttribute('data-price-num'), 10);
         case 'moinhat':
-          return new Date(b.getAttribute('data-date'))
-               - new Date(a.getAttribute('data-date'));
+          return 0;  
         case 'banchay':
-        default:
-          return parseInt(b.getAttribute('data-sales'), 10)
-               - parseInt(a.getAttribute('data-sales'), 10);
-      }
+          default:
+          return 0;
+          }
     });
     sorted.forEach(card => tourGrid.appendChild(card));
   }

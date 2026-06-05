@@ -93,7 +93,7 @@ function renderTourCard(tour) {
          data-transport="${transport.text}"
          data-duration="${durationSlug}"
          data-price-num="${tour.price}"
-         data-destination="${tour.destSlug || ''}"
+         data-destination="${tour.destSlug || ''}">
 
       <!-- Vùng ảnh -->
       <div class="tour-card__img-wrap">
