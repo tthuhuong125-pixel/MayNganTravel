@@ -404,3 +404,81 @@
 .payment-note p {
     margin: 5px 0;
 }
+
+/* ==========================================================================
+   7. BỔ SUNG TOÀN DIỆN RESPONSIVE CHO TRANG CHUNG & CÁC TRANG CON
+   ========================================================================== */
+
+/* --- Giao diện cho Tablet & Màn hình vừa (Dưới 1024px) --- */
+@media (max-width: 1024px) {
+    .policy-container {
+        max-width: 100%;
+        padding: 0 var(--space-lg); /* Thu nhỏ lề hai bên lại một chút */
+        margin-top: -40px; /* Giảm độ đè lên banner cho đỡ ngợp */
+    }
+
+    .policy-card {
+        padding: var(--space-lg) 40px; /* Thu bớt không gian đệm trong card */
+    }
+
+    /* Bẻ Grid 3 cột của trang điều hướng chung thành 2 cột */
+    .hub-grid-primary {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* --- Giao diện cho Điện thoại Di động (Dưới 768px) --- */
+@media (max-width: 768px) {
+    .policy-banner {
+        height: 240px; /* Thu nhỏ chiều cao banner núi mây */
+    }
+
+    .policy-banner-content h1 {
+        font-size: var(--text-xl); /* Hạ cỡ chữ tiêu đề đỉnh trang xuống tầm 24px-28px */
+        padding: 0 var(--space-md);
+    }
+
+    .policy-container {
+        margin-top: -30px; /* Đẩy nhẹ lên để giữ hiệu ứng đè nhẹ tinh tế */
+        padding: 0 var(--space-md);
+    }
+
+    .policy-card {
+        padding: var(--space-md) var(--space-md); /* Co padding nhỏ nhất để chừa chỗ cho nội dung */
+        border-radius: var(--radius-md);
+    }
+
+    /* Tiêu đề các mục lớn */
+    .policy-title {
+        font-size: var(--text-lg); /* Giảm cỡ chữ tiêu đề xuống khoảng 18px-20px */
+        margin-bottom: var(--space-sm);
+    }
+
+    /* TRANG ĐIỀU HƯỚNG CHUNG: Bẻ gãy hoàn toàn thành 1 cột dọc */
+    .hub-grid-primary {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .hub-card-info p {
+        min-height: auto; /* Hủy bỏ việc khóa chiều cao dòng chữ mô tả */
+        margin-bottom: var(--space-sm);
+    }
+
+    /* TRANG HÌNH THỨC THANH TOÁN: Xếp khối QR và bảng thông tin thành hàng dọc */
+    .payment-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .payment-qr-box {
+        flex: 0 0 200px;
+        max-width: 200px; /* Thu nhỏ ảnh QR cho vừa màn hình dọc */
+    }
+
+    .payment-table td.label-cell {
+        width: 40%; /* Nới rộng cột tiêu đề bảng bên trái một chút trên mobile */
+    }
+}
