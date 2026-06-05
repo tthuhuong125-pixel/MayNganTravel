@@ -31,8 +31,6 @@ const TOURS_DATA = [
     primaryDest: 'Sapa',
     otherDests: [],
     link: '../tour/chi_tiet/MNSP01.html',
-    sales: 50,
-    dateAdded: '2026-05-30',
     destSlug: 'laocai'
   },
   {
@@ -52,8 +50,6 @@ const TOURS_DATA = [
     primaryDest: 'Sa Pa',
     otherDests: ['Điện Biên', 'Lai Châu', 'Mộc Châu'],
     link: '../tour/chi_tiet/MNSP02.html',
-    sales: 88,
-    dateAdded: '2026-05-14',
     destSlug: 'laocai sonla'
   },
   {
@@ -73,8 +69,6 @@ const TOURS_DATA = [
     primaryDest: 'Sa Pa',
     otherDests: ['Lai Châu', 'Điện Biên', 'Mộc Châu'],
     link: '../tour/chi_tiet/MNSP03.html',
-    sales: 42,
-    dateAdded: '2026-05-05',
     destSlug: 'laocai sonla'
   },
 
@@ -96,8 +90,6 @@ const TOURS_DATA = [
     primaryDest: 'Y Tý',
     otherDests: [],
     link: '../tour/chi_tiet/MNYT01.html',
-    sales: 72,
-    dateAdded: '2026-05-10',
     destSlug: 'yty laocai'
   },
   {
@@ -117,8 +109,6 @@ const TOURS_DATA = [
     primaryDest: 'Y Tý',
     otherDests: ['Bắc Hà'],
     link: '../tour/chi_tiet/MNYT02.html',
-    sales: 35,
-    dateAdded: '2026-05-12',
     destSlug: 'yty laocai'
   },
 
@@ -140,8 +130,6 @@ const TOURS_DATA = [
     primaryDest: 'Mộc Châu',
     otherDests: [],
     link: '../tour/chi_tiet/MNMC01.html',
-    sales: 45,
-    dateAdded: '2026-04-12',
     destSlug: 'sonla'
   },
   {
@@ -161,8 +149,6 @@ const TOURS_DATA = [
     primaryDest: 'Mộc Châu',
     otherDests: ['Tà Xùa'],
     link: '../tour/chi_tiet/MNMC02.html',
-    sales: 65,
-    dateAdded: '2026-05-22',
     destSlug: 'sonla'
   },
   {
@@ -182,8 +168,6 @@ const TOURS_DATA = [
     primaryDest: 'Mộc Châu',
     otherDests: ['Điện Biên'],
     link: '../tour/chi_tiet/MNMC03.html',
-    sales: 30,
-    dateAdded: '2026-03-01',
     destSlug: 'sonla'
   },
 
@@ -205,8 +189,6 @@ const TOURS_DATA = [
     primaryDest: 'Bắc Hà',
     otherDests: [],
     link: '../tour/chi_tiet/MNBH01.html',
-    sales: 150,
-    dateAdded: '2026-05-01',
     destSlug: 'laocai'
   },
 
@@ -228,8 +210,6 @@ const TOURS_DATA = [
     primaryDest: 'Mù Cang Chải',
     otherDests: [],
     link: '../tour/chi_tiet/MNM201.html',
-    sales: 135,
-    dateAdded: '2026-05-02',
     destSlug: 'mcc'
   },
   {
@@ -249,8 +229,6 @@ const TOURS_DATA = [
     primaryDest: 'Mù Cang Chải',
     otherDests: [],
     link: '../tour/chi_tiet/MNM202.html',
-    sales: 100,
-    dateAdded: '2026-05-18',
     destSlug: 'mcc'
   },
   {
@@ -270,8 +248,6 @@ const TOURS_DATA = [
     primaryDest: 'Mù Cang Chải',
     otherDests: ['Sa Pa'],
     link: '../tour/chi_tiet/MNM203.html',
-    sales: 90,
-    dateAdded: '2026-06-02',
     destSlug: 'mcc laocai'
   },
 
@@ -293,8 +269,6 @@ const TOURS_DATA = [
     primaryDest: 'Tà Xùa',
     otherDests: [],
     link: '../tour/chi_tiet/MNTX01.html',
-    sales: 105,
-    dateAdded: '2026-04-28',
     destSlug: 'sonla'
   },
   {
@@ -314,8 +288,6 @@ const TOURS_DATA = [
     primaryDest: 'Tà Xùa',
     otherDests: [],
     link: '../tour/chi_tiet/MNTX02.html',
-    sales: 48,
-    dateAdded: '2026-05-25',
     destSlug: 'sonla'
   },
 
@@ -337,8 +309,6 @@ const TOURS_DATA = [
     primaryDest: 'Hà Giang',
     otherDests: ['Sông Nho Quế'],
     link: '../tour/chi_tiet/MNHG01.html',
-    sales: 80,
-    dateAdded: '2026-04-20',
     destSlug: 'hagiang'
   },
   {
@@ -358,8 +328,6 @@ const TOURS_DATA = [
     primaryDest: 'Hà Giang',
     otherDests: ['Cao Bằng', 'Bắc Kạn'],
     link: '../tour/chi_tiet/MNHG02.html',
-    sales: 19,
-    dateAdded: '2026-03-15',
     destSlug: 'hagiang caobang'
   },
   {
@@ -379,8 +347,6 @@ const TOURS_DATA = [
     primaryDest: 'Hà Giang',
     otherDests: [],
     link: '../tour/chi_tiet/MNHG03.html',
-    sales: 75,
-    dateAdded: '2026-05-28',
     destSlug: 'hagiang'
   },
   {
@@ -400,8 +366,6 @@ const TOURS_DATA = [
     primaryDest: 'Hà Giang',
     otherDests: ['Bắc Kạn', 'Cao Bằng'],
     link: '../tour/chi_tiet/MNHG04.html',
-    sales: 40,
-    dateAdded: '2026-05-20',
     destSlug: 'hagiang caobang'
   },
   {
@@ -421,8 +385,6 @@ const TOURS_DATA = [
     primaryDest: 'Hà Giang',
     otherDests: ['Bắc Hà'],
     link: '../tour/chi_tiet/MNHG05.html',
-    sales: 110,
-    dateAdded: '2026-04-10',
     destSlug: 'hagiang laocai'
   },
 
@@ -444,8 +406,6 @@ const TOURS_DATA = [
     primaryDest: 'Cao Bằng',
     otherDests: [],
     link: '../tour/chi_tiet/MNCB01.html',
-    sales: 170,
-    dateAdded: '2026-05-15',
     destSlug: 'caobang'
   },
   {
@@ -465,10 +425,7 @@ const TOURS_DATA = [
     primaryDest: 'Cao Bằng',
     otherDests: ['Bắc Kạn'],
     link: '../tour/chi_tiet/MNCB02.html',
-    sales: 95,
-    dateAdded: '2026-06-01',
     destSlug: 'caobang'
   }
 
-  /* Thêm tour mới vào đây */
 ];

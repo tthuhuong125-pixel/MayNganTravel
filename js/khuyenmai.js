@@ -1,37 +1,106 @@
+/*
+  khuyenmai.js — Mây Ngàn Travel
+  Xử lý trang Khuyến Mãi:
+  - Tự động điền giá từ TOURS_DATA (không hardcode trong HTML nữa)
+  - Phân trang 3 card / trang
+  Yêu cầu: tours-data.js phải load TRƯỚC file này
+*/
+
 document.addEventListener("DOMContentLoaded", function () {
-  // Hàm định dạng số thành chuỗi tiền tệ việt nam (Ví dụ: 2660000 -> 2.660.000đ)
+
+  /* ══════════════════════════════════════════════════════
+     1. TỰ ĐỘNG ĐIỀN GIÁ TỪ TOURS_DATA
+     HTML chỉ cần có data-tour-id trên mỗi .promo-row-card
+  ══════════════════════════════════════════════════════ */
   function formatCurrency(amount) {
     return amount.toLocaleString('vi-VN') + 'đ';
   }
 
-  // Quét qua toàn bộ các card tour
-  const tourCards = document.querySelectorAll(".promo-row-card");
+  document.querySelectorAll(".promo-row-card").forEach(function (card) {
+    const tourId   = card.getAttribute("data-tour-id");
+    const tourData = TOURS_DATA.find(t => t.id === tourId);
 
-  tourCards.forEach(card => {
-    // Lấy giá cũ và % giảm từ các thuộc tính data- ở thẻ HTML
-    const oldPrice = parseFloat(card.getAttribute("data-old-price"));
-    const discountPercent = parseFloat(card.getAttribute("data-discount"));
+    if (!tourData) return;   /* Bỏ qua nếu không tìm thấy tour */
 
-    if (!isNaN(oldPrice) && !isNaN(discountPercent)) {
-      // Công thức tự động trừ phần trăm ra giá mới
-      const currentPrice = oldPrice * (1 - (discountPercent / 100));
-      const roundedCurrentPrice = Math.round(currentPrice); // Làm tròn số tiền nếu lẻ
+    /* Tính % giảm từ priceOld và price trong TOURS_DATA */
+    const oldPrice     = tourData.priceOld;
+    const currentPrice = tourData.price;
 
-      // Lấy các thẻ hiển thị nội dung
-      const badgeElement = card.querySelector(".promo-row-card__badge");
-      const oldPriceElement = card.querySelector(".promo-row-card__old-price");
-      const currentPriceElement = card.querySelector(".promo-row-card__current-price");
+    const badgeEl        = card.querySelector(".promo-row-card__badge");
+    const oldPriceEl     = card.querySelector(".promo-row-card__old-price");
+    const currentPriceEl = card.querySelector(".promo-row-card__current-price");
 
-      // Điền thông tin tự động lên giao diện
-      if (badgeElement) {
-        badgeElement.textContent = `Giảm ${discountPercent}%`;
-      }
-      if (oldPriceElement) {
-        oldPriceElement.textContent = formatCurrency(oldPrice);
-      }
-      if (currentPriceElement) {
-        currentPriceElement.textContent = formatCurrency(roundedCurrentPrice);
-      }
+    if (oldPrice && oldPrice > currentPrice) {
+      const discountPct = Math.round((1 - currentPrice / oldPrice) * 100);
+
+      if (badgeEl)        badgeEl.textContent        = `Giảm ${discountPct}%`;
+      if (oldPriceEl)     oldPriceEl.textContent     = formatCurrency(oldPrice);
+      if (currentPriceEl) currentPriceEl.textContent = formatCurrency(currentPrice);
+    } else {
+      /* Tour không có giá cũ — ẩn badge và giá cũ */
+      if (badgeEl)    badgeEl.style.display    = 'none';
+      if (oldPriceEl) oldPriceEl.style.display = 'none';
+      if (currentPriceEl) currentPriceEl.textContent = formatCurrency(currentPrice);
     }
   });
+
+
+  /* ══════════════════════════════════════════════════════
+     2. PHÂN TRANG
+  ══════════════════════════════════════════════════════ */
+  const itemsPerPage = 3;
+  let currentPage    = 1;
+
+  const tourCards  = Array.from(document.querySelectorAll(".promo-row-card"));
+  const totalTours = tourCards.length;
+  const totalPages = Math.ceil(totalTours / itemsPerPage);
+
+  const pageButtons = document.querySelectorAll(".promo-page-btn[data-page]");
+  const prevBtn     = document.getElementById("prevBtn");
+  const nextBtn     = document.getElementById("nextBtn");
+
+  function showPage(page) {
+    currentPage    = page;
+    const start    = (page - 1) * itemsPerPage;
+    const end      = Math.min(start + itemsPerPage, totalTours);
+
+    tourCards.forEach(function (card, index) {
+      card.classList.toggle("is-hidden", index < start || index >= end);
+    });
+
+    /* Cập nhật trạng thái nút trang */
+    pageButtons.forEach(function (btn) {
+      btn.classList.toggle(
+        "promo-page-btn--active",
+        parseInt(btn.getAttribute("data-page")) === page
+      );
+    });
+
+    prevBtn.classList.toggle("promo-page-btn--disabled", currentPage === 1);
+    nextBtn.classList.toggle("promo-page-btn--disabled", currentPage === totalPages);
+
+    document.querySelector(".promo-header-bar")
+      .scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  pageButtons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      showPage(parseInt(this.getAttribute("data-page")));
+    });
+  });
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", function () {
+      if (currentPage > 1) showPage(currentPage - 1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", function () {
+      if (currentPage < totalPages) showPage(currentPage + 1);
+    });
+  }
+
+  /* Hiện trang đầu tiên */
+  showPage(1);
 });

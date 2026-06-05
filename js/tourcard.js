@@ -46,7 +46,13 @@ function renderTourCard(tour) {
   let statusBadgesHTML = '';
   if (tour.isHot)  statusBadgesHTML += `<span class="badge badge--hot">HOT</span>`;
   if (tour.isNew)  statusBadgesHTML += `<span class="badge badge--new">Mới</span>`;
-  if (tour.isSale) statusBadgesHTML += `<span class="badge badge--sale">Sale</span>`;
+  if (tour.isSale) {
+    const pct = (tour.priceOld && tour.priceOld > tour.price)
+        ? Math.round((1 - tour.price / tour.priceOld) * 100)
+        : 0;
+    const label = pct > 0 ? `-${pct}%` : 'Sale';
+    statusBadgesHTML += `<span class="badge badge--sale">${label}</span>`;
+    }
 
   /* ── Badge vùng (góc PHẢI) ── */
   let regionBadgeHTML = '';
@@ -81,13 +87,13 @@ function renderTourCard(tour) {
     <div class="tour-card"
          data-id="${tour.id}"
          data-region="${regionSlug}"
+         data-hot="${tour.isHot ? 1 : 0}"
+         data-new="${tour.isNew ? 1 : 0}"
          data-departure="${departureSlug}"
          data-transport="${transport.text}"
          data-duration="${durationSlug}"
          data-price-num="${tour.price}"
          data-destination="${tour.destSlug || ''}"
-         data-sales="${tour.sales ?? 0}"
-         data-date="${tour.dateAdded ?? '2026-01-01'}">
 
       <!-- Vùng ảnh -->
       <div class="tour-card__img-wrap">
