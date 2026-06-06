@@ -368,3 +368,61 @@
   .mag-side-item { flex-direction: column; }
   .mag-side-img { width: 100%; height: 140px; }
 }
+
+/* ══════════════════════════════════════════════════════════
+   LINK WRAPPING — cho magazine layout & grid card
+   Thêm vào cuối blog.css
+   ══════════════════════════════════════════════════════════ */
+
+/* Link bọc toàn bộ bài nổi bật */
+.mag-featured-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+.mag-featured-link:hover .mag-featured-title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Link bọc từng item bên phải */
+.mag-side-link {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+
+/* Link bọc item hàng dưới */
+.mag-bottom-link {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+
+.mag-bottom-link:hover .mag-bottom-title {
+  color: var(--color-primary);
+}
+
+/* Link bọc toàn bộ card trong grid view */
+.blog-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.blog-card-link:hover .blog-card-title {
+  color: var(--color-primary);
+}
+
+/* Placeholder cân layout hàng dưới khi < 3 bài */
+.mag-bottom-placeholder {
+  /* Ô trống, không hiện gì */
+}
