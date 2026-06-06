@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Du Lịch Đông Bắc - Mây Ngàn Travel</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/trangđb.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- BANNER — bạn thay Banner_DB.png bằng ảnh của bạn -->
+    <section class="banner">
+        <img src="images/Banner_ĐB.png" alt="Du lịch Đông Bắc" class="banner-img">
+        <div class="clouds-real-overlay">
+            <div class="cloud-real-track cloud-real-1"></div>
+            <div class="cloud-real-track cloud-real-2"></div>
+        </div>
+    </section>
+
+    <section class="region-highlights">
+        <div class="region-container">
+            <h2 class="region-section-title">Tọa Độ Vàng Đông Bắc</h2>
+            <p class="region-section-subtitle">Khám phá vẻ đẹp hùng vĩ, hoang sơ </p>
+
+            <div class="region-dest-grid">
+
+                <!-- ===== HÀ GIANG —lúa vàng rung ===== -->
+              
+                <a class="region-dest-card-bg card-hg" href="tour/Trang_danh_sach_tours.html">
+    <div class="dest-card-img" style="background-image: url('images/7_HaGiang/MNHG02/MNHG02_02.jpg');"></div>
+    
+    <div class="mcc-grains">
+        <span class="grain"></span><span class="grain"></span><span class="grain"></span>
+        <span class="grain"></span><span class="grain"></span><span class="grain"></span>
+        <span class="grain"></span><span class="grain"></span><span class="grain"></span>
+        <span class="grain"></span><span class="grain"></span><span class="grain"></span>
+    </div>
+    
+    <div class="mcc-glow"></div>
+    
+    <div class="dest-card-overlay"></div>
+    <div class="dest-card-body">
+        <span class="dest-card-time">Tháng 10 - 11</span>
+        <h3 class="dest-card-title">Hà Giang</h3>
+        <p class="dest-card-desc">Cao nguyên đá Đồng Văn hùng vĩ, hoa tam giác mạch tím ngắt, đèo Mã Pí Lèng hiểm trở bên sông Nho Quế.</p>
+    </div>
+</a>
+
+                <!-- ===== CAO BẰNG — thác nước rơi + spray ===== -->
+                <a class="region-dest-card-bg card-cao-bang">
+                    <div class="dest-card-img" style="background-image: url('images/8_CaoBang/MNCB02/MNCB02_03.jpg');"></div>
+                    <canvas class="waterfall-canvas" id="cbWaterfallCanvas"></canvas>
+                    <div class="water-glow"></div>
+                    <div class="water-spray">
+                        <span class="spray-drop"></span><span class="spray-drop"></span>
+                        <span class="spray-drop"></span><span class="spray-drop"></span>
+                        <span class="spray-drop"></span><span class="spray-drop"></span>
+                        <span class="spray-drop"></span><span class="spray-drop"></span>
+                        <span class="spray-drop"></span><span class="spray-drop"></span>
+                        <span class="spray-drop"></span><span class="spray-drop"></span>
+                    </div>
+                    <div class="dest-card-overlay dest-card-overlay--water"></div>
+                    <div class="dest-card-body">
+                        <span class="dest-card-time">Tháng 8 - 9 - 10</span>
+                        <h3 class="dest-card-title">Cao Bằng</h3>
+                        <p class="dest-card-desc">Thác Bản Giốc hùng tráng, hồ Ba Bể xanh ngắt, hang Pác Bó lịch sử — hành trình không thể bỏ qua.</p>
+                    </div>
+                </a>
+
+
+        </div>
+
+        <div class="region-footer-action">
+            <a href="tour/Trang_danh_sach_tours.html" class="btn-view-all-regional">
+                Xem tất cả các tour  <span class="arrow-icon">→</span>
+            </a>
+        </div>
+    </section>
+
+<!-- =====================================================================
+     JAVASCRIPT
+===================================================================== -->
+<script>
+/* ── Hàm tạo SVG đám mây (dùng chung cho cả Hà Giang) ── */
+function makeCloudSVG(w, h, color1, color2, op1, op2, blobs) {
+  const ns = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('width', w); svg.setAttribute('height', h);
+  svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+  svg.style.display = 'block';
+  
+  const streams = Array.from({ length: 18 }, (_, i) => ({
+   // SỬA DÒNG NÀY: Bắt đầu từ 55% và cộng thêm tối đa 40% nữa để đổ về bên phải
+   x:       0.55 + (i / 18) * 0.40,   
+   y:       Math.random(),            
+   speed:   0.004 + Math.random() * 0.005,
+   width:   Math.random() * 2.5 + 0.8,
+   opacity: Math.random() * 0.35 + 0.2,
+   len:     0.18 + Math.random() * 0.25, 
+   blur:    Math.random() > 0.6,
+}));
+  g.setAttribute('filter',`url(#${fid})`);
+  blobs.ellipses.forEach(e => {
+    const el = document.createElementNS(ns,'ellipse');
+    el.setAttribute('cx',e.cx); el.setAttribute('cy',e.cy);
+    el.setAttribute('rx',e.rx); el.setAttribute('ry',e.ry);
+    el.setAttribute('fill',`url(#${gid})`);
+    g.appendChild(el);
+  });
+  svg.appendChild(g);
+  return svg;
+}
+
+function buildTrack(trackEl, blobDefs, color1, color2, op1, op2, cloudW, cloudH, gap) {
+  if (!trackEl) return;
+  let filled = 0, i = 0;
+  while (filled < 800) {
+    const def = blobDefs[i % blobDefs.length];
+    const svg = makeCloudSVG(cloudW, cloudH, color1, color2, op1, op2, def);
+    svg.style.marginRight = gap + 'px';
+    trackEl.appendChild(svg);
+    filled += cloudW + gap; i++;
+  }
+  Array.from(trackEl.children).forEach(c => trackEl.appendChild(c.cloneNode(true)));
+}
+
+/* ── Hà Giang — mây tone xanh lạnh (khác Tà Xùa cam vàng) ── */
+const seaBlobs = [
+  { blur:'5', ellipses:[{cx:60,cy:52,rx:58,ry:22},{cx:38,cy:38,rx:36,ry:26},{cx:72,cy:32,rx:44,ry:30},{cx:106,cy:40,rx:38,ry:24},{cx:130,cy:50,rx:28,ry:18}] },
+  { blur:'5', ellipses:[{cx:55,cy:50,rx:52,ry:20},{cx:35,cy:36,rx:32,ry:24},{cx:66,cy:30,rx:40,ry:28},{cx:96,cy:38,rx:34,ry:21},{cx:116,cy:48,rx:24,ry:16}] },
+  { blur:'6', ellipses:[{cx:70,cy:55,rx:68,ry:24},{cx:44,cy:40,rx:42,ry:28},{cx:82,cy:34,rx:50,ry:32},{cx:120,cy:42,rx:42,ry:24},{cx:148,cy:52,rx:30,ry:18}] },
+];
+const midBlobs = [
+  { blur:'4', ellipses:[{cx:50,cy:44,rx:46,ry:17},{cx:32,cy:32,rx:28,ry:21},{cx:60,cy:26,rx:36,ry:24},{cx:90,cy:34,rx:30,ry:18},{cx:112,cy:43,rx:22,ry:14}] },
+  { blur:'4', ellipses:[{cx:44,cy:42,rx:40,ry:15},{cx:28,cy:30,rx:26,ry:20},{cx:55,cy:24,rx:32,ry:22},{cx:82,cy:32,rx:28,ry:17},{cx:100,cy:40,rx:20,ry:13}] },
+];
+const hiBlobs = [
+  { blur:'3.5', ellipses:[{cx:40,cy:36,rx:38,ry:13},{cx:25,cy:26,rx:22,ry:16},{cx:48,cy:20,rx:28,ry:18},{cx:72,cy:28,rx:24,ry:14},{cx:88,cy:35,rx:18,ry:11}] },
+  { blur:'3',   ellipses:[{cx:36,cy:34,rx:34,ry:12},{cx:22,cy:24,rx:20,ry:15},{cx:44,cy:18,rx:26,ry:17},{cx:66,cy:26,rx:22,ry:13}] },
+];
+
+/* Hà Giang: màu trắng xanh lạnh (#d0e8f5 / #8ab8d0) thay vì cam vàng TB */
+buildTrack(document.getElementById('hgSeaT1'), seaBlobs,        '#d8eef8','#7aaec8', 0.80, 0.42, 160, 48, -20);
+buildTrack(document.getElementById('hgSeaT2'), seaBlobs.slice(1),'#ddf0fa','#88b8d0', 0.65, 0.32, 150, 44, -15);
+buildTrack(document.getElementById('hgMidT1'), midBlobs,        '#e8f4fc','#a0c8e0', 0.62, 0.28, 130, 38, -10);
+buildTrack(document.getElementById('hgMidT2'), midBlobs.slice(1),'#eaf6fd','#a8cce2', 0.50, 0.20, 120, 34,  -8);
+buildTrack(document.getElementById('hgHiT1'),  hiBlobs,         '#f0f8ff','#c0d8ea', 0.45, 0.16, 104, 28,  -5);
+buildTrack(document.getElementById('hgHiT2'),  hiBlobs.slice(1),'#f4faff','#c8dced', 0.35, 0.12,  96, 24,  -4);
+
+/* ── Cao Bằng & Bản Giốc — tia nước rơi canvas ── */
+function initWaterfall(canvasId, cardSelector) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const card = canvas.closest(cardSelector) || canvas.parentElement;
+  const ctx  = canvas.getContext('2d');
+
+  function resize() {
+    canvas.width  = card.offsetWidth;
+    canvas.height = card.offsetHeight;
+  }
+  resize();
+  new ResizeObserver(resize).observe(card);
+
+  /* Mỗi tia nước: x cố định, y chạy từ trên xuống với tốc độ khác nhau */
+  const streams = Array.from({ length: 18 }, (_, i) => ({
+    x:       0.12 + (i / 18) * 0.76,   // trải đều chiều ngang 12%–88%
+    y:       Math.random(),             // offset ban đầu
+    speed:   0.004 + Math.random() * 0.005,
+    width:   Math.random() * 2.5 + 0.8,
+    opacity: Math.random() * 0.35 + 0.2,
+    len:     0.18 + Math.random() * 0.25, // chiều dài tia (% chiều cao)
+    blur:    Math.random() > 0.6,
+  }));
+
+  function draw() {
+    const W = canvas.width, H = canvas.height;
+    ctx.clearRect(0, 0, W, H);
+
+    streams.forEach(s => {
+      s.y += s.speed;
+      if (s.y > 1 + s.len) s.y = -s.len;
+
+      const x  = s.x * W;
+      const y0 = s.y * H;
+      const y1 = (s.y + s.len) * H;
+
+      // Chỉ vẽ phần nằm trong card (không vẽ vào vùng chữ — dừng ở 70%)
+      const clampY1 = Math.min(y1, H * 0.72);
+      if (y0 > clampY1) return;
+
+      const grad = ctx.createLinearGradient(x, y0, x, clampY1);
+      grad.addColorStop(0,   `rgba(180,230,255,0)`);
+      grad.addColorStop(0.3, `rgba(200,240,255,${s.opacity})`);
+      grad.addColorStop(0.7, `rgba(160,220,245,${s.opacity * 0.7})`);
+      grad.addColorStop(1,   `rgba(180,230,255,0)`);
+
+      ctx.beginPath();
+      ctx.moveTo(x, Math.max(y0, 0));
+      ctx.lineTo(x, clampY1);
+      ctx.strokeStyle = grad;
+      ctx.lineWidth   = s.width;
+      ctx.stroke();
+    });
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+initWaterfall('cbWaterfallCanvas', '.card-cao-bang');
+initWaterfall('bgWaterfallCanvas', '.card-ban-gioc');
+</script>
+
+</body>
+</html>
