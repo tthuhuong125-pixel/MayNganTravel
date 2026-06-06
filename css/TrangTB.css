@@ -1,0 +1,456 @@
+/* ==========================================================================
+   MAYNGAN TRAVEL - TRANGTB.CSS (Đồng nhất hệ màu xanh thương hiệu gốc)
+   ========================================================================== */
+
+.region-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ==========================================================================
+   1. HERO BANNER & HIỆU ỨNG MÂY THẬT BỒNG BỀNH TRỒI TRÊN CÙNG
+   ========================================================================== */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 65vh; 
+  min-height: 480px;
+  overflow: hidden;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Khung bọc dải mây thật đè lên bề mặt trên cùng của Banner */
+.clouds-real-overlay {
+  position: absolute;
+  left: 0;
+  bottom: -15px; /* Ép sát xuống sàn để che khuyết điểm đường cắt của ảnh banner */
+  width: 100%;
+  height: 230px; /* Tăng độ rộng để kết cấu đám mây bồng bềnh nhìn tự nhiên */
+  z-index: 99; /* Trồi hẳn lên trên cùng lớp ảnh banner */
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Lớp xử lý kết cấu dải mây thật bằng ảnh nhúng mềm, trong suốt 100% không dính viền */
+.cloud-real-track {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%; /* Chiều dài gấp đôi để chạy cuộn vòng lặp không bị đứt đoạn */
+  height: 90%;
+  background-repeat: repeat-x;
+  background-size: 50% 100%;
+  /* Mã hóa chuỗi ảnh mây khói mềm tơi xốp, triệt tiêu hoàn toàn ô cờ đen xám */
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABLAAAAC0CAMAAADw97unAAAAsVBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////=========================================");
+  /* Lớp fallback tạo độ mịn hòa trộn mây vào nền trắng phía dưới */
+  mask-image: linear-gradient(to top, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+}
+
+/* Tầng mây sát mắt: To rõ, lướt êm từ phải sang trái */
+.cloud-real-1 {
+  background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png'), linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 60%, rgba(255,255,255,1) 100%);
+  filter: blur(4px) contrast(80%); /* Tạo độ nhòe viền mây thật tạp vào không khí */
+  animation: cloudRealLeft 16s linear infinite;
+  opacity: 0.88;
+  z-index: 3;
+}
+
+/* Tầng mây mờ xa: Chạy nhanh hơn chút tạo vận tốc gió lập thể */
+.cloud-real-2 {
+  background-image: linear-gradient(to top, rgba(255,255,255,0) 0%);
+  filter: blur(8px);
+  height: 130%;
+  animation: cloudRealRight 30s linear infinite;
+  opacity: 0.6;
+  z-index: 2;
+}
+
+/* 🔴 CHUYỂN ĐỘNG TỊNH TIẾN PHẲNG TUYỆT ĐỐI - KHÔNG SÓNG BIỂN */
+@keyframes cloudRealLeft {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes cloudRealRight {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+/* ==========================================================================
+   2. KHỐI NỘI DUNG CHUNG & THẺ ĐIỂM ĐẾN
+   ========================================================================== */
+.region-highlights { 
+  padding: 80px 0; 
+  background-color: #ffffff; 
+}
+
+.region-tours-section { 
+  padding: 70px 0 80px 0; 
+  background-color: #f5f7f6; 
+}
+
+.region-section-title { 
+  font-size: 2rem; 
+  color: #1f2e22; 
+  text-align: center; 
+  font-weight: 700; 
+  margin: 0 0 8px 0; 
+}
+
+.region-section-subtitle { 
+  text-align: center; 
+  color: #607363; 
+  font-size: 0.95rem; 
+  margin-bottom: 45px; 
+  margin-top: 0; 
+}
+
+.region-dest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.region-dest-card-bg {
+  position: relative;
+  height: 290px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: flex-end;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dest-card-img {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+  z-index: 1;
+}
+
+.dest-card-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  /* CHỈNH SỬA: Thay đổi độ mờ gradient cho sáng ảnh hơn */
+  background: linear-gradient(to top, rgba(31, 46, 34, 0.75) 0%, rgba(0, 0, 0, 0.1) 50%, transparent 100%);
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+.dest-card-body {
+  position: relative;
+  z-index: 3;
+  padding: 25px;
+  color: #ffffff;
+  width: 100%;
+}
+
+.region-dest-card-bg:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(61, 122, 92, 0.2);
+}
+
+.region-dest-card-bg:hover .dest-card-img {
+  transform: scale(1.08);
+}
+
+.region-dest-card-bg:hover .dest-card-overlay {
+  opacity: 0.9;
+}
+
+.dest-card-time {
+  font-size: 0.8rem;
+  background: var(--color-primary, #3D7A5C);
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.dest-card-title { 
+  font-size: 1.5rem; 
+  font-weight: 700; 
+  color: #ffffff !important; 
+  margin: 0 0 6px 0; 
+}
+
+.dest-card-desc { 
+  font-size: 0.9rem; 
+  opacity: 0.9; 
+  line-height: 1.5; 
+  margin: 0; 
+  color: #e1e6e2; 
+}
+
+/* ==========================================================================
+   3. DANH SÁCH CARD TOUR ĐỨNG HÌNH CHỮ NHẬT
+   ========================================================================== */
+.tour-grid-vertical {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+  justify-content: center; 
+}
+
+.tour-v-card {
+  background: #ffffff; 
+  border-radius: 12px; 
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04); 
+  border: 1px solid #e8ebe9;
+  display: flex; 
+  flex-direction: column; 
+  height: 100%;
+  max-width: 380px;
+}
+
+.tour-v-card__img-box { 
+  position: relative; 
+  aspect-ratio: 16 / 10; 
+  overflow: hidden; 
+}
+
+.tour-v-card__img-box img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+}
+
+.tour-v-card__badge {
+  position: absolute; 
+  top: 15px; 
+  left: 15px; 
+  background: #e76f51; 
+  color: #fff;
+  font-size: 0.8rem; 
+  font-weight: 700; 
+  padding: 6px 12px; 
+  border-radius: 4px; 
+  z-index: 2;
+}
+
+.tour-v-card__content { 
+  padding: 20px; 
+  display: flex; 
+  flex-direction: column; 
+  flex: 1; 
+}
+
+.tour-v-card__meta { 
+  font-size: 0.85rem; 
+  color: #728275; 
+  margin-bottom: 8px; 
+}
+
+.tour-v-card__title {
+  font-size: 1.2rem; 
+  font-weight: 700; 
+  color: #1f2e22; 
+  line-height: 1.4; 
+  margin: 0 0 15px 0;
+  min-height: 2.8em; 
+  display: -webkit-box; 
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical; 
+  overflow: hidden;
+}
+
+.tour-v-card__specs {
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 12px; 
+  font-size: 0.85rem; 
+  color: #4a574d;
+  margin-bottom: 20px; 
+  border-bottom: 1px dashed #e1e6e2; 
+  padding-bottom: 15px;
+}
+
+.tour-v-card__price-box { 
+  margin-bottom: 18px; 
+  display: flex; 
+  flex-direction: column; 
+}
+
+.tour-v-card__old-price { 
+  font-size: 0.9rem; 
+  color: #a0aca2; 
+  text-decoration: line-through; 
+}
+
+.tour-v-card__current-price { 
+  font-size: 1.5rem; 
+  font-weight: 800; 
+  color: #e76f51; 
+}
+
+.tour-v-card__btn {
+  display: block; 
+  text-align: center; 
+  background-color: var(--color-primary, #3D7A5C); 
+  color: #ffffff;
+  font-weight: 600; 
+  padding: 12px 0; 
+  border-radius: 6px; 
+  text-decoration: none; 
+  margin-top: auto;
+  transition: background-color 0.2s ease;
+}
+
+.tour-v-card__btn:hover {
+  background-color: var(--color-primary-light, #5FA67A);
+}
+
+.region-footer-action { 
+  text-align: center; 
+  margin-top: 100px; 
+  width: 100%;
+}
+
+.btn-view-all-regional {
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center;
+  background-color: var(--color-primary, #3D7A5C);
+  color: #ffffff; 
+  padding: 15px 40px; 
+  font-size: 1.15rem; 
+  font-weight: 600; 
+  border-radius: 30px;
+  text-decoration: none; 
+  box-shadow: 0 4px 12px rgba(61, 122, 92, 0.15); 
+  transition: all 0.3s ease;
+  margin: 0 ; 
+}
+
+.region-footer-action { 
+  text-align: center; 
+  margin-top: 80px; 
+  width: 100%;
+  
+  /* BỔ SUNG: Biến thùng chứa thành Flexbox để kích hoạt căn giữa tuyệt đối */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-view-all-regional:hover { 
+  background-color: var(--color-primary-light, #5FA67A);
+  color: #ffffff;
+  transform: translateY(-2px); 
+  box-shadow: 0 6px 18px rgba(61, 122, 92, 0.25);
+}
+
+.btn-view-all-regional:active {
+  background-color: var(--color-primary-dark, #2D5A3D);
+}
+
+.btn-view-all-regional .arrow-icon { 
+  margin-left: 10px; 
+  transition: transform 0.2s ease; 
+}
+
+.btn-view-all-regional:hover .arrow-icon { 
+  transform: translateX(5px); 
+}
+
+/* Responsive hiển thị */
+@media (max-width: 768px) {
+  .banner { height: 45vh; min-height: 300px; }
+  .clouds-real-overlay { height: 110px; }
+  .tour-grid-vertical { grid-template-columns: 1fr; }
+  .region-dest-grid { grid-template-columns: 1fr; }
+  .tour-v-card { max-width: 100%; }
+}
+
+
+
+
+.petal {
+  position: absolute; 
+  z-index: 4; 
+  pointer-events: none;
+  border-radius: 50% 0 50% 0; 
+  animation: petalFall linear infinite; 
+  top: -10px;
+}.petal:nth-child(1){width:8px;height:11px;left:8%;   background:rgba(251, 251, 251, 0.9);animation-duration:4.5s;animation-delay:0s}
+.petal:nth-child(2){width:6px;height:9px; left:22%;  background:rgba(255, 255, 255, 0.8);animation-duration:5.2s;animation-delay:-1.0s}
+.petal:nth-child(3){width:9px;height:12px;left:38%;  background:rgb(255, 255, 255);animation-duration:5.8s;animation-delay:-0.1s}
+.petal:nth-child(4){width:7px;height:10px;left:53%;  background:rgba(255, 240, 245, 0.9);animation-duration:5.5s;animation-delay:-0.7s}
+.petal:nth-child(5){width:6px;height:8px; left:67%;  background:rgb(241, 238, 239);animation-duration:4.2s;animation-delay:-1.4s}
+.petal:nth-child(6){width:8px;height:11px;left:78%;  background:rgb(222, 210, 214);animation-duration:5.8s;animation-delay:-1.1s}
+.petal:nth-child(7){width:7px;height:9px; left:88%;  background:rgb(255, 255, 255);animation-duration:3.6s;animation-delay:-0.8s}
+.petal:nth-child(8){width:5px;height:7px; left:45%;  background:rgb(255, 225, 235);animation-duration:2.1s;animation-delay:-0.3s}
+.petal:nth-child(9){width:5px;height:7px; left:45%;  background:rgb(255, 225, 235);animation-duration:5.1s;animation-delay:-0.1s}
+.petal:nth-child(10){width:5px;height:7px; left:45%;  background:rgb(255, 225, 235);animation-duration:1.1s;animation-delay:-0.1s}
+.petal:nth-child(11){width:5px;height:7px; left:45%;  background:rgb(255, 225, 235);animation-duration:1.1s;animation-delay:-0.1s}
+.petal:nth-child(12){width:5px;height:7px; left:45%;  background:rgb(255, 225, 235);animation-duration:1.1s;animation-delay:-0.1s}
+.petal:nth-child(13){width:5px;height:7px; left:45%;  background:rgb(255, 225, 235);animation-duration:1.1s;animation-delay:-0.1s}
+
+@keyframes petalFall {
+  0%   {top:-20px; opacity:0; transform:rotate(-20deg) translateX(0)}
+  8%   {opacity:0.9}
+  85%  {opacity:0.6}
+  100% {top:108%; opacity:0; transform:rotate(50deg) translateX(22px)}
+}
+.region-dest-card-bg { position: relative; overflow: hidden; }
+
+.snow-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 4;         /* trên ảnh, dưới text */
+  pointer-events: none;
+}
+/* ===== MÂY TÀ XÙA ===== */
+.cloud-wrap {
+  position: absolute;
+  left: 0; right: 0;
+  z-index: 4;
+  pointer-events: none;
+  overflow: hidden;
+}
+.cloud-wrap.sea { bottom: -55px;  height: 100px; }
+.cloud-wrap.mid { bottom: -40px;  height: 70px; }
+.cloud-wrap.hi  { bottom: -50px; height: 90px; }
+/* ===== MÂY TÀ XÙA — sát đáy, mỏng ===== */
+/*.cloud-wrap.sea { bottom: -30;   height: 52px; }   /* chạm đáy */
+/*.cloud-wrap.mid { bottom: 28px; height: 40px; }  /* ngay trên */
+/*.cloud-wrap.hi  { bottom: 52px; height: 30px; }  /* mỏng nhất */
+
+/* Giảm opacity để không che chữ */
+.sea .ctrack.t1 { animation: scrollL 28s linear infinite; opacity: .72; }
+.sea .ctrack.t2 { animation: scrollR 38s linear infinite; top: 14px; opacity: .55; }
+.mid .ctrack.t1 { animation: scrollL 20s linear infinite; opacity: .55; }
+.mid .ctrack.t2 { animation: scrollR 32s linear infinite; top: 12px; opacity: .4; }
+.hi  .ctrack.t1 { animation: scrollL 26s linear infinite; opacity: .38; }
+.hi  .ctrack.t2 { animation: scrollR 24s linear infinite; top: 8px;  opacity: .28; }
+.ctrack {
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+  display: flex;
+  gap: 0;
+}
+
+
+@keyframes scrollL {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes scrollR {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hình thức thanh toán - Mây Ngàn Travel</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css"> 
+    <link rel="stylesheet" href="/css/components.css">
+    
+    <link rel="stylesheet" href="/css/thong_tin_huong_dan.css">
+</head>
+
+<body>
+    <div id="header-placeholder" 
+         data-path="../../main/header.html" 
+         data-root="../../">
+    </div>
+
+    <section class="policy-banner">
+        <div class="policy-banner-overlay"></div>
+        <div class="policy-banner-content">
+            <h1>Hình thức Thanh toán</h1>
+        </div>
+    </section>
+
+
+    <main class="policy-container">
+        <article class="policy-card">
+
+            <!-- KHỐI HÌNH THỨC THANH TOÁN -->
+            <section class="policy-section">
+                <h2 class="policy-title" style="margin-bottom: var(--space-md);">Thông tin thanh toán</h2>
+                
+                <div class="payment-container">
+                    <!-- Cột trái: Mã QR -->
+                    <div class="payment-qr-box">
+                        <!-- Ông thay đường dẫn ảnh QR thực tế của Mây Ngàn vào đây nhé -->
+                        <img src="/images/QR.jpg" alt="Mã QR Thanh Toán Mây Ngàn Travel" class="payment-qr-img">
+                    </div>
+                    
+                    <!-- Cột phải: Bảng thông tin tài khoản -->
+                    <div class="payment-info-box">
+                        <table class="payment-table">
+                            <tr>
+                                <td class="label-cell">Tên tài khoản</td>
+                                <td class="value-cell"><strong>CONG TY CO PHAN DU LICH MAY NGAN TRAVEL</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="label-cell">Số tài khoản</td>
+                                <td class="value-cell"><strong>5988 1958 888</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="label-cell">Ngân hàng</td>
+                                <td class="value-cell"><strong>TMCP Tiên Phong</strong></td>
+                            </tr>
+                        </table>
+                        
+                        <!-- Đoạn text ghi chú phía dưới bảng -->
+                        <div class="payment-note">
+                            <p>Quý khách vui lòng thanh toán chuyển khoản khi tham gia đặt tour trên website Mây Ngàn Travel.</p>
+                            <p>Xem hướng dẫn đặt tour <a href="/thong_tin_huong_dan/huong_dan_dat_tour.html" style="color: var(--color-primary-light); text-decoration: underline;">tại đây</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </article>
+    </main>
+
+    <div id="footer-placeholder" 
+         data-path="../../main/footer.html" 
+         data-root="../../">
+    </div>
+
+    <script src="../../js/main.js"></script>
+
+    </body>
+</html>
