@@ -1,0 +1,337 @@
+/* ==========================================================================
+   MAYNGAN TRAVEL - TRANGDB.CSS
+   Trang Đông Bắc — cấu trúc giống TrangTB.css
+   ========================================================================== */
+
+.region-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ==========================================================================
+   1. HERO BANNER
+   ========================================================================== */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 65vh;
+  min-height: 480px;
+  overflow: hidden;
+}
+.banner-img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+.clouds-real-overlay {
+  position: absolute;
+  left: 0; bottom: -15px;
+  width: 100%; height: 230px;
+  z-index: 99; overflow: hidden; pointer-events: none;
+}
+.cloud-real-track {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 200%; height: 90%;
+  background-repeat: repeat-x;
+  background-size: 50% 100%;
+  mask-image: linear-gradient(to top, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+}
+.cloud-real-1 {
+  background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png'),
+    linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 60%, rgba(255,255,255,1) 100%);
+  filter: blur(4px) contrast(80%);
+  animation: cloudRealLeft 11s linear infinite;
+  opacity: 0.88; z-index: 3;
+}
+.cloud-real-2 {
+  background-image: linear-gradient(to top, rgba(255,255,255,0) 0%);
+  filter: blur(8px); height: 130%;
+  animation: cloudRealRight 30s linear infinite;
+  opacity: 0.6; z-index: 2;
+}
+@keyframes cloudRealLeft  { 0%{transform:translate3d(0,0,0)}    100%{transform:translate3d(-50%,0,0)} }
+@keyframes cloudRealRight { 0%{transform:translate3d(-50%,0,0)} 100%{transform:translate3d(0,0,0)} }
+
+/* ==========================================================================
+   2. SECTION ĐIỂM ĐẾN
+   ========================================================================== */
+.region-highlights {
+  padding: 80px 0;
+  background-color: #ffffff;
+}
+.region-tours-section {
+  padding: 70px 0 80px;
+  background-color: #f5f7f6;
+}
+.region-section-title {
+  font-size: 2rem; color: #1f2e22; text-align: center;
+  font-weight: 700; margin: 0 0 8px;
+}
+.region-section-subtitle {
+  text-align: center; color: #607363; font-size: 0.95rem;
+  margin-bottom: 45px; margin-top: 0;
+}
+.region-dest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* BASE CARD */
+.region-dest-card-bg {
+  position: relative;
+  height: 290px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: flex-end;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+a.region-dest-card-bg { display: flex; text-decoration: none; cursor: pointer; }
+.region-dest-card-bg:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(61,122,92,0.2);
+}
+.dest-card-img {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background-size: cover; background-position: center;
+  transition: transform 0.5s ease; z-index: 1;
+}
+.region-dest-card-bg:hover .dest-card-img { transform: scale(1.08); }
+.dest-card-overlay {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to top, rgba(31,46,34,0.75) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+  z-index: 2; transition: opacity 0.3s ease;
+}
+.region-dest-card-bg:hover .dest-card-overlay { opacity: 0.9; }
+.dest-card-body {
+  position: relative; z-index: 10;
+  padding: 25px; color: #fff; width: 100%;
+}
+.dest-card-time {
+  font-size: 0.8rem; background: var(--color-primary, #3D7A5C); color: #fff;
+  padding: 3px 10px; border-radius: 4px; font-weight: 600;
+  display: inline-block; margin-bottom: 12px;
+}
+.dest-card-title { font-size: 1.5rem; font-weight: 700; color: #fff !important; margin: 0 0 6px; }
+.dest-card-desc { font-size: 0.9rem; opacity: 0.9; line-height: 1.5; margin: 0; color: #e1e6e2; }
+
+/* ==========================================================================
+   3. CARD TOUR
+   ========================================================================== */
+.tour-grid-vertical {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 360px));
+  gap: 30px; margin-bottom: 30px; justify-content: center;
+}
+.region-dest-grid {
+  display: grid;
+  /* 1. Giới hạn chiều rộng tối đa của mỗi card là 360px thay vì tự bung */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 360px));
+  gap: 30px;
+  
+  /* 2. Thêm thuộc tính này để căn toàn bộ các card ra chính giữa màn hình */
+  justify-content: center; 
+}
+.tour-v-card {
+  background: #fff; border-radius: 12px; overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.04); border: 1px solid #e8ebe9;
+  display: flex; flex-direction: column; height: 100%; max-width: 380px;
+}
+.tour-v-card__img-box { position: relative; aspect-ratio: 16/10; overflow: hidden; }
+.tour-v-card__img-box img { width: 100%; height: 100%; object-fit: cover; }
+.tour-v-card__badge {
+  position: absolute; top: 15px; left: 15px; background: #e76f51; color: #fff;
+  font-size: 0.8rem; font-weight: 700; padding: 6px 12px; border-radius: 4px; z-index: 2;
+}
+.tour-v-card__content { padding: 20px; display: flex; flex-direction: column; flex: 1; }
+.tour-v-card__meta { font-size: 0.85rem; color: #728275; margin-bottom: 8px; }
+.tour-v-card__title {
+  font-size: 1.2rem; font-weight: 700; color: #1f2e22; line-height: 1.4; margin: 0 0 15px;
+  min-height: 2.8em; display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden;
+}
+.tour-v-card__specs {
+  display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.85rem; color: #4a574d;
+  margin-bottom: 20px; border-bottom: 1px dashed #e1e6e2; padding-bottom: 15px;
+}
+.tour-v-card__price-box { margin-bottom: 18px; display: flex; flex-direction: column; }
+.tour-v-card__old-price { font-size: 0.9rem; color: #a0aca2; text-decoration: line-through; }
+.tour-v-card__current-price { font-size: 1.5rem; font-weight: 800; color: #e76f51; }
+.tour-v-card__btn {
+  display: block; text-align: center; background-color: var(--color-primary, #3D7A5C);
+  color: #fff; font-weight: 600; padding: 12px 0; border-radius: 6px;
+  text-decoration: none; margin-top: auto; transition: background-color 0.2s ease;
+}
+.tour-v-card__btn:hover { background-color: var(--color-primary-light, #5FA67A); }
+
+/* FOOTER */
+.region-footer-action {
+  text-align: center; margin-top: 80px; width: 100%;
+  display: flex; justify-content: center; align-items: center;
+}
+.btn-view-all-regional {
+  display: inline-flex; align-items: center; justify-content: center;
+  background-color: var(--color-primary, #3D7A5C); color: #fff;
+  padding: 15px 40px; font-size: 1.05rem; font-weight: 600; border-radius: 30px;
+  text-decoration: none; box-shadow: 0 4px 12px rgba(61,122,92,0.15); transition: all 0.3s ease;
+}
+.btn-view-all-regional:hover {
+  background-color: var(--color-primary-light, #5FA67A); color: #fff;
+  transform: translateY(-2px); box-shadow: 0 6px 18px rgba(61,122,92,0.25);
+}
+.btn-view-all-regional:active { background-color: var(--color-primary-dark, #2D5A3D); }
+.btn-view-all-regional .arrow-icon { margin-left: 10px; transition: transform 0.2s ease; }
+.btn-view-all-regional:hover .arrow-icon { transform: translateX(5px); }
+
+@media (max-width: 768px) {
+  .banner { height: 45vh; min-height: 300px; }
+  .clouds-real-overlay { height: 110px; }
+  .tour-grid-vertical { grid-template-columns: 1fr; }
+  .region-dest-grid { grid-template-columns: 1fr; }
+  .tour-v-card { max-width: 100%; }
+}
+
+/* ==========================================================================
+   HIỆU ỨNG CANVAS CHUNG
+   ========================================================================== */
+.snow-canvas {
+  position: absolute; inset: 0;
+  z-index: 4; pointer-events: none;
+}
+
+/* ==========================================================================
+   BỔ SUNG HIỆU ỨNG LÚA VÀNG HÀ GIANG
+   ========================================================================== */
+
+/* Hộp chứa hạt lúa phải bao phủ toàn bộ Card và nằm trên ảnh nền */
+.mcc-grains {
+  position: absolute;
+  inset: 0;
+  z-index: 3;             /* Nằm trên ảnh nền (z-index: 1) và overlay */
+  pointer-events: none;   /* Không cản trở việc rê chuột click vào card */
+  overflow: hidden;
+}
+
+/* Ánh sáng vàng ấm bồng bềnh tạo không khí mùa lúa chín */
+.mcc-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% 40%,
+    rgba(245, 208, 96, 0.18) 0%,
+    transparent 75%
+  );
+  animation: hgGlowPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes hgGlowPulse {
+  0% { opacity: 0.4; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.05); }
+}
+
+/* CẤU HÌNH GỐC CHO HẠT LÚA (Giữ nguyên và đảm bảo không bị thiếu) */
+.grain {
+  position: absolute;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: linear-gradient(135deg, #f5d060, #c8900a);
+  opacity: 0;
+  z-index: 3;
+  animation: grainFall linear infinite;
+}
+
+/* 12 hạt lúa tuần hoàn ngẫu nhiên */
+.grain:nth-child(1)  { width:5px; height:9px;  left:8%;  animation-duration:5.2s; animation-delay:0s;    }
+.grain:nth-child(2)  { width:4px; height:7px;  left:18%; animation-duration:6.8s; animation-delay:-1.2s; }
+.grain:nth-child(3)  { width:6px; height:10px; left:28%; animation-duration:4.9s; animation-delay:-0.4s; }
+.grain:nth-child(4)  { width:4px; height:8px;  left:38%; animation-duration:5.1s; animation-delay:-2.1s; }
+.grain:nth-child(5)  { width:5px; height:9px;  left:48%; animation-duration:1.6s; animation-delay:-0.8s; }
+.grain:nth-child(6)  { width:3px; height:7px;  left:57%; animation-duration:6.3s; animation-delay:-1.5s; }
+.grain:nth-child(7)  { width:5px; height:8px;  left:66%; animation-duration:4.7s; animation-delay:-0.2s; }
+.grain:nth-child(8)  { width:6px; height:10px; left:74%; animation-duration:8.0s; animation-delay:-3.0s; }
+.grain:nth-child(9)  { width:4px; height:7px;  left:82%; animation-duration:5.4s; animation-delay:-1.8s; }
+.grain:nth-child(10) { width:5px; height:9px;  left:90%; animation-duration:4.1s; animation-delay:-0.6s; }
+.grain:nth-child(11) { width:3px; height:6px;  left:13%; animation-duration:4.4s; animation-delay:-2.4s; }
+.grain:nth-child(12) { width:4px; height:8px;  left:60%; animation-duration:2.0s; animation-delay:-0.8s; }
+.grain:nth-child(13) { width:4px; height:8px;  left:60%; animation-duration:2.0s; animation-delay:-1.0s; }
+.grain:nth-child(14) { width:4px; height:8px;  left:60%; animation-duration:2.8s; animation-delay:-1.3s; }
+.grain:nth-child(15) { width:4px; height:8px;  left:60%; animation-duration:1.8s; animation-delay:-0.5s; }
+.grain:nth-child(16) { width:4px; height:8px;  left:60%; animation-duration:2.8s; animation-delay:-2.0s; }
+.grain:nth-child(17) { width:4px; height:8px;  left:60%; animation-duration:2.0s; animation-delay:-1.0s; }
+
+@keyframes grainFall {
+  0%   { top: -15px; opacity: 0;   transform: rotate(0deg)   translateX(0px);   }
+  10%  {             opacity: 0.9;                                              }
+  50%  {             opacity: 0.7;  transform: rotate(180deg) translateX(15px);  }
+  85%  {             opacity: 0.4;                                              }
+  100% { top: 105%;  opacity: 0;   transform: rotate(360deg) translateX(-10px); }
+}
+/* ==========================================================================
+   CAO BẰNG — thác nước: các tia nước rơi thẳng + tiếng ào xanh biếc
+   ========================================================================== */
+
+/* Overlay xanh nước riêng */
+.dest-card-overlay--water {
+  background: linear-gradient(
+    to top,
+    rgba(5, 40, 55, 0.80) 0%,
+    rgba(10, 60, 75, 0.18) 52%,
+    transparent 100%
+  ) !important;
+}
+
+/* Canvas tia nước */
+.waterfall-canvas {
+  position: absolute; inset: 0;
+  z-index: 4; pointer-events: none;
+}
+
+/* Quầng sáng xanh biếc */
+.water-glow {
+  position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 35%,
+    rgba(30, 180, 200, 0.15) 0%,
+    transparent 70%
+  );
+  animation: waterGlowPulse 3s ease-in-out infinite alternate;
+}
+@keyframes waterGlowPulse { 0%{opacity:0.5} 100%{opacity:1} }
+
+/* Các giọt nước nhỏ (spray) ở chân thác */
+.water-spray {
+  position: absolute; bottom: -10px; left: 0; right: 0;
+  height: 80px; z-index: 4; pointer-events: none;
+  overflow: hidden;
+}
+.spray-drop {
+  position: absolute;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(180, 230, 255, 0.85);
+  animation: sprayRise linear infinite;
+  bottom: 0;
+}
+.spray-drop:nth-child(1)  { left: 88%;  animation-duration: 1.8s; animation-delay: 0s;    width: 4px; height: 4px; }
+.spray-drop:nth-child(2)  { left: 75%; animation-duration: 2.2s; animation-delay: -0.4s; }
+.spray-drop:nth-child(3)  { left: 62%; animation-duration: 1.6s; animation-delay: -0.8s; width: 4px; height: 4px; }
+.spray-drop:nth-child(4)  { left: 70%; animation-duration: 2.5s; animation-delay: -0.2s; }
+.spray-drop:nth-child(5)  { left: 68%; animation-duration: 1.9s; animation-delay: -1.0s; width: 4px; height: 4px; }
+.spray-drop:nth-child(6)  { left: 12%; animation-duration: 2.1s; animation-delay: -0.6s; }
+.spray-drop:nth-child(7)  { left: 25%; animation-duration: 1.7s; animation-delay: -1.3s; width: 4px; height: 4px; }
+.spray-drop:nth-child(8)  { left: 34%; animation-duration: 2.4s; animation-delay: -0.3s; }
+.spray-drop:nth-child(9)  { left: 18%; animation-duration: 2.0s; animation-delay: -0.9s; }
+.spray-drop:nth-child(10) { left: 42%; animation-duration: 1.5s; animation-delay: -0.1s; width: 5px; height: 5px; }
+.spray-drop:nth-child(11) { left: 28%; animation-duration: 2.3s; animation-delay: -1.5s; }
+.spray-drop:nth-child(12) { left: 95%; animation-duration: 1.8s; animation-delay: -0.7s; width: 3px; height: 5px; }
+@keyframes sprayRise {
+  0%   { transform: translateY(0) translateX(0);   opacity: 0;    }
+  15%  { opacity: 0.9; }
+  60%  { opacity: 0.6; transform: translateY(-28px) translateX(6px); }
+  100% { transform: translateY(-44px) translateX(-4px); opacity: 0; }
+}
+
