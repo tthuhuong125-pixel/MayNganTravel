@@ -91,7 +91,10 @@
         </div>
     </section>
 
-    <!-- ═══ 3. TOUR THEO MÙA NỔI BẬT ═══ -->
+    <!-- ═══ 3. TOUR THEO MÙA NỔI BẬT ═══
+     THAY TOÀN BỘ SECTION NÀY TRONG index.html
+     (từ thẻ <section class="seasonal-section"> đến </section>)
+-->
 <section class="seasonal-section">
     <div class="container seasonal-section__header">
         <h2 class="seasonal-section__title">Tour nổi bật theo mùa</h2>
@@ -99,31 +102,38 @@
         <a href="./tour/Trang_danh_sach_tours.html" class="seasonal-section__all">Xem tất cả →</a>
     </div>
 
-    <!-- Tour 1: Y Tý — nội dung TRÁI, ảnh PHẢI -->
+    <!-- ══ Tour 1: Y Tý — nội dung TRÁI, ảnh PHẢI ══ -->
     <div class="seasonal-row">
         <div class="seasonal-row__content">
             <span class="seasonal-row__tag">MÙA SĂN MÂY 2026</span>
+
             <div class="seasonal-row__heading">
                 <h2 class="seasonal-row__title">Y Tý</h2>
                 <span class="badge badge--hot">HOT</span>
             </div>
+
             <p class="seasonal-row__desc">
-                Chìm đắm giữa biển mây bồng bềnh trải dài tít tắp, ngắm nhìn những
-                thửa ruộng bậc thang vàng óng và khám phá nét văn hóa độc đáo của
-                đồng bào dân tộc Hà Nhì nơi rẻo cao biên giới.
+                Chìm đắm giữa biển mây bồng bềnh trải dài tít tắp, ngắm nhìn những thửa
+                ruộng bậc thang vàng óng và khám phá nét văn hóa độc đáo của đồng bào
+                dân tộc Hà Nhì nơi rẻo cao biên giới.
             </p>
+
             <div class="seasonal-row__meta">
                 <span>⏱ <strong>Thời gian:</strong> 2 ngày 1 đêm</span>
                 <span>📍 <strong>Khởi hành:</strong> Hà Nội</span>
             </div>
+
+            <!-- Dest-tags khớp với tour-card: dest-tag--primary + dest-tag phụ + phương tiện -->
             <div class="seasonal-row__dest-tags">
                 <span class="dest-tag dest-tag--primary">Y Tý</span>
-                <span class="dest-tag">Bát Xát</span>
                 <span class="dest-tag">🚌 Xe du lịch</span>
             </div>
+
+            <!-- Giá từ TOURS_DATA: MNYT01 price=2178000, priceOld=null -->
             <div class="seasonal-row__price">
                 <span class="price-new">2.178.000đ</span>
             </div>
+
             <a href="./tour/chi_tiet/MNYT01.html" class="btn btn-primary">Khám phá ngay</a>
         </div>
 
@@ -134,39 +144,59 @@
         </div>
     </div>
 
-    <!-- Tour 2: Mộc Châu — ảnh TRÁI, nội dung PHẢI -->
+    <!-- ══ Tour 2: Mộc Châu — ảnh TRÁI, nội dung PHẢI ══
+         FIX: Với flex-direction:row-reverse, phần tử ĐẦU TIÊN trong DOM → xuất hiện bên PHẢI.
+         Vì vậy phải đặt content TRƯỚC img-wrap để:
+           content (1st) → hiện bên PHẢI ✓
+           img-wrap (2nd) → hiện bên TRÁI ✓  (bo hạt đậu nằm trái)
+    -->
     <div class="seasonal-row seasonal-row--reversed">
-        <div class="seasonal-row__img-wrap">
-            <img src="./images/3_MocChau/MNMC01/MNMC01_01.png"
-                 alt="Mộc Châu mùa hoa ban trắng"
-                 class="seasonal-row__img seasonal-row__img--left">
-        </div>
 
+        <!-- content đặt TRƯỚC → xuất hiện bên PHẢI (do row-reverse) -->
         <div class="seasonal-row__content seasonal-row__content--right">
             <span class="seasonal-row__tag">MÙA HOA BAN 2026</span>
+
             <div class="seasonal-row__heading">
                 <h2 class="seasonal-row__title">Mộc Châu</h2>
                 <span class="badge badge--hot">HOT</span>
             </div>
+
             <p class="seasonal-row__desc">
                 Đắm mình trong sắc trắng tinh khôi của hoa ban, dạo bước giữa những
                 đồi chè xanh mướt và tận hưởng bầu không khí trong lành của cao nguyên.
             </p>
+
             <div class="seasonal-row__meta">
                 <span>⏱ <strong>Thời gian:</strong> 2 ngày 1 đêm</span>
                 <span>📍 <strong>Khởi hành:</strong> Hà Nội</span>
             </div>
+
+            <!-- Dest-tags từ TOURS_DATA: MNMC01 primaryDest="Mộc Châu", transport="Xe du lịch" -->
             <div class="seasonal-row__dest-tags">
                 <span class="dest-tag dest-tag--primary">Mộc Châu</span>
-                <span class="dest-tag">Mai Châu</span>
                 <span class="dest-tag">🚌 Xe du lịch</span>
             </div>
+
+            <!-- Giá từ TOURS_DATA: MNMC01 price=2180000, priceOld=null -->
             <div class="seasonal-row__price">
-                <s class="price-old">2.288.000đ</s>
-                <span class="price-new">2.080.000đ</span>
+                <span class="price-new">2.180.000đ</span>
             </div>
+
             <a href="./tour/chi_tiet/MNMC01.html" class="btn btn-primary">Khám phá ngay</a>
         </div>
+
+        <!-- img-wrap đặt SAU → xuất hiện bên TRÁI (do row-reverse) -->
+        <div class="seasonal-row__img-wrap">
+            <img src="./images/3_MocChau/MNMC01/MNMC01_01.png"
+                 alt="Mộc Châu mùa hoa ban trắng"
+                 class="seasonal-row__img seasonal-row__img--left">
+            <!--
+                .seasonal-row__img--left dùng border-radius: 0 260px 260px 0
+                = phẳng bên trái (cạnh trang), bo tròn bên phải (cạnh nội dung)
+                → đúng kiểu hạt đậu nằm bên trái ✓
+            -->
+        </div>
+
     </div>
 </section>
 

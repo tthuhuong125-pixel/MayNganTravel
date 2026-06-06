@@ -655,3 +655,65 @@ html { scroll-behavior: smooth; }
     flex-wrap: wrap;
     margin: 8px 0 14px;
 }
+
+/* ── TOUR TƯƠNG TỰ ────────────────────────────────────────── */
+.similar-tours-section {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-xl);
+  border-top: 0.5px solid var(--border-color);
+}
+
+.similar-tours-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+}
+
+.similar-tours-title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.similar-tours-see-all {
+  font-size: var(--text-sm);
+  color: var(--color-primary);
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.similar-tours-see-all:hover {
+  color: var(--color-primary-dark);
+}
+
+/* Grid 3 cột — giống danh sách tour */
+.similar-tours-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+/* Chiều cao ảnh trong section này */
+.similar-tours-grid .tour-card__img {
+  height: 200px;
+}
+
+/* Không tìm được tour nào */
+.similar-tours-empty {
+  font-size: var(--text-sm);
+  color: var(--text-light);
+  text-align: center;
+  padding: var(--space-xl) 0;
+  grid-column: 1 / -1;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .similar-tours-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .similar-tours-grid { grid-template-columns: 1fr; }
+  .similar-tours-header { flex-direction: column; align-items: flex-start; gap: var(--space-sm); }
+}
