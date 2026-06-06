@@ -29,6 +29,7 @@
 }
 .btn-primary:hover {
   background: var(--color-primary-dark);
+  color: var(--text-white);
 }
 
 /* Nút cam — dùng cho hành động QUAN TRỌNG NHẤT như "Đặt tour ngay" */
@@ -38,6 +39,7 @@
 }
 .btn-cta:hover {
   background: var(--color-cta-dark);
+  color: var(--text-white);  
 }
 
 /* Nút viền — dùng khi cần nút phụ cạnh nút chính, VD: "Liên hệ tư vấn" */
