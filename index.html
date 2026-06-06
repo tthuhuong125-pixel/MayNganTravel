@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/variables.css">
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/blog.css">
     <!-- CSS riêng trang chủ -->
     <link rel="stylesheet" href="./css/trangchu.css">
 </head>
@@ -251,10 +252,11 @@
         </svg>
     </button>
 
-    <!-- JS chung (header/footer/nav/back-to-top) -->
-    <script src="./js/main.js"></script>
-    <!-- JS riêng trang chủ -->
-    <script src="./js/trangchu.js"></script>
+    <!-- THỨ TỰ LOAD — BẮT BUỘC đúng thứ tự -->
+    <script src="./js/tourdata.js"></script>   <!-- 1. dữ liệu tour -->
+    <script src="./js/tourcard.js"></script>    <!-- 2. hàm render card -->
+    <script src="./js/main.js"></script>        <!-- 3. header/footer -->
+    <script src="./js/trangchu.js"></script>    <!-- 4. logic trang chủ -->
 
 </body>
 </html>
