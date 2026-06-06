@@ -750,7 +750,8 @@
    7. BANNER KÊU GỌI ĐẶT TOUR
    ══════════════════════════════════════════════════════════ */
 .cta-banner {
-    background: var(--bg-dark);         /* #1F2E22 xanh rừng đậm */
+    background: var(--bg-white);           /* ← đổi từ var(--bg-secondary) */
+    border-left: 4px solid var(--color-cta); /* ← thêm dòng này */
     padding: var(--space-xl) 0;
 }
 
@@ -765,13 +766,13 @@
 .cta-banner__title {
     font-size: var(--text-2xl);
     font-weight: 700;
-    color: #fff;
+    color: var(--text-dark);               /* ← đổi từ #fff */
     margin-bottom: 6px;
 }
 
 .cta-banner__sub {
     font-size: var(--text-sm);
-    color: rgba(255, 255, 255, 0.65);
+    color: var(--text-medium);             /* ← đổi từ rgba(255,255,255,0.65) */
     margin: 0;
 }
 
@@ -780,7 +781,9 @@
     padding: 14px 32px;
     border-radius: var(--radius-full);
     flex-shrink: 0;
-    box-shadow: 0 6px 24px rgba(232, 105, 58, 0.35);
+    background: var(--color-cta);          /* ← đổi từ var(--bg-dark) */
+    color: var(--text-white);
+    box-shadow: 0 6px 24px rgba(232, 105, 58, 0.35); /* ← revert box-shadow */
     transition: var(--transition);
 }
 
