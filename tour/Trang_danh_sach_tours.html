@@ -6,20 +6,19 @@
     <title>Danh Sách Tour - Mây Ngàn Travel</title>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- ── CSS CHUNG (thứ tự quan trọng) ── -->
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <!-- CSS riêng trang này — phải load SAU để override được -->
-    <link rel="stylesheet" href="css/Trang_danh_sach_tours.css">
+    <!-- Đường dẫn lùi 1 cấp vì file nằm trong /tour/ -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/Trang_danh_sach_tours.css">
 </head>
 <body>
 
     <div id="header-placeholder"
-         data-path="./components/header.html"
-         data-root="./"></div>
+         data-path="../components/header.html"
+         data-root="../"></div>
 
     <main class="container tour-page-wrapper">
 
@@ -103,25 +102,29 @@
             <!-- ══ NỘI DUNG TOUR BÊN PHẢI ══ -->
             <section class="tours-content">
 
-                <!-- Chip lọc điểm đến -->
+                <!-- Chip lọc điểm đến — đủ 9 điểm, slug khớp với destSlug trong tours-data.js -->
                 <div class="destination-filter">
                     <span class="section-label">LỌC THEO ĐIỂM ĐẾN</span>
                     <div class="chips-group">
                         <div class="chip chip--active" data-dest="all">Tất cả</div>
+                        <div class="chip" data-dest="sapa">Sapa</div>
+                        <div class="chip" data-dest="yty">Y Tý</div>
+                        <div class="chip" data-dest="mocchau">Mộc Châu</div>
+                        <div class="chip" data-dest="bachha">Bắc Hà</div>
                         <div class="chip" data-dest="mcc">Mù Cang Chải</div>
-                        <div class="chip" data-dest="sonla">Sơn La</div>
+                        <div class="chip" data-dest="taxua">Tà Xùa</div>
                         <div class="chip" data-dest="hagiang">Hà Giang</div>
                         <div class="chip" data-dest="caobang">Cao Bằng</div>
-                        <div class="chip" data-dest="yty">Y Tý</div>
-                        <div class="chip" data-dest="laocai">Lào Cai</div>
+                        <div class="chip" data-dest="backan">Bắc Kạn</div>
                     </div>
                 </div>
 
-                <!-- Thanh sắp xếp — data-sort="banchay" khớp với JS -->
+                <!-- Thanh sắp xếp — "Tất cả" đứng đầu, active mặc định -->
                 <div class="sort-bar">
                     <span class="section-label">Sắp xếp:</span>
                     <div class="sort-options">
-                        <button class="sort-btn active" data-sort="banchay">🔥 Tour Hot</button>
+                        <button class="sort-btn active" data-sort="tatca">Tất cả</button>
+                        <button class="sort-btn" data-sort="banchay">🔥 Tour Hot</button>
                         <button class="sort-btn" data-sort="moinhat">✨ Tour Mới</button>
                         <button class="sort-btn" data-sort="giatang">Giá ↑</button>
                         <button class="sort-btn" data-sort="giamgiam">Giá ↓</button>
@@ -140,7 +143,6 @@
         </div>
     </main>
 
-    <!-- Nút back to top -->
     <button id="backToTop" class="back-to-top-btn" title="Lên đầu trang">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
              stroke="currentColor" stroke-width="2.5">
@@ -149,20 +151,14 @@
     </button>
 
     <div id="footer-placeholder"
-         data-path="./components/footer.html"
-         data-root="./"></div>
+         data-path="../components/footer.html"
+         data-root="../"></div>
 
-    <!--
-        THỨ TỰ LOAD SCRIPT — BẮT BUỘC ĐÚNG THỨ TỰ:
-        1. toursdata.js              → khai báo TOURS_DATA
-        2. tourcard.js               → khai báo renderTourCard / renderTourGrid
-        3. Trang_danh_sach_tours.js  → dùng 2 hàm trên, filter + sort
-        4. main.js                   → header / footer / nav / back-to-top
-    -->
-    <script src="js/tourdata.js"></script>
-    <script src="js/tourcard.js"></script>
-    <script src="js/Trang_danh_sach_tours.js"></script>
-    <script src="js/main.js"></script>
+    <!-- Đường dẫn lùi 1 cấp, đúng thứ tự -->
+    <script src="../js/tourdata.js"></script>
+    <script src="../js/tourcard.js"></script>
+    <script src="../js/Trang_danh_sach_tours.js"></script>
+    <script src="../js/main.js"></script>
 
 </body>
 </html>

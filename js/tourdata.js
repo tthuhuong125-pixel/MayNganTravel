@@ -1,14 +1,11 @@
 /*
   tours-data.js — Mây Ngàn Travel
   TOÀN BỘ dữ liệu tour — sửa ở đây là cập nhật toàn site
-  Phương Anh + Ngân phối hợp điền dữ liệu vào đây
 
-  Giải thích các trường mới:
-  - sales    : Số lượt bán — dùng để sort "Bán chạy" / "Hot"
-  - dateAdded: Ngày thêm tour — dùng để sort "Mới nhất"
-  - destSlug : Slug điểm đến — dùng cho chip filter trang danh sách
-               Giá trị hợp lệ: 'laocai' | 'yty' | 'sonla' | 'mcc' | 'hagiang' | 'caobang'
-               Nhiều điểm thì cách nhau bằng dấu cách: 'mcc laocai'
+  destSlug — slug khớp với data-dest trên chip HTML:
+  'sapa' | 'yty' | 'mocchau' | 'bachha' | 'mcc' | 'taxua'
+  | 'hagiang' | 'caobang' | 'backan'
+  Nhiều điểm cách nhau bằng dấu cách: 'mcc sapa'
 */
 
 const TOURS_DATA = [
@@ -30,8 +27,8 @@ const TOURS_DATA = [
     region: 'Tây Bắc',
     primaryDest: 'Sapa',
     otherDests: [],
-    link: '../tour/chi_tiet/MNSP01.html',
-    destSlug: 'laocai'
+    link: './chi_tiet/MNSP01.html',
+    destSlug: 'sapa'
   },
   {
     id: 'MNSP02',
@@ -49,8 +46,8 @@ const TOURS_DATA = [
     region: 'Tây Bắc',
     primaryDest: 'Sa Pa',
     otherDests: ['Điện Biên', 'Lai Châu', 'Mộc Châu'],
-    link: '../tour/chi_tiet/MNSP02.html',
-    destSlug: 'laocai sonla'
+    link: './chi_tiet/MNSP02.html',
+    destSlug: 'sapa mocchau'
   },
   {
     id: 'MNSP03',
@@ -68,8 +65,8 @@ const TOURS_DATA = [
     region: 'Tây Bắc',
     primaryDest: 'Sa Pa',
     otherDests: ['Lai Châu', 'Điện Biên', 'Mộc Châu'],
-    link: '../tour/chi_tiet/MNSP03.html',
-    destSlug: 'laocai sonla'
+    link: './chi_tiet/MNSP03.html',
+    destSlug: 'sapa mocchau'
   },
 
   /* ── Y TÝ ─────────────────────────────────────────────── */
@@ -89,8 +86,8 @@ const TOURS_DATA = [
     region: 'Tây Bắc',
     primaryDest: 'Y Tý',
     otherDests: [],
-    link: '../tour/chi_tiet/MNYT01.html',
-    destSlug: 'yty laocai'
+    link: './chi_tiet/MNYT01.html',
+    destSlug: 'yty'
   },
   {
     id: 'MNYT02',
@@ -108,15 +105,15 @@ const TOURS_DATA = [
     region: 'Tây Bắc',
     primaryDest: 'Y Tý',
     otherDests: ['Bắc Hà'],
-    link: '../tour/chi_tiet/MNYT02.html',
-    destSlug: 'yty laocai'
+    link: './chi_tiet/MNYT02.html',
+    destSlug: 'yty bachha'
   },
 
   /* ── MỘC CHÂU ────────────────────────────────────────── */
   {
     id: 'MNMC01',
     name: 'Tour Mộc Châu 2N1Đ',
-    img: '../images/3_MocChau/MNMC01/MNMC01_01.jpg',
+    img: '../images/3_MocChau/MNMC01/MNMC01_03.jpg',
     imgAlt: 'Tour Mộc Châu 2N1Đ',
     duration: '2N1Đ',
     transport: 'Xe du lịch',
@@ -129,8 +126,8 @@ const TOURS_DATA = [
     region: 'Tây Bắc',
     primaryDest: 'Mộc Châu',
     otherDests: [],
-    link: '../tour/chi_tiet/MNMC01.html',
-    destSlug: 'sonla'
+    link: './chi_tiet/MNMC01.html',
+    destSlug: 'mocchau'
   },
   {
     id: 'MNMC02',
@@ -148,8 +145,8 @@ const TOURS_DATA = [
     region: 'Tây Bắc',
     primaryDest: 'Mộc Châu',
     otherDests: ['Tà Xùa'],
-    link: '../tour/chi_tiet/MNMC02.html',
-    destSlug: 'sonla'
+    link: './chi_tiet/MNMC02.html',
+    destSlug: 'mocchau taxua'
   },
   {
     id: 'MNMC03',
@@ -167,8 +164,8 @@ const TOURS_DATA = [
     region: 'Tây Bắc',
     primaryDest: 'Mộc Châu',
     otherDests: ['Điện Biên'],
-    link: '../tour/chi_tiet/MNMC03.html',
-    destSlug: 'sonla'
+    link: './chi_tiet/MNMC03.html',
+    destSlug: 'mocchau'
   },
 
   /* ── BẮC HÀ ──────────────────────────────────────────── */
@@ -188,8 +185,8 @@ const TOURS_DATA = [
     region: 'Tây Bắc',
     primaryDest: 'Bắc Hà',
     otherDests: [],
-    link: '../tour/chi_tiet/MNBH01.html',
-    destSlug: 'laocai'
+    link: './chi_tiet/MNBH01.html',
+    destSlug: 'bachha'
   },
 
   /* ── MÙ CANG CHẢI ────────────────────────────────────── */
@@ -209,7 +206,7 @@ const TOURS_DATA = [
     region: 'Tây Bắc',
     primaryDest: 'Mù Cang Chải',
     otherDests: [],
-    link: '../tour/chi_tiet/MNM201.html',
+    link: './chi_tiet/MNM201.html',
     destSlug: 'mcc'
   },
   {
@@ -228,7 +225,7 @@ const TOURS_DATA = [
     region: 'Tây Bắc',
     primaryDest: 'Mù Cang Chải',
     otherDests: [],
-    link: '../tour/chi_tiet/MNM202.html',
+    link: './chi_tiet/MNM202.html',
     destSlug: 'mcc'
   },
   {
@@ -247,8 +244,8 @@ const TOURS_DATA = [
     region: 'Tây Bắc',
     primaryDest: 'Mù Cang Chải',
     otherDests: ['Sa Pa'],
-    link: '../tour/chi_tiet/MNM203.html',
-    destSlug: 'mcc laocai'
+    link: './chi_tiet/MNM203.html',
+    destSlug: 'mcc sapa'
   },
 
   /* ── TÀ XÙA ──────────────────────────────────────────── */
@@ -268,8 +265,8 @@ const TOURS_DATA = [
     region: 'Tây Bắc',
     primaryDest: 'Tà Xùa',
     otherDests: [],
-    link: '../tour/chi_tiet/MNTX01.html',
-    destSlug: 'sonla'
+    link: './chi_tiet/MNTX01.html',
+    destSlug: 'taxua'
   },
   {
     id: 'MNTX02',
@@ -287,8 +284,8 @@ const TOURS_DATA = [
     region: 'Tây Bắc',
     primaryDest: 'Tà Xùa',
     otherDests: [],
-    link: '../tour/chi_tiet/MNTX02.html',
-    destSlug: 'sonla'
+    link: './chi_tiet/MNTX02.html',
+    destSlug: 'taxua'
   },
 
   /* ── HÀ GIANG ────────────────────────────────────────── */
@@ -308,7 +305,7 @@ const TOURS_DATA = [
     region: 'Đông Bắc',
     primaryDest: 'Hà Giang',
     otherDests: ['Sông Nho Quế'],
-    link: '../tour/chi_tiet/MNHG01.html',
+    link: './chi_tiet/MNHG01.html',
     destSlug: 'hagiang'
   },
   {
@@ -327,8 +324,8 @@ const TOURS_DATA = [
     region: 'Đông Bắc',
     primaryDest: 'Hà Giang',
     otherDests: ['Cao Bằng', 'Bắc Kạn'],
-    link: '../tour/chi_tiet/MNHG02.html',
-    destSlug: 'hagiang caobang'
+    link: './chi_tiet/MNHG02.html',
+    destSlug: 'hagiang caobang backan'
   },
   {
     id: 'MNHG03',
@@ -346,7 +343,7 @@ const TOURS_DATA = [
     region: 'Đông Bắc',
     primaryDest: 'Hà Giang',
     otherDests: [],
-    link: '../tour/chi_tiet/MNHG03.html',
+    link: './chi_tiet/MNHG03.html',
     destSlug: 'hagiang'
   },
   {
@@ -365,8 +362,8 @@ const TOURS_DATA = [
     region: 'Đông Bắc',
     primaryDest: 'Hà Giang',
     otherDests: ['Bắc Kạn', 'Cao Bằng'],
-    link: '../tour/chi_tiet/MNHG04.html',
-    destSlug: 'hagiang caobang'
+    link: './chi_tiet/MNHG04.html',
+    destSlug: 'hagiang caobang backan'
   },
   {
     id: 'MNHG05',
@@ -384,8 +381,8 @@ const TOURS_DATA = [
     region: 'Xuyên vùng',
     primaryDest: 'Hà Giang',
     otherDests: ['Bắc Hà'],
-    link: '../tour/chi_tiet/MNHG05.html',
-    destSlug: 'hagiang laocai'
+    link: './chi_tiet/MNHG05.html',
+    destSlug: 'hagiang bachha'
   },
 
   /* ── CAO BẰNG ────────────────────────────────────────── */
@@ -405,7 +402,7 @@ const TOURS_DATA = [
     region: 'Đông Bắc',
     primaryDest: 'Cao Bằng',
     otherDests: [],
-    link: '../tour/chi_tiet/MNCB01.html',
+    link: './chi_tiet/MNCB01.html',
     destSlug: 'caobang'
   },
   {
@@ -424,8 +421,8 @@ const TOURS_DATA = [
     region: 'Đông Bắc',
     primaryDest: 'Cao Bằng',
     otherDests: ['Bắc Kạn'],
-    link: '../tour/chi_tiet/MNCB02.html',
-    destSlug: 'caobang'
+    link: './chi_tiet/MNCB02.html',
+    destSlug: 'caobang backan'
   }
 
 ];

@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Săn Ưu Đãi Giờ Vàng - Mây Ngàn Travel</title>
-  
+
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
@@ -12,229 +13,59 @@
 </head>
 <body>
 
+  <div id="header-placeholder"
+       data-path="./components/header.html"
+       data-root="./"></div>
+
+  <!-- ── BANNER ── -->
   <div class="promo-banner-container">
     <div class="promo-banner-wrapper">
-      <img src="KM.png" alt="Chương trình ưu đãi du lịch Mây Ngàn">
+      <img src="images/KM.png" alt="Chương trình ưu đãi du lịch Mây Ngàn">
     </div>
   </div>
 
+  <!-- ── TIÊU ĐỀ ── -->
   <div class="promo-header-bar">
     <h2 class="promo-header-title">Các Tour Đang Giảm Giá</h2>
   </div>
 
-  <main class="promo-list" id="promoList">
-    
-  <!--Tour Mù Cang Chải – Sapa 3N2Đ-->  
-    <div class="promo-row-card" data-old-price="2660000" data-discount="5%">
-      <a href="MNM203.html" class="promo-row-card__img-box">
-        <span class="promo-row-card__badge"></span> <img src="images/5_MuCangChai/MNM203/MNM203_01.jpg" alt="Tour Mù Cang Chải">
-      </a>
-      <div class="promo-row-card__content">
-        <div class="promo-row-card__meta">
-          <span>Mã tour: <strong>MNM203</strong></span>
-        </div>
-        <a href="MNM203.html" class="promo-row-card__title-link">
-          <h2 class="promo-row-card__title">Tour Mù Cang Chải – Sapa 3N2Đ</h2>
-        </a>
-        <div class="promo-row-card__specs-line">
-          ⏱️ 3 Ngày 2 Đêm &nbsp;|&nbsp; 📍 Hà Nội &nbsp;|&nbsp; 🚌 Xe du lịch
-        </div>
-        <div class="promo-row-card__footer">
-          <div class="promo-row-card__price-wrapper">
-            <span class="promo-row-card__old-price"></span> <span class="promo-row-card__current-price"></span> </div>
-          <a href="MNM203.html" class="btn btn-cta">Xem chi tiết</a>
-        </div>
-      </div>
-    </div>
+  <!-- ── BỘ ĐẾM ── -->
+  <div class="promo-count-bar">
+    <strong id="tourCount">0</strong> tour đang khuyến mãi
+  </div>
 
-
-<!--Tour Hà Giang – Sông Nho Quế 5N4Đ-->
-
-    <div class="promo-row-card" data-old-price="7380000" data-discount="15">
-      <a href="MNHG01.html" class="promo-row-card__img-box">
-        <span class="promo-row-card__badge"></span>
-        <img src="images/7_HaGiang/MNHG01/MNHG01_01.jpg" alt="Tour Hà Giang - Sông Nho Quế 5N4Đ">
-      </a>
-      <div class="promo-row-card__content">
-        <div class="promo-row-card__meta">
-          <span>Mã tour: <strong>MNHG01</strong></span>
-        </div>
-        <a href="MNHG01.html" class="promo-row-card__title-link">
-          <h2 class="promo-row-card__title">Tour Hà Giang – Sông Nho Quế 5N4Đ</h2>
-        </a>
-        <div class="promo-row-card__specs-line">
-          ⏱️ 5 Ngày 4 Đêm &nbsp;|&nbsp; 📍 Hồ Chí Minh &nbsp;|&nbsp; ✈️ Máy bay
-        </div>
-        <div class="promo-row-card__footer">
-          <div class="promo-row-card__price-wrapper">
-            <span class="promo-row-card__old-price"></span>
-            <span class="promo-row-card__current-price"></span>
-          </div>
-          <a href="MNHG01.html" class="btn btn-cta">Xem chi tiết</a>
-        </div>
-      </div>
-    </div>
-<!--Tour Đông Bắc : Hà Giang – Hồ Ba Bể – Thác Bản Giốc 5N5Đ-->
-    <div class="promo-row-card" data-old-price="10760000" data-discount="20">
-      <a href="MNHG04.html" class="promo-row-card__img-box">
-        <span class="promo-row-card__badge"></span>
-        <img src="images/7_HaGiang/MNHG04/MNHG04_01.jpG" alt="Tour Hà Giang">
-      </a>
-      <div class="promo-row-card__content">
-        <div class="promo-row-card__meta">
-          <span>Mã tour: <strong>MNHG04</strong></span>
-        </div>
-        <a href="MNHG04.html" class="promo-row-card__title-link">
-          <h2 class="promo-row-card__title">Tour Đông Bắc : Hà Giang – Hồ Ba Bể – Thác Bản Giốc 5N5Đ </h2>
-        </a>
-        <div class="promo-row-card__specs-line">
-          ⏱️ 5 Ngày 5 Đêm &nbsp;|&nbsp; 📍 Hồ Chí Minh &nbsp;|&nbsp; ✈️ Máy bay
-        </div>
-        <div class="promo-row-card__footer">
-          <div class="promo-row-card__price-wrapper">
-            <span class="promo-row-card__old-price"></span>
-            <span class="promo-row-card__current-price"></span>
-          </div>
-          <a href="MNHG04.html" class="btn btn-cta">Xem chi tiết</a>
-        </div>
-      </div>
-    </div>
-
-<!--Tour Hà Giang – Hoàng Su Phì – Xín Mần – Bắc Hà 3N2Đ-->
-
-    <div class="promo-row-card" data-old-price="2590000" data-discount="10">
-      <a href="MNHG05.html" class="promo-row-card__img-box">
-        <span class="promo-row-card__badge"></span>
-        <img src="images/7_HaGiang/MNHG05/MNHG05_01.jpg" alt="Tour Hà Giang">
-      </a>
-      <div class="promo-row-card__content">
-        <div class="promo-row-card__meta">
-          <span>Mã tour: <strong>MNHG05</strong></span>
-        </div>
-        <a href="MNHG05.html" class="promo-row-card__title-link">
-          <h2 class="promo-row-card__title">Tour Hà Giang – Hoàng Su Phì – Xín Mần – Bắc Hà 3N2Đ</h2>
-        </a>
-        <div class="promo-row-card__specs-line">
-          ⏱️ 3 Ngày 2 Đêm &nbsp;|&nbsp; 📍 Hà Nội &nbsp;|&nbsp; 🚌 Xe du lịch
-        </div>
-        <div class="promo-row-card__footer">
-          <div class="promo-row-card__price-wrapper">
-            <span class="promo-row-card__old-price"></span>
-            <span class="promo-row-card__current-price"></span>
-          </div>
-          <a href="MNHG05.html" class="btn btn-cta">Xem chi tiết</a>
-        </div>
-      </div>
-    </div>
-
-<!--Tour Cao Bằng – Bắc Kạn – Hồ Ba Bể 3N2Đ-->
-
-    <div class="promo-row-card" data-old-price="2550000" data-discount="20">
-      <a href="MNCB02.html" class="promo-row-card__img-box">
-        <span class="promo-row-card__badge"></span>
-        <img src="images/8_CaoBang/MNCB02/MNCB02_01.jpg" alt="Tour Cao Bằng">
-      </a>
-      <div class="promo-row-card__content">
-        <div class="promo-row-card__meta">
-          <span>Mã tour: <strong>MNCB02</strong></span>
-        </div>
-        <a href="MNCB02.html" class="promo-row-card__title-link">
-          <h2 class="promo-row-card__title">Tour Cao Bằng – Bắc Kạn – Hồ Ba Bể 3N2Đ</h2>
-        </a>
-        <div class="promo-row-card__specs-line">
-          ⏱️ 3 Ngày 2 Đêm &nbsp;|&nbsp; 📍 Hà Nội &nbsp;|&nbsp; 🚌 Xe du lịch 
-        </div>
-        <div class="promo-row-card__footer">
-          <div class="promo-row-card__price-wrapper">
-            <span class="promo-row-card__old-price"></span>
-            <span class="promo-row-card__current-price"></span>
-          </div>
-          <a href="MNCB02.html" class="btn btn-cta">Xem chi tiết</a>
-        </div>
-      </div>
-    </div>
-
+  <!--
+    GRID TOUR — để trống hoàn toàn.
+    khuyenmai.js gọi renderTourGrid('#promoGrid', { isSale: true })
+    để inject tất cả tour có isSale:true từ TOURS_DATA vào đây.
+    Card dùng chung components.css — giao diện giống hệt trang danh sách.
+  -->
+  <main class="promo-page-wrapper">
+    <div class="promo-grid" id="promoGrid"></div>
   </main>
-  <div class="promo-pagination">
+
+  <!-- ── PHÂN TRANG — nút số được sinh tự động bởi khuyenmai.js ── -->
+  <div class="promo-pagination" id="promoPagination">
     <button class="promo-page-btn" id="prevBtn">‹</button>
-    <button class="promo-page-btn" data-page="1">1</button>
-    <button class="promo-page-btn" data-page="2">2</button>
+    <div class="promo-page-numbers" id="pageNumbers"></div>
     <button class="promo-page-btn" id="nextBtn">›</button>
   </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const itemsPerPage = 3;
-      let currentPage = 1;
-      
-      const tourCards = Array.from(document.querySelectorAll(".promo-row-card"));
-      const totalTours = tourCards.length; 
-      const totalPages = Math.ceil(totalTours / itemsPerPage);
-      
-      const pageButtons = document.querySelectorAll(".promo-page-btn[data-page]");
-      const prevBtn = document.getElementById("prevBtn");
-      const nextBtn = document.getElementById("nextBtn");
+  <div id="footer-placeholder"
+       data-path="./components/footer.html"
+       data-root="./"></div>
 
-      function showPage(page) {
-        currentPage = page;
-        const start = (page - 1) * itemsPerPage;
-        const end = Math.min(start + itemsPerPage, totalTours);
-
-        tourCards.forEach((card, index) => {
-          if (index >= start && index < end) {
-            card.classList.remove("is-hidden");
-          } else {
-            card.classList.add("is-hidden");
-          }
-        });
-
-        pageButtons.forEach(btn => {
-          if (parseInt(btn.getAttribute("data-page")) === page) {
-            btn.classList.add("promo-page-btn--active");
-          } else {
-            btn.classList.remove("promo-page-btn--active");
-          }
-        });
-
-        if (currentPage === 1) {
-          prevBtn.classList.add("promo-page-btn--disabled");
-        } else {
-          prevBtn.classList.remove("promo-page-btn--disabled");
-        }
-
-        if (currentPage === totalPages) {
-          nextBtn.classList.add("promo-page-btn--disabled");
-        } else {
-          nextBtn.classList.remove("promo-page-btn--disabled");
-        }
-        
-        document.querySelector(".promo-header-bar").scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-
-      pageButtons.forEach(btn => {
-        btn.addEventListener("click", function () {
-          const targetPage = parseInt(this.getAttribute("data-page"));
-          showPage(targetPage);
-        });
-      });
-
-      prevBtn.addEventListener("click", function () {
-        if (currentPage > 1) {
-          showPage(currentPage - 1);
-        }
-      });
-
-      nextBtn.addEventListener("click", function () {
-        if (currentPage < totalPages) {
-          showPage(currentPage + 1);
-        }
-      });
-
-      showPage(1);
-    });
-  </script>
-  
-  <script src="/js/chitiet.js" defer></script>
+  <!--
+    THỨ TỰ LOAD SCRIPT — BẮT BUỘC đúng thứ tự:
+    1. toursdata.js  — kho dữ liệu
+    2. tourcard.js   — hàm renderTourCard / renderTourGrid
+    3. khuyenmai.js  — render sale tours + phân trang
+    4. main.js       — header/footer chung
+  -->
+  <script src="js/tourdata.js"></script>
+  <script src="js/tourcard.js"></script>
   <script src="js/khuyenmai.js"></script>
+  <script src="js/main.js"></script>
+
 </body>
 </html>
