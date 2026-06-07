@@ -750,7 +750,7 @@ html { scroll-behavior: smooth; }
         width: 100%; /* Trả lại 100% chiều ngang cho cột phải */
         position: static; /* Gỡ bỏ sticky trên mobile để tránh lỗi cuộn trang */
     }
-    
+
     /* Co nhỏ kích thước Slider hình ảnh phù hợp màn hình dọc */
     .main-img {
         height: 280px;
@@ -828,4 +828,39 @@ html { scroll-behavior: smooth; }
         gap: 8px;
         text-align: center;
     }
+}
+
+/* ==========================================================
+   BỔ SUNG RESPONSIVE TABLET & MOBILE (FIX LỖI ÉP NGANG)
+   ========================================================== */
+
+@media (max-width: 1024px) {
+    /* 1. Ép đổi trục từ Ngang (Row) sang Dọc (Column) */
+    .chitiet-layout {
+        flex-direction: column; 
+        padding: 20px var(--space-sm); 
+        gap: 30px;
+    }
+
+    /* 2. Cột trái chiếm toàn bộ chiều ngang */
+    .left {
+        width: 100%;
+    }
+
+    /* 3. Cột phải tụt xuống dưới, gỡ bỏ sticky và set full width */
+    .right {
+        width: 100%;
+        max-width: 100%; 
+        position: static; /* Gỡ bỏ sticky để trên mobile không bị kẹt khi cuộn */
+        box-sizing: border-box; /* Rất quan trọng: Đảm bảo padding 28px không cộng dồn làm phình to box */
+        margin-top: 20px; /* Thêm khoảng cách với nội dung phía trên */
+    }
+}
+
+/* Các tinh chỉnh riêng cho màn hình điện thoại siêu nhỏ (dưới 768px) vẫn giữ nguyên */
+@media (max-width: 768px) {
+    .main-img {
+        height: 280px;
+    }
+    /* Các CSS bạn đã viết cho mobile ở đây... */
 }
