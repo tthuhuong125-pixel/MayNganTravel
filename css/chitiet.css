@@ -741,10 +741,16 @@ html { scroll-behavior: smooth; }
 @media (max-width: 768px) {
     /* Giảm padding bọc ngoài layout */
     .chitiet-layout {
+        flex-direction: column; /* Bắt buộc để bẻ 2 cột ngang thành dọc */
         padding: 15px var(--space-sm);
         gap: 30px;
     }
-
+    
+    .right {
+        width: 100%; /* Trả lại 100% chiều ngang cho cột phải */
+        position: static; /* Gỡ bỏ sticky trên mobile để tránh lỗi cuộn trang */
+    }
+    
     /* Co nhỏ kích thước Slider hình ảnh phù hợp màn hình dọc */
     .main-img {
         height: 280px;
