@@ -1,14 +1,4 @@
-/*
-  tour-card.js — Mây Ngàn Travel
-  Hàm tạo HTML card tour — dùng ở mọi trang
-  CSS: components.css + components_additions.css
-  Phải load tours-data.js TRƯỚC file này
-*/
 
-
-/* ══════════════════════════════════════════════════════════
-   BẢNG MAPPING — text hiển thị → slug cho filter
-   ══════════════════════════════════════════════════════════ */
 const REGION_SLUG = {
   'Tây Bắc':    'tay-bac',
   'Đông Bắc':   'dong-bac',
@@ -32,14 +22,12 @@ const DURATION_SLUG = {
 
 const TRANSPORT_MAP = {
   'Xe du lịch':         { icon: '🚌', text: 'Xe du lịch' },
-  'Xe du lịch du lịch': { icon: '🚌', text: 'Xe du lịch' },   /* Chuẩn hoá lỗi đánh máy */
+  'Xe du lịch du lịch': { icon: '🚌', text: 'Xe du lịch' },   
   'Máy bay':            { icon: '✈',  text: 'Máy bay'    }
 };
 
 
-/* ══════════════════════════════════════════════════════════
-   RENDER 1 CARD
-   ══════════════════════════════════════════════════════════ */
+
 function renderTourCard(tour) {
 
   /* ── Badges trạng thái (góc TRÁI) ── */
@@ -147,20 +135,14 @@ function renderTourCard(tour) {
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   RENDER NHIỀU CARD VÀO CONTAINER
-   Cách dùng:
-     renderTourGrid('#toursGrid', {})                → tất cả tour
-     renderTourGrid('#featuredGrid', { isHot: true, limit: 8 })
-     renderTourGrid('#saleGrid',     { isSale: true })
-   ══════════════════════════════════════════════════════════ */
+
 function renderTourGrid(selector, filters = {}) {
   const container = document.querySelector(selector);
   if (!container) return;
 
   let filtered = [...TOURS_DATA];
 
-  /* Áp dụng bộ lọc tĩnh (dùng khi gọi từ JS, khác với filter động của user) */
+  
   if (filters.region)    filtered = filtered.filter(t => t.region    === filters.region);
   if (filters.isHot)     filtered = filtered.filter(t => t.isHot);
   if (filters.isNew)     filtered = filtered.filter(t => t.isNew);

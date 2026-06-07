@@ -1,29 +1,18 @@
-/* ==========================================================================
-   MAYNGAN TRAVEL — TRANGCHU.CSS
-   CSS riêng cho trang chủ (index.html)
-   Phụ thuộc: variables.css → base.css → components.css → trangchu.css
-   Người phụ trách: Nhóm
-   ========================================================================== */
 
 
-/* ══════════════════════════════════════════════════════════
-   TIỆN ÍCH DÙNG CHUNG TRONG TRANG CHỦ
-   ══════════════════════════════════════════════════════════ */
-
-/* Tiêu đề section chuẩn — dùng cho tất cả các block */
 .section-hd {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
     gap: 4px 16px;
-    margin-bottom: var(--space-xl);     /* 48px */
+    margin-bottom: var(--space-xl);     
 }
 
 .section-hd__title {
-    font-size: var(--text-2xl);         /* 24px */
+    font-size: var(--text-2xl);         
     font-weight: 700;
     color: var(--text-dark);
-    flex-basis: 100%;                   /* Chiếm cả dòng */
+    flex-basis: 100%;                   
 }
 
 .section-hd__sub {
@@ -53,16 +42,14 @@
 }
 
 .price-new {
-    font-size: 2.25rem;                 /* 36px — đủ to để gây ấn tượng */
+    font-size: 2.25rem;                 
     font-weight: 800;
     color: var(--color-cta);
     line-height: 1;
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   1. HERO BANNER
-   ══════════════════════════════════════════════════════════ */
+
 .hero {
     position: relative;
     height: 92vh;
@@ -74,7 +61,7 @@
     border-radius: 0 0 var(--radius-lg) var(--radius-lg);
 }
 
-/* Video nền — lấp đầy hero */
+
 .hero__video {
     position: absolute;
     inset: 0;
@@ -84,7 +71,7 @@
     z-index: 0;
 }
 
-/* Lớp phủ tối gradient từ trên xuống */
+
 .hero__overlay {
     position: absolute;
     inset: 0;
@@ -96,7 +83,7 @@
     z-index: 1;
 }
 
-/* Nội dung chữ giữa hero */
+
 .hero__content {
     position: relative;
     z-index: 2;
@@ -105,7 +92,7 @@
     max-width: 640px;
 }
 
-/* Dòng chữ nhỏ trên tiêu đề */
+
 .hero__eyebrow {
     font-size: var(--text-sm);
     font-weight: 500;
@@ -115,7 +102,7 @@
     margin-bottom: var(--space-sm);
 }
 
-/* Tiêu đề chính — to, in hoa, bóng chữ */
+
 .hero__title {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 800;
@@ -149,7 +136,7 @@
     color: #fff;
     font-family: var(--font-body);
     font-size: var(--text-base);
-    min-width: 0;                       /* Chống tràn flex */
+    min-width: 0;                       
 }
 
 .hero__search input::placeholder {
@@ -193,7 +180,7 @@
     box-shadow: 0 10px 32px rgba(232, 105, 58, 0.5);
 }
 
-/* Gợi ý cuộn xuống — góc dưới giữa */
+
 .hero__scroll-hint {
     position: absolute;
     bottom: 28px;
@@ -222,9 +209,7 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   2. THANH TIN CẬY
-   ══════════════════════════════════════════════════════════ */
+
 .trust-bar {
     background: var(--bg-white);
     border-bottom: 1px solid var(--border-color-light);
@@ -275,13 +260,11 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   3. TOUR THEO MÙA NỔI BẬT
-   ══════════════════════════════════════════════════════════ */
+
 .seasonal-section {
-    padding: var(--space-2xl) 0;        /* 80px trên dưới */
+    padding: var(--space-2xl) 0;        
     background: var(--bg-white);
-    overflow: hidden;                   /* Chặn ảnh tràn ngang */
+    overflow: hidden;                   
 }
 
 /* Header phần seasonal */
@@ -317,7 +300,7 @@
     text-decoration: underline;
 }
 
-/* ─── Mỗi dòng tour theo mùa ─── */
+
 .seasonal-row {
     display: flex;
     align-items: center;
@@ -330,26 +313,26 @@
     margin-bottom: 0;
 }
 
-/* Đảo chiều: ảnh trái, chữ phải */
+
 .seasonal-row--reversed {
     flex-direction: row-reverse;
 }
 
-/* Khối nội dung chữ */
+
 .seasonal-row__content {
     flex: 1;
-    /* Canh lề trái dựa theo container 1280px */
+    
     padding-left: max(var(--space-lg), calc((100vw - 1280px) / 2 + var(--space-lg)));
-    padding-right: var(--space-2xl);    /* 80px khoảng cách với ảnh */
+    padding-right: var(--space-2xl);    
 }
 
-/* Khối chữ bên phải (dành cho section-reversed) */
+
 .seasonal-row__content--right {
     padding-left: var(--space-2xl);
     padding-right: max(var(--space-lg), calc((100vw - 1280px) / 2 + var(--space-lg)));
 }
 
-/* Tag tag (VD: MÙA SĂN MÂY 2026) */
+
 .seasonal-row__tag {
     display: block;
     font-size: var(--text-xs);
@@ -418,16 +401,16 @@
 .seasonal-row__img-wrap {
     flex: 1.4;
     display: flex;
-    justify-content: flex-end;         /* Ảnh tràn về phía phải màn hình */
+    justify-content: flex-end;         /
 }
 
-/* Ảnh bên PHẢI — bo cong góc trái (pill bên trái) */
+
 .seasonal-row__img--right {
     width: 100%;
     max-width: 820px;
     height: 480px;
     object-fit: cover;
-    border-radius: 260px 0 0 260px;    /* Giữ nguyên phong cách cũ */
+    border-radius: 260px 0 0 260px;    
     box-shadow: -12px 12px 48px rgba(0, 0, 0, 0.12);
     display: block;
     transition: transform 0.5s ease;
@@ -437,7 +420,7 @@
     transform: scale(1.015);
 }
 
-/* Ảnh bên TRÁI — bo cong góc phải */
+
 .seasonal-row__img-wrap:has(.seasonal-row__img--left) {
     justify-content: flex-start;
 }
@@ -447,7 +430,7 @@
     max-width: 820px;
     height: 480px;
     object-fit: cover;
-    border-radius: 0 260px 260px 0;    /* Đối xứng với ảnh phải */
+    border-radius: 0 260px 260px 0;    
     box-shadow: 12px 12px 48px rgba(0, 0, 0, 0.12);
     display: block;
     transition: transform 0.5s ease;
@@ -458,9 +441,7 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   4. KHÁM PHÁ THEO VÙNG
-   ══════════════════════════════════════════════════════════ */
+
 .region-section {
     padding: var(--space-2xl) 0;
     background: var(--bg-secondary);
@@ -473,7 +454,7 @@
     gap: var(--space-lg);
 }
 
-/* Thẻ vùng — hình nền màu đặc (sẽ thay bằng ảnh thật sau) */
+
 .region-card {
     position: relative;
     border-radius: var(--radius-lg);
@@ -491,20 +472,20 @@
     box-shadow: var(--shadow-lg);
 }
 
-/* Màu nền mặc định (sẽ ghi đè bằng ảnh thực) */
+
 .region-card--taybac {
-    background-image: url('../images/Banner_TB.png'); /* ← ảnh đại diện Tây Bắc */
+    background-image: url('../images/Banner_TB.png'); 
     background-size: cover;
     background-position: center;
 }
 
 .region-card--dongbac {
-    background-image: url('../images/Banner_ĐB.png'); /* ← ảnh đại diện đông Bắc */
+    background-image: url('../images/Banner_ĐB.png'); 
     background-size: cover;
     background-position: center;
 }
 
-/* Lớp phủ gradient từ dưới lên — làm nổi chữ */
+
 .region-card__overlay {
     position: absolute;
     inset: 0;
@@ -553,9 +534,7 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   5. TOUR NỔI BẬT
-   ══════════════════════════════════════════════════════════ */
+
 .featured-section {
     padding: var(--space-2xl) 0;
     background: var(--bg-primary);
@@ -568,8 +547,7 @@
     gap: var(--space-lg);
 }
 
-/* ─── Điều chỉnh tour-card từ components.css cho trang chủ ─── */
-/* Chiều cao ảnh trong lưới trang chủ */
+
 .featured-grid .tour-card__img {
     height: 190px;
 }
@@ -637,7 +615,7 @@
     color: #fff;
 }
 
-/* Badge vị trí tuyệt đối trên ảnh */
+
 .tour-card__badge {
     position: absolute;
     top: 12px;
@@ -645,9 +623,7 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   6. BÀI VIẾT MỚI NHẤT
-   ══════════════════════════════════════════════════════════ */
+
 .blog-section {
     padding: var(--space-2xl) 0;
     background: var(--bg-secondary);
@@ -750,12 +726,10 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   7. BANNER KÊU GỌI ĐẶT TOUR
-   ══════════════════════════════════════════════════════════ */
+
 .cta-banner {
-    background: var(--bg-white);           /* ← đổi từ var(--bg-secondary) */
-    border-left: 4px solid var(--color-cta); /* ← thêm dòng này */
+    background: var(--bg-white);          
+    border-left: 4px solid var(--color-cta); 
     padding: var(--space-xl) 0;
 }
 
@@ -770,13 +744,13 @@
 .cta-banner__title {
     font-size: var(--text-2xl);
     font-weight: 700;
-    color: var(--text-dark);               /* ← đổi từ #fff */
+    color: var(--text-dark);               
     margin-bottom: 6px;
 }
 
 .cta-banner__sub {
     font-size: var(--text-sm);
-    color: var(--text-medium);             /* ← đổi từ rgba(255,255,255,0.65) */
+    color: var(--text-medium);             
     margin: 0;
 }
 
@@ -785,9 +759,9 @@
     padding: 14px 32px;
     border-radius: var(--radius-full);
     flex-shrink: 0;
-    background: var(--color-cta);          /* ← đổi từ var(--bg-dark) */
+    background: var(--color-cta);          
     color: var(--text-white);
-    box-shadow: 0 6px 24px rgba(232, 105, 58, 0.35); /* ← revert box-shadow */
+    box-shadow: 0 6px 24px rgba(232, 105, 58, 0.35); 
     transition: var(--transition);
 }
 
@@ -797,9 +771,7 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   8. HIỆU ỨNG CUỘN — FADE IN KHI VÀO VIEWPORT
-   ══════════════════════════════════════════════════════════ */
+
 .reveal {
     opacity: 0;
     transform: translateY(28px);
@@ -811,23 +783,23 @@
     transform: translateY(0);
 }
 
-/* Stagger delay cho từng item */
+
 .reveal--d1 { transition-delay: 0.1s; }
 .reveal--d2 { transition-delay: 0.2s; }
 .reveal--d3 { transition-delay: 0.3s; }
 .reveal--d4 { transition-delay: 0.4s; }
 
 
-/* ══════════════════════════════════════════════════════════
+/* 
    9. RESPONSIVE — TABLET (≤ 1024px)
-   ══════════════════════════════════════════════════════════ */
+   */
 @media (max-width: 1024px) {
     /* Tour grid: 2 cột */
     .featured-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* Seasonal row: dọc, ảnh trên chữ dưới */
+   
     .seasonal-row,
     .seasonal-row--reversed {
         flex-direction: column;
@@ -850,14 +822,14 @@
     .seasonal-row__img--left {
         max-width: 100%;
         height: 320px;
-        border-radius: var(--radius-lg);    /* Bỏ pill trên mobile cho gọn */
+        border-radius: var(--radius-lg);    
     }
 }
 
 
-/* ══════════════════════════════════════════════════════════
+/* 
    10. RESPONSIVE — MOBILE (≤ 640px)
-   ══════════════════════════════════════════════════════════ */
+   */
 @media (max-width: 640px) {
     /* Hero */
     .hero {

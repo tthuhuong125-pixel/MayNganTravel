@@ -1,7 +1,4 @@
-/* ==========================================================================
-   MAYNGAN TRAVEL - TRANGDB.CSS
-   Trang Đông Bắc — cấu trúc giống TrangTB.css
-   ========================================================================== */
+
 
 .region-container {
   max-width: 1200px;
@@ -9,9 +6,7 @@
   padding: 0 20px;
 }
 
-/* ==========================================================================
-   1. HERO BANNER
-   ========================================================================== */
+
 .banner {
   position: relative;
   width: 100%;
@@ -54,9 +49,7 @@
 @keyframes cloudRealLeft  { 0%{transform:translate3d(0,0,0)}    100%{transform:translate3d(-50%,0,0)} }
 @keyframes cloudRealRight { 0%{transform:translate3d(-50%,0,0)} 100%{transform:translate3d(0,0,0)} }
 
-/* ==========================================================================
-   2. SECTION ĐIỂM ĐẾN
-   ========================================================================== */
+
 .region-highlights {
   padding: 80px 0;
   background-color: #ffffff;
@@ -119,9 +112,7 @@ a.region-dest-card-bg { display: flex; text-decoration: none; cursor: pointer; }
 .dest-card-title { font-size: 1.5rem; font-weight: 700; color: #fff !important; margin: 0 0 6px; }
 .dest-card-desc { font-size: 0.9rem; opacity: 0.9; line-height: 1.5; margin: 0; color: #e1e6e2; }
 
-/* ==========================================================================
-   3. CARD TOUR
-   ========================================================================== */
+
 .tour-grid-vertical {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 360px));
   gap: 30px; margin-bottom: 30px; justify-content: center;
@@ -202,20 +193,20 @@ a.region-dest-card-bg { display: flex; text-decoration: none; cursor: pointer; }
   z-index: 4; pointer-events: none;
 }
 
-/* ==========================================================================
+/* 
    BỔ SUNG HIỆU ỨNG LÚA VÀNG HÀ GIANG
-   ========================================================================== */
+    */
 
-/* Hộp chứa hạt lúa phải bao phủ toàn bộ Card và nằm trên ảnh nền */
+
 .mcc-grains {
   position: absolute;
   inset: 0;
-  z-index: 3;             /* Nằm trên ảnh nền (z-index: 1) và overlay */
-  pointer-events: none;   /* Không cản trở việc rê chuột click vào card */
+  z-index: 3;             
+  pointer-events: none;   
   overflow: hidden;
 }
 
-/* Ánh sáng vàng ấm bồng bềnh tạo không khí mùa lúa chín */
+
 .mcc-glow {
   position: absolute;
   inset: 0;
@@ -270,9 +261,9 @@ a.region-dest-card-bg { display: flex; text-decoration: none; cursor: pointer; }
   85%  {             opacity: 0.4;                                              }
   100% { top: 105%;  opacity: 0;   transform: rotate(360deg) translateX(-10px); }
 }
-/* ==========================================================================
+/* 
    CAO BẰNG — thác nước: các tia nước rơi thẳng + tiếng ào xanh biếc
-   ========================================================================== */
+   */
 
 /* Overlay xanh nước riêng */
 .dest-card-overlay--water {
@@ -334,9 +325,9 @@ a.region-dest-card-bg { display: flex; text-decoration: none; cursor: pointer; }
   60%  { opacity: 0.6; transform: translateY(-28px) translateX(6px); }
   100% { transform: translateY(-44px) translateX(-4px); opacity: 0; }
 }
-/* ==========================================================================
+/*
    BẮC KẠN — Bong bóng nước nổi lên (hồ Ba Bể) & Ánh sáng mặt hồ
-   ========================================================================== */
+    */
 
 /* Lớp chứa bong bóng */
 .bk-bubbles {

@@ -1,14 +1,4 @@
-/* ==========================================================================
-   MAYNGAN TRAVEL - POST.CSS
-   Định dạng trang chi tiết bài viết (Tin tức & Cẩm nang)
-   Concept: Magazine Clean
-   ========================================================================== */
 
-
-/* ══════════════════════════════════════════════════════════
-   THANH TIẾN TRÌNH ĐỌC
-   Cố định trên cùng, tự động fill theo scroll
-   ══════════════════════════════════════════════════════════ */
 .reading-progress {
   position: fixed;
   top: 0;
@@ -21,10 +11,7 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   HEADER BÀI VIẾT
-   Left-align, nền kem, không border-bottom (ảnh hero thay thế)
-   ══════════════════════════════════════════════════════════ */
+
 .post-header {
   padding: 36px 0 32px;
   background: var(--bg-primary);
@@ -45,7 +32,7 @@
   color: var(--color-primary);
 }
 
-/* Hàng tag + ngày — nằm ngang cùng nhau */
+
 .post-header-meta {
   display: flex;
   align-items: center;
@@ -77,15 +64,12 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   ẢNH HERO CINEMATIC
-   Full-width, tỉ lệ 16:7, nằm giữa header và body
-   ══════════════════════════════════════════════════════════ */
+
 .post-hero {
   width: 100%;
   aspect-ratio: 16 / 7;
   overflow: hidden;
-  background: var(--bg-dark);            /* Nền tối khi ảnh chưa load */
+  background: var(--bg-dark);            
   margin: 0;
 }
 
@@ -113,15 +97,13 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   KHU VỰC NỘI DUNG BÀI VIẾT
-   ══════════════════════════════════════════════════════════ */
+
 .post-body {
   padding: 56px 0 80px;
   background: var(--bg-primary);
 }
 
-/* Cột nội dung hẹp — tránh dòng chữ quá dài */
+
 .post-content {
   max-width: 760px;
   margin: 0 auto;
@@ -130,7 +112,7 @@
   line-height: 1.85;
 }
 
-/* Đoạn sapo/intro — to hơn, màu nhạt hơn */
+
 .post-content .post-intro {
   font-size: 1.2rem;
   font-weight: 500;
@@ -139,7 +121,7 @@
   line-height: 1.8;
 }
 
-/* Tiêu đề con h2 trong bài */
+
 .post-content h2 {
   font-size: var(--text-2xl);
   font-weight: 700;
@@ -156,12 +138,12 @@
   color: var(--text-dark);
 }
 
-/* Đoạn văn thường */
+
 .post-content p {
   margin-bottom: 24px;
 }
 
-/* Danh sách trong bài cẩm nang */
+
 .post-content ul,
 .post-content ol {
   margin-bottom: 24px;
@@ -176,7 +158,7 @@
   line-height: 1.7;
 }
 
-/* Hình ảnh trong bài (không phải hero) */
+
 .post-content figure {
   margin: 40px 0;
 }
@@ -197,11 +179,7 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   PULL QUOTE
-   Dùng để trích dẫn câu hay, nhấn mạnh ý chính
-   Biến thể xanh (mặc định, Tin tức) và cam (Cẩm nang)
-   ══════════════════════════════════════════════════════════ */
+
 .pull-quote {
   border-left: 3px solid var(--color-primary);
   background: var(--color-primary-bg);
@@ -215,11 +193,11 @@
   font-weight: 500;
   color: var(--color-primary-dark);
   line-height: 1.75;
-  margin-bottom: 0;                      /* Tắt margin-bottom của p chung */
+  margin-bottom: 0;                      
   font-style: italic;
 }
 
-/* Biến thể cam — dùng cho bài Cẩm nang */
+
 .pull-quote--guide {
   border-left-color: var(--color-cta);
   background: var(--color-cta-bg);
@@ -230,15 +208,7 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   TIP BOX
-   Hộp "Lưu ý" / "Mẹo hay" — dùng riêng cho bài Cẩm nang
-   Cách dùng:
-   <div class="tip-box">
-     <span class="tip-box__label">💡 LƯU Ý QUAN TRỌNG</span>
-     <ul><li>...</li></ul>
-   </div>
-   ══════════════════════════════════════════════════════════ */
+
 .tip-box {
   background: var(--color-primary-bg);
   border: 0.5px solid var(--color-primary-light);
@@ -275,10 +245,7 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   KHU CTA CUỐI BÀI
-   Khung xanh đậm, nút cam — kêu gọi đặt tour
-   ══════════════════════════════════════════════════════════ */
+
 .post-cta-block {
   background: var(--bg-dark);
   border-radius: var(--radius-lg);
@@ -302,12 +269,9 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   BÀI VIẾT LIÊN QUAN
-   3 card dưới cùng, tái sử dụng .blog-card từ blog.css
-   ══════════════════════════════════════════════════════════ */
+
 .related-articles {
-  background: var(--bg-secondary);       /* Nền kem đậm hơn để phân tách */
+  background: var(--bg-secondary);       
   padding: 56px 0 72px;
   margin-top: 0;
 }
@@ -326,9 +290,9 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
+/* 
    RESPONSIVE
-   ══════════════════════════════════════════════════════════ */
+   */
 @media (max-width: 1024px) {
   .related-articles__grid {
     grid-template-columns: repeat(2, 1fr);

@@ -1,8 +1,6 @@
-/* ==========================================================================
-   CSS CHO CÁC KHỐI GIỚI THIỆU SO LE (HÌNH NỬA VIÊN THUỐC)
-   ========================================================================== */
 
-/* Đã gộp và sửa: Khung bọc chống bị Header che chữ, tạo khoảng trống 130px tinh tế */
+
+
 .intro-container {
     position: relative;
     display: block;
@@ -11,7 +9,7 @@
     padding: 20px 0; 
 }
 
-/* ÉP TẠO KHOẢNG TRỐNG TRÊN ĐỈNH TRANG  */
+
 .intro-container::before {
     content: "";
     display: block;
@@ -19,20 +17,20 @@
     width: 100%;
 }
 
-/*  ÉP TẠO KHOẢNG TRỐNG DƯỚI ĐÁY TRANG */
+
 .intro-container::after {
     content: "";
     display: block;
-    height: 80px;      /* 👈 Chỉnh độ cao khoảng trống cách Footer ở đây */
+    height: 80px;     
     width: 100%;
 }
 
-/* Cấu hình chung cho một Section (Dùng Flexbox dàn hàng ngang) */
+
 .intro-section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;                  /* Khoảng cách thu nhỏ giữa ảnh và chữ */
+    gap: 30px;                  
     max-width: 1300px;          
     margin: 0 auto 90px auto;   
     padding: 0 30px 40px 30px;    
@@ -43,37 +41,37 @@
     margin-top: 60px;
 }
 
-/* Xóa viền xám thừa của section cuối cùng trước khi vào Footer */
+
 .intro-section:last-of-type {
     border-bottom: none;
     margin-bottom: 80px;
     padding-bottom: 40px;
 }
 
-/* Đảm bảo thanh Header luôn cố định đỉnh màn hình */
+
 #header-placeholder {
     display: block;
     width: 100%;
 }
 
-/* Đổi ngược vị trí đối với các Section số lẻ (Ảnh phải, chữ trái) */
+
 .intro-section.pic-right {
     flex-direction: row-reverse;
 }
 
 .intro-section.pic-left {
-    max-width: 100%;   /* Mở rộng ra full viewport */
-    padding-left: 0;   /* Xóa khoảng cách trái */
+    max-width: 100%;   
+    padding-left: 0;   
 }
 
 
-/* ảnh phải sát lề phải */
+
 .intro-section.pic-right {
     max-width: 100%;
     padding-right: 0;
 }
 
-/* Khung chứa ảnh mặc định (Trái) */
+
 .intro-image-wrapper {
     flex: 0 0 calc(30% - 15px);   
     width: calc(30% - 15px);
@@ -87,13 +85,13 @@
 
 
 
-/* Khi section là pic-right -> Khung chữ đổi thành 60% */
+
 .intro-section.pic-right .intro-text-wrapper {
     flex: 0 0 calc(50% - 15px);
     width: calc(50% - 15px);
 }
 
-/* Thẻ định dạng ảnh */
+
 .capsule-image {
     width: 100%;
     height: 480px;         
@@ -110,7 +108,7 @@
     border-radius: 250px 0 0 250px;
 }
 
-/* Định dạng tiêu đề H1 (In đậm, Căn giữa) */
+
 .intro-text-wrapper h1.intro-heading {
     font-size: 22px;              
     font-weight: 700;                 
@@ -121,7 +119,7 @@
     letter-spacing: 1px;
 }
 
-/* Định dạng đoạn văn văn bản thường (Căn đều hai bên) */
+
 .intro-paragraph {
     font-size: 16px;
     font-weight: 300;
@@ -203,57 +201,57 @@
     transition: opacity 0.8s ease, transform 0.8s ease; 
 }
 
-/* Trạng thái hiển thị hoàn chỉnh khi JS kích hoạt class .section-visible */
+
 .intro-section.section-visible {
     opacity: 1;
     transform: translateY(0); 
 }
-/* Khung bọc phủ toàn màn hình */
+
 .butterfly-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Người dùng click xuyên qua thoải mái, không lo kẹt chuột */
-    z-index: 9999;        /* Nổi lên trên cùng nội dung trang web */
+    pointer-events: none; 
+    z-index: 9999;        
     overflow: hidden;
 }
 
 /* Định dạng chung cho từng con bướm */
 .butterfly {
     position: absolute;
-    bottom: -60px;          /* Xuất phát ẩn phía dưới đáy màn hình */
+    bottom: -60px;          
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0.8;          
     
-    /* Chạy đồng thời 3 chuyển động: Bay lên, Lướt sóng trái phải, và Đập cánh */
+   
     animation: flyUp linear infinite, flySway ease-in-out infinite, flutter linear infinite;
 }
 
-/* Chuyển động 1: Bay thẳng từ dưới lên trên đỉnh màn hình */
+
 @keyframes flyUp {
     0% {
         bottom: -60px;
     }
     100% {
-        bottom: 105vh;      /* Bay mất hút lên phía trên */
+        bottom: 105vh;     
     }
 }
 
-/* Chuyển động 2: Lượn sóng sang trái/phải cho đường bay mềm mại */
+
 @keyframes flySway {
     0%, 100% {
         margin-left: 0;
     }
     50% {
-        margin-left: 60px;  /* Đung đưa nhẹ sang phải 60px */
+        margin-left: 60px;  
     }
 }
 
-/* Chuyển động 3: Co bóp chiều ngang liên tục tạo hiệu ứng đập cánh chân thật */
+
 @keyframes flutter {
     0%, 100% {
         transform: scaleX(1);
@@ -262,89 +260,85 @@
         transform: scaleX(0.25); /* Cánh gập lại */
     }
 }
-/* ==========================================================================
-   EFFECT: TRỌN BỘ HIỆU ỨNG CÀNH TỬ ĐẰNG GẮN GÓC CHỮ (ẢNH PIC-RIGHT)
-   ========================================================================== */
+
 
 /* 1. Khung chứa chữ của các section có ảnh bên phải */
 .intro-section.pic-right .intro-text-wrapper {
     position: relative;
-    /* Tạo khoảng trống phía trên chữ để nhường không gian cho chùm hoa tử đằng tỏa sáng */
+    
     padding-top: 110px; 
     flex: 0 0 calc(50% - 15px);
     width: calc(50% - 15px);
 }
 
-/* 2. CÀNH TỬ ĐẰNG CHÍNH: KHÓA GỐC BÊN TRÁI - ĐUNG ĐƯA NGỌN HOA BÊN PHẢI */
+/* 2. CÀNH TỬ ĐẰNG CHÍNH: */
 .intro-section.pic-right .intro-text-wrapper::before {
     content: "";
     position: absolute;
     
-    /* Vị trí neo cành hoa ôm sát góc trên cùng bên trái của khối chữ */
+    
     top: -40px;           
     left: -30px;          
     
-    /* Kích thước ảnh phóng to gấp đôi sắc nét */
+    
     width: 440px;         
     height: 300px;        
     
-    /* Đường dẫn gọi file ảnh tử đằng trong máy của bạn */
+    
     background-image: url('../images/tudang.png'); 
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 2;
     opacity: 0.95;
     
-    /* KHÓA GỐC: Đóng đinh phần gốc gỗ ở góc trên bên trái không cho nhúc nhích */
+    
     transform-origin: top left;
     
-    /* KÍCH HOẠT GIÓ THỔI: Chạy hiệu ứng wisteriaTipSway tuần hoàn mượt mà 6 giây */
+    
     animation: wisteriaTipSway 6s ease-in-out infinite;
 }
 
-/* 3. CÁNH HOA RƠI: HIỆU ỨNG HOA TỰ RỤNG BAY CHÉO QUA DÒNG TIÊU ĐỀ */
+
 .intro-section.pic-right .intro-text-wrapper::after {
     content: "";
     position: absolute;
     top: 50px;
     left: 40px;
-    width: 18px;          /* Kích thước cánh hoa nhỏ lướt nhẹ */
+    width: 18px;         
     height: 18px;
-    background-image: url('../images/tudang.png'); /* Lấy một phần nhỏ ảnh làm cánh rơi */
+    background-image: url('../images/tudang.png'); 
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 1;
     opacity: 0;
     
-    /* Chạy hiệu ứng cánh hoa rơi độc lập */
+   
     animation: petalWindFlyOnly 5s linear infinite;
 }
 
-/* ==========================================================================
-   ANIMATION KEYFRAMES: CẤU HÌNH CHUYỂN ĐỘNG (GIÓ THỔI & HOA RƠI)
-   ========================================================================== */
+ 
 
-/* Hiệu ứng gió thổi dập dìu: Gốc trái đứng yên - Ngọn phải uốn lượn uốn éo theo làn gió */
+
 @keyframes wisteriaTipSway {
     0%, 100% {
-        /* Lấy mốc gốc nghiêng -15 độ làm chuẩn ban đầu */
+        
         transform: rotate(-15deg) skewX(0deg);
     }
     30% {
-        /* Làn gió thổi qua: Nhấc bồng ngọn hoa bên phải lên nhẹ và uốn cong theo chiều gió */
+       
         transform: rotate(-12deg) skewX(2deg);
     }
     60% {
-        /* Gió lặng một nhịp: Chùm hoa trĩu nặng hạ sâu đuôi xuống */
+        
         transform: rotate(-17deg) skewX(-1.5deg);
     }
     80% {
-        /* Độ nảy nhẹ của cành hoa trước khi quay về trạng thái ban đầu */
+        
         transform: rotate(-14deg) skewX(1deg);
     }
 }
 
-/* Hiệu ứng cánh hoa tự rụng khỏi cành và bị gió cuốn dạt chéo sang bên phải */
+
 @keyframes petalWindFlyOnly {
     0% {
         top: 40px;
@@ -353,12 +347,12 @@
         opacity: 0;
     }
     15% {
-        opacity: 0.85; /* Hiện rõ dần khi vừa lìa cành */
+        opacity: 0.85; 
     }
     100% {
-        top: 150px;    /* Bay chéo xuống phía dưới dòng chữ */
-        left: 380px;   /* Bị gió cuốn dạt mạnh sang bên phải tiêu đề */
-        transform: rotate(360deg) scale(0.5); /* Vừa bay vừa lộn nhào tự nhiên */
-        opacity: 0;    /* Mờ dần và tan biến vào không trung */
+        top: 150px;    
+        left: 380px;   
+        transform: rotate(360deg) scale(0.5); 
+        opacity: 0;    
     }
 }

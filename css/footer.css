@@ -1,23 +1,15 @@
-/* ==========================================================================
-   MAYNGAN TRAVEL - FOOTER.CSS
-   Người phụ trách: Hương
-   ========================================================================== */
 
 
-/* ══════════════════════════════════════════════════════════
-   WRAPPER CHÍNH
-   ══════════════════════════════════════════════════════════ */
+
 .main-footer {
   border-top: 2px solid #3D7A5C;
-  background: var(--bg-dark);                      /* #1F2E22 xanh rừng đậm */
+  background: var(--bg-dark);                      
   color: var(--text-white);
   padding: 48px 0 0;
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   GRID 4 CỘT
-   ══════════════════════════════════════════════════════════ */
+
 .footer-grid {
   display: grid;
   grid-template-columns: 1.6fr 1fr 1fr 1.3fr;
@@ -26,14 +18,12 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   CỘT 1 — BRAND
-   ══════════════════════════════════════════════════════════ */
+
 .footer-brand-name {
   font-family: var(--font-heading);
   font-size: var(--text-xl);
   font-weight: 800;
-  color: var(--text-white);                        /* Trắng toàn bộ, không 2 màu */
+  color: var(--text-white);                        
   letter-spacing: 0.06em;
   margin-bottom: 8px;
 }
@@ -79,13 +69,11 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   TIÊU ĐỀ CỘT — Trắng + gạch dưới mỏng
-   ══════════════════════════════════════════════════════════ */
+
 .footer-heading {
   font-size: var(--text-xs);
   font-weight: 700;
-  color: rgba(255,255,255,1);                        /* Trắng thay vì vàng */
+  color: rgba(255,255,255,1);                        
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 14px;
@@ -94,13 +82,11 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   CỘT 2 — KHÁM PHÁ (danh sách link)
-   ══════════════════════════════════════════════════════════ */
+
 .footer-link {
   display: block;
   font-size: var(--text-sm);
-  color: rgba(255,255,255,.75);               /* Tăng từ .6 lên .75 */
+  color: rgba(255,255,255,.75);               
   text-decoration: none;
   padding: 4px 0;
   transition: var(--transition);
@@ -108,13 +94,11 @@
 
 .footer-link:hover {
   color: var(--color-accent-light);
-  padding-left: 4px;                               /* Dịch nhẹ sang phải khi hover */
+  padding-left: 4px;                               
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   CỘT 4 — LIÊN HỆ (2 cơ sở)
-   ══════════════════════════════════════════════════════════ */
+
 
 /* Nhãn tên chi nhánh */
 .footer-branch-label {
@@ -130,7 +114,7 @@
   margin-top: 16px;
 }
 
-/* Từng dòng thông tin liên hệ */
+
 .footer-info-row {
   display: flex;
   align-items: flex-start;
@@ -158,7 +142,7 @@
   margin: 14px 0;
 }
 
-/* Thông tin chung (email, giờ làm) đặt dưới cùng */
+
 .footer-info-common {
   margin-top: 14px;
   padding-top: 14px;
@@ -166,9 +150,7 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   THANH COPYRIGHT DƯỚI CÙNG
-   ══════════════════════════════════════════════════════════ */
+
 .footer-bar {
   border-top: 0.5px solid rgba(255, 255, 255, 0.1);
   padding: 16px 0;
@@ -184,9 +166,9 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
+/* 
    RESPONSIVE
-   ══════════════════════════════════════════════════════════ */
+    */
 @media (max-width: 1024px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;

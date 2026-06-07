@@ -120,9 +120,7 @@
         </div>
     </section>
 
-<!-- =====================================================================
-     JAVASCRIPT
-===================================================================== -->
+
 <script>
 /* ── Hàm tạo SVG đám mây (dùng chung cho cả Hà Giang) ── */
 function makeCloudSVG(w, h, color1, color2, op1, op2, blobs) {
@@ -133,7 +131,7 @@ function makeCloudSVG(w, h, color1, color2, op1, op2, blobs) {
   svg.style.display = 'block';
   
   const streams = Array.from({ length: 18 }, (_, i) => ({
-   // SỬA DÒNG NÀY: Bắt đầu từ 55% và cộng thêm tối đa 40% nữa để đổ về bên phải
+   
    x:       0.55 + (i / 18) * 0.40,   
    y:       Math.random(),            
    speed:   0.004 + Math.random() * 0.005,
@@ -206,12 +204,12 @@ function initWaterfall(canvasId, cardSelector) {
 
   /* Mỗi tia nước: x cố định, y chạy từ trên xuống với tốc độ khác nhau */
   const streams = Array.from({ length: 18 }, (_, i) => ({
-    x:       0.12 + (i / 18) * 0.76,   // trải đều chiều ngang 12%–88%
-    y:       Math.random(),             // offset ban đầu
+    x:       0.12 + (i / 18) * 0.76,   
+    y:       Math.random(),             
     speed:   0.004 + Math.random() * 0.005,
     width:   Math.random() * 2.5 + 0.8,
     opacity: Math.random() * 0.35 + 0.2,
-    len:     0.18 + Math.random() * 0.25, // chiều dài tia (% chiều cao)
+    len:     0.18 + Math.random() * 0.25, 
     blur:    Math.random() > 0.6,
   }));
 

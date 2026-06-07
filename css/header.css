@@ -1,15 +1,4 @@
-/*
-  ============================================================
-  header.css — Mây Ngàn Travel
-  Yêu cầu: variables.css + base.css + components.css load trước
-  Người phụ trách: Hương — không ai sửa file này nếu chưa hỏi
-  ============================================================
-*/
 
-
-/* ══════════════════════════════════════════════════════════
-   1. HEADER WRAPPER
-   ══════════════════════════════════════════════════════════ */
 .main-header {
     background-color: var(--bg-primary);
     border-bottom: 0.5px solid var(--border-color);
@@ -31,9 +20,7 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   2. LOGO
-   ══════════════════════════════════════════════════════════ */
+
 .brand-link {
     display: flex;
     align-items: center;
@@ -58,10 +45,10 @@
 }
 .brand-text .brand-suffix { 
     color: var(--text-light);
-    font-weight: 400;                  /* Mỏng hơn nữa */
-    font-size: var(--text-sm);         /* Nhỏ hơn so với MÂY NGÀN */
-    letter-spacing: 0.12em;            /* Giãn chữ ra trông thanh hơn */
-    margin-left: 6px;                  /* Tách xa MÂY NGÀN một chút */
+    font-weight: 400;                  
+    font-size: var(--text-sm);         
+    letter-spacing: 0.12em;            
+    margin-left: 6px;                  
 }
 
 .brand-text em {
@@ -70,9 +57,7 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   3. NAVIGATION LIST
-   ══════════════════════════════════════════════════════════ */
+
 .main-nav { flex: 1; }
 
 .nav-list {
@@ -117,20 +102,12 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   4. DROPDOWN — KHUNG CHUNG
-   FIX HOVER: Thêm cầu nối vô hình giữa nav link và dropdown
-   để chuột di chuyển xuống không bị mất hover
-   ══════════════════════════════════════════════════════════ */
+
 .nav-item--dropdown {
     position: relative;
 }
 
-/*
-  FIX HOVER GAP: Tạo vùng trong suốt cao 8px ngay dưới nav link,
-  giúp chuột di chuyển từ link xuống dropdown không bị gián đoạn.
-  Đây là lý do dropdown hay biến mất khi di chuột xuống.
-*/
+
 .nav-item--dropdown::after {
     content: '';
     position: absolute;
@@ -144,7 +121,7 @@
 .dropdown-mega {
     display: none;
     position: absolute;
-    top: calc(100% + 8px);                         /* Phải khớp với height của ::after */
+    top: calc(100% + 8px);                         
     left: 0;
     background: var(--bg-primary);
     border: 0.5px solid var(--border-color-light);
@@ -168,9 +145,7 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   5. DROPDOWN ĐƠN (Blog, Về chúng tôi, Thông tin)
-   ══════════════════════════════════════════════════════════ */
+
 .dropdown-simple {
     min-width: 210px;
 }
@@ -196,9 +171,7 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   6. MEGA MENU (Khám phá — hiển thị NGANG, text thuần)
-   ══════════════════════════════════════════════════════════ */
+
 .dropdown-mega {
     min-width: 540px;
     left: -140px;
@@ -217,7 +190,7 @@
     border-top: 0.5px solid var(--border-color-light);
 }
 
-/* Tên vùng — là link, cố định width để 2 hàng thẳng cột */
+
 .mega-region-link {
     font-size: var(--text-sm);
     font-weight: 700;
@@ -235,7 +208,7 @@
     text-decoration: underline;
 }
 
-/* Đường kẻ dọc ngăn cách vùng và địa điểm */
+
 .mega-sep {
     width: 0.5px;
     height: 16px;
@@ -244,14 +217,14 @@
     flex-shrink: 0;
 }
 
-/* Hàng địa điểm */
+
 .mega-dest-row {
     display: flex;
     flex-wrap: wrap;
     gap: 0;
 }
 
-/* Link địa điểm — text thuần, không chip */
+
 .mega-dest-item {
     font-size: var(--text-sm);
     color: var(--text-medium);
@@ -261,7 +234,7 @@
     position: relative;
 }
 
-/* Dấu · phân cách giữa các địa điểm */
+
 .mega-dest-item + .mega-dest-item::before {
     content: '·';
     position: absolute;
@@ -273,10 +246,7 @@
     color: var(--color-primary);
 }
 
-/* ══════════════════════════════════════════════════════════
-   7. NÚT HEADER + navToggle MOBILE
-   (Đã bỏ .btn-dat-tour)
-   ══════════════════════════════════════════════════════════ */
+
 .header-actions {
     display: flex;
     align-items: center;
@@ -284,7 +254,7 @@
     flex-shrink: 0;
 }
 
-/* navToggle — chỉ hiện trên mobile */
+
 .navToggle {
     display: none;
     flex-direction: column;
@@ -313,9 +283,9 @@
 .navToggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 
-/* ══════════════════════════════════════════════════════════
+/* 
    8. RESPONSIVE
-   ══════════════════════════════════════════════════════════ */
+   */
 @media (max-width: 1100px) {
     .nav-link      { font-size: 12px; padding: 6px 7px; }
     .dropdown-mega { min-width: 480px; left: -120px; }
@@ -369,16 +339,14 @@
     .mega-dest-row { flex-wrap: wrap; }
 }
 
-/* ══════════════════════════════════════════════════════════
-   SUBMENU (Nested flyout — Tây Bắc / Đông Bắc)
-   ══════════════════════════════════════════════════════════ */
+
 
 /* Item cha có chứa submenu con */
 .dropdown-item--has-sub {
     position: relative;
 }
 
-/* Mũi tên › bên phải item cha */
+
 .dropdown-item--has-sub > .dropdown-item {
     display: flex;
     justify-content: space-between;
@@ -392,12 +360,12 @@
     line-height: 1;
 }
 
-/* Submenu con — ẩn mặc định */
+
 .dropdown-sub {
     display: none;
     position: absolute;
     top: -6px;
-    left: 100%;                              /* Trượt ra bên phải */
+    left: 100%;                              
     min-width: 160px;
     background: var(--bg-primary);
     border: 0.5px solid var(--border-color-light);
@@ -408,12 +376,12 @@
     animation: dropFade 0.15s ease;
 }
 
-/* Hiện submenu khi hover vào item cha */
+
 .dropdown-item--has-sub:hover .dropdown-sub {
     display: block;
 }
 
-/* Cầu nối để chuột di chuyển sang submenu không bị mất */
+
 .dropdown-item--has-sub::after {
     content: '';
     position: absolute;

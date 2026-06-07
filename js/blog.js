@@ -1,25 +1,4 @@
-/*
-  blog.js — Mây Ngàn Travel
-  Xử lý tab lọc Tin tức / Cẩm nang trên trang Blog
-  Người phụ trách: Nhi
 
-  CẤU TRÚC THƯ MỤC (quan trọng để hiểu đường dẫn):
-    blog/
-      blog.html        ← file này nằm ở đây
-      tintuc/
-        bai1.html
-        bai2.html
-        bai3.html
-      camnang/
-        tip1.html
-        tip2.html
-        tip3.html
-*/
-
-/* ══════════════════════════════════════════════════════════
-   DỮ LIỆU BÀI VIẾT — khớp với 6 file HTML thực tế
-   Khi có bài mới: thêm object vào mảng này + tạo file HTML
-   ══════════════════════════════════════════════════════════ */
 const articles = [
 
   /* ── TIN TỨC ────────────────────────────────────────── */
@@ -103,10 +82,7 @@ const articles = [
 
 
 
-/* ══════════════════════════════════════════════════════════
-   RENDER GRID KHI LỌC THEO LOẠI BÀI
-   Mỗi card là link dẫn đến trang bài viết tương ứng
-   ══════════════════════════════════════════════════════════ */
+
 function renderFilteredGrid(cat) {
   const viewFiltered = document.getElementById('view-filtered');
 
@@ -163,16 +139,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    /* ── THÊM MỚI: Đọc ?tab= từ URL để tự động chọn tab ── */
+    
     const urlParams = new URLSearchParams(window.location.search);
-    const tabParam  = urlParams.get('tab');   /* "news" hoặc "guide" */
-
+    const tabParam  = urlParams.get('tab');   
     if (tabParam && tabParam !== 'all') {
-        /* Tìm đúng nút tab rồi kích hoạt như người dùng click */
+        
         const targetTab = document.querySelector(`.blog-tab[data-tab="${tabParam}"]`);
         if (targetTab) {
-            targetTab.click();   /* Trigger toàn bộ logic đã có ở trên */
+            targetTab.click();   
         }
     }
-    /* ── HẾT THÊM MỚI ── */
+    
 });

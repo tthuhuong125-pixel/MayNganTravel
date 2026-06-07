@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // ==========================================
-    // 1. SLIDER LIỀN MẠCH KHÔNG KHOẢNG TRỐNG
-    // ==========================================
+    
     const mainImage = document.getElementById("mainImage");
     const sliderContainer = document.querySelector(".slider");
     const prevBtn = document.querySelector(".prev");
@@ -12,22 +10,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const imageSources = Array.from(thumbnails).map(img => img.src);
     let currentIndex = 0;
     let autoPlayTimer = null;
-    let isTransitioning = false; // Chống lag khi khách click quá nhanh
+    let isTransitioning = false; 
 
     function slideTo(nextIndex, direction) {
         if (isTransitioning || nextIndex === currentIndex) return;
         isTransitioning = true;
 
-        // Tạo một thẻ ảnh phụ (bóng ma) để nối đuôi ảnh chính
+     
         const cloneImage = mainImage.cloneNode(true);
-        cloneImage.id = ""; // Bỏ id để tránh trùng
+        cloneImage.id = ""; 
         cloneImage.src = imageSources[nextIndex];
         cloneImage.style.position = "absolute";
         cloneImage.style.top = "0";
         cloneImage.style.width = "100%";
         cloneImage.style.height = "100%";
 
-        // Đặt vị trí ảnh phụ đứng sát sườn ảnh chính tùy theo hướng lướt
+        
         if (direction === "next") {
             cloneImage.style.left = "100%";
             sliderContainer.appendChild(cloneImage);
@@ -36,29 +34,29 @@ document.addEventListener("DOMContentLoaded", () => {
             sliderContainer.insertBefore(cloneImage, mainImage);
         }
 
-        // Ép trình duyệt nhận diện vị trí trước khi tạo hiệu ứng chuyển động
+        
         mainImage.getBoundingClientRect();
 
-        // Bật hiệu ứng trượt cho cả 2 ảnh
+        
         mainImage.classList.add("slider-transition");
         cloneImage.classList.add("slider-transition");
 
-        // Tiến hành kéo sang ngang (Nối đuôi nhau dịch chuyển)
+        
         const moveX = direction === "next" ? "-100%" : "100%";
         mainImage.style.transform = `translateX(${moveX})`;
         cloneImage.style.transform = `translateX(${moveX})`;
 
-        // Sau khi trượt xong (0.5 giây tương ứng CSS)
+  
         setTimeout(() => {
-            // Tắt hiệu ứng để reset vị trí ngầm bên dưới
+            
             mainImage.classList.remove("slider-transition");
             
-            // Cập nhật ảnh chính thành ảnh mới
+            
             currentIndex = nextIndex;
             mainImage.src = imageSources[currentIndex];
             mainImage.style.transform = "translateX(0)";
 
-            // Xóa ảnh phụ đi vì nhiệm vụ đóng thế đã xong
+            
             cloneImage.remove();
             
             updateThumbnailActive();
@@ -66,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 500);
     }
 
-    // Đồng bộ độ mờ sáng của hàng ảnh nhỏ (Gallery)
+    
     function updateThumbnailActive() {
         thumbnails.forEach((thumb, idx) => {
             if (idx === currentIndex) {
@@ -116,9 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
     sliderContainer.addEventListener("mouseenter", stopAutoPlay);
     sliderContainer.addEventListener("mouseleave", startAutoPlay);
 
-    // ==========================================
-    // 2. XỬ LÝ CHUYỂN ĐỔI TABS (MENU)
-    // ==========================================
+    
     const tabs = document.querySelectorAll(".tabs a");
     tabs.forEach(tab => {
         tab.addEventListener("click", function() {
@@ -127,9 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // ==========================================================
-    // NHẬP ĐẾN ĐÂU XỬ LÝ XANH/ĐỎ ĐẾN ĐẤY
-    // ==========================================================
     
     const nameInput = document.getElementById("popupName");
     const phoneInput = document.getElementById("popupPhone");
@@ -203,21 +196,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// ==========================================
-// 3. XỬ LÝ ẨN HIỆN LỊCH TRÌNH CHUẨN (TOGGLE)
-// ==========================================
+
 const timelineHeaders = document.querySelectorAll(".timeline-header");
 
 timelineHeaders.forEach(header => {
     header.addEventListener("click", function() {
-        // Tìm thẻ cha .timeline-item gần nhất
+       
         const parentItem = this.closest(".timeline-item");
         const icon = this.querySelector(".icon-toggle");
 
-        // Bật / Tắt trạng thái hiển thị của ngày được chọn
+      
         const isActive = parentItem.classList.toggle("active");
 
-        // Nếu đang hiển thị -> đổi sang icon TRỪ (-), nếu đang ẩn -> đổi sang icon CỘNG (+)
+        
         if (isActive) {
             icon.classList.remove("fa-circle-plus");
             icon.classList.add("fa-circle-minus");
@@ -228,82 +219,80 @@ timelineHeaders.forEach(header => {
     });
 });
 
-// ==========================================
-// 4. LOGIC POPUP ĐẶT TOUR & TỰ TÍNH TIỀN
-// ==========================================
+
 const bookingPopup = document.getElementById("bookingPopup");
 const closePopupBtn = document.querySelector(".close-popup");
 const popupQuantityInput = document.getElementById("popupQuantity");
 const popupTotalPrice = document.getElementById("popupTotalPrice");
 
-// Tìm nút Đặt Ngay theo class
+
 const datNgayBtn = document.querySelector(".book-btn");
 
-// Tự động lấy giá trị từ thẻ span duy nhất bên trong h2.price
+
 const priceSpan = document.querySelector(".price span:not(.price__old)");
 let BASE_PRICE = 0;
 
 if (priceSpan) {
-    // Đọc chuỗi chữ hiển thị (Ví dụ: "2.550.000đ")
+   
     let priceText = priceSpan.textContent; 
     
-    // Xóa sạch tất cả các ký tự KHÔNG phải là số (xóa dấu chấm, xóa chữ đ)
+  
     let cleanPrice = priceText.replace(/\D/g, ""); 
     
-    // Chuyển chuỗi số sạch thành kiểu số nguyên để làm toán nhân số lượng
+    
     BASE_PRICE = parseInt(cleanPrice) || 0; 
 }
 
-// Hàm định dạng số thành chuỗi tiền tệ tiếng Việt
+
 function formatMoney(amount) {
     return amount.toLocaleString('vi-VN') + 'đ';
 }
 
-// 1. Khi bấm nút "Đặt Ngay" -> Mở Popup ra
+
 if (datNgayBtn) {
     datNgayBtn.addEventListener("click", (e) => {
         e.preventDefault();
-        bookingPopup.style.display = "flex"; // Hiện popup lên ở dạng flex
+        bookingPopup.style.display = "flex"; 
     });
 }
 
-// 2. Khi bấm nút X -> Đóng Popup
+
 if (closePopupBtn) {
     closePopupBtn.addEventListener("click", () => {
         bookingPopup.style.display = "none";
     });
 }
 
-// 3. Khi bấm click ra vùng đen bên ngoài -> Cũng đóng luôn popup cho tiện
+
 window.addEventListener("click", (e) => {
     if (e.target === bookingPopup) {
         bookingPopup.style.display = "none";
     }
 });
 
-// 4. SỰ KIỆN TỰ ĐỘNG TÍNH TIỀN KHI THAY ĐỔI SỐ NGƯỜI
+
 if (popupQuantityInput) {
     popupQuantityInput.addEventListener("input", function() {
         let quantity = parseInt(this.value);
 
-        // Bảo vệ form: Nếu khách nhập nhỏ hơn 1 người, ép về 1 người
+       
         if (isNaN(quantity) || quantity < 1) {
             quantity = 1;
         }
 
-        // Tính tổng tiền = giá gốc x số lượng người
+        
         const total = BASE_PRICE * quantity;
 
-        // Cập nhật text hiển thị số tiền mới lên giao diện
+        
         popupTotalPrice.textContent = formatMoney(total);
     });
 }
 
-// 5. XỬ LÝ BẮT LỖI (VALIDATION) KHI BẤM "XÁC NHẬN ĐẶT TOUR"
+
 const bookingForm = document.getElementById("bookingForm");
 if (bookingForm) {
     bookingForm.addEventListener("submit", function(e) {
-        e.preventDefault(); // Chặn việc tải lại trang để JS kiểm tra dữ liệu
+        e.preventDefault(); 
 
         // Khai báo các ô input đầu vào
         const nameInput = document.getElementById("popupName");
@@ -325,8 +314,8 @@ if (bookingForm) {
         // ---- A. KIỂM TRA HỌ TÊN ----
         if (nameInput.value.trim() === "") {
             nameError.textContent = "Tên liên hệ không được để trống";
-            nameError.style.display = "block"; // Hiện chữ đỏ nhắc nhở
-            nameInput.classList.add("input-error"); // Đổi nền hồng nhạt
+            nameError.style.display = "block"; 
+            nameInput.classList.add("input-error"); 
             isValid = false;
         } else {
             nameError.style.display = "none";
@@ -334,7 +323,7 @@ if (bookingForm) {
         }
 
         // ---- B. KIỂM TRA SỐ ĐIỆN THOẠI ----
-        const phoneRegex = /(0[3|5|7|8|9])+([0-9]{8})\b/g; // Kiểm tra định dạng số điện thoại VN
+        const phoneRegex = /(0[3|5|7|8|9])+([0-9]{8})\b/g; 
         if (phoneInput.value.trim() === "") {
             phoneError.textContent = "Số điện thoại không được để trống";
             phoneError.style.display = "block";
@@ -350,13 +339,13 @@ if (bookingForm) {
             phoneInput.classList.remove("input-error");
         }
 
-        // ---- C. KIỂM TRA NGÀY KHỞI HÀNH (Dành cho thẻ select xổ danh sách) ----
-        // ĐÃ XÓA DÒNG KHAI BÁO BIẾN TRÙNG LẶP Ở ĐÂY
+        // ---- C. KIỂM TRA NGÀY KHỞI HÀNH  ----
+        
         if (dateInput && dateError) {
             if (dateInput.value === "") {
                 dateError.textContent = "Vui lòng chọn ngày khởi hành từ danh sách";
-                dateError.style.display = "block"; // Hiện chữ đỏ
-                dateInput.classList.add("input-error"); // Bật nền hồng nhạt
+                dateError.style.display = "block"; 
+                dateInput.classList.add("input-error"); 
                 isValid = false;
             } else {
                 dateError.style.display = "none";
@@ -377,7 +366,7 @@ if (bookingForm) {
 
         // ---- E. KIỂM TRA EMAIL (THÊM MỚI) ----
         if (emailInput && emailError) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex kiểm tra định dạng email tiêu chuẩn
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
             const emailValue = emailInput.value.trim();
 
             if (emailValue === "") {
@@ -398,39 +387,39 @@ if (bookingForm) {
 
         // CHỈ KHI TẤT CẢ Ô NHẬP LIỆU HỢP LỆ (isValid vẫn bằng true)
         if (isValid) {
-            // Lấy thêm cái popup thành công mới khai báo ngoài HTML
+            
             const successPopup = document.getElementById("successPopup");
             const btnCloseSuccess = document.getElementById("btnCloseSuccess");
 
-            // 1. Ẩn cái popup điền thông tin đi
+            
             bookingPopup.style.display = "none"; 
             
-            // 2. BẬT CÁI POPUP THÀNH CÔNG LÊN
+           
             if (successPopup) {
                 successPopup.style.display = "flex"; 
             }
 
-            // 3. Xóa sạch dữ liệu form cũ để chuẩn bị cho lần sau
+            
             bookingForm.reset(); 
             
-            // Xóa các class viền đỏ nền hồng của lần nhập lỗi trước (nếu có)
+          
             const allInputs = bookingForm.querySelectorAll("input");
             allInputs.forEach(input => input.classList.remove("input-error"));
             if (dateInput) dateInput.classList.remove("input-error");
             
-            // Đưa tiền tạm tính trả về mặc định mức một người
+            
             if (popupTotalPrice) {
                 popupTotalPrice.textContent = formatMoney(BASE_PRICE);
             }
 
-            // 4. Bắt sự kiện bấm nút "Đóng" trên popup thành công để ẩn nó đi
+           
             if (btnCloseSuccess) {
                 btnCloseSuccess.addEventListener("click", function() {
                     successPopup.style.display = "none";
                 });
             }
 
-            // 5. Nếu bấm click ra ngoài vùng đen của popup thành công thì cũng ẩn luôn
+            
             window.addEventListener("click", function(e) {
                 if (e.target === successPopup) {
                     successPopup.style.display = "none";

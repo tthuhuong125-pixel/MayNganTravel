@@ -1,14 +1,4 @@
-/* ==========================================================================
-   MAYNGAN TRAVEL — TRANG_DANH_SACH_TOURS.CSS
-   CSS riêng cho trang danh sách tour
-   Kế thừa: variables.css → base.css → components.css → components_additions.css
-   File này CHỈ chứa override / bố cục riêng của trang — không redefine components
-   ========================================================================== */
 
-
-/* ══════════════════════════════════════════════════════════
-   BỐ CỤC TRANG
-   ══════════════════════════════════════════════════════════ */
 .container.tour-page-wrapper {
   padding-top: 40px;
   padding-bottom: var(--space-2xl);
@@ -18,7 +8,7 @@
   margin-bottom: var(--space-lg);
 }
 
-/* Layout 2 cột: sidebar trái + content phải */
+
 .layout-main {
   display: flex;
   gap: var(--space-xl);
@@ -26,9 +16,7 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   SIDEBAR BỘ LỌC
-   ══════════════════════════════════════════════════════════ */
+
 .filter-sidebar {
   width: 240px;
   flex-shrink: 0;
@@ -36,7 +24,7 @@
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: var(--space-md);
-  /* Dính khi cuộn — header cao ~60px nên top: 80px */
+  
   position: sticky;
   top: 80px;
   max-height: calc(100vh - 100px);
@@ -94,12 +82,10 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   KHU VỰC CONTENT TOUR
-   ══════════════════════════════════════════════════════════ */
+
 .tours-content {
   flex: 1;
-  min-width: 0;       /* ngăn overflow trong flexbox */
+  min-width: 0;       
 }
 
 .section-label {
@@ -167,25 +153,16 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   LƯỚI TOUR — khai báo DUY NHẤT ở đây
-   components_additions.css định nghĩa .tour-card (thẻ đơn)
-   File này định nghĩa .tours-grid (lưới chứa các thẻ)
-   ══════════════════════════════════════════════════════════ */
+
 .tours-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-md);
 }
 
-/*
-  FIX 3: Bỏ "height: 190px" trên img.
-  components_additions.css dùng aspect-ratio: 16/10 trên .tour-card__img-wrap
-  và height: 100% trên .tour-card__img → chiều cao tự tính theo tỉ lệ.
-  Override height sẽ phá vỡ aspect-ratio.
-*/
 
-/* Giới hạn title 2 dòng trong lưới 3 cột */
+
+
 .tours-grid .tour-card__title {
   font-size: var(--text-sm);
   -webkit-line-clamp: 2;
@@ -193,9 +170,7 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   BACK TO TOP
-   ══════════════════════════════════════════════════════════ */
+
 .back-to-top-btn {
   position: fixed;
   bottom: 30px;
@@ -228,9 +203,9 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
+/* 
    RESPONSIVE
-   ══════════════════════════════════════════════════════════ */
+    */
 
 /* Màn hình < 1100px: sidebar hẹp hơn, grid 2 cột */
 @media (max-width: 1100px) {

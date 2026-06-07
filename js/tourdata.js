@@ -1,12 +1,4 @@
-/*
-  tours-data.js — Mây Ngàn Travel
-  TOÀN BỘ dữ liệu tour — sửa ở đây là cập nhật toàn site
 
-  destSlug — slug khớp với data-dest trên chip HTML:
-  'sapa' | 'yty' | 'mocchau' | 'bachha' | 'mcc' | 'taxua'
-  | 'hagiang' | 'caobang' | 'backan'
-  Nhiều điểm cách nhau bằng dấu cách: 'mcc sapa'
-*/
 
 const TOURS_DATA = [
 

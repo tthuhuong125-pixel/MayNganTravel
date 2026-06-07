@@ -1,19 +1,8 @@
-/* ==========================================================================
-   MAYNGAN TRAVEL - COMPONENTS.CSS (THÀNH PHẦN TÁI SỬ DỤNG)
-   Mục đích: Nút bấm, thẻ tour, badge, chip, form — Dùng chung toàn dự án
-   Lưu ý: KHÔNG hardcode màu hex ở đây — mọi màu đều lấy từ variables.css
-   ========================================================================== */
 
-
-/* ══════════════════════════════════════════════════════════
-   1. BUTTONS (NÚT BẤM)
-   Cách dùng: <button class="btn btn-cta">Đặt tour ngay</button>
-   Luôn gọi class "btn" trước, rồi mới thêm loại màu
-   ══════════════════════════════════════════════════════════ */
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-sm);              /* Khoảng cách giữa icon và chữ bên trong nút */
+  gap: var(--space-sm);              
   padding: 10px 22px;
   border-radius: var(--radius-sm);
   font-weight: 600;
@@ -56,15 +45,11 @@
 
 
 
-/* ══════════════════════════════════════════════════════════
-   3. BADGES (NHÃN DÁN)
-   Cách dùng: <span class="badge badge--hot">HOT</span>
-   Thường đặt absolute đè lên góc ảnh tour
-   ══════════════════════════════════════════════════════════ */
+/* 3. BADGES (NHÃN DÁN)*/
 .badge {
   display: inline-flex;
   padding: 3px 10px;
-  border-radius: var(--radius-full);         /* Viên thuốc tròn 2 đầu */
+  border-radius: var(--radius-full);         
   font-size: var(--text-xs);
   font-weight: 600;
 }
@@ -77,7 +62,7 @@
 
 /* Nền xanh đặc — tour mới ra */
 .badge--new {
-  background: var(--color-primary);          /* Đổi từ #3D7A5C → dùng biến */
+  background: var(--color-primary);          
   color: var(--text-white);
 }
 
@@ -100,12 +85,9 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════
+/* 
    4. CHIPS (NÚT LỌC ĐIỂM ĐẾN)
-   Cách dùng:
-   <div class="chip">Hà Giang</div>
-   <div class="chip chip--active">Sapa</div>   ← đang được chọn
-   ══════════════════════════════════════════════════════════ */
+    */
 .chip {
   padding: 5px 14px;
   border-radius: var(--radius-full);
@@ -115,18 +97,14 @@
   transition: var(--transition);
 }
 
-/* Trạng thái đang được chọn — nền xanh */
+
 .chip--active {
   background: var(--color-primary);
   color: var(--text-white);
   border-color: var(--color-primary);
 }
 
-/* ── Thêm mới: DESTINATION TAGS (tag điểm đến chính/phụ trên card tour) ──
-   Cách dùng:
-   <span class="dest-tag dest-tag--primary">MCC</span>  → ★MCC  (điểm chính)
-   <span class="dest-tag">Sapa</span>                   → Sapa  (điểm phụ)
-   ──────────────────────────────────────────────────── */
+/* ── Thêm mới: DESTINATION TAGS (tag điểm đến chính/phụ trên card tour)  */
 .dest-tag {
   display: inline-flex;
   align-items: center;
@@ -134,9 +112,9 @@
   border-radius: var(--radius-full);
   font-size: var(--text-xs);
   font-weight: 500;
-  background: var(--color-primary-bg);       /* màu xanh nhạt cho cả 2 */
-  color: var(--color-primary-dark);           /* chữ xanh đậm cho cả 2 */
-  border: 0.5px solid var(--color-primary-light); /* viền xanh cho cả 2 */
+  background: var(--color-primary-bg);       
+  color: var(--color-primary-dark);           
+  border: 0.5px solid var(--color-primary-light);
 }
 
 /* Điểm chính — chỉ thêm ★, không đổi màu */
@@ -148,17 +126,15 @@
 
 
 
-/* ══════════════════════════════════════════════════════════
+/* 
    BADGE VÙNG — TOP-RIGHT
-   badge--region-tb  : Tây Bắc  → nền xanh nhạt
-   badge--region-db  : Đông Bắc → nền xanh lam nhạt
-   badge--xuyen      : ĐÃ CÓ trong components.css (tím)
-   ══════════════════════════════════════════════════════════ */
+   
+    */
 
 /* Tây Bắc — xanh rừng nhạt */
 .badge--region-tb {
-  background: var(--color-primary-bg);       /* #E1F5EE */
-  color: var(--color-primary-dark);           /* #2D5A3D */
+  background: var(--color-primary-bg);       
+  color: var(--color-primary-dark);           
   border: 1px solid rgba(61, 122, 92, 0.25);
   font-size: var(--text-xs);
   font-weight: 600;
@@ -183,9 +159,9 @@
 
 
 
-/* ══════════════════════════════════════════════════════════
+/* 
    2. TOUR CARD
-   ══════════════════════════════════════════════════════════ */
+    */
 .tour-card {
   background: var(--bg-white);
   border-radius: var(--radius-md);

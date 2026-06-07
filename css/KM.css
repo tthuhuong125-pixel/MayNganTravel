@@ -1,10 +1,4 @@
-/* ==========================================================================
-   MAYNGAN TRAVEL - KM.CSS (Trang Khuyến Mãi)
 
-   Chỉ chứa: layout trang, banner, header, grid, phân trang.
-   KHÔNG định nghĩa card style — dùng hoàn toàn từ components.css
-   (giống trang danh sách tour — đồng bộ giao diện)
-   ========================================================================== */
 
 
 /* ── BANNER ── */
@@ -65,11 +59,7 @@
 }
 
 
-/* ══════════════════════════════════════════════════════
-   GRID TOUR — 3 cột, đồng bộ với trang danh sách
-   Card style (.tour-card, .tour-card__*) đến từ components.css
-   Không cần định nghĩa lại gì ở đây
-══════════════════════════════════════════════════════ */
+
 .promo-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

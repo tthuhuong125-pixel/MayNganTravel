@@ -1,7 +1,4 @@
-/* ==========================================================================
-   MAYNGAN TRAVEL - LIENHE.CSS (BẢN CHUẨN HOÁ TOÀN DIỆN)
-   Mục đích: Định dạng bố cục Grid, Form sáng và Cột thông tin nền tối + 1 Map chung
-   ========================================================================== */
+
 
 /* --- KHUNG CHỨA CHUNG (CONTAINER) --- */
 .container {
@@ -28,7 +25,7 @@
   margin: 0 auto;
 }
 
-/* --- HỆ THỐNG LƯỚI CHIA 2 CỘT (DESKTOP) --- */
+/* --- HỆ THỐNG LƯỚI CHIA 2 CỘT  --- */
 .contact-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -37,9 +34,7 @@
   margin-bottom: var(--space-2xl);
 }
 
-/* ==========================================================================
-   CỘT 1: BIỂU MẪU GỬI TIN NHẮN (NỀN TRẮNG SÁNG)
-   ========================================================================== */
+
 .contact-form-section {
   background: var(--bg-white);
   padding: var(--space-xl);
@@ -134,21 +129,19 @@
 }
 
 
-/* ==========================================================================
-   CỘT 2: THÔNG TIN LIÊN HỆ ĐỐI CHIẾU THEO ẢNH THIẾT KẾ (NỀN TỐI SANG TRỌNG)
-   ========================================================================== */
+
 .contact-info-section {
-  background-color: var(--bg-dark); /* Màu rêu đen thương hiệu */
+  background-color: var(--bg-dark); 
   padding: var(--space-xl) var(--space-lg);
   border-radius: var(--radius-lg);
   color: var(--text-white);
   display: flex;
   flex-direction: column;
-  gap: var(--space-md); /* Khoảng cách giữa các khối block bên trong */
+  gap: var(--space-md); 
   box-shadow: var(--shadow-md);
 }
 
-/* Tiêu đề lớn: LIÊN HỆ */
+
 .contact-info-section > h2:first-child {
   color: var(--text-white);
   font-family: var(--font-heading);
@@ -161,23 +154,23 @@
   margin-bottom: var(--space-xs);
 }
 
-/* Các khối thông tin chi nhánh (Loại bỏ thuộc tính background/border thừa của info-block cũ) */
+
 .contact-info-section .info-block {
   background: transparent;
   padding: 0;
   border: none;
 }
 
-/* Tên các Chi nhánh (Hà Nội, TP. Hồ Chí Minh) */
+
 .branch-block h2 {
   font-family: var(--font-heading);
   font-size: var(--text-base);
   font-weight: 700;
-  color: var(--color-accent); /* Màu Vàng Gold chuẩn ảnh */
+  color: var(--color-accent); 
   margin-bottom: var(--space-sm);
 }
 
-/* Danh sách chi tiết địa chỉ, phone */
+
 .info-list {
   display: flex;
   flex-direction: column;
@@ -194,7 +187,7 @@
   line-height: 1.5;
 }
 
-/* Định dạng các đường Link điện thoại, email trên nền tối */
+
 .info-list a {
   color: rgba(255, 255, 255, 0.85);
   transition: var(--transition);
@@ -205,15 +198,15 @@
   text-decoration: underline;
 }
 
-/* Căn chỉnh Tabler Icons */
+
 .info-icon {
   font-size: var(--text-xl);
-  color: rgba(255, 255, 255, 0.5); /* Icon ẩn mờ đồng điệu */
+  color: rgba(255, 255, 255, 0.5); 
   margin-top: 2px;
   flex-shrink: 0;
 }
 
-/* Đường gạch ngang phân mảnh tinh tế giữa Chi nhánh 1 và Chi nhánh 2 */
+
 .branch-block {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: var(--space-md);
@@ -260,12 +253,12 @@
 }
 
 
-/* ==========================================================================
+/* 
    RESPONSIVE (CO GIÃN TỰ ĐỘNG TRÊN TABLET & ĐIỆN THOẠI)
-   ========================================================================== */
+    */
 @media (max-width: 992px) {
   .contact-grid {
-    grid-template-columns: 1fr; /* Sập về 1 cột duy nhất trên thiết bị di động */
+    grid-template-columns: 1fr; 
     gap: var(--space-lg);
   }
   

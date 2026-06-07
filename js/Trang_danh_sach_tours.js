@@ -1,17 +1,4 @@
-/*
-  Trang_danh_sach_tours.js — Mây Ngàn Travel
-  Bộ lọc + sắp xếp + xử lý search từ trang chủ
 
-  THỨ TỰ LOAD (bắt buộc):
-  1. tourdata.js   → TOURS_DATA
-  2. tourcard.js   → renderTourGrid
-  3. file này      → filter + sort + search
-*/
-
-/* ══════════════════════════════════════════════════
-   CHUẨN HOÁ TIẾNG VIỆT — bỏ dấu, lowercase
-   Dùng để so sánh search không phân biệt hoa thường / dấu
-══════════════════════════════════════════════════ */
 function normalizeVN(str) {
   if (!str) return '';
   return str
@@ -26,10 +13,7 @@ function normalizeVN(str) {
     .trim();
 }
 
-/* ══════════════════════════════════════════════════
-   BẢNG MAP: từ khoá → data-dest chip
-   keywords đã được normalize sẵn (không dấu, lowercase)
-══════════════════════════════════════════════════ */
+
 const DEST_SEARCH_MAP = [
   { dest: 'sapa',    keywords: ['sapa', 'sa pa', 'fansipan'] },
   { dest: 'yty',     keywords: ['y ty', 'y ti', 'yty', 'bat xat'] },
@@ -114,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (countEl) countEl.textContent = visibleCount;
 
-    /* FIX: sorted.forEach nằm NGOÀI switch */
+    
     const sorted = [...cards].sort(function (a, b) {
       switch (currentSort) {
         case 'giatang':  return parseInt(a.getAttribute('data-price-num'), 10) - parseInt(b.getAttribute('data-price-num'), 10);
@@ -128,12 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ── BƯỚC 5: APPLY MẶC ĐỊNH ── */
   filterAndSortTours();
 
-  /* ══════════════════════════════════════════════════
-     ĐỌC URL PARAM ?q= — từ hero search trang chủ
-     VD: ?q=Sapa      → tích chip "Sapa"
-         ?q=hà giang  → tích chip "Hà Giang"
-         ?q=MU CANG   → tích chip "Mù Cang Chải"
-  ══════════════════════════════════════════════════ */
+  
   const urlParams   = new URLSearchParams(window.location.search);
   const searchQuery = urlParams.get('q');
 
@@ -152,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
     } else {
-      /* ── Từ khoá không khớp → thông báo + vẫn hiện đủ tất cả tour ── */
+      
       const resultsArea = document.querySelector('.results-count');
       if (resultsArea && !document.getElementById('searchNotice')) {
         const notice = document.createElement('div');
@@ -174,18 +153,13 @@ document.addEventListener('DOMContentLoaded', function () {
           + `Gợi ý bạn xem toàn bộ <strong>${TOURS_DATA.length} tour</strong> của Mây Ngàn Travel bên dưới.`;
         resultsArea.parentNode.insertBefore(notice, resultsArea);
       }
-      /* activeFilters.destination = 'all' → hiển thị đủ 21 tour */
+      
       filterAndSortTours();
     }
   }
 
 
-  /* ══════════════════════════════════════════════════
-     ĐỌC URL PARAM ?dest= — từ dropdown header
-     Ưu tiên cao hơn ?q= vì slug đã chính xác, không cần map
-     VD: ?dest=sapa    → active chip "Sapa"
-         ?dest=hagiang → active chip "Hà Giang"
-  ══════════════════════════════════════════════════ */
+  
   const destParam = urlParams.get('dest');
 
   if (destParam) {

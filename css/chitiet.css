@@ -1,17 +1,9 @@
-/* ==========================================================================
-   MAYNGAN TRAVEL - CHITIET.CSS
-   Trang chi tiết tour — Style riêng của Phương Anh
-   Yêu cầu import TRƯỚC: variables.css → base.css → components.css → chitiet.css
-   ========================================================================== */
 
-/* ✅ scroll-behavior giữ ở đây vì base.css chưa có — nhắc Hương thêm vào base.css */
+
+
 html { scroll-behavior: smooth; }
 
-/* ==========================================================
-   1. LAYOUT TRANG CHI TIẾT (2 CỘT)
-   ✅ FIX: Đổi từ .container → .chitiet-layout
-   Tránh xung đột với .container của base.css
-   ========================================================== */
+
 .chitiet-layout {
     display: flex;
     gap: 30px;
@@ -21,9 +13,7 @@ html { scroll-behavior: smooth; }
 
 .left  { flex: 3; }
 
-/* ==========================================================
-   2. TIÊU ĐỀ & TAG HEADER
-   ========================================================== */
+
 
 .tour-title {
     font-weight: 700;
@@ -39,9 +29,7 @@ html { scroll-behavior: smooth; }
     margin-left: 7px;     
 }
 
-/* ==========================================================
-   3. SLIDER & GALLERY
-   ========================================================== */
+
 .slider {
     position: relative;
     width: 100%;
@@ -103,9 +91,7 @@ html { scroll-behavior: smooth; }
     transform: scale(1.05);
 }
 
-/* ==========================================================
-   4. TABS ĐIỀU HƯỚNG NỘI DUNG
-   ========================================================== */
+
 .tabs {
     display: flex;
     gap: 30px;
@@ -117,20 +103,18 @@ html { scroll-behavior: smooth; }
 .tabs a {
     font-weight: 600;
     cursor: pointer;
-    color: var(--text-light); /* ✅ FIX: #7A8A80 → var(--text-light) */
+    color: var(--text-light); 
     text-decoration: none;
     transition: var(--transition);
 }
 
 .tabs .active {
-    color: var(--text-dark); /* ✅ FIX: --text-main → --text-dark */
+    color: var(--text-dark); 
     border-bottom: 3px solid var(--color-primary);
     padding-bottom: 8px;
 }
 
-/* ==========================================================
-   5. NỘI DUNG TOUR (TỔNG QUAN, LỊCH TRÌNH...)
-   ========================================================== */
+
 .tour-content {
     margin-top: 30px;
     border-bottom: 1px solid var(--bg-secondary);
@@ -147,7 +131,7 @@ html { scroll-behavior: smooth; }
 .tour-content p,
 .tour-content ul,
 .timeline-content {
-    color: var(--text-dark); /* ✅ FIX */
+    color: var(--text-dark); 
     text-align: justify;
 }
 
@@ -156,7 +140,7 @@ html { scroll-behavior: smooth; }
 .tour-content ul {
     padding-left: 20px;
     margin-bottom: var(--space-sm);
-    list-style: disc; /* Hiện dấu chấm cho danh sách nội dung tour */
+    list-style: disc; 
 }
 
 .tour-content li {
@@ -167,9 +151,7 @@ html { scroll-behavior: smooth; }
 .tour-content b,
 .tour-content strong { font-weight: bold; }
 
-/* ==========================================================
-   6. SIDEBAR PHẢI — GIÁ & ĐẶT TOUR
-   ========================================================== */
+
 .right {
     background: #fff;
     padding: 28px;
@@ -184,7 +166,7 @@ html { scroll-behavior: smooth; }
     font-size: var(--text-2xl);
     font-weight: 600;
     margin-bottom: 15px;
-    color: var(--text-dark); /* ✅ FIX */
+    color: var(--text-dark); 
 }
 
 .price span {
@@ -212,14 +194,14 @@ html { scroll-behavior: smooth; }
     align-items: center;
     gap: 12px;
     margin-bottom: 14px;
-    color: var(--text-dark); /* ✅ FIX */
+    color: var(--text-dark); 
     font-size: var(--text-base);
 }
 
 .tour-info i {
     width: 22px;
     font-size: 16px;
-    color: var(--color-primary-light); /* ✅ FIX: --color-secondary → --color-primary-light */
+    color: var(--color-primary-light); 
 }
 
 .location {
@@ -229,10 +211,10 @@ html { scroll-behavior: smooth; }
 .tour-name {
     margin: 10px 0 15px 0;
     font-weight: 600;
-    color: var(--text-dark); /* ✅ FIX */
+    color: var(--text-dark); 
 }
 
-/* Chỉ override kích thước — không khai lại thứ .btn đã có */
+
 .book-btn {
     width: 100%;
     padding: 14px;
@@ -242,11 +224,9 @@ html { scroll-behavior: smooth; }
 }
 
 
-/* ==========================================================
-   7. POLICY & CONTACT
-   ========================================================== */
+
 .policy {
-    background: var(--color-primary-bg); /* ✅ FIX: #eaf6e5 → var(--color-primary-bg), bỏ !important */
+    background: var(--color-primary-bg); 
     padding: 18px;
     border-radius: var(--radius-lg);
     margin-top: 15px;
@@ -271,7 +251,7 @@ html { scroll-behavior: smooth; }
     margin: 0;
     font-size: var(--text-base);
     line-height: 1.5;
-    color: var(--text-dark); /* ✅ FIX */
+    color: var(--text-dark); 
 }
 
 .policy-item b { font-weight: 600; }
@@ -282,9 +262,7 @@ html { scroll-behavior: smooth; }
     margin-top: 18px;
 }
 
-/* ✅ FIX: Đổi tên .btn-outline → .btn-contact
-   Tránh xung đột với .btn-outline trong components.css (màu xanh)
-   .btn-contact dùng màu cam (CTA) phù hợp với ngữ cảnh liên hệ */
+
 .btn-contact {
     flex: 1;
     border: 1px solid var(--color-cta);
@@ -306,9 +284,7 @@ html { scroll-behavior: smooth; }
     background: var(--color-cta-bg);
 }
 
-/* ==========================================================
-   8. LỊCH TRÌNH (TIMELINE ACCORDION)
-   ========================================================== */
+
 .timeline-item {
     position: relative;
     padding-bottom: 10px;
@@ -320,7 +296,7 @@ html { scroll-behavior: smooth; }
     left: 10px;
     top: 28px;
     bottom: -10px;
-    border-left: 1px dashed var(--color-primary-light); /* ✅ FIX: --color-secondary → --color-primary-light */
+    border-left: 1px dashed var(--color-primary-light); 
 }
 
 .timeline-item:last-child::before { display: none; }
@@ -337,7 +313,7 @@ html { scroll-behavior: smooth; }
     margin: 0;
     font-size: var(--text-base);
     font-weight: 700;
-    color: var(--text-dark); /* ✅ FIX */
+    color: var(--text-dark); 
 }
 
 .icon-toggle {
@@ -355,9 +331,7 @@ html { scroll-behavior: smooth; }
 
 .timeline-item.active .timeline-content { display: block; }
 
-/* ==========================================================
-   9. DỊCH VỤ (BAO GỒM / KHÔNG BAO GỒM)
-   ========================================================== */
+
 .services-container {
     display: flex;
     gap: 25px;
@@ -380,7 +354,7 @@ html { scroll-behavior: smooth; }
     letter-spacing: 0.5px;
     margin-top: 0;
     margin-bottom: 20px;
-    color: var(--text-dark); /* ✅ FIX */
+    color: var(--text-dark); 
 }
 
 .service-box ul {
@@ -400,13 +374,13 @@ html { scroll-behavior: smooth; }
 .service-box li strong {
     display: block;
     margin-bottom: 4px;
-    color: var(--text-dark); /* ✅ FIX */
+    color: var(--text-dark); 
 }
 
 .service-box li p {
     margin: 2px 0;
     font-size: var(--text-sm);
-    color: var(--text-dark); /* ✅ FIX */
+    color: var(--text-dark); 
 }
 
 .badge-icon {
@@ -504,7 +478,7 @@ html { scroll-behavior: smooth; }
     text-align: center;
     margin: 0 0 20px 0;
     font-weight: 600;
-    color: var(--text-dark); /* ✅ FIX */
+    color: var(--text-dark); 
 }
 
 .form-group { margin-bottom: 15px; }
@@ -520,7 +494,7 @@ html { scroll-behavior: smooth; }
     font-size: var(--text-sm);
     font-weight: 600;
     margin-bottom: 5px;
-    color: var(--text-dark); /* ✅ FIX */
+    color: var(--text-dark); 
 }
 
 .form-group input {
@@ -545,7 +519,7 @@ html { scroll-behavior: smooth; }
     border: 1px solid var(--bg-secondary);
     border-radius: var(--radius-sm);
     font-size: var(--text-sm);
-    color: var(--text-dark); /* ✅ FIX */
+    color: var(--text-dark); 
     background-color: #fff;
     cursor: pointer;
     outline: none;
@@ -574,7 +548,7 @@ html { scroll-behavior: smooth; }
 
 .form-price-box span {
     font-size: var(--text-sm);
-    color: var(--text-dark); /* ✅ FIX */
+    color: var(--text-dark); 
 }
 
 .form-price-box strong {
@@ -598,7 +572,7 @@ html { scroll-behavior: smooth; }
 }
 
 .btn-submit-booking:hover {
-    background-color: var(--color-primary-dark); /* ✅ FIX: #31624A → var(--color-primary-dark) */
+    background-color: var(--color-primary-dark); 
 }
 
 .error-message {
@@ -636,7 +610,7 @@ html { scroll-behavior: smooth; }
 .success-message-text {
     font-size: var(--text-lg);
     font-weight: 500;
-    color: var(--text-dark); /* ✅ FIX */
+    color: var(--text-dark); 
     margin: 0 0 25px 0;
     line-height: 1.4;
 }
@@ -654,7 +628,7 @@ html { scroll-behavior: smooth; }
 }
 
 .btn-close-success:hover {
-    background-color: var(--color-primary-dark); /* ✅ FIX: #31624A → var(--color-primary-dark) */
+    background-color: var(--color-primary-dark); 
 }
 
 /* Khoảng cách riêng cho dest-tags trong trang chi tiết */
@@ -716,19 +690,15 @@ html { scroll-behavior: smooth; }
 }
 
 
-/* ==========================================================================
-   11. BỔ SUNG TOÀN DIỆN RESPONSIVE CHO TRANG TOUR CHI TIẾT
-   Kế thừa hệ thống token từ variables.css & tương thích thiết bị di động
-   ========================================================================== */
 
 /* --- LAPTOP NHỎ & TABLET NGANG (Dưới 1200px) --- */
 @media (max-width: 1200px) {
-    /* Thu nhỏ nhẹ độ cao Slider để cân bằng thị giác */
+    
     .main-img {
         height: 460px;
     }
     
-    /* Tour tương tự: Giảm khoảng cách grid một chút để vừa vặn */
+    
     .similar-tours-grid {
         gap: var(--space-md);
     }
@@ -740,7 +710,7 @@ html { scroll-behavior: smooth; }
     .chitiet-layout {
         flex-direction: column;
         gap: 40px;
-        padding: 20px var(--space-md); /* Chừa lề hai bên cho thoáng */
+        padding: 20px var(--space-md); 
     }
 
     /* Đưa cả cột trái và cột phải về tràn màn hình */
@@ -756,17 +726,17 @@ html { scroll-behavior: smooth; }
         box-shadow: var(--shadow-sm);
     }
 
-    /* Nới rộng chiều cao Slider một chút trên màn hình máy tính bảng */
+    
     .main-img {
         height: 480px;
     }
 
-    /* Thu nhỏ các tab điều hướng để tránh bị nhảy dòng */
+    
     .tabs {
         gap: 20px;
     }
 
-    /* Tour tương tự: Chuyển từ 3 cột về dạng 2 cột trên máy tính bảng */
+    
     .similar-tours-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -774,18 +744,18 @@ html { scroll-behavior: smooth; }
 
 /* --- ĐIỆN THOẠI DI ĐỘNG (Dưới 768px) --- */
 @media (max-width: 768px) {
-    /* Giảm padding bọc ngoài layout */
+    
     .chitiet-layout {
         padding: 15px var(--space-sm);
         gap: 30px;
     }
 
-    /* Co nhỏ kích thước Slider hình ảnh phù hợp màn hình dọc */
+    
     .main-img {
         height: 280px;
     }
 
-    /* Thanh Thumbnails Gallery: Cho phép cuộn ngang vuốt tay nếu quá nhiều ảnh */
+    
     .gallery {
         overflow-x: auto;
         padding-bottom: 8px;
@@ -795,31 +765,31 @@ html { scroll-behavior: smooth; }
     .gallery img {
         width: 90px;
         height: 60px;
-        flex-shrink: 0; /* Không cho ảnh con bị bóp méo */
+        flex-shrink: 0; 
     }
 
-    /* Tabs điều hướng: Cho phép vuốt ngang mượt mà trên điện thoại */
+    
     .tabs {
         overflow-x: auto;
         white-space: nowrap;
         gap: 16px;
         padding-bottom: 8px;
-        -webkit-overflow-scrolling: touch; /* Hiệu ứng vuốt mượt trên iOS */
+        -webkit-overflow-scrolling: touch; 
     }
 
     .tabs a {
         font-size: var(--text-sm);
     }
 
-    /* Tiêu đề Tour lớn hạ cỡ chữ xuống tránh chiếm diện tích */
+    
     .tour-title {
         font-size: var(--text-xl);
         margin-bottom: 12px;
     }
-    /* Bẻ khối Dịch vụ (Bao gồm / Không bao gồm) từ 2 cột hàng ngang thành dọc */
+    
     .services-container {
         flex-direction: column;
-        gap: 35px; /* Tạo khoảng trống để không đè lên Badge Icon vòng tròn */
+        gap: 35px; 
         margin-top: 30px;
     }
 
@@ -827,7 +797,7 @@ html { scroll-behavior: smooth; }
         padding: 20px;
     }
 
-    /* Khối liên hệ chân sidebar xếp dọc nút bấm */
+    
     .contact {
         flex-direction: column;
         gap: 10px;
@@ -838,7 +808,7 @@ html { scroll-behavior: smooth; }
         padding: 12px;
     }
 
-    /* Tour tương tự: Đưa về 1 cột duy nhất tràn màn hình trên điện thoại */
+    
     .similar-tours-grid {
         grid-template-columns: 1fr;
         gap: var(--space-lg);
@@ -850,13 +820,13 @@ html { scroll-behavior: smooth; }
 
     /* --- TINH CHỈNH POPUP FORM ĐẶT TOUR TRÊN MOBILE --- */
     .popup-content {
-        width: 90%; /* Ép form ôm gọn 90% chiều ngang màn hình điện thoại */
+        width: 90%; 
         padding: 20px;
         margin: 0 auto;
     }
 
     .form-row {
-        flex-direction: column; /* Bẻ các ô nhập liệu hàng ngang (Họ tên + SĐT) thành hàng dọc */
+        flex-direction: column; 
         gap: 0;
     }
 

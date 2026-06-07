@@ -1,12 +1,12 @@
-/* ==========================================================================
+/* 
    MAYNGAN TRAVEL - BẢNG BIẾN CSS (CSS VARIABLES)
-   Ghi chú chi tiết cách dùng - Chỉ Hương được sửa file này!
-   ========================================================================== */
+   
+   */
 
 :root {
   /* --- 1. MÀU NỀN (BACKGROUNDS) - Dùng cho thuộc tính background-color --- */
   --bg-primary: #FAFAF7;       /* Dùng làm màu nền chính của cả trang web (thẻ body) */
-  --bg-secondary: #F0EDE4;     /* Dùng cho các khối (section) phụ để chia tách nội dung, tránh nhàm chán */
+  --bg-secondary: #F0EDE4;     /* Dùng cho các khối (section) phụ để chia tách nội dung */
   --bg-dark: #1F2E22;          /* Dùng cho chân trang (footer) hoặc lớp phủ đen mờ (overlay) trên ảnh */
   --bg-white: #FFFFFF;         /* Dùng cho nền thẻ tour (card), popup, dropdown — trắng thuần */
 
@@ -17,18 +17,18 @@
   --color-primary-bg: #E1F5EE;     /* Dùng làm màu nền rất nhạt cho badge "Tour mới", tag điểm đến */
 
   /* --- 3. MÀU NỔI BẬT (ACCENT & CTA) - Dùng để thu hút ánh nhìn --- */
-  --color-accent: #D4A017;         /* Màu Vàng: Dùng cho sao đánh giá (rating), icon đặc biệt */
+  --color-accent: #D4A017;         /* Màu Vàng: Dùng cho icon đặc biệt */
   --color-cta: #E8693A;            /* Màu Cam đặc: Dùng cho nút "Đặt tour ngay", badge HOT, giá tiền */
   --color-cta-dark: #C4502A;       /* Màu Cam tối: Dùng khi rê chuột (hover) vào nút "Đặt tour" */
   --color-cta-bg: rgba(232, 105, 58, 0.12); /* Màu Cam nhạt: Dùng cho nền badge "Khuyến mãi" */
   --color-accent-light: #F5C842;   /* Vàng sáng hơn cho footer */
   --color-cta-light:    #FF8C5A;   /* Cam sáng hơn cho footer */
   /* Thêm vào nhóm 3. MÀU NỔI BẬT, ngay dưới --color-cta-bg */
-  --color-xuyen-bg: rgba(130, 26, 214, 0.10); /* Tím nhạt: nền badge xuyên vùng */
+  --color-xuyen-bg: rgba(130, 26, 214, 0.10); /* Tím nhạt*/
   --color-xuyen: #821AD6;          /* Màu Tím: Dùng riêng cho badge "Tour xuyên vùng" */
 
   /* --- 5. MÀU CHỮ (TEXT COLORS) - Dùng cho thuộc tính color --- */
-  --text-dark: #1F2E22;            /* Dùng cho Tiêu đề (h1, h2, h3) cần đọc rõ ràng nhất */
+  --text-dark: #1F2E22;            /* Dùng cho Tiêu đề (h1, h2, h3)  */
   --text-medium: #5A6B5C;          /* Dùng cho văn bản thông thường (đoạn văn p, mô tả tour) */
   --text-light: #9AAE9C;           /* Dùng cho chữ phụ, ngày tháng, placeholder ô nhập liệu */
   --text-white: #FFFFFF;           /* Dùng cho chữ trên nền tối hoặc chữ trên nút bấm màu cam/xanh */
