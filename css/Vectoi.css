@@ -289,7 +289,7 @@
     height: 300px;        
     
     /* Đường dẫn gọi file ảnh tử đằng trong máy của bạn */
-    background-image: url('/images/tudang.png'); 
+    background-image: url('../images/tudang.png'); 
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 2;
@@ -310,7 +310,7 @@
     left: 40px;
     width: 18px;          /* Kích thước cánh hoa nhỏ lướt nhẹ */
     height: 18px;
-    background-image: url('/images/tudang.png'); /* Lấy một phần nhỏ ảnh làm cánh rơi */
+    background-image: url('../images/tudang.png'); /* Lấy một phần nhỏ ảnh làm cánh rơi */
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 1;
