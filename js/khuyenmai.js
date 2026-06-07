@@ -16,6 +16,17 @@ document.addEventListener("DOMContentLoaded", function () {
   ══════════════════════════════════════════════════════ */
   renderTourGrid('#promoGrid', { isSale: true });
 
+  /* ── FIX ĐƯỜNG DẪN cho trang root ──────────────────────
+     tours-data.js dùng './chi_tiet/' (tương đối từ thư mục tour/)
+     Khuyen_mai.html nằm ở root → cần thêm 'tour/' vào đầu
+  ──────────────────────────────────────────────────────── */
+  document.querySelectorAll('#promoGrid .tour-card__btn').forEach(function (btn) {
+    const href = btn.getAttribute('href');
+    if (href && href.startsWith('./chi_tiet/')) {
+      btn.setAttribute('href', 'tour/' + href.replace('./', ''));
+    }
+  });
+
   /* Sau khi render xong, lấy danh sách card để phân trang */
   const grid      = document.getElementById('promoGrid');
   const allCards  = Array.from(grid.querySelectorAll('.tour-card'));
