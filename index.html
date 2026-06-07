@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mây Ngàn Travel – Hành trình vùng cao</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- CSS chung (thứ tự quan trọng) -->
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/blog.css">
+    <!-- CSS riêng trang chủ -->
+    <link rel="stylesheet" href="./css/trangchu.css">
+</head>
+<body>
+
+    <!-- ═══ HEADER (load động qua main.js) ═══ -->
+    <div id="header-placeholder" 
+      data-path="./main/header.html" 
+      data-root="./">
+    </div>
+
+    <!-- ═══ 1. HERO BANNER ═══ -->
+    <section class="hero">
+        <video autoplay muted loop playsinline class="hero__video">
+            <source src="./vid/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero__overlay"></div>
+
+        <div class="hero__content">
+            <p class="hero__eyebrow">Khám phá miền núi phía Bắc</p>
+            <h1 class="hero__title">HÀNH TRÌNH<br>KỲ VỸ</h1>
+
+            <div class="hero__search">
+                <input type="text" id="heroSearch"
+                       placeholder="Bạn muốn đi đâu? VD: Sapa, Hà Giang...">
+                <button type="button" id="heroSearchBtn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2.5"
+                         stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                    Tìm kiếm
+                </button>
+            </div>
+
+            <a href="./tour/Trang_danh_sach_tours.html" class="btn btn-cta hero__cta">Khám phá ngay</a>
+        </div>
+
+        <div class="hero__scroll-hint" id="heroScrollHint">
+            <span>Cuộn xuống</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <polyline points="6 9 12 15 18 9"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ═══ 2. THANH TIN CẬY ═══ -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-bar__grid">
+                <div class="trust-bar__item">
+                    <svg class="trust-bar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    <div>
+                        <strong class="trust-bar__num">8+</strong>
+                        <span class="trust-bar__label">Điểm đến miền núi phía Bắc</span>
+                    </div>
+                </div>
+                <div class="trust-bar__divider"></div>
+                <div class="trust-bar__item">
+                    <svg class="trust-bar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                    <div>
+                        <strong class="trust-bar__num">20+</strong>
+                        <span class="trust-bar__label">Tour tham quan đa dạng</span>
+                    </div>
+                </div>
+                <div class="trust-bar__divider"></div>
+                <div class="trust-bar__item">
+                    <svg class="trust-bar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <div>
+                        <strong class="trust-bar__num">2</strong>
+                        <span class="trust-bar__label">Chi nhánh HN &amp; TP.HCM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 3. TOUR THEO MÙA NỔI BẬT ═══
+     THAY TOÀN BỘ SECTION NÀY TRONG index.html
+     (từ thẻ <section class="seasonal-section"> đến </section>)
+-->
+<section class="seasonal-section">
+    <div class="container seasonal-section__header">
+        <h2 class="seasonal-section__title">Tour nổi bật theo mùa</h2>
+        <p class="seasonal-section__sub">Cập nhật theo từng mùa du lịch trong năm</p>
+        <a href="./tour/Trang_danh_sach_tours.html" class="seasonal-section__all">Xem tất cả →</a>
+    </div>
+
+    <!-- ══ Tour 1: Y Tý — nội dung TRÁI, ảnh PHẢI ══ -->
+    <div class="seasonal-row">
+        <div class="seasonal-row__content">
+            <span class="seasonal-row__tag">MÙA SĂN MÂY 2026</span>
+
+            <div class="seasonal-row__heading">
+                <h2 class="seasonal-row__title">Y Tý</h2>
+                <span class="badge badge--hot">HOT</span>
+            </div>
+
+            <p class="seasonal-row__desc">
+                Chìm đắm giữa biển mây bồng bềnh trải dài tít tắp, ngắm nhìn những thửa
+                ruộng bậc thang vàng óng và khám phá nét văn hóa độc đáo của đồng bào
+                dân tộc Hà Nhì nơi rẻo cao biên giới.
+            </p>
+
+            <div class="seasonal-row__meta">
+                <span>⏱ <strong>Thời gian:</strong> 2 ngày 1 đêm</span>
+                <span>📍 <strong>Khởi hành:</strong> Hà Nội</span>
+            </div>
+
+            <!-- Dest-tags khớp với tour-card: dest-tag--primary + dest-tag phụ + phương tiện -->
+            <div class="seasonal-row__dest-tags">
+                <span class="dest-tag dest-tag--primary">Y Tý</span>
+                <span class="dest-tag">🚌 Xe du lịch</span>
+            </div>
+
+            <!-- Giá từ TOURS_DATA: MNYT01 price=2178000, priceOld=null -->
+            <div class="seasonal-row__price">
+                <span class="price-new">2.178.000đ</span>
+            </div>
+
+            <a href="./tour/chi_tiet/MNYT01.html" class="btn btn-primary">Khám phá ngay</a>
+        </div>
+
+        <div class="seasonal-row__img-wrap">
+            <img src="./images/2_YTy/MNYT01/MNYT01_02.jpg"
+                 alt="Y Tý – biển mây và ruộng bậc thang"
+                 class="seasonal-row__img seasonal-row__img--right">
+        </div>
+    </div>
+
+    <!-- ══ Tour 2: Mộc Châu — ảnh TRÁI, nội dung PHẢI ══
+         FIX: Với flex-direction:row-reverse, phần tử ĐẦU TIÊN trong DOM → xuất hiện bên PHẢI.
+         Vì vậy phải đặt content TRƯỚC img-wrap để:
+           content (1st) → hiện bên PHẢI ✓
+           img-wrap (2nd) → hiện bên TRÁI ✓  (bo hạt đậu nằm trái)
+    -->
+    <div class="seasonal-row seasonal-row--reversed">
+
+        <!-- content đặt TRƯỚC → xuất hiện bên PHẢI (do row-reverse) -->
+        <div class="seasonal-row__content seasonal-row__content--right">
+            <span class="seasonal-row__tag">MÙA HOA BAN 2026</span>
+
+            <div class="seasonal-row__heading">
+                <h2 class="seasonal-row__title">Mộc Châu</h2>
+                <span class="badge badge--hot">HOT</span>
+            </div>
+
+            <p class="seasonal-row__desc">
+                Đắm mình trong sắc trắng tinh khôi của hoa ban, dạo bước giữa những
+                đồi chè xanh mướt và tận hưởng bầu không khí trong lành của cao nguyên.
+            </p>
+
+            <div class="seasonal-row__meta">
+                <span>⏱ <strong>Thời gian:</strong> 2 ngày 1 đêm</span>
+                <span>📍 <strong>Khởi hành:</strong> Hà Nội</span>
+            </div>
+
+            <!-- Dest-tags từ TOURS_DATA: MNMC01 primaryDest="Mộc Châu", transport="Xe du lịch" -->
+            <div class="seasonal-row__dest-tags">
+                <span class="dest-tag dest-tag--primary">Mộc Châu</span>
+                <span class="dest-tag">🚌 Xe du lịch</span>
+            </div>
+
+            <!-- Giá từ TOURS_DATA: MNMC01 price=2180000, priceOld=null -->
+            <div class="seasonal-row__price">
+                <span class="price-new">2.180.000đ</span>
+            </div>
+
+            <a href="./tour/chi_tiet/MNMC01.html" class="btn btn-primary">Khám phá ngay</a>
+        </div>
+
+        <!-- img-wrap đặt SAU → xuất hiện bên TRÁI (do row-reverse) -->
+        <div class="seasonal-row__img-wrap">
+            <img src="./images/3_MocChau/MNMC01/MNMC01_01.png"
+                 alt="Mộc Châu mùa hoa ban trắng"
+                 class="seasonal-row__img seasonal-row__img--left">
+            <!--
+                .seasonal-row__img--left dùng border-radius: 0 260px 260px 0
+                = phẳng bên trái (cạnh trang), bo tròn bên phải (cạnh nội dung)
+                → đúng kiểu hạt đậu nằm bên trái ✓
+            -->
+        </div>
+
+    </div>
+</section>
+
+    <!-- ═══ 4. KHÁM PHÁ THEO VÙNG ═══ -->
+    <section class="region-section">
+        <div class="container">
+            <div class="section-hd">
+                <h2 class="section-hd__title">Khám phá theo vùng</h2>
+                <p class="section-hd__sub">Click để xem điểm đến và tour tại mỗi vùng</p>
+            </div>
+            <div class="region-grid">
+                <a href="./khampha/TrangTB.html" class="region-card region-card--taybac">
+                    <div class="region-card__overlay"></div>
+                    <div class="region-card__body">
+                        <span class="region-card__icon">🏔</span>
+                        <h3 class="region-card__name">Tây Bắc</h3>
+                        <p class="region-card__subs">Sapa · Y Tý · Mộc Châu · Bắc Hà · Mù Cang Chải · Tà Xùa</p>
+                    </div>
+                </a>
+                <a href="./khampha/trangđb.html" class="region-card region-card--dongbac">
+                    <div class="region-card__overlay"></div>
+                    <div class="region-card__body">
+                        <span class="region-card__icon">🌿</span>
+                        <h3 class="region-card__name">Đông Bắc</h3>
+                        <p class="region-card__subs">Hà Giang · Cao Bằng · Bắc Kạn</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 5. TOUR NỔI BẬT (inject bởi trangchu.js) ═══ -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="section-hd">
+                <h2 class="section-hd__title">Các tour du lịch nổi bật</h2>
+                <p class="section-hd__sub">Khởi hành từ Hà Nội và TP.HCM</p>
+                <a href="./tour/Trang_danh_sach_tours.html" class="section-hd__link">Xem tất cả →</a>
+            </div>
+            <!-- JS inject vào đây -->
+            <div class="featured-grid" id="featuredToursGrid"></div>
+        </div>
+    </section>
+
+    <!-- ═══ 6. BÀI VIẾT MỚI NHẤT ═══ -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="section-hd">
+                <h2 class="section-hd__title">Tin tức &amp; Cẩm nang du lịch</h2>
+                <p class="section-hd__sub">Cập nhật mùa vụ, kinh nghiệm khám phá miền núi</p>
+                <a href="./blog/blog.html" class="section-hd__link">Xem tất cả →</a>
+            </div>
+            <div class="blog-grid" id="blogGrid">
+                <!-- Sẽ được render bởi trangchu.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 7. BANNER KÊU GỌI ĐẶT TOUR ═══ -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-banner__inner">
+                <div class="cta-banner__text">
+                    <h2 class="cta-banner__title">Sẵn sàng cho hành trình kỳ vỹ?</h2>
+                    <p class="cta-banner__sub">Liên hệ ngay để được tư vấn tour phù hợp với lịch trình của bạn</p>
+                </div>
+                <a href="./vectoi/lienhe.html" class="btn btn-cta cta-banner__btn">Liên hệ tư vấn ngay</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder" 
+      data-path="./main/footer.html" 
+      data-root="./">
+    </div>
+
+    <!-- Nút back to top -->
+    <button id="backToTop" title="Lên đầu trang" style="display:none;">
+        <svg viewBox="0 0 24 24" fill="none">
+            <polyline points="18 15 12 9 6 15"
+                      stroke="currentColor" stroke-width="2.5"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <!-- THỨ TỰ LOAD — BẮT BUỘC đúng thứ tự -->
+    <script src="./js/tourdata.js"></script>   <!-- 1. dữ liệu tour -->
+    <script src="./js/tourcard.js"></script>    <!-- 2. hàm render card -->
+    <script src="./js/main.js"></script>        <!-- 3. header/footer -->
+    <script src="./js/trangchu.js"></script>    <!-- 4. logic trang chủ -->
+
+</body>
+</html>

@@ -1,0 +1,925 @@
+/* ==========================================================================
+   MAYNGAN TRAVEL — TRANGCHU.CSS
+   CSS riêng cho trang chủ (index.html)
+   Phụ thuộc: variables.css → base.css → components.css → trangchu.css
+   Người phụ trách: Nhóm
+   ========================================================================== */
+
+
+/* ══════════════════════════════════════════════════════════
+   TIỆN ÍCH DÙNG CHUNG TRONG TRANG CHỦ
+   ══════════════════════════════════════════════════════════ */
+
+/* Tiêu đề section chuẩn — dùng cho tất cả các block */
+.section-hd {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 16px;
+    margin-bottom: var(--space-xl);     /* 48px */
+}
+
+.section-hd__title {
+    font-size: var(--text-2xl);         /* 24px */
+    font-weight: 700;
+    color: var(--text-dark);
+    flex-basis: 100%;                   /* Chiếm cả dòng */
+}
+
+.section-hd__sub {
+    font-size: var(--text-sm);
+    color: var(--text-light);
+    flex: 1;
+}
+
+.section-hd__link {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-primary);
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.section-hd__link:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+}
+
+/* Giá tiền — dùng chung ở seasonal + tour card */
+.price-old {
+    font-size: var(--text-sm);
+    color: var(--text-light);
+    text-decoration: line-through;
+}
+
+.price-new {
+    font-size: 2.25rem;                 /* 36px — đủ to để gây ấn tượng */
+    font-weight: 800;
+    color: var(--color-cta);
+    line-height: 1;
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   1. HERO BANNER
+   ══════════════════════════════════════════════════════════ */
+.hero {
+    position: relative;
+    height: 92vh;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+/* Video nền — lấp đầy hero */
+.hero__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* Lớp phủ tối gradient từ trên xuống */
+.hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(31, 46, 34, 0.25) 0%,
+        rgba(31, 46, 34, 0.60) 100%
+    );
+    z-index: 1;
+}
+
+/* Nội dung chữ giữa hero */
+.hero__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 var(--space-lg);
+    max-width: 640px;
+}
+
+/* Dòng chữ nhỏ trên tiêu đề */
+.hero__eyebrow {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: var(--space-sm);
+}
+
+/* Tiêu đề chính — to, in hoa, bóng chữ */
+.hero__title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    line-height: 1.1;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+    margin-bottom: var(--space-xl);
+}
+
+/* Ô tìm kiếm */
+.hero__search {
+    display: flex;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-full);
+    padding: 6px 6px 6px 20px;
+    max-width: 480px;
+    margin: 0 auto var(--space-lg);
+    gap: 8px;
+}
+
+.hero__search input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    min-width: 0;                       /* Chống tràn flex */
+}
+
+.hero__search input::placeholder {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+/* Nút tìm kiếm bên trong ô search */
+.hero__search button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-full);
+    padding: 10px 20px;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.hero__search button:hover {
+    background: var(--color-primary-dark);
+    transform: scale(1.03);
+}
+
+/* Nút CTA "Khám phá ngay" */
+.hero__cta {
+    font-size: var(--text-base);
+    padding: 14px 36px;
+    border-radius: var(--radius-full);
+    box-shadow: 0 6px 24px rgba(232, 105, 58, 0.4);
+    transition: var(--transition);
+}
+
+.hero__cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba(232, 105, 58, 0.5);
+}
+
+/* Gợi ý cuộn xuống — góc dưới giữa */
+.hero__scroll-hint {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: var(--text-xs);
+    letter-spacing: 1px;
+    animation: bounceDown 2s ease-in-out infinite;
+    transition: opacity 0.4s ease;
+}
+
+@keyframes bounceDown {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(6px); }
+}
+
+.hero__scroll-hint.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   2. THANH TIN CẬY
+   ══════════════════════════════════════════════════════════ */
+.trust-bar {
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--border-color-light);
+    padding: var(--space-lg) 0;
+}
+
+.trust-bar__grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xl);               /* 48px */
+    flex-wrap: wrap;
+}
+
+.trust-bar__divider {
+    width: 1px;
+    height: 40px;
+    background: var(--border-color);
+}
+
+.trust-bar__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);               /* 16px */
+}
+
+.trust-bar__icon {
+    width: 36px;
+    height: 36px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.trust-bar__num {
+    display: block;
+    font-size: var(--text-xl);          /* 20px */
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1.1;
+}
+
+.trust-bar__label {
+    display: block;
+    font-size: var(--text-xs);
+    color: var(--text-medium);
+    line-height: 1.4;
+    max-width: 120px;
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   3. TOUR THEO MÙA NỔI BẬT
+   ══════════════════════════════════════════════════════════ */
+.seasonal-section {
+    padding: var(--space-2xl) 0;        /* 80px trên dưới */
+    background: var(--bg-white);
+    overflow: hidden;                   /* Chặn ảnh tràn ngang */
+}
+
+/* Header phần seasonal */
+.seasonal-section__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 16px;
+    margin-bottom: var(--space-2xl);
+}
+
+.seasonal-section__title {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    flex-basis: 100%;
+}
+
+.seasonal-section__sub {
+    flex: 1;
+    font-size: var(--text-sm);
+    color: var(--text-light);
+}
+
+.seasonal-section__all {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-primary);
+    white-space: nowrap;
+}
+
+.seasonal-section__all:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+}
+
+/* ─── Mỗi dòng tour theo mùa ─── */
+.seasonal-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    min-height: 500px;
+    margin-bottom: 80px;
+}
+
+.seasonal-row:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Đảo chiều: ảnh trái, chữ phải */
+.seasonal-row--reversed {
+    flex-direction: row-reverse;
+}
+
+/* Khối nội dung chữ */
+.seasonal-row__content {
+    flex: 1;
+    /* Canh lề trái dựa theo container 1280px */
+    padding-left: max(var(--space-lg), calc((100vw - 1280px) / 2 + var(--space-lg)));
+    padding-right: var(--space-2xl);    /* 80px khoảng cách với ảnh */
+}
+
+/* Khối chữ bên phải (dành cho section-reversed) */
+.seasonal-row__content--right {
+    padding-left: var(--space-2xl);
+    padding-right: max(var(--space-lg), calc((100vw - 1280px) / 2 + var(--space-lg)));
+}
+
+/* Tag tag (VD: MÙA SĂN MÂY 2026) */
+.seasonal-row__tag {
+    display: block;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--color-cta);
+    margin-bottom: var(--space-sm);
+}
+
+/* Tiêu đề + badge HOT cùng hàng */
+.seasonal-row__heading {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.seasonal-row__title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--text-dark);
+    margin: 0;
+    line-height: 1;
+}
+
+.seasonal-row__desc {
+    font-size: var(--text-base);
+    color: var(--text-medium);
+    line-height: 1.7;
+    margin-bottom: var(--space-lg);
+    max-width: 420px;
+}
+
+/* Thông tin thời gian / khởi hành */
+.seasonal-row__meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+    font-size: var(--text-sm);
+    color: var(--text-medium);
+}
+
+.seasonal-row__meta strong {
+    color: var(--text-dark);
+}
+
+/* Nhóm tag điểm đến */
+.seasonal-row__dest-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+/* Khối giá */
+.seasonal-row__price {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: var(--space-lg);
+}
+
+/* Khối bọc ảnh */
+.seasonal-row__img-wrap {
+    flex: 1.4;
+    display: flex;
+    justify-content: flex-end;         /* Ảnh tràn về phía phải màn hình */
+}
+
+/* Ảnh bên PHẢI — bo cong góc trái (pill bên trái) */
+.seasonal-row__img--right {
+    width: 100%;
+    max-width: 820px;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 260px 0 0 260px;    /* Giữ nguyên phong cách cũ */
+    box-shadow: -12px 12px 48px rgba(0, 0, 0, 0.12);
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.seasonal-row__img--right:hover {
+    transform: scale(1.015);
+}
+
+/* Ảnh bên TRÁI — bo cong góc phải */
+.seasonal-row__img-wrap:has(.seasonal-row__img--left) {
+    justify-content: flex-start;
+}
+
+.seasonal-row__img--left {
+    width: 100%;
+    max-width: 820px;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 0 260px 260px 0;    /* Đối xứng với ảnh phải */
+    box-shadow: 12px 12px 48px rgba(0, 0, 0, 0.12);
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.seasonal-row__img--left:hover {
+    transform: scale(1.015);
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   4. KHÁM PHÁ THEO VÙNG
+   ══════════════════════════════════════════════════════════ */
+.region-section {
+    padding: var(--space-2xl) 0;
+    background: var(--bg-secondary);
+}
+
+/* Lưới 2 cột bằng nhau */
+.region-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+}
+
+/* Thẻ vùng — hình nền màu đặc (sẽ thay bằng ảnh thật sau) */
+.region-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    min-height: 240px;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.region-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Màu nền mặc định (sẽ ghi đè bằng ảnh thực) */
+.region-card--taybac {
+    background-image: url('../images/Banner_TB.png'); /* ← ảnh đại diện Tây Bắc */
+    background-size: cover;
+    background-position: center;
+}
+
+.region-card--dongbac {
+    background-image: url('../images/Banner_ĐB.png'); /* ← ảnh đại diện đông Bắc */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Lớp phủ gradient từ dưới lên — làm nổi chữ */
+.region-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(31, 46, 34, 0.85) 0%,
+        rgba(31, 46, 34, 0.1) 60%,
+        transparent 100%
+    );
+    transition: var(--transition);
+}
+
+.region-card:hover .region-card__overlay {
+    background: linear-gradient(
+        to top,
+        rgba(31, 46, 34, 0.92) 0%,
+        rgba(31, 46, 34, 0.3) 60%,
+        transparent 100%
+    );
+}
+
+/* Nội dung bên trong thẻ vùng */
+.region-card__body {
+    position: relative;
+    z-index: 1;
+    padding: var(--space-lg);
+}
+
+.region-card__icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: var(--space-sm);
+}
+
+.region-card__name {
+    font-size: var(--text-2xl);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.region-card__subs {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.5;
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   5. TOUR NỔI BẬT
+   ══════════════════════════════════════════════════════════ */
+.featured-section {
+    padding: var(--space-2xl) 0;
+    background: var(--bg-primary);
+}
+
+/* Lưới 4 cột */
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+}
+
+/* ─── Điều chỉnh tour-card từ components.css cho trang chủ ─── */
+/* Chiều cao ảnh trong lưới trang chủ */
+.featured-grid .tour-card__img {
+    height: 190px;
+}
+
+/* Mã tour */
+.tour-card__code {
+    font-size: var(--text-xs);
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* Tiêu đề tour — giới hạn 2 dòng tránh vỡ layout */
+.tour-card__title {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: var(--space-sm);
+    /* Clamp 2 dòng */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.45;
+    min-height: 2.9em;
+}
+
+/* Thông tin phụ: ngày, phương tiện, xuất phát */
+.tour-card__info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px var(--space-sm);
+    font-size: var(--text-xs);
+    color: var(--text-medium);
+    margin-bottom: var(--space-md);
+}
+
+/* Nhóm dest-tags trong card */
+.tour-card__dest-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: var(--space-md);
+}
+
+/* Nút "Xem chi tiết" — full width */
+.tour-card__btn {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    border-radius: var(--radius-md);
+    background: var(--color-primary);
+    color: #fff;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.tour-card__btn:hover {
+    background: var(--color-primary-dark);
+    color: #fff;
+}
+
+/* Badge vị trí tuyệt đối trên ảnh */
+.tour-card__badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   6. BÀI VIẾT MỚI NHẤT
+   ══════════════════════════════════════════════════════════ */
+.blog-section {
+    padding: var(--space-2xl) 0;
+    background: var(--bg-secondary);
+}
+
+/* Lưới 3 cột */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+}
+
+/* Thẻ bài viết */
+.blog-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 0.5px solid var(--border-color);
+    text-decoration: none;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Vùng ảnh bài viết */
+.blog-card__img-wrap {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background: var(--bg-secondary);
+}
+
+.blog-card__img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.blog-card:hover .blog-card__img-wrap img {
+    transform: scale(1.05);
+}
+
+/* Nội dung bài viết */
+.blog-card__body {
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    flex: 1;
+}
+
+/* Nhãn danh mục bài viết */
+.blog-card__cat {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    width: fit-content;
+}
+
+.blog-card__cat--news {
+    background: var(--color-primary-bg);
+    color: var(--color-primary-dark);
+}
+
+.blog-card__cat--guide {
+    background: var(--color-cta-bg);
+    color: var(--color-cta-dark);
+}
+
+.blog-card__title {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.45;
+    /* Clamp 3 dòng */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+    flex: 1;
+}
+
+.blog-card:hover .blog-card__title {
+    color: var(--color-primary);
+}
+
+.blog-card__meta {
+    font-size: var(--text-xs);
+    color: var(--text-light);
+    margin-top: auto;
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   7. BANNER KÊU GỌI ĐẶT TOUR
+   ══════════════════════════════════════════════════════════ */
+.cta-banner {
+    background: var(--bg-white);           /* ← đổi từ var(--bg-secondary) */
+    border-left: 4px solid var(--color-cta); /* ← thêm dòng này */
+    padding: var(--space-xl) 0;
+}
+
+.cta-banner__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+}
+
+.cta-banner__title {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--text-dark);               /* ← đổi từ #fff */
+    margin-bottom: 6px;
+}
+
+.cta-banner__sub {
+    font-size: var(--text-sm);
+    color: var(--text-medium);             /* ← đổi từ rgba(255,255,255,0.65) */
+    margin: 0;
+}
+
+.cta-banner__btn {
+    font-size: var(--text-base);
+    padding: 14px 32px;
+    border-radius: var(--radius-full);
+    flex-shrink: 0;
+    background: var(--color-cta);          /* ← đổi từ var(--bg-dark) */
+    color: var(--text-white);
+    box-shadow: 0 6px 24px rgba(232, 105, 58, 0.35); /* ← revert box-shadow */
+    transition: var(--transition);
+}
+
+.cta-banner__btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba(232, 105, 58, 0.5);
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   8. HIỆU ỨNG CUỘN — FADE IN KHI VÀO VIEWPORT
+   ══════════════════════════════════════════════════════════ */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delay cho từng item */
+.reveal--d1 { transition-delay: 0.1s; }
+.reveal--d2 { transition-delay: 0.2s; }
+.reveal--d3 { transition-delay: 0.3s; }
+.reveal--d4 { transition-delay: 0.4s; }
+
+
+/* ══════════════════════════════════════════════════════════
+   9. RESPONSIVE — TABLET (≤ 1024px)
+   ══════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+    /* Tour grid: 2 cột */
+    .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Seasonal row: dọc, ảnh trên chữ dưới */
+    .seasonal-row,
+    .seasonal-row--reversed {
+        flex-direction: column;
+        min-height: auto;
+        margin-bottom: var(--space-xl);
+    }
+
+    .seasonal-row__content,
+    .seasonal-row__content--right {
+        padding: var(--space-xl) var(--space-lg);
+        max-width: 100%;
+    }
+
+    .seasonal-row__img-wrap {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .seasonal-row__img--right,
+    .seasonal-row__img--left {
+        max-width: 100%;
+        height: 320px;
+        border-radius: var(--radius-lg);    /* Bỏ pill trên mobile cho gọn */
+    }
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   10. RESPONSIVE — MOBILE (≤ 640px)
+   ══════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+    /* Hero */
+    .hero {
+        height: 88vh;
+    }
+
+    .hero__title {
+        font-size: 2.2rem;
+        letter-spacing: 3px;
+    }
+
+    .hero__search {
+        flex-direction: column;
+        border-radius: var(--radius-lg);
+        padding: var(--space-sm);
+    }
+
+    .hero__search input {
+        padding: 10px var(--space-sm);
+    }
+
+    .hero__search button {
+        width: 100%;
+        justify-content: center;
+        border-radius: var(--radius-md);
+    }
+
+    /* Trust bar: xếp dọc */
+    .trust-bar__grid {
+        flex-direction: column;
+        gap: var(--space-lg);
+    }
+
+    .trust-bar__divider {
+        width: 40px;
+        height: 1px;
+    }
+
+    /* Region grid: 1 cột */
+    .region-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Tour + Blog: 1 cột */
+    .featured-grid,
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Price */
+    .price-new {
+        font-size: 1.75rem;
+    }
+
+    /* CTA banner: dọc */
+    .cta-banner__inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cta-banner__btn {
+        width: 100%;
+        text-align: center;
+    }
+}

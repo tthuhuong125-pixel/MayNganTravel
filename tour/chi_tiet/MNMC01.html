@@ -9,19 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- ✅ FIX 2: Import CSS đúng thứ tự — variables trước, chitiet sau cùng -->
-    <link rel="stylesheet" href="/css/variables.css">
-    <link rel="stylesheet" href="/css/base.css">
-    <link rel="stylesheet" href="/css/components.css">
-    <link rel="stylesheet" href="/css/chitiet.css">
-    <link rel="stylesheet" href="/css/KM.css">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/chitiet.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
     <div id="header-placeholder" 
-         data-path="../../main/header.html" 
-         data-root="../../">
+        data-path="../../main/header.html" 
+        data-root="../../">
     </div>
 
     <!-- ✅ FIX 3: Bọc .container (base.css căn giữa) + .chitiet-layout (2 cột) -->
@@ -38,16 +37,16 @@
 
             <div class="slider">
                 <button class="prev">❮</button>
-                <img id="mainImage" class="main-img" src="/images/3_MocChau/MNMC01/MNMC01_01.png">
+                <img id="mainImage" class="main-img" src="../../images/3_MocChau/MNMC01/MNMC01_01.png">
                 <button class="next">❯</button>
             </div>
 
             <div class="gallery">
-                <img src="/images/3_MocChau/MNMC01/MNMC01_01.png">
-                <img src="/images/3_MocChau/MNMC01/MNMC01_02.jpg">
-                <img src="/images/3_MocChau/MNMC01/MNMC01_03.jpg">
-                <img src="/images/3_MocChau/MNMC01/MNMC01_04.jpg">
-                <img src="/images/3_MocChau/MNMC01/MNMC01_05.jpg">
+                <img src="../../images/3_MocChau/MNMC01/MNMC01_01.png">
+                <img src="../../images/3_MocChau/MNMC01/MNMC01_02.jpg">
+                <img src="../../images/3_MocChau/MNMC01/MNMC01_03.jpg">
+                <img src="../../images/3_MocChau/MNMC01/MNMC01_04.jpg">
+                <img src="../../images/3_MocChau/MNMC01/MNMC01_05.jpg">
             </div>
 
             <div class="tabs">
@@ -246,105 +245,33 @@
         </div>
     </div>
 
-<!-- KHỐI TOUR TƯƠNG TỰ -->
-  <section id="tourtuongtu" class="related-tours-wrapper-full">
-    <div class="promo-header-bar">
-      <h2 class="promo-header-title">Tour Tương Tự</h2>
-    </div>
-
-    <div class="promo-list" id="promoList">
-      
-      <!--Tour 1-->  
-      <div class="promo-row-card">
-        <a href="MNMC02.html" class="promo-row-card__img-box">
-          <img src="/images/3_MocChau/MNMC02/MNMC02_01.jpg">
-        </a>
-        <div class="promo-row-card__content">
-          <div class="promo-row-card__meta">
-            <span>Mã tour: <strong>MNMC02</strong></span>
-          </div>
-          <a href="MNMC02.html" class="promo-row-card__title-link">
-            <h2 class="promo-row-card__title">
-                Tour Mộc Châu - Tà Xùa 3N2Đ<br>
-            </h2>
-          </a>
-          <div class="promo-row-card__specs-line">
-            ⏱️ 3 Ngày 2 Đêm &nbsp;|&nbsp; 📍 Hà Nội &nbsp;|&nbsp; 🚌 Xe du lịch
-          </div>
-          <div class="promo-row-card__footer">
-            <div class="promo-row-card__price-wrapper">
-              <span class="promo-row-card__current-price">2.800.000đ</span> 
+    <!-- data-current-id khớp với id trong tours-data.js -->
+    <main data-current-id="MNMC01">
+        <!-- ── TOUR TƯƠNG TỰ ── -->
+        <div class="container">
+        <section class="similar-tours-section" id="tourtuongtu">
+            <div class="similar-tours-header">
+                <h2 class="similar-tours-title">Tour tương tự</h2>
+                <a href="../Trang_danh_sach_tours.html" class="similar-tours-see-all">Xem tất cả →</a>
             </div>
-            <a href="MNMC02.html" class="btn btn-cta">Xem chi tiết</a>
-          </div>
-        </div>
-      </div>
-
-      <!--Tour 2-->
-      <div class="promo-row-card">
-      <a href="MNMC03.html" class="promo-row-card__img-box">
-        <img src="/images/3_MocChau/MNMC03/MNMC03_01.jpg">
-      </a>
-      <div class="promo-row-card__content">
-        <div class="promo-row-card__meta">
-          <span>Mã tour: <strong>MNMC03</strong></span>
-        </div>
-        <a href="MNMC03.html" class="promo-row-card__title-link">
-          <h2 class="promo-row-card__title">Tour Mộc Châu - Điện Biên 3N2Đ</h2>
-        </a>
-        <div class="promo-row-card__specs-line">
-          ⏱️ 3 Ngày 2 Đêm &nbsp;|&nbsp; 📍 Hà Nội &nbsp;|&nbsp; 🚌 Xe du lịch
-        </div>
-        <div class="promo-row-card__footer">
-          <div class="promo-row-card__price-wrapper">
-            <span class="promo-row-card__current-price">3.498.000đ</span>
-          </div>
-          <a href="MNMC03.html" class="btn btn-cta">Xem chi tiết</a>
-        </div>
-      </div>
-    </div>
-
-      <!--Tour 3 -->
-      <div class="promo-row-card">
-        <a href="MNSP02.html" class="promo-row-card__img-box">
-          <img src="/images/1_Sapa/MNSP02/MNSP02_01.jpg">
-        </a>
-        <div class="promo-row-card__content">
-          <div class="promo-row-card__meta">
-            <span>Mã tour: <strong>MNSP02</strong></span>
-          </div>
-          <a href="MNSP02.html" class="promo-row-card__title-link">
-            <h2 class="promo-row-card__title">
-                Tour Sapa - Mộc Châu  - Điện Biên - Lai Châu 5N4Đ<br>
-                <span class="tag-header">
-                    <span class="badge badge--new">NEW</span>
-                </span>
-            </h2>
-          </a>
-          <div class="promo-row-card__specs-line">
-            ⏱️ 3 Ngày 3 Đêm &nbsp;|&nbsp; 📍 Hà Nội &nbsp;|&nbsp; 🚌 Xe du lịch
-          </div>
-          <div class="promo-row-card__footer">
-            <div class="promo-row-card__price-wrapper">
-              <span class="promo-row-card__current-price">7.018.000đ</span>
+            <div class="similar-tours-grid" id="similarToursGrid">
+            <!-- JS tự render vào đây -->
             </div>
-            <a href="MNSP02.html" class="btn btn-cta">Xem chi tiết</a>
-          </div>
+        </section>
         </div>
-      </div>
-
-    </div>
-  </section>
-
-<script src="/js/khuyenmai.js" defer></script>
+    </main>
 
     <div id="footer-placeholder" 
-         data-path="../../main/footer.html" 
-         data-root="../../">
+        data-path="../../main/footer.html" 
+        data-root="../../">
     </div>
 
-    <script src="../../js/main.js"></script>
-
+    <!-- Cuối <body> — đúng thứ tự -->
+    <script src="../../js/tourdata.js"></script>    <!-- 1. Data trước -->
+    <script src="../../js/tourcard.js"></script>     <!-- 2. Hàm render -->
+    <script src="../../js/similartours.js"></script> <!-- 3. Logic gợi ý -->
+    <script src="../../js/main.js"></script>          <!-- 4. Header/footer -->
+    
     <script src="/js/chitiet.js" defer></script>
 </body>
 </html>

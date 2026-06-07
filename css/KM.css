@@ -1,4 +1,13 @@
-/* ===== PROMO BANNER ===== */
+/* ==========================================================================
+   MAYNGAN TRAVEL - KM.CSS (Trang Khuyến Mãi)
+
+   Chỉ chứa: layout trang, banner, header, grid, phân trang.
+   KHÔNG định nghĩa card style — dùng hoàn toàn từ components.css
+   (giống trang danh sách tour — đồng bộ giao diện)
+   ========================================================================== */
+
+
+/* ── BANNER ── */
 .promo-banner-container {
   width: 100%;
   overflow: hidden;
@@ -9,7 +18,8 @@
   object-fit: cover;
 }
 
-/* ===== HEADER BAR ===== */
+
+/* ── TIÊU ĐỀ ── */
 .promo-header-bar {
   max-width: 1200px;
   margin: var(--space-xl) auto var(--space-md) auto;
@@ -21,222 +31,72 @@
 }
 
 .promo-header-title {
-  font-family: var(--font-heading) !important; 
-  font-size: var(--text-3xl) !important;       
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
   font-weight: 700;
   letter-spacing: -0.5px;
-  color: var(--text-dark) !important;          
-  text-align: center; 
+  color: var(--text-dark);
+  text-align: center;
   margin: 0;
   width: 100%;
 }
 
-/* ===== GRID LIST ===== */
-.promo-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 340px));
-  justify-content: center;         
-  gap: var(--space-lg);                        
+
+/* ── BỘ ĐẾM ── */
+.promo-count-bar {
   max-width: 1200px;
-  margin: var(--space-lg) auto 0;
-  padding: 0 var(--space-lg) var(--space-xl);  
+  margin: 0 auto var(--space-sm) auto;
+  padding: 0 var(--space-lg);
+  font-size: var(--text-sm);
+  color: var(--text-medium);
 }
 
-/* ===== CARD — Đã xử lý bằng nhau tăm tắp ===== */
-.promo-row-card {
-  background: var(--bg-white);                
-  border-radius: var(--radius-lg);             
-  overflow: hidden;
-  border: 1px solid var(--border-color-light); 
-  box-shadow: var(--shadow-sm);                
-  display: flex;
-  flex-direction: column;                      /* Xếp layout theo chiều dọc */
-  height: 100%;                                /* Đảm bảo các card có chiều cao bằng nhau trong Grid */
-  transition: var(--transition);               
-}
-.promo-row-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-md);                
-}
-.promo-row-card.is-hidden {
-  display: none;
-}
-
-/* ===== IMAGE BOX ===== */
-.promo-row-card__img-box {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  aspect-ratio: 16 / 10;
-  flex-shrink: 0;
-}
-.promo-row-card__img-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.45s ease;
-}
-.promo-row-card:hover .promo-row-card__img-box img {
-  transform: scale(1.06);
-}
-
-/* ===== BADGE ===== */
-.promo-row-card__badge {
-  position: absolute;
-  top: var(--space-md);                        
-  left: var(--space-md);
-  background: var(--color-cta);                
-  color: var(--text-white);                    
-  font-size: var(--text-xs);                   
+.promo-count-bar strong {
+  color: var(--color-primary);
   font-weight: 700;
-  padding: 5px 13px;
-  border-radius: var(--radius-sm);             
-  letter-spacing: 0.3px;
-  z-index: 2;
 }
 
-/* ===== CONTENT ===== */
-.promo-row-card__content {
-  padding: var(--space-md);                    
-  display: flex;
-  flex-direction: column;
-  flex: 1;                                     /* Giúp phần nội dung tự giãn đều kích thước */
+
+/* ── WRAPPER TRANG ── */
+.promo-page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-lg) var(--space-xl);
 }
 
-/* ===== ĐỒNG BỘ MÀU CHỮ MÃ TOUR (GIỐNG ẢNH 2) ===== */
-.promo-row-card__meta {
-  font-family: var(--font-body);
-  font-size: var(--text-sm);                   
-  color: var(--text-dark) !important;          /* Màu xám đen rõ nét y hệt ảnh 2 */
-  font-weight: 500;                            
-  letter-spacing: normal;                      
-  text-transform: none;                        
-  margin-bottom: var(--space-xs);              
-  display: flex;
-  align-items: center;
-}
-.promo-row-card__meta strong {
-  color: var(--text-dark) !important;          /* Ép mã số phía sau trùng màu với chữ "Mã tour" */
-  font-weight: 500;                            
-  margin-left: 6px;                
+
+/* ══════════════════════════════════════════════════════
+   GRID TOUR — 3 cột, đồng bộ với trang danh sách
+   Card style (.tour-card, .tour-card__*) đến từ components.css
+   Không cần định nghĩa lại gì ở đây
+══════════════════════════════════════════════════════ */
+.promo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
 }
 
-/* TIÊU ĐỀ TOUR */
-.promo-row-card__title-link {
-  text-decoration: none;
-}
-.promo-row-card__title {
-  font-family: var(--font-heading);            
-  font-size: var(--text-xl);                   
-  font-weight: 700;                            
-  color: var(--text-dark) !important;          
-  line-height: 1.4;
-  margin: 0 0 var(--space-sm) 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;                       
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  min-height: 2.8em;                           /* Cố định khoảng trống 2 dòng để card đều nhau */
-  transition: var(--transition);
-}
-.promo-row-card__title-link:hover .promo-row-card__title,
-.promo-row-card:hover .promo-row-card__title {
-  color: var(--color-primary) !important;                 
-}
 
-/* ===== ĐỒNG BỘ MÀU CHỮ THÔNG TIN LỊCH TRÌNH (GIỐNG ẢNH 2) ===== */
-.promo-row-card__specs-line {
-  font-family: var(--font-body);
-  font-size: var(--text-sm);                   
-  color: var(--text-dark) !important;          /* Đồng bộ màu chữ giống cụm Mã tour và ảnh 2 */
-  margin-bottom: var(--space-sm);              
-  line-height: 1.5;
-  letter-spacing: normal;                      
-  
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;                             
-  white-space: normal;                         
-  gap: var(--space-sm);                        
-  min-height: 3em;                             /* Khống chế chiều cao cho thông số (đề phòng khi rớt dòng) */
-}
 
-/* Lịch khởi hành */
-.promo-row-card__schedule-info {
-  font-family: var(--font-body);
-  font-size: var(--text-sm);
-  color: var(--text-dark) !important;          
-  margin-bottom: var(--space-xs);
-  line-height: 1.5;
-}
-
-/* ===== FOOTER — Đẩy xuống đáy để bằng chặn chặn nhau ===== */
-.promo-row-card__footer {
-  display: flex;
-  flex-direction: column;   
-  align-items: flex-start;  
-  justify-content: flex-start;
-  gap: var(--space-md);                        
-  margin-top: auto;                            /* TUYỆT CHIÊU: Tự động đẩy phần giá và nút xuống sát đáy card */
-  border-top: 1px solid var(--border-color-light);
-  padding-top: var(--space-md);
-}
-
-/* KHỐI GIÁ TIỀN */
-.promo-row-card__price-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;                                    
-  line-height: 1.2;
-}
-.promo-row-card__old-price {
-  font-size: var(--text-sm);                   
-  color: var(--text-light);                    
-  text-decoration: line-through;               
-  font-weight: 500;
-}
-.promo-row-card__current-price {
-  font-size: var(--text-2xl);                  
-  font-weight: 800;                            
-  color: var(--color-cta);                     
-}
-
-/* NÚT XEM CHI TIẾT */
-.btn-cta {
-  display: block !important;
-  width: 100%;             
-  box-sizing: border-box;
-  text-align: center;      
-  background: var(--color-cta);                 
-  color: var(--text-white);
-  font-family: var(--font-body);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  padding: 12px 0;         
-  border-radius: var(--radius-sm);             
-  text-decoration: none;
-  white-space: nowrap;
-  transition: var(--transition);
-  letter-spacing: 0.2px;
-}
-.btn-cta:hover {
-  background: var(--color-cta-dark);            
-}
-
-/* ===== PAGINATION ===== */
+/* ── PHÂN TRANG ── */
 .promo-pagination {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
   padding: var(--space-xs) 0 var(--space-xl);
 }
+
+.promo-page-numbers {
+  display: flex;
+  gap: var(--space-xs);
+}
+
 .promo-page-btn {
   min-width: 42px;
   height: 42px;
   padding: 0 var(--space-md);
-  border: 1px solid var(--border-color);       
+  border: 0.5px solid var(--border-color);
   background: var(--bg-white);
   border-radius: var(--radius-sm);
   font-family: var(--font-body);
@@ -246,41 +106,42 @@
   cursor: pointer;
   transition: var(--transition);
 }
+
 .promo-page-btn:hover {
   border-color: var(--color-primary);
   color: var(--color-primary);
 }
+
 .promo-page-btn--active {
   background: var(--color-primary-dark);
   border-color: var(--color-primary-dark);
   color: var(--text-white);
 }
+
 .promo-page-btn--disabled {
   opacity: 0.3;
   pointer-events: none;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 1100px) {
-  .promo-list {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .promo-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
+
 @media (max-width: 820px) {
-  .promo-list {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: var(--space-md);
-    padding: 0 var(--space-md) var(--space-lg);
-  }
   .promo-header-title {
-    font-size: var(--text-2xl) !important;       
+    font-size: var(--text-2xl);
+  }
+  .promo-page-wrapper {
+    padding: var(--space-md) var(--space-md) var(--space-lg);
   }
 }
-@media (max-width: 500px) {
-  .promo-list {
+
+@media (max-width: 560px) {
+  .promo-grid {
     grid-template-columns: 1fr;
-  }
-  .promo-row-card__current-price {
-    font-size: var(--text-lg);                 
   }
 }

@@ -9,19 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- ✅ FIX 2: Import CSS đúng thứ tự — variables trước, chitiet sau cùng -->
-    <link rel="stylesheet" href="/css/variables.css">
-    <link rel="stylesheet" href="/css/base.css">
-    <link rel="stylesheet" href="/css/components.css">
-    <link rel="stylesheet" href="/css/chitiet.css">
-    <link rel="stylesheet" href="/css/KM.css">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/chitiet.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
     <div id="header-placeholder" 
-         data-path="../../main/header.html" 
-         data-root="../../">
+        data-path="../../main/header.html" 
+        data-root="../../">
     </div>
 
     <!-- ✅ FIX 3: Bọc .container (base.css căn giữa) + .chitiet-layout (2 cột) -->
@@ -38,17 +37,17 @@
 
             <div class="slider">
                 <button class="prev">❮</button>
-                <img id="mainImage" class="main-img" src="/images/4_BacHa/MNBH01/MNBH01_01.jpg">
+                <img id="mainImage" class="main-img" src="../../images/4_BacHa/MNBH01/MNBH01_01.jpg">
                 <button class="next">❯</button>
             </div>
 
             <div class="gallery">
-                <img src="/images/4_BacHa/MNBH01/MNBH01_01.jpg">
-                <img src="/images/4_BacHa/MNBH01/MNBH01_02.jpg">
-                <img src="/images/4_BacHa/MNBH01/MNBH01_03.jpg">
-                <img src="/images/4_BacHa/MNBH01/MNBH01_04.jpg">
-                <img src="/images/4_BacHa/MNBH01/MNBH01_05.jpg">
-                <img src="/images/4_BacHa/MNBH01/MNBH01_06.jpg">
+                <img src="../../images/4_BacHa/MNBH01/MNBH01_01.jpg">
+                <img src="../../images/4_BacHa/MNBH01/MNBH01_02.jpg">
+                <img src="../../images/4_BacHa/MNBH01/MNBH01_03.jpg">
+                <img src="../../images/4_BacHa/MNBH01/MNBH01_04.jpg">
+                <img src="../../images/4_BacHa/MNBH01/MNBH01_05.jpg">
+                <img src="../../images/4_BacHa/MNBH01/MNBH01_06.jpg">
             </div>
 
             <div class="tabs">
@@ -267,6 +266,33 @@
             <button id="btnCloseSuccess" class="btn-close-success">Đóng</button>
         </div>
     </div>
+    <!-- data-current-id khớp với id trong tours-data.js -->
+    <main data-current-id="MNBH01">
+        <!-- ── TOUR TƯƠNG TỰ ── -->
+        <div class="container">
+        <section class="similar-tours-section" id="tourtuongtu">
+            <div class="similar-tours-header">
+                <h2 class="similar-tours-title">Tour tương tự</h2>
+                <a href="../Trang_danh_sach_tours.html" class="similar-tours-see-all">Xem tất cả →</a>
+            </div>
+            <div class="similar-tours-grid" id="similarToursGrid">
+            <!-- JS tự render vào đây -->
+            </div>
+        </section>
+        </div>
+    </main>
+
+    <div id="footer-placeholder" 
+        data-path="../../main/footer.html" 
+        data-root="../../">
+    </div>
+
+    <!-- Cuối <body> — đúng thứ tự -->
+    <script src="../../js/tourdata.js"></script>    <!-- 1. Data trước -->
+    <script src="../../js/tourcard.js"></script>     <!-- 2. Hàm render -->
+    <script src="../../js/similartours.js"></script> <!-- 3. Logic gợi ý -->
+    <script src="../../js/main.js"></script>          <!-- 4. Header/footer -->
+    
 
 <!-- KHỐI TOUR TƯƠNG TỰ -->
   <section id="tourtuongtu" class="related-tours-wrapper-full">

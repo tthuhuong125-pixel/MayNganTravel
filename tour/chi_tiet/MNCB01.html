@@ -9,19 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- ✅ FIX 2: Import CSS đúng thứ tự — variables trước, chitiet sau cùng -->
-    <link rel="stylesheet" href="/css/variables.css">
-    <link rel="stylesheet" href="/css/base.css">
-    <link rel="stylesheet" href="/css/components.css">
-    <link rel="stylesheet" href="/css/chitiet.css">
-    <link rel="stylesheet" href="/css/KM.css">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/chitiet.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
     <div id="header-placeholder" 
-         data-path="../../main/header.html" 
-         data-root="../../">
+        data-path="../../main/header.html" 
+        data-root="../../">
     </div>
 
     <!-- ✅ FIX 3: Bọc .container (base.css căn giữa) + .chitiet-layout (2 cột) -->
@@ -35,17 +34,17 @@
 
             <div class="slider">
                 <button class="prev">❮</button>
-                <img id="mainImage" class="main-img" src="/images/8_CaoBang/MNCB01/MNCB01_01.jpg">
+                <img id="mainImage" class="main-img" src="../../images/8_CaoBang/MNCB01/MNCB01_01.jpg">
                 <button class="next">❯</button>
             </div>
 
             <div class="gallery">
-                <img src="/images/8_CaoBang/MNCB01/MNCB01_01.jpg">
-                <img src="/images/8_CaoBang/MNCB01/MNCB01_02.jpg">
-                <img src="/images/8_CaoBang/MNCB01/MNCB01_03.jpg">
-                <img src="/images/8_CaoBang/MNCB01/MNCB01_04.jpg">
-                <img src="/images/8_CaoBang/MNCB01/MNCB01_05.jpg">
-                <img src="/images/8_CaoBang/MNCB01/MNCB01_06.jpg">
+                <img src="../../images/8_CaoBang/MNCB01/MNCB01_01.jpg">
+                <img src="../../images/8_CaoBang/MNCB01/MNCB01_02.jpg">
+                <img src="../../images/8_CaoBang/MNCB01/MNCB01_03.jpg">
+                <img src="../../images/8_CaoBang/MNCB01/MNCB01_04.jpg">
+                <img src="../../images/8_CaoBang/MNCB01/MNCB01_05.jpg">
+                <img src="../../images/8_CaoBang/MNCB01/MNCB01_06.jpg">
             </div>
 
             <div class="tabs">
@@ -275,103 +274,33 @@
         </div>
     </div>
 
-<!-- KHỐI TOUR TƯƠNG TỰ -->
-  <section id="tourtuongtu" class="related-tours-wrapper-full">
-    <div class="promo-header-bar">
-      <h2 class="promo-header-title">Tour Tương Tự</h2>
-    </div>
-
-    <div class="promo-list" id="promoList">
-      
-      <!--Tour 1-->  
-      <div class="promo-row-card">
-        <a href="MNHG02.html" class="promo-row-card__img-box">
-          <img src="/images/7_HaGiang/MNHG02/MNHG02_01.jpg">
-        </a>
-        <div class="promo-row-card__content">
-          <div class="promo-row-card__meta">
-            <span>Mã tour: <strong>MNHG02</strong></span>
-          </div>
-          <a href="MNHG02.html" class="promo-row-card__title-link">
-            <h2 class="promo-row-card__title">
-                Tour Hà Giang – Cao Bằng – Bắc Kạn 5N4Đ
-            </h2>
-          </a>
-          <div class="promo-row-card__specs-line">
-            ⏱️ 5 Ngày 4 Đêm &nbsp;|&nbsp; 📍 Hà Nội &nbsp;|&nbsp; 🚌 Xe du lịch
-          </div>
-          <div class="promo-row-card__footer">
-            <div class="promo-row-card__price-wrapper">
-              <span class="promo-row-card__current-price">5.550.000đ</span> 
+    <!-- data-current-id khớp với id trong tours-data.js -->
+    <main data-current-id="MNCB01">
+        <!-- ── TOUR TƯƠNG TỰ ── -->
+        <div class="container">
+        <section class="similar-tours-section" id="tourtuongtu">
+            <div class="similar-tours-header">
+                <h2 class="similar-tours-title">Tour tương tự</h2>
+                <a href="../Trang_danh_sach_tours.html" class="similar-tours-see-all">Xem tất cả →</a>
             </div>
-            <a href="MNHG02.html" class="btn btn-cta">Xem chi tiết</a>
-          </div>
+            <div class="similar-tours-grid" id="similarToursGrid">
+            <!-- JS tự render vào đây -->
+            </div>
+        </section>
         </div>
-      </div>
-
-      <!--Tour 2-->
-      <div class="promo-row-card" data-old-price="2550000" data-discount="20">
-      <a href="MNCB02.html" class="promo-row-card__img-box">
-        <span class="promo-row-card__badge"></span>
-        <img src="/images/8_CaoBang/MNCB02/MNCB02_01.jpg" alt="Tour Cao Bằng">
-      </a>
-      <div class="promo-row-card__content">
-        <div class="promo-row-card__meta">
-          <span>Mã tour: <strong>MNCB02</strong></span>
-        </div>
-        <a href="MNCB02.html" class="promo-row-card__title-link">
-          <h2 class="promo-row-card__title">Tour Cao Bằng – Bắc Kạn – Hồ Ba Bể 3N2Đ</h2>
-        </a>
-        <div class="promo-row-card__specs-line">
-          ⏱️ 3 Ngày 2 Đêm &nbsp;|&nbsp; 📍 Hà Nội &nbsp;|&nbsp; 🚌 Xe du lịch 
-        </div>
-        <div class="promo-row-card__footer">
-          <div class="promo-row-card__price-wrapper">
-            <span class="promo-row-card__old-price"></span>
-            <span class="promo-row-card__current-price"></span>
-          </div>
-          <a href="MNCB02.html" class="btn btn-cta">Xem chi tiết</a>
-        </div>
-      </div>
-    </div>
-
-      <!--Tour 3 -->
-      <div class="promo-row-card" data-old-price="10760000" data-discount="20">
-      <a href="MNHG04.html" class="promo-row-card__img-box">
-        <span class="promo-row-card__badge"></span>
-        <img src="/images/7_HaGiang/MNHG04/MNHG04_01.jpG" alt="Tour Hà Giang">
-      </a>
-      <div class="promo-row-card__content">
-        <div class="promo-row-card__meta">
-          <span>Mã tour: <strong>MNHG04</strong></span>
-        </div>
-        <a href="MNHG04.html" class="promo-row-card__title-link">
-          <h2 class="promo-row-card__title">Tour Đông Bắc : Hà Giang – Hồ Ba Bể – Thác Bản Giốc 5N5Đ </h2>
-        </a>
-        <div class="promo-row-card__specs-line">
-          ⏱️ 5 Ngày 5 Đêm &nbsp;|&nbsp; 📍 Hồ Chí Minh &nbsp;|&nbsp; ✈️ Máy bay
-        </div>
-        <div class="promo-row-card__footer">
-          <div class="promo-row-card__price-wrapper">
-            <span class="promo-row-card__old-price"></span>
-            <span class="promo-row-card__current-price"></span>
-          </div>
-          <a href="MNHG04.html" class="btn btn-cta">Xem chi tiết</a>
-        </div>
-      </div>
-    </div>
-
-    </div>
-  </section>
-
-<script src="/js/khuyenmai.js" defer></script>
+    </main>
 
     <div id="footer-placeholder" 
-         data-path="../../main/footer.html" 
-         data-root="../../">
+        data-path="../../main/footer.html" 
+        data-root="../../">
     </div>
 
-    <script src="../../js/main.js"></script>
+    <!-- Cuối <body> — đúng thứ tự -->
+    <script src="../../js/tourdata.js"></script>    <!-- 1. Data trước -->
+    <script src="../../js/tourcard.js"></script>     <!-- 2. Hàm render -->
+    <script src="../../js/similartours.js"></script> <!-- 3. Logic gợi ý -->
+    <script src="../../js/main.js"></script>          <!-- 4. Header/footer -->
+    
 
     <script src="/js/chitiet.js" defer></script>
 </body>

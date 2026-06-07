@@ -197,12 +197,13 @@ html { scroll-behavior: smooth; }
     font-weight: 700;
 }
 
-/* 🛠️ THÊM MỚI: Định dạng riêng cho thẻ giá gốc cũ (nhỏ hơn, mờ đi và gạch ngang) */
-.price .price-old {
-    font-size: 14px;               /* Định dạng chữ nhỏ hơn hẳn dải giá chính */
-    color: #999999;                /* Màu xám làm chìm số tiền cũ */
-    text-decoration: line-through; /* Tạo đường gạch ngang qua số tiền gốc */
-    font-weight: 400;              /* Để nét chữ thanh mảnh, không bị đậm */
+.price .price__old {
+    font-size: var(--text-sm);
+    color: var(--text-light);
+    text-decoration: line-through;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 4px;
 }
 
 .tour-info {
@@ -669,6 +670,64 @@ html { scroll-behavior: smooth; }
     margin: 8px 0 14px;
 }
 
+/* ── TOUR TƯƠNG TỰ ────────────────────────────────────────── */
+.similar-tours-section {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-xl);
+  border-top: 0.5px solid var(--border-color);
+  margin-bottom: var(--space-2xl);
+}
+
+.similar-tours-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+}
+
+.similar-tours-title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.similar-tours-see-all {
+  font-size: var(--text-sm);
+  color: var(--color-primary);
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.similar-tours-see-all:hover {
+  color: var(--color-primary-dark);
+}
+
+/* Grid 3 cột — giống danh sách tour */
+.similar-tours-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+
+/* Không tìm được tour nào */
+.similar-tours-empty {
+  font-size: var(--text-sm);
+  color: var(--text-light);
+  text-align: center;
+  padding: var(--space-xl) 0;
+  grid-column: 1 / -1;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .similar-tours-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .similar-tours-grid { grid-template-columns: 1fr; }
+  .similar-tours-header { flex-direction: column; align-items: flex-start; gap: var(--space-sm); }
+}
 /* ==========================================================================
    11. BỔ SUNG TOÀN DIỆN RESPONSIVE CHO TRANG TOUR CHI TIẾT
    Kế thừa hệ thống token từ variables.css & tương thích thiết bị di động
@@ -682,47 +741,21 @@ html { scroll-behavior: smooth; }
     }
 }
 
-/* ---  TABLET ĐỨNG (Dưới 992px) --- */
-@media (max-width: 992px) {
-    /*  Bẻ gãy layout 2 cột dọc thành 1 cột xếp chồng */
-    .chitiet-layout {
-        flex-direction: column;
-        gap: 40px;
-        padding: 20px var(--space-md); /* Chừa lề hai bên cho thoáng */
-    }
-
-    /* Đưa cả cột trái và cột phải về tràn màn hình */
-    .left, .right {
-        width: 100%;
-        flex: none;
-        box-sizing: border-box;
-    }
-
-    /*  Hủy tính năng dính (sticky) của Sidebar bên phải vì bây giờ nó đã nằm dưới */
-    .right {
-        position: static; 
-        box-shadow: var(--shadow-sm);
-    }
-
-    /* Nới rộng chiều cao Slider một chút trên màn hình máy tính bảng */
-    .main-img {
-        height: 480px;
-    }
-
-    /* Thu nhỏ các tab điều hướng để tránh bị nhảy dòng */
-    .tabs {
-        gap: 20px;
-    }
-}
 
 /* ---  ĐIỆN THOẠI DI ĐỘNG (Dưới 768px) --- */
 @media (max-width: 768px) {
     /* Giảm padding bọc ngoài layout */
     .chitiet-layout {
+        flex-direction: column; /* Bắt buộc để bẻ 2 cột ngang thành dọc */
         padding: 15px var(--space-sm);
         gap: 30px;
     }
-
+    
+    .right {
+        width: 100%; /* Trả lại 100% chiều ngang cho cột phải */
+        position: static; /* Gỡ bỏ sticky trên mobile để tránh lỗi cuộn trang */
+    }
+    
     /* Co nhỏ kích thước Slider hình ảnh phù hợp màn hình dọc */
     .main-img {
         height: 280px;

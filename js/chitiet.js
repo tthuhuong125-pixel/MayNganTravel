@@ -240,7 +240,7 @@ const popupTotalPrice = document.getElementById("popupTotalPrice");
 const datNgayBtn = document.querySelector(".book-btn");
 
 // Tự động lấy giá trị từ thẻ span duy nhất bên trong h2.price
-const priceSpan = document.querySelector(".price span");
+const priceSpan = document.querySelector(".price span:not(.price__old)");
 let BASE_PRICE = 0;
 
 if (priceSpan) {

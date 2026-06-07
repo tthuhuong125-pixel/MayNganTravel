@@ -5,25 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh Sách Tour - Mây Ngàn Travel</title>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/variables.css">
-    <link rel="stylesheet" href="/css/base.css">
-    <link rel="stylesheet" href="/css/components.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/Trang_danh_sach_tours.css">
+
+    <!-- Đường dẫn lùi 1 cấp vì file nằm trong /tour/ -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/Trang_danh_sach_tours.css">
 </head>
 <body>
-    <div id="header-placeholder" 
-         data-path="../../main/header.html" 
-         data-root="../../">
-    </div>
+
+    <div id="header-placeholder"
+         data-path="../main/header.html"
+         data-root="../"></div>
 
     <main class="container tour-page-wrapper">
+
         <div class="page-title-block">
-            <h2>Tổng hợp danh sách tour</span></h2>
+            <h2>Tổng hợp danh sách tour</h2>
         </div>
 
         <div class="layout-main">
+
+            <!-- ══ BỘ LỌC BÊN TRÁI ══ -->
             <aside class="filter-sidebar">
+
                 <div class="filter-group">
                     <div class="filter-group__title">Thời gian</div>
                     <div class="filter-group__content">
@@ -36,6 +43,10 @@
                             <span>3 ngày 2 đêm</span>
                         </label>
                         <label class="checkbox-label">
+                            <input type="checkbox" class="filter-checkbox" data-filter="duration" value="3n3d">
+                            <span>3 ngày 3 đêm</span>
+                        </label>
+                        <label class="checkbox-label">
                             <input type="checkbox" class="filter-checkbox" data-filter="duration" value="4n3d">
                             <span>4 ngày 3 đêm</span>
                         </label>
@@ -44,8 +55,8 @@
                             <span>5 ngày 4 đêm</span>
                         </label>
                         <label class="checkbox-label">
-                            <input type="checkbox" class="filter-checkbox" data-filter="duration" value="7n6d">
-                            <span>7 ngày 6 đêm</span>
+                            <input type="checkbox" class="filter-checkbox" data-filter="duration" value="5n5d">
+                            <span>5 ngày 5 đêm</span>
                         </label>
                     </div>
                 </div>
@@ -85,401 +96,69 @@
                         </label>
                     </div>
                 </div>
+
             </aside>
 
+            <!-- ══ NỘI DUNG TOUR BÊN PHẢI ══ -->
             <section class="tours-content">
+
+                <!-- Chip lọc điểm đến — đủ 9 điểm, slug khớp với destSlug trong tours-data.js -->
                 <div class="destination-filter">
                     <span class="section-label">LỌC THEO ĐIỂM ĐẾN</span>
-                    <div class="chips-group" id="destinationChips">
-                        <div class="chip" data-dest="all">Tất cả</div>
+                    <div class="chips-group">
+                        <div class="chip chip--active" data-dest="all">Tất cả</div>
+                        <div class="chip" data-dest="sapa">Sapa</div>
+                        <div class="chip" data-dest="yty">Y Tý</div>
+                        <div class="chip" data-dest="mocchau">Mộc Châu</div>
+                        <div class="chip" data-dest="bachha">Bắc Hà</div>
                         <div class="chip" data-dest="mcc">Mù Cang Chải</div>
-                        <div class="chip" data-dest="sonla">Sơn La</div>
+                        <div class="chip" data-dest="taxua">Tà Xùa</div>
                         <div class="chip" data-dest="hagiang">Hà Giang</div>
                         <div class="chip" data-dest="caobang">Cao Bằng</div>
-                        <div class="chip" data-dest="maichau">Mai Châu</div>
-                        <div class="chip" data-dest="yty">Y Tý</div>
-                        <div class="chip" data-dest="laocai">Lào Cai</div>
+                        <div class="chip" data-dest="backan">Bắc Kạn</div>
                     </div>
                 </div>
 
+                <!-- Thanh sắp xếp — "Tất cả" đứng đầu, active mặc định -->
                 <div class="sort-bar">
                     <span class="section-label">Sắp xếp:</span>
                     <div class="sort-options">
-                        <button class="sort-btn active" data-sort="Hot">Hot</button>
-                        <button class="sort-btn" data-sort="moinhat">Mới nhất</button>
+                        <button class="sort-btn active" data-sort="tatca">Tất cả</button>
+                        <button class="sort-btn" data-sort="banchay">🔥 Tour Hot</button>
+                        <button class="sort-btn" data-sort="moinhat">✨ Tour Mới</button>
                         <button class="sort-btn" data-sort="giatang">Giá ↑</button>
                         <button class="sort-btn" data-sort="giamgiam">Giá ↓</button>
                     </div>
                 </div>
 
+                <!-- Bộ đếm -->
                 <div class="results-count">
-                    Tìm thấy <strong id="tourCount">21</strong> tour phù hợp
+                    Tìm thấy <strong id="tourCount">0</strong> tour phù hợp
                 </div>
 
-                <div class="tours-grid" id="toursGrid">
-                    
-                    <article class="tour-card" data-duration="2n1d" data-price-num="2398000" data-destination="laocai" data-departure="hanoi" data-sales="150" data-date="2026-05-01">
-                        <a href="tour\chi_tiet\MNBH01.html">
-                            <div class="tour-card__img-holder">
-                                <img class="tour-card__img" src="/Ảnh/4. Bắc Hà/MNBH01/MNBH01_01.jpg" alt="Ảnh Bắc Hà - Tả Văn Chư">
-                            </div>
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title"> Tour Bắc Hà-Tả Văn Chư</h3>
-                                <div class="tour-card__tags">
-                                    <span class="dest-tag dest-tag--primary">Lào Cai</span>
-                                </div>
-                                <p class="tour-card__info">2N1Đ • Khởi hành: Hà Nội</p>
-                                <p class="tour-card__price">3.200.000đ</p>
-                            </div>
-                        </a>
-                    </article>
+                <!-- Grid rỗng — JS inject cards vào đây -->
+                <div class="tours-grid" id="toursGrid"></div>
 
-                    
-                    <article class="tour-card" data-duration="3n2d" data-price-num="22450000" data-destination="caobang" data-departure="hanoi" data-sales="170" data-date="2026-05-15">
-                        <a href="tour/chi_tiet/MNCB01.html">
-                            <div class="tour-card__img-holder">
-                                <img class="tour-card__img" src="/Ảnh/8. Cao Bằng/MNCB01/MNCB01_04.jpg" alt="Thác Bản Giốc">
-                            </div>
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title">Tour Cao Bằng 3N2Đ</h3>
-                                <div class="tour-card__tags">
-                                    <span class="dest-tag dest-tag--primary">Cao Bằng</span>
-                                </div>
-                                <p class="tour-card__info">3N2Đ • Khởi hành: Hà Nội</p>
-                                <p class="tour-card__price">22.450.000đ</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="tour-card" data-duration="3n2d" data-price-num="2550000" data-destination="caobang" data-departure="hanoi" data-sales="95" data-date="2026-06-01">
-                        <a href="tour/chi_tiet/MNCB02.html">
-                            <div class="tour-card__img-holder">
-                                <img class="tour-card__img" src="/Ảnh/8. Cao Bằng/MNCB02/MNCB02_01.jpg" alt="Ảnh Cao Bằng - Hồ Ba Bể">
-                            </div>
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title">TourCao Bằng-Bắc Kạn-Hồ Ba Bể</h3>
-                                <div class="tour-card__tags">
-                                    <span class="dest-tag dest-tag--primary">Cao Bằng</span>
-                                </div>
-                                <p class="tour-card__info">3N2Đ • Khởi hành: Hà Nội</p>
-                                <p class="tour-card__price">2.550.000đ</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="tour-card" data-duration="4n3d" data-price-num="7280000" data-destination="hagiang" data-departure="hcm" data-sales="80" data-date="2026-04-20">
-                        <a href="tour/chi_tiet/MNHG01.html">
-                            <div class="tour-card__img-holder">
-                                <img class="tour-card__img" src="/Ảnh/7. Hà Giang/MNHG01/MNHG01_04.jpg" alt="Ảnh Hà Giang - Sông Nho Quế">
-                            </div>
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title">Tour Hà Giang-Sông Nho Quế</h3>
-                                <div class="tour-card__tags">
-                                    <span class="dest-tag dest-tag--primary">Hà Giang</span>
-                                </div>
-                                <p class="tour-card__info">4N3Đ • Khởi hành: Hồ Chí Minh</p>
-                                <p class="tour-card__price">7.280.000đ</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="tour-card" data-duration="5n4d" data-price-num="5500000" data-destination="cao-bang ha-giang" data-departure="hanoi" data-sales="19" data-date="2026-03-15">
-                        <a href="tour/chi_tiet/MNHG02.html">
-                            <div class="tour-card__img-holder">
-                                <img class="tour-card__img" src="/Ảnh/7. Hà Giang/MNHG02/MNHG02_02.jpg" alt="Ảnh Hà Giang - Ruộng lúa chín">
-                            </div>
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title">Tour Hà Giang-Cao Bằng-Bắc Kạn</h3>
-                                <div class="tour-card__tags">
-                                    <span class="dest-tag dest-tag--primary">Cao Bằng</span>
-                                    <span class="dest-tag">Hà Giang</span>
-                                    <span class="dest-tag">Bắc Kạn</span>
-                                </div>
-                                <p class="tour-card__info">5N4Đ • Khởi hành: Hà Nội</p>
-                                <p class="tour-card__price">5.500.000đ</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="tour-card" data-duration="2n1d" data-price-num="2680000" data-destination="hagiang" data-departure="hanoi" data-sales="75" data-date="2026-05-28">
-                        <a href="tour/chi_tiet/MNHG03.html">
-                            <div class="tour-card__img-holder">
-                                <img class="tour-card__img" src="/Ảnh/7. Hà Giang/MNHG03/MNHG03_03.jpg" alt="Đèo Mã Pí Lèng">
-                            </div>
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title">Tour Yên Minh-Lũng Cú-Đồng Văn</h3>
-                                <div class="tour-card__tags">
-                                    <span class="dest-tag dest-tag--primary">Hà Giang</span>
-                                </div>
-                                <p class="tour-card__info">3N2Đ • Khởi hành: Hà Nội</p>
-                                <p class="tour-card__price">2.680.000đ</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="tour-card" data-duration="5n4d" data-price-num="10760000" data-destination="hagiang" data-departure="hcm" data-sales="40" data-date="2026-05-20">
-                        <a href="tour/chi_tiet/MNHG04.html">
-                            <div class="tour-card__img-holder">
-                                <img class="tour-card__img" src="/Ảnh/7. Hà Giang/MNHG04/MNHG04_01.jpg" alt="Ảnh ruộng bậc thang">
-                            </div>
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title">Tour Hồ Ba Bể-Thác Bản Giốc</h3>
-                                <div class="tour-card__tags">
-                                    <span class="dest-tag dest-tag--primary">Hà Giang</span>
-                                </div>
-                                <p class="tour-card__info">5N4Đ • Khởi hành: Hồ Chí Minh</p>
-                                <p class="tour-card__price">10.760.000đ</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="tour-card" data-duration="3n2d" data-price-num="2590000" data-destination="hagiang" data-departure="hanoi" data-sales="110" data-date="2026-04-10">
-                        <a href="tour/chi_tiet/MNHG05.html">
-                            <div class="tour-card__img-holder">
-                                <img class="tour-card__img" src="/Ảnh/7. Hà Giang/MNHG05/MNHG05_02.jpg" alt="Ảnh ruộng bậc thang">
-                            </div>
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title">Tour Hoàng Su Phì-Xín Mân-Bắc Hà </h3>
-                                <div class="tour-card__tags">
-                                    <span class="dest-tag dest-tag--primary">Hà Giang</span>
-                                </div>
-                                <p class="tour-card__info">3N2Đ • Khởi hành: Hà Nội</p>
-                                <p class="tour-card__price">2.590.000đ</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="tour-card" data-duration="4n3d" data-price-num="8680000" data-destination="mcc" data-departure="hcm" data-sales="135" data-date="2026-05-02">
-                        <a href="tour/chi_tiet/MNM201.html">
-                            <div class="tour-card__img-holder">
-                                <img class="tour-card__img" src="/Ảnh/5. Mù Cang Chải/MNM201/MNM201_01.jpg" alt="Ảnh ruộng bậc thang Mù Cang Chải">
-                            </div>
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title">Tour Mù Cang Chải 4N3Đ</h3>
-                                <div class="tour-card__tags">
-                                    <span class="dest-tag dest-tag--primary">Mù Cang Chải</span>
-                                </div>
-                                <p class="tour-card__info">4N3Đ • Khởi hành: Hồ Chí Minh</p>
-                                <p class="tour-card__price">8.680.000đ</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="tour-card" data-duration="3n2d" data-price-num="3280000" data-destination="mcc" data-departure="hanoi" data-sales="100" data-date="2026-05-18">
-                        <a href="tour/chi_tiet/MNM202.html">
-                            <div class="tour-card__img-holder">
-                                <img class="tour-card__img" src="/Ảnh/5. Mù Cang Chải/MNM202/MNM202_03.jpg" alt="Ảnh ruộng bậc thang Mù Cang Chải">
-                            </div>
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title">Tour Mù Cang Chải 3N2Đ</h3>
-                                <div class="tour-card__tags">
-                                    <span class="dest-tag dest-tag--primary">Mù Cang Chải</span>
-                                </div>
-                                <p class="tour-card__info">3N2Đ • Khởi hành: Hà Nội</p>
-                                <p class="tour-card__price">3.280.000đ</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="tour-card" data-duration="3n2d" data-price-num="2660000" data-destination="mcc laocai" data-departure="hanoi" data-sales="90" data-date="2026-06-02">
-                        <a href="tour/chi_tiet/MNM203.html">
-                            <div class="tour-card__img-holder">
-                                <img class="tour-card__img" src="/Ảnh/5. Mù Cang Chải/MNM203/MNM203_03.jpg" alt="Ảnh ruộng bậc thang Mù Cang Chải">
-                            </div>
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title">Tour Mù Cang Chải- Sapa</h3>
-                                <div class="tour-card__tags">
-                                    <span class="dest-tag dest-tag--primary">Mù Cang Chải</span>
-                                    <span class="dest-tag">Sapa</span>
-                                </div>
-                                <p class="tour-card__info">3N2Đ • Khởi hành: Hà Nội</p>
-                                <p class="tour-card__price">2.660.000đ</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="tour-card" data-duration="2n1d" data-price-num="2180000" data-destination="sonla" data-departure="hanoi" data-sales="45" data-date="2026-04-12">
-                        <a href="tour/chi_tiet/MNMC01.html">
-                            <div class="tour-card__img-holder">
-                                <img class="tour-card__img" src="/Ảnh/3. Mộc Châu/MNMC01/MNMC01_01.png" alt="Ảnh mùa cải">
-                            </div>
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title">Tour Mộc Châu 2N1Đ</h3>
-                                <div class="tour-card__tags">
-                                    <span class="dest-tag dest-tag--primary">Mộc Châu</span>
-                                </div>
-                                <p class="tour-card__info">2N1D • Khởi hành: Hà Nội</p>
-                                <p class="tour-card__price">2.180.000đ</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="tour-card" data-duration="3n2d" data-price-num="2800000" data-destination="sonla" data-departure="hanoi" data-sales="65" data-date="2026-05-22">
-                        <a href="tour/chi_tiet/MNMC02.html">
-                            <div class="tour-card__img-holder">
-                                <img class="tour-card__img" src="/Ảnh/3. Mộc Châu/MNMC02/MNMC02_06.jpg" alt="Ảnh mây Tà Xùa">
-                            </div>
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title">Tour Mộc Châu-Tà Xùa</h3>
-                                <div class="tour-card__tags">
-                                    <span class="dest-tag dest-tag--primary">Mộc Châu</span>
-                                </div>
-                                <p class="tour-card__info">3N2Đ • Khởi hành: Hà Nội</p>
-                                <p class="tour-card__price">2.800.000đ</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="tour-card" data-duration="3n2d" data-price-num="3498000" data-destination="sonla" data-departure="hanoi" data-sales="30" data-date="2026-03-01">
-                        <a href="tour/chi_tiet/MNMC03.html">
-                            <div class="tour-card__img-holder">
-                                <img class="tour-card__img" src="/Ảnh/3. Mộc Châu/MNMC03/MNMC03_02.jpg" alt="Ảnh Tour">
-                            </div>
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title">Tour Mộc Châu-Điện Biên</h3>
-                                <div class="tour-card__tags">
-                                    <span class="dest-tag dest-tag--primary">Mộc Châu</span>
-                                    <span class="dest-tag">Điện Biên</span>
-                                </div>
-                                <p class="tour-card__info">3N2Đ • Khởi hành: Hà Nội</p>
-                                <p class="tour-card__price">3.498.000đ</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="tour-card" data-duration="3n2d" data-price-num="2990000" data-destination="laocai" data-departure="hanoi" data-sales="50" data-date="2026-05-30">
-                        <a href="tour/chi_tiet/MNSP01.html">
-                            <div class="tour-card__img-holder">
-                                <img class="tour-card__img" src="/Ảnh/1. Sapa/MNSP01/MNSP01_06.jpg" alt="Ảnh Tour">
-                            </div>
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title">Tour Du lịch Sapa 3N2Đ</h3>
-                                <div class="tour-card__tags">
-                                    <span class="dest-tag dest-tag--primary">Sapa</span>
-                                </div>
-                                <p class="tour-card__info">3N2Đ • Khởi hành: Hà Nội</p>
-                                <p class="tour-card__price">2.990.000đ</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="tour-card" data-duration="5n4d" data-price-num="7018000" data-destination="laocai sonla" data-departure="hanoi" data-sales="88" data-date="2026-05-14">
-                        <a href="tour/chi_tiet/MNSP02.html">
-                            <div class="tour-card__img-holder">
-                                <img class="tour-card__img" src="/Ảnh/1. Sapa/MNSP02/MNSP02_04.jpg" alt="Ảnh Tour">
-                            </div>
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title">Sapa-Mộc Châu-Điện Biên-Lai Châu</h3>
-                                <div class="tour-card__tags">
-                                    <span class="dest-tag dest-tag--primary">Mộc Châu</span>
-                                    <span class="dest-tag">Điện Biên</span>
-                                    <span class="dest-tag">Lai Châu</span>
-                                </div>
-                                <p class="tour-card__info">5N4Đ • Khởi hành: Hà Nội</p>
-                                <p class="tour-card__price">7.018.000đ</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="tour-card" data-duration="5n4d" data-price-num="14333000" data-destination="laocai sonla" data-departure="hcm" data-sales="42" data-date="2026-05-05">
-                        <a href="tour/chi_tiet/MNSP03.html">
-                            <div class="tour-card__img-holder">
-                                <img class="tour-card__img" src="/Ảnh/1. Sapa/MNSP03/MNSP03_01.jpg" alt="Ảnh Tour">
-                            </div>
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title">Sapa-Lai Châu-Điện Biên-Mộc Châu-Đền Bảo Hà </h3>
-                                <div class="tour-card__tags">
-                                    <span class="dest-tag dest-tag--primary">Sapa</span>
-                                    <span class="dest-tag">Mộc Châu</span>
-                                    <span class="dest-tag">Điện Biên</span>
-                                    <span class="dest-tag">Lai Châu</span>
-                                </div>
-                                <p class="tour-card__info">5N4Đ • Khởi hành: Hồ Chí Minh</p>
-                                <p class="tour-card__price">14.333.000đ</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="tour-card" data-duration="3n3d" data-price-num="8228000" data-destination="sonla" data-departure="hanoi" data-sales="105" data-date="2026-04-28">
-                        <a href="tour/chi_tiet/MNTX01.html">
-                            <div class="tour-card__img-holder">
-                                <img class="tour-card__img" src="/Ảnh/6. Tà Xùa/MNTX01/MNTX01_02.jpg" alt="Ảnh Tour">
-                            </div>
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title">Tour Tà Xùa 3N3Đ</h3>
-                                <div class="tour-card__tags">
-                                    <span class="dest-tag dest-tag--primary">Tà Xùa</span>
-                                </div>
-                                <p class="tour-card__info">3N3Đ • Khởi hành: Hà Nội</p>
-                                <p class="tour-card__price">8.228.000đ</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="tour-card" data-duration="2n1d" data-price-num="2508000" data-destination="sonla" data-departure="hanoi" data-sales="48" data-date="2026-05-25">
-                        <a href="tour/chi_tiet/MNTX02.html">
-                            <div class="tour-card__img-holder">
-                                <img class="tour-card__img" src="/Ảnh/6. Tà Xùa/MNTX02/MNTX02_05.jpg" alt="Ảnh Tour">
-                            </div>
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title">Tour Tà Xùa 2N1Đ</h3>
-                                <div class="tour-card__tags">
-                                    <span class="dest-tag dest-tag--primary">Tà Xùa</span>
-                                </div>
-                                <p class="tour-card__info">2N1Đ • Khởi hành: Hà Nội</p>
-                                <p class="tour-card__price">2.508.000đ</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="tour-card" data-duration="2n1d" data-price-num="2178000" data-destination="laocai" data-departure="hanoi" data-sales="72" data-date="2026-05-10">
-                        <a href="tour/chi_tiet/MNYT01.html">
-                            <div class="tour-card__img-holder">
-                                <img class="tour-card__img" src="/Ảnh/2. Y Tý/MNYT01/MNYT01_04.jpg" alt="Ảnh Tour">
-                            </div>
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title">Tour Y Tý 2N1Đ</h3>
-                                <div class="tour-card__tags">
-                                    <span class="dest-tag dest-tag--primary">Y Tý</span>
-                                </div>
-                                <p class="tour-card__info">2N1Đ • Khởi hành: Hà Nội</p>
-                                <p class="tour-card__price">2.178.000đ</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="tour-card" data-duration="3n2d" data-price-num="3718000" data-destination="ha-giang" data-departure="hanoi" data-sales="35" data-date="2026-05-12">
-                        <a href="tour/chi_tiet/MNYT02.html">
-                            <div class="tour-card__img-holder">
-                                <img class="tour-card__img" src="/Ảnh/2. Y Tý/MNYT02/MNYT02_03.jpg" alt="Ảnh Tour">
-                            </div>
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title">Tour Y Tý-Bắc Hà 3N2Đ</h3>
-                                <div class="tour-card__tags">
-                                    <span class="dest-tag dest-tag--primary">Y Tý</span>
-                                </div>
-                                <p class="tour-card__info">3N2Đ • Khởi hành: Hà Nội</p>
-                                <p class="tour-card__price">3.718.000đ</p>
-                            </div>
-                        </a>
-                    </article>
-
-                </div>
             </section>
         </div>
     </main>
 
     <button id="backToTop" class="back-to-top-btn" title="Lên đầu trang">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.5">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
     </button>
 
-    <div id="footer-placeholder" 
-         data-path="../../main/footer.html" 
-         data-root="../../">
-    </div>
+    <div id="footer-placeholder"
+         data-path="../main/footer.html"
+         data-root="../"></div>
 
-    <script src="../../js/main.js"></script>
+    <!-- Đường dẫn lùi 1 cấp, đúng thứ tự -->
+    <script src="../js/tourdata.js"></script>
+    <script src="../js/tourcard.js"></script>
+    <script src="../js/Trang_danh_sach_tours.js"></script>
+    <script src="../js/main.js"></script>
 
-    <script src="js/Trang_danh_sach_tours.js"></script>
 </body>
 </html>

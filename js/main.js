@@ -125,25 +125,39 @@ function initMainFeatures() {
         });
 }
 
+/* ══════════════════════════════════════════════════════
+   4. ACTIVE NAV LINK — chỉ so khớp chính xác
+   ══════════════════════════════════════════════════════ */
+const currentPath = window.location.pathname;
+const navLinks    = document.querySelectorAll('.nav-link:not(.nav-link--arrow)');
 
-/* ══════════════════════════════════════════════════════════
-   4. ACTIVE NAV LINK (Tương thích GitHub Pages)
-   Tự động highlight nav link tương ứng với trang đang xem
-   ══════════════════════════════════════════════════════════ */
-/* Lấy URL hiện tại, cắt bỏ chuỗi query (như ?dest=sapa) và chuỗi hash (#) */
-    const currentUrl = window.location.href.split(/[?#]/)[0];
-    const navLinks   = document.querySelectorAll('.nav-link:not(.nav-link--arrow)');
+navLinks.forEach(function (link) {
+    const linkHref = link.getAttribute('href');
+    if (!linkHref || linkHref === '#') return;
 
-    navLinks.forEach(function (link) {
-    /* Lấy URL tuyệt đối từ trình duyệt tự dịch (ví dụ: https://github.io/repo/index.html) */
-        const linkUrl = link.href.split(/[?#]/)[0];
+    /* Lấy pathname tuyệt đối của link — bỏ query và hash */
+    let linkPathname;
+    try {
+        linkPathname = new URL(link.href).pathname;
+    } catch (e) { return; }
 
-    /* So sánh URL đang đứng với URL của thẻ <a> */
-    /* Điều kiện 2: Xử lý highlight thư mục cha nếu đang đứng ở trang con */
-        if (currentUrl === linkUrl || 
-        (link.getAttribute('href') !== './index.html' && currentUrl.includes(link.getAttribute('href').replace('./', '').split('/')[0]))) {
-            link.classList.add('active');               /* thêm class active → đổi màu */
-        }
-    });
-    
+    /* Chuẩn hoá: bỏ dấu / cuối nếu có */
+    const normCurrent = currentPath.replace(/\/$/, '') || '/';
+    const normLink    = linkPathname.replace(/\/$/, '') || '/';
+
+    /* Chỉ active khi TRÙNG CHÍNH XÁC đường dẫn
+       Hoặc trang hiện tại nằm TRONG THƯ MỤC CON của link
+       — nhưng chỉ khi link không phải file ở root (tránh lỗi Khuyến mãi) */
+    const isExact = normCurrent === normLink;
+
+    /* Chỉ match thư mục nếu link trỏ vào thư mục con thật sự
+       (path phải có ít nhất 2 phần, VD: /blog/blog.html) */
+    const linkParts   = normLink.split('/').filter(Boolean);    /* bỏ phần tử rỗng */
+    const isSubfolder = linkParts.length >= 2 &&               /* phải là file trong thư mục con */
+                        normCurrent.startsWith('/' + linkParts[0] + '/');
+
+    if (isExact || isSubfolder) {
+        link.classList.add('active');
+    }
+});
 }
