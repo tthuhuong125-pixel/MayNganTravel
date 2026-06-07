@@ -144,16 +144,40 @@ document.addEventListener('DOMContentLoaded', function () {
     if (matchedDest) {
       const targetChip = document.querySelector('.chip[data-dest="' + matchedDest + '"]');
       if (targetChip) {
-        /* Bỏ active tất cả chip, active chip khớp */
         chips.forEach(c => c.classList.remove('chip--active'));
         targetChip.classList.add('chip--active');
-        /* Scroll chip vào view nếu cần (mobile) */
         targetChip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         activeFilters.destination = matchedDest;
         filterAndSortTours();
       }
+
+    } else {
+      /* ── Từ khoá không khớp → thông báo + vẫn hiện đủ tất cả tour ── */
+      const resultsArea = document.querySelector('.results-count');
+      if (resultsArea && !document.getElementById('searchNotice')) {
+        const notice = document.createElement('div');
+        notice.id = 'searchNotice';
+        notice.style.cssText = [
+          'background:rgba(232,105,58,0.08)',
+          'border:1px solid var(--color-cta)',
+          'border-radius:var(--radius-sm,6px)',
+          'padding:12px 16px',
+          'margin-bottom:16px',
+          'font-size:var(--text-sm,14px)',
+          'color:var(--text-dark)',
+          'display:flex',
+          'align-items:center',
+          'gap:8px'
+        ].join(';');
+        notice.innerHTML =
+          `🔍 Không tìm thấy kết quả nào cho "<strong>${searchQuery}</strong>". `
+          + `Gợi ý bạn xem toàn bộ <strong>${TOURS_DATA.length} tour</strong> của Mây Ngàn Travel bên dưới.`;
+        resultsArea.parentNode.insertBefore(notice, resultsArea);
+      }
+      /* activeFilters.destination = 'all' → hiển thị đủ 21 tour */
+      filterAndSortTours();
     }
-    /* Không tìm được → giữ "Tất cả", không báo lỗi */
+  }
   }
 
   /* ══════════════════════════════════════════════════
