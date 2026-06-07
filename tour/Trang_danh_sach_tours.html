@@ -6,7 +6,6 @@
     <title>Danh Sách Tour - Mây Ngàn Travel</title>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Đường dẫn lùi 1 cấp vì file nằm trong /tour/ -->
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/components.css">
@@ -102,7 +101,6 @@
             <!-- ══ NỘI DUNG TOUR BÊN PHẢI ══ -->
             <section class="tours-content">
 
-                <!-- Chip lọc điểm đến — đủ 9 điểm, slug khớp với destSlug trong tours-data.js -->
                 <div class="destination-filter">
                     <span class="section-label">LỌC THEO ĐIỂM ĐẾN</span>
                     <div class="chips-group">
@@ -119,7 +117,6 @@
                     </div>
                 </div>
 
-                <!-- Thanh sắp xếp — "Tất cả" đứng đầu, active mặc định -->
                 <div class="sort-bar">
                     <span class="section-label">Sắp xếp:</span>
                     <div class="sort-options">
@@ -131,12 +128,10 @@
                     </div>
                 </div>
 
-                <!-- Bộ đếm -->
                 <div class="results-count">
                     Tìm thấy <strong id="tourCount">0</strong> tour phù hợp
                 </div>
 
-                <!-- Grid rỗng — JS inject cards vào đây -->
                 <div class="tours-grid" id="toursGrid"></div>
 
             </section>
@@ -154,7 +149,6 @@
          data-path="../main/footer.html"
          data-root="../"></div>
 
-    <!-- Đường dẫn lùi 1 cấp, đúng thứ tự -->
     <script src="../js/tourdata.js"></script>
     <script src="../js/tourcard.js"></script>
     <script src="../js/Trang_danh_sach_tours.js"></script>
