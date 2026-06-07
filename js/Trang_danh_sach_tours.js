@@ -156,6 +156,27 @@ document.addEventListener('DOMContentLoaded', function () {
     /* Không tìm được → giữ "Tất cả", không báo lỗi */
   }
 
+  /* ══════════════════════════════════════════════════
+     ĐỌC URL PARAM ?dest= — từ dropdown header
+     Ưu tiên cao hơn ?q= vì slug đã chính xác, không cần map
+     VD: ?dest=sapa    → active chip "Sapa"
+         ?dest=hagiang → active chip "Hà Giang"
+  ══════════════════════════════════════════════════ */
+  const destParam = urlParams.get('dest');
+
+  if (destParam) {
+    const targetChip = document.querySelector('.chip[data-dest="' + destParam + '"]');
+    if (targetChip) {
+      /* Bỏ active tất cả chip, active chip khớp */
+      chips.forEach(c => c.classList.remove('chip--active'));
+      targetChip.classList.add('chip--active');
+      /* Scroll chip vào view trên mobile */
+      targetChip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      activeFilters.destination = destParam;
+      filterAndSortTours();
+    }
+  }
+
   /* ── BƯỚC 6: CHECKBOX ── */
   checkboxes.forEach(function (cb) {
     cb.addEventListener('change', function () {

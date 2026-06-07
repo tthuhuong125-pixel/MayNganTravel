@@ -20,42 +20,46 @@
                 </li>
 
                 <li class="nav-item--dropdown">
-                    <a href="#" class="nav-link nav-link--arrow">Khám phá</a>
+        <!-- ĐỔI href="#" → trang danh sách tour -->
+        <a href="{{ROOT}}tour/Trang_danh_sach_tours.html" class="nav-link nav-link--arrow">Khám phá</a>
 
-                    <div class="dropdown-simple">
+            <div class="dropdown-simple">
 
-                        <div class="dropdown-item--has-sub">
-                                <a href="{{ROOT}}vung/tay-bac.html" class="dropdown-item">
-                                    Tây Bắc
-                                    <span class="sub-arrow">›</span>
-                                </a>
-                                <div class="dropdown-sub">
-                                    <a href="{{ROOT}}diem-den/sapa.html"         class="dropdown-item">Sapa</a>
-                                    <a href="{{ROOT}}diem-den/y-ty.html"         class="dropdown-item">Y Tý</a>
-                                    <a href="{{ROOT}}diem-den/moc-chau.html"     class="dropdown-item">Mộc Châu</a>
-                                    <a href="{{ROOT}}diem-den/bac-ha.html"       class="dropdown-item">Bắc Hà</a>
-                                    <a href="{{ROOT}}diem-den/mu-cang-chai.html" class="dropdown-item">Mù Cang Chải</a>
-                                    <a href="{{ROOT}}diem-den/ta-xua.html"       class="dropdown-item">Tà Xùa</a>
-                                </div>
-                            </div>
+            <div class="dropdown-item--has-sub">
+                <!-- Tây Bắc → tour list (xem tất cả) -->
+                <a href="{{ROOT}}tour/Trang_danh_sach_tours.html" class="dropdown-item">
+                Tây Bắc
+                <span class="sub-arrow">›</span>
+                </a>
+            <div class="dropdown-sub">
+            <!-- Mỗi địa điểm → ?dest=SLUG, JS sẽ auto-active chip tương ứng -->
+                <a href="{{ROOT}}tour/Trang_danh_sach_tours.html?dest=sapa"    class="dropdown-item">Sapa</a>
+                <a href="{{ROOT}}tour/Trang_danh_sach_tours.html?dest=yty"     class="dropdown-item">Y Tý</a>
+                <a href="{{ROOT}}tour/Trang_danh_sach_tours.html?dest=mocchau" class="dropdown-item">Mộc Châu</a>
+                <a href="{{ROOT}}tour/Trang_danh_sach_tours.html?dest=bachha"  class="dropdown-item">Bắc Hà</a>
+                <a href="{{ROOT}}tour/Trang_danh_sach_tours.html?dest=mcc"     class="dropdown-item">Mù Cang Chải</a>
+                <a href="{{ROOT}}tour/Trang_danh_sach_tours.html?dest=taxua"   class="dropdown-item">Tà Xùa</a>
+            </div>
+            </div>
 
-                        <div class="dropdown-item--has-sub">
-                                <a href="{{ROOT}}vung/dong-bac.html" class="dropdown-item">
-                                    Đông Bắc
-                                    <span class="sub-arrow">›</span>
-                                </a>
-                                <div class="dropdown-sub">
-                                    <a href="{{ROOT}}diem-den/ha-giang.html" class="dropdown-item">Hà Giang</a>
-                                    <a href="{{ROOT}}diem-den/cao-bang.html" class="dropdown-item">Cao Bằng</a>
-                                    <a href="{{ROOT}}diem-den/bac-kan.html"  class="dropdown-item">Bắc Kạn</a>
-                                </div>
-                            </div>
+            <div class="dropdown-item--has-sub">
+            <!-- Đông Bắc → tour list (xem tất cả) -->
+                <a href="{{ROOT}}tour/Trang_danh_sach_tours.html" class="dropdown-item">
+                Đông Bắc
+                <span class="sub-arrow">›</span>
+                </a>
+            <div class="dropdown-sub">
+                <a href="{{ROOT}}tour/Trang_danh_sach_tours.html?dest=hagiang" class="dropdown-item">Hà Giang</a>
+                <a href="{{ROOT}}tour/Trang_danh_sach_tours.html?dest=caobang" class="dropdown-item">Cao Bằng</a>
+                <a href="{{ROOT}}tour/Trang_danh_sach_tours.html?dest=backan"  class="dropdown-item">Bắc Kạn</a>
+                </div>
+            </div>
 
-                    </div>
-                </li>
+  </div>
+</li>
 
                 <li>
-                    <a href="{{ROOT}}khuyen-mai.html" class="nav-link">Khuyến mãi</a>
+                    <a href="{{ROOT}}Khuyen_mai.html" class="nav-link">Khuyến mãi</a>
                 </li>
 
                 <li class="nav-item--dropdown">
@@ -69,19 +73,19 @@
                 <li class="nav-item--dropdown">
                     <a href="#" class="nav-link nav-link--arrow">Thông tin & Hướng dẫn</a>
                     <div class="dropdown-simple dropdown-simple--wide">
-                        <a href="{{ROOT}}thong-tin-huong-dan/huong-dan-dat-tour.html"   class="dropdown-item">Hướng dẫn đặt tour</a>
-                        <a href="{{ROOT}}thong-tin-huong-dan/hinh-thuc-thanh-toan.html" class="dropdown-item">Hình thức thanh toán</a>
-                        <a href="{{ROOT}}thong-tin-huong-dan/chinh-sach-hoan-huy.html"  class="dropdown-item">Chính sách hoàn hủy</a>
-                        <a href="{{ROOT}}thong-tin-huong-dan/chinh-sach-bao-mat.html"   class="dropdown-item">Chính sách bảo mật</a>
-                        <a href="{{ROOT}}thong-tin-huong-dan/dieu-khoan-website.html"   class="dropdown-item">Điều khoản website</a>
+                        <a href="{{ROOT}}thong_tin_huong_dan/huong_dan_dat_tour.html"   class="dropdown-item">Hướng dẫn đặt tour</a>
+                        <a href="{{ROOT}}thong_tin_huong_dan/hinh_thuc_thanh_toan.html" class="dropdown-item">Hình thức thanh toán</a>
+                        <a href="{{ROOT}}thong_tin_huong_dan/chinh_sach_hoan_huy.html"  class="dropdown-item">Chính sách hoàn hủy</a>
+                        <a href="{{ROOT}}thong_tin_huong_dan/chinh_sach_bao_mat.html"   class="dropdown-item">Chính sách bảo mật</a>
+                        <a href="{{ROOT}}thong_tin_huong_dan/dieu_khoan_website.html"   class="dropdown-item">Điều khoản website</a>
                     </div>
                 </li>
 
                 <li class="nav-item--dropdown">
                     <a href="#" class="nav-link nav-link--arrow">Về chúng tôi</a>
                     <div class="dropdown-simple">
-                        <a href="{{ROOT}}ve-chung-toi/doi-ngu.html" class="dropdown-item">Mây Ngàn Travel</a>
-                        <a href="{{ROOT}}ve-chung-toi/lien-he.html" class="dropdown-item">Liên hệ</a>
+                        <a href="{{ROOT}}vectoi/Vectoi.html" class="dropdown-item">Mây Ngàn Travel</a>
+                        <a href="{{ROOT}}vectoi/lienhe.html" class="dropdown-item">Liên hệ</a>
                     </div>
                 </li>
 
