@@ -493,11 +493,15 @@
 
 /* Màu nền mặc định (sẽ ghi đè bằng ảnh thực) */
 .region-card--taybac {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--bg-dark) 100%);
+    background-image: url('../images/Banner_TB.png'); /* ← ảnh đại diện Tây Bắc */
+    background-size: cover;
+    background-position: center;
 }
 
 .region-card--dongbac {
-    background: linear-gradient(135deg, #2D5A3D 0%, #1a3320 100%);
+    background-image: url('../images/Banner_ĐB.png'); /* ← ảnh đại diện đông Bắc */
+    background-size: cover;
+    background-position: center;
 }
 
 /* Lớp phủ gradient từ dưới lên — làm nổi chữ */
