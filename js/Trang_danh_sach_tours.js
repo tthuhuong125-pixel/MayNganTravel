@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function () {
       filterAndSortTours();
     }
   }
-  }
+
 
   /* ══════════════════════════════════════════════════
      ĐỌC URL PARAM ?dest= — từ dropdown header
