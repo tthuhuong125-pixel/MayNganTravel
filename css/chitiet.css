@@ -715,11 +715,156 @@ html { scroll-behavior: smooth; }
   grid-column: 1 / -1;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .similar-tours-grid { grid-template-columns: repeat(2, 1fr); }
+
+/* ==========================================================================
+   11. BỔ SUNG TOÀN DIỆN RESPONSIVE CHO TRANG TOUR CHI TIẾT
+   Kế thừa hệ thống token từ variables.css & tương thích thiết bị di động
+   ========================================================================== */
+
+/* --- LAPTOP NHỎ & TABLET NGANG (Dưới 1200px) --- */
+@media (max-width: 1200px) {
+    /* Thu nhỏ nhẹ độ cao Slider để cân bằng thị giác */
+    .main-img {
+        height: 460px;
+    }
+    
+    /* Tour tương tự: Giảm khoảng cách grid một chút để vừa vặn */
+    .similar-tours-grid {
+        gap: var(--space-md);
+    }
 }
-@media (max-width: 600px) {
-  .similar-tours-grid { grid-template-columns: 1fr; }
-  .similar-tours-header { flex-direction: column; align-items: flex-start; gap: var(--space-sm); }
+
+/* --- TABLET ĐỨNG (Dưới 992px) --- */
+@media (max-width: 992px) {
+    /* Bẻ gãy layout 2 cột dọc thành 1 cột xếp chồng */
+    .chitiet-layout {
+        flex-direction: column;
+        gap: 40px;
+        padding: 20px var(--space-md); /* Chừa lề hai bên cho thoáng */
+    }
+
+    /* Đưa cả cột trái và cột phải về tràn màn hình */
+    .left, .right {
+        width: 100%;
+        flex: none;
+        box-sizing: border-box;
+    }
+
+    /* Hủy tính năng dính (sticky) của Sidebar bên phải vì bây giờ nó đã nằm dưới */
+    .right {
+        position: static; 
+        box-shadow: var(--shadow-sm);
+    }
+
+    /* Nới rộng chiều cao Slider một chút trên màn hình máy tính bảng */
+    .main-img {
+        height: 480px;
+    }
+
+    /* Thu nhỏ các tab điều hướng để tránh bị nhảy dòng */
+    .tabs {
+        gap: 20px;
+    }
+
+    /* Tour tương tự: Chuyển từ 3 cột về dạng 2 cột trên máy tính bảng */
+    .similar-tours-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
+
+/* --- ĐIỆN THOẠI DI ĐỘNG (Dưới 768px) --- */
+@media (max-width: 768px) {
+    /* Giảm padding bọc ngoài layout */
+    .chitiet-layout {
+        padding: 15px var(--space-sm);
+        gap: 30px;
+    }
+
+    /* Co nhỏ kích thước Slider hình ảnh phù hợp màn hình dọc */
+    .main-img {
+        height: 280px;
+    }
+
+    /* Thanh Thumbnails Gallery: Cho phép cuộn ngang vuốt tay nếu quá nhiều ảnh */
+    .gallery {
+        overflow-x: auto;
+        padding-bottom: 8px;
+        white-space: nowrap;
+    }
+
+    .gallery img {
+        width: 90px;
+        height: 60px;
+        flex-shrink: 0; /* Không cho ảnh con bị bóp méo */
+    }
+
+    /* Tabs điều hướng: Cho phép vuốt ngang mượt mà trên điện thoại */
+    .tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 16px;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch; /* Hiệu ứng vuốt mượt trên iOS */
+    }
+
+    .tabs a {
+        font-size: var(--text-sm);
+    }
+
+    /* Tiêu đề Tour lớn hạ cỡ chữ xuống tránh chiếm diện tích */
+    .tour-title {
+        font-size: var(--text-xl);
+        margin-bottom: 12px;
+    }
+    /* Bẻ khối Dịch vụ (Bao gồm / Không bao gồm) từ 2 cột hàng ngang thành dọc */
+    .services-container {
+        flex-direction: column;
+        gap: 35px; /* Tạo khoảng trống để không đè lên Badge Icon vòng tròn */
+        margin-top: 30px;
+    }
+
+    .service-box {
+        padding: 20px;
+    }
+
+    /* Khối liên hệ chân sidebar xếp dọc nút bấm */
+    .contact {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-contact {
+        width: 100%;
+        padding: 12px;
+    }
+
+    /* Tour tương tự: Đưa về 1 cột duy nhất tràn màn hình trên điện thoại */
+    .similar-tours-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+
+    .similar-tours-title {
+        font-size: var(--text-xl);
+    }
+
+    /* --- TINH CHỈNH POPUP FORM ĐẶT TOUR TRÊN MOBILE --- */
+    .popup-content {
+        width: 90%; /* Ép form ôm gọn 90% chiều ngang màn hình điện thoại */
+        padding: 20px;
+        margin: 0 auto;
+    }
+
+    .form-row {
+        flex-direction: column; /* Bẻ các ô nhập liệu hàng ngang (Họ tên + SĐT) thành hàng dọc */
+        gap: 0;
+    }
+
+    .form-price-box {
+        padding: 12px;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+}
+

@@ -27,6 +27,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  /* ── FIX ĐƯỜNG DẪN ẢNH cho trang root ─────────────────
+     tours-data.js dùng '../images/' (tương đối từ thư mục tour/)
+     Khuyen_mai.html nằm ở root → '../images/' thoát ra ngoài repo
+     trên GitHub Pages → ảnh 404. Đổi thành './images/' cho đúng.
+  ──────────────────────────────────────────────────────── */
+  document.querySelectorAll('#promoGrid .tour-card__img').forEach(function (img) {
+    const src = img.getAttribute('src');
+    if (src && src.startsWith('../images/')) {
+      img.setAttribute('src', src.replace('../images/', './images/'));
+    }
+  });
+
   /* Sau khi render xong, lấy danh sách card để phân trang */
   const grid      = document.getElementById('promoGrid');
   const allCards  = Array.from(grid.querySelectorAll('.tour-card'));
