@@ -170,3 +170,38 @@ function renderFilteredGrid(cat) {
 
   viewFiltered.innerHTML = cardsHTML;
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const tabs         = document.querySelectorAll('.blog-tab');
+    const viewAll      = document.getElementById('view-all');
+    const viewFiltered = document.getElementById('view-filtered');
+
+    tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            const selectedCat = tab.dataset.tab;
+            if (selectedCat === 'all') {
+                viewAll.classList.remove('hidden');
+                viewFiltered.classList.add('hidden');
+            } else {
+                viewAll.classList.add('hidden');
+                viewFiltered.classList.remove('hidden');
+                renderFilteredGrid(selectedCat);
+            }
+        });
+    });
+
+    /* ── THÊM MỚI: Đọc ?tab= từ URL để tự động chọn tab ── */
+    const urlParams = new URLSearchParams(window.location.search);
+    const tabParam  = urlParams.get('tab');   /* "news" hoặc "guide" */
+
+    if (tabParam && tabParam !== 'all') {
+        /* Tìm đúng nút tab rồi kích hoạt như người dùng click */
+        const targetTab = document.querySelector(`.blog-tab[data-tab="${tabParam}"]`);
+        if (targetTab) {
+            targetTab.click();   /* Trigger toàn bộ logic đã có ở trên */
+        }
+    }
+    /* ── HẾT THÊM MỚI ── */
+});

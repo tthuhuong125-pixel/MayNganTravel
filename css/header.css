@@ -97,11 +97,11 @@
     white-space: nowrap;
 }
 
-.nav-link:hover,
-.nav-link.active {
+.nav-link:hover {
     background-color: var(--bg-secondary);
     color: var(--text-dark);
 }
+
 
 .nav-link--arrow::after {
     content: '▾';
