@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
     /* Không tìm được tour tương tự */
     grid.innerHTML = `
       <div class="similar-tours-empty">
-        Chưa có tour tương tự. <a href="../danh-sach.html">Xem tất cả tour →</a>
+        Chưa có tour tương tự.
       </div>
     `;
     return;
@@ -93,5 +93,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* Dùng renderTourCard từ tour-card.js để đồng bộ giao diện */
   grid.innerHTML = scored.map(renderTourCard).join('');
+
+  /* THÊM NGAY SAU — fix đường dẫn ảnh từ '../images/' → '../../images/' */
+grid.querySelectorAll('.tour-card__img').forEach(function (img) {
+  const src = img.getAttribute('src') || '';
+  if (src.startsWith('../images/')) {
+    img.setAttribute('src', src.replace('../images/', '../../images/'));
+  }
+});
+
+/* Fix luôn link "Xem chi tiết" nếu cần */
+grid.querySelectorAll('.tour-card__btn').forEach(function (btn) {
+  const href = btn.getAttribute('href') || '';
+  if (href.startsWith('./chi_tiet/')) {
+    btn.setAttribute('href', href.replace('./chi_tiet/', './'));
+  }
+});
 
 });

@@ -44,7 +44,7 @@ const TOURS_DATA = [
     isNew: true,
     isSale: false,
     region: 'Tây Bắc',
-    primaryDest: 'Sa Pa',
+    primaryDest: 'Sapa',
     otherDests: ['Điện Biên', 'Lai Châu', 'Mộc Châu'],
     link: './chi_tiet/MNSP02.html',
     destSlug: 'sapa mocchau'
@@ -63,7 +63,7 @@ const TOURS_DATA = [
     isNew: true,
     isSale: false,
     region: 'Tây Bắc',
-    primaryDest: 'Sa Pa',
+    primaryDest: 'Sapa',
     otherDests: ['Lai Châu', 'Điện Biên', 'Mộc Châu'],
     link: './chi_tiet/MNSP03.html',
     destSlug: 'sapa mocchau'
@@ -243,7 +243,7 @@ const TOURS_DATA = [
     isSale: true,
     region: 'Tây Bắc',
     primaryDest: 'Mù Cang Chải',
-    otherDests: ['Sa Pa'],
+    otherDests: ['Sapa'],
     link: './chi_tiet/MNM203.html',
     destSlug: 'mcc sapa'
   },

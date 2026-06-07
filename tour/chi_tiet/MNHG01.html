@@ -291,6 +291,33 @@
             <button id="btnCloseSuccess" class="btn-close-success">Đóng</button>
         </div>
     </div>
+    <!-- data-current-id khớp với id trong tours-data.js -->
+    <main data-current-id="MNHG01">
+        <!-- ── TOUR TƯƠNG TỰ ── -->
+        <div class="container">
+        <section class="similar-tours-section">
+            <div class="similar-tours-header">
+                <h2 class="similar-tours-title">Tour tương tự</h2>
+                <a href="../Trang_danh_sach_tours.html" class="similar-tours-see-all">Xem tất cả →</a>
+            </div>
+            <div class="similar-tours-grid" id="similarToursGrid">
+            <!-- JS tự render vào đây -->
+            </div>
+        </section>
+        </div>
+    </main>
+
+    <div id="footer-placeholder" 
+        data-path="../../main/footer.html" 
+        data-root="../../">
+    </div>
+
+    <!-- Cuối <body> — đúng thứ tự -->
+    <script src="../../js/tourdata.js"></script>    <!-- 1. Data trước -->
+    <script src="../../js/tourcard.js"></script>     <!-- 2. Hàm render -->
+    <script src="../../js/similartours.js"></script> <!-- 3. Logic gợi ý -->
+    <script src="../../js/main.js"></script>          <!-- 4. Header/footer -->
+    
 
     <script src="/js/chitiet.js" defer></script>
 </body>
