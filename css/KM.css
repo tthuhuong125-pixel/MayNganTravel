@@ -76,10 +76,6 @@
   gap: var(--space-lg);
 }
 
-/* Chiều cao ảnh trong trang KM */
-.promo-grid .tour-card__img {
-  height: 200px;
-}
 
 
 /* ── PHÂN TRANG ── */

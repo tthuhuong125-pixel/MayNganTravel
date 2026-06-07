@@ -695,10 +695,6 @@ html { scroll-behavior: smooth; }
   gap: var(--space-lg);
 }
 
-/* Chiều cao ảnh trong section này */
-.similar-tours-grid .tour-card__img {
-  height: 200px;
-}
 
 /* Không tìm được tour nào */
 .similar-tours-empty {
