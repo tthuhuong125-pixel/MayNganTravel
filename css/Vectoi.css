@@ -85,11 +85,7 @@
     width: calc(70% - 15px);
 }
 
-/* Khi section là pic-right -> Khung ảnh đổi thành 40% */
-.intro-section.pic-right .intro-image-wrapper {
-    flex: 0 0 calc(50% - 15px);
-    width: calc(50% - 15px);
-}
+
 
 /* Khi section là pic-right -> Khung chữ đổi thành 60% */
 .intro-section.pic-right .intro-text-wrapper {
@@ -275,6 +271,8 @@
     position: relative;
     /* Tạo khoảng trống phía trên chữ để nhường không gian cho chùm hoa tử đằng tỏa sáng */
     padding-top: 110px; 
+    flex: 0 0 calc(50% - 15px);
+    width: calc(50% - 15px);
 }
 
 /* 2. CÀNH TỬ ĐẰNG CHÍNH: KHÓA GỐC BÊN TRÁI - ĐUNG ĐƯA NGỌN HOA BÊN PHẢI */
