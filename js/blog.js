@@ -101,35 +101,6 @@ const articles = [
 ];
 
 
-/* ══════════════════════════════════════════════════════════
-   TAB SWITCHING LOGIC
-   Click tab → hiện/ẩn view tương ứng
-   ══════════════════════════════════════════════════════════ */
-document.addEventListener('DOMContentLoaded', function () {
-  const tabs         = document.querySelectorAll('.blog-tab');
-  const viewAll      = document.getElementById('view-all');
-  const viewFiltered = document.getElementById('view-filtered');
-
-  tabs.forEach(function (tab) {
-    tab.addEventListener('click', function () {
-
-      /* Cập nhật trạng thái tab active */
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      const selectedCat = tab.dataset.tab;   /* "all", "news", hoặc "guide" */
-
-      if (selectedCat === 'all') {
-        viewAll.classList.remove('hidden');
-        viewFiltered.classList.add('hidden');
-      } else {
-        viewAll.classList.add('hidden');
-        viewFiltered.classList.remove('hidden');
-        renderFilteredGrid(selectedCat);
-      }
-    });
-  });
-});
 
 
 /* ══════════════════════════════════════════════════════════
