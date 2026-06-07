@@ -192,6 +192,15 @@ html { scroll-behavior: smooth; }
     font-weight: 700;
 }
 
+.price .price__old {
+    font-size: var(--text-sm);
+    color: var(--text-light);
+    text-decoration: line-through;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 4px;
+}
+
 .tour-info {
     list-style: none;
     padding: 0;
@@ -661,6 +670,7 @@ html { scroll-behavior: smooth; }
   margin-top: var(--space-2xl);
   padding-top: var(--space-xl);
   border-top: 0.5px solid var(--border-color);
+  margin-bottom: var(--space-2xl);
 }
 
 .similar-tours-header {
