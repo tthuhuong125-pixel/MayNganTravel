@@ -723,25 +723,103 @@ html { scroll-behavior: smooth; }
   .similar-tours-grid { grid-template-columns: 1fr; }
   .similar-tours-header { flex-direction: column; align-items: flex-start; gap: var(--space-sm); }
 }
-@media (max-width: 900px) {
-    .chitiet-layout {
-        flex-direction: column;   /* Xếp dọc thay vì ngang */
-    }
-    .right {
-        width: 100%;              /* Bỏ width cố định 360px */
-        position: static;         /* Bỏ sticky */
-    }
+/* ==========================================================================
+   11. BỔ SUNG TOÀN DIỆN RESPONSIVE CHO TRANG TOUR CHI TIẾT
+   Kế thừa hệ thống token từ variables.css & tương thích thiết bị di động
+   ========================================================================== */
+
+/* ---  LAPTOP NHỎ & TABLET NGANG (Dưới 1200px) --- */
+@media (max-width: 1200px) {
+    /* Thu nhỏ nhẹ độ cao Slider để cân bằng thị giác */
     .main-img {
-        height: 280px;            /* Giảm từ 580px */
-    }
-    .gallery img {
-        width: 80px;
-        height: 55px;
+        height: 460px;
     }
 }
 
-@media (max-width: 480px) {
-    .main-img { height: 220px; }
-    .services-container { flex-direction: column; }
-    .contact { flex-direction: column; }
+
+/* ---  ĐIỆN THOẠI DI ĐỘNG (Dưới 768px) --- */
+@media (max-width: 768px) {
+    /* Giảm padding bọc ngoài layout */
+    .chitiet-layout {
+        padding: 15px var(--space-sm);
+        gap: 30px;
+    }
+
+    /* Co nhỏ kích thước Slider hình ảnh phù hợp màn hình dọc */
+    .main-img {
+        height: 280px;
+    }
+
+    /*  Thanh Thumbnails Gallery: Cho phép cuộn ngang vuốt tay nếu quá nhiều ảnh */
+    .gallery {
+        overflow-x: auto;
+        padding-bottom: 8px;
+        white-space: nowrap;
+    }
+
+    .gallery img {
+        width: 90px;
+        height: 60px;
+        flex-shrink: 0; /* Không cho ảnh con bị bóp méo */
+    }
+
+    /*  Tabs điều hướng: Cho phép vuốt ngang mượt mà trên điện thoại */
+    .tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 16px;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch; /* Hiệu ứng vuốt mượt trên iOS */
+    }
+
+    .tabs a {
+        font-size: var(--text-sm);
+    }
+
+    /* Tiêu đề Tour lớn hạ cỡ chữ xuống tránh chiếm diện tích */
+    .tour-title {
+        font-size: var(--text-xl);
+        margin-bottom: 12px;
+    }
+
+    /* Bẻ khối Dịch vụ (Bao gồm / Không bao gồm) từ 2 cột hàng ngang thành dọc */
+    .services-container {
+        flex-direction: column;
+        gap: 35px; /* Tạo khoảng trống để không đè lên Badge Icon vòng tròn */
+        margin-top: 30px;
+    }
+
+    .service-box {
+        padding: 20px;
+    }
+
+    /* Khối liên hệ chân sidebar xếp dọc nút bấm */
+    .contact {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-contact {
+        width: 100%;
+        padding: 12px;
+    }
+
+    /* --- TINH CHỈNH POPUP FORM ĐẶT TOUR TRÊN MOBILE --- */
+    .popup-content {
+        width: 90%; /* Ép form ôm gọn 90% chiều ngang màn hình điện thoại */
+        padding: 20px;
+        margin: 0 auto;
+    }
+
+    .form-row {
+        flex-direction: column; /* Bẻ các ô nhập liệu hàng ngang (như Họ tên + SĐT) thành hàng dọc */
+        gap: 0;
+    }
+
+    .form-price-box {
+        padding: 12px;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
 }
