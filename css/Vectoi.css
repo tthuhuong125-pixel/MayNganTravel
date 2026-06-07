@@ -39,11 +39,15 @@
     border-bottom: 1px solid #e2e8f08a;        
 }
 
+.intro-section:first-of-type {
+    margin-top: 60px;
+}
+
 /* Xóa viền xám thừa của section cuối cùng trước khi vào Footer */
 .intro-section:last-of-type {
     border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
+    margin-bottom: 80px;
+    padding-bottom: 40px;
 }
 
 /* Đảm bảo thanh Header luôn cố định đỉnh màn hình */
@@ -55,6 +59,18 @@
 /* Đổi ngược vị trí đối với các Section số lẻ (Ảnh phải, chữ trái) */
 .intro-section.pic-right {
     flex-direction: row-reverse;
+}
+
+.intro-section.pic-left {
+    max-width: 100%;   /* Mở rộng ra full viewport */
+    padding-left: 0;   /* Xóa khoảng cách trái */
+}
+
+
+/* ảnh phải sát lề phải */
+.intro-section.pic-right {
+    max-width: 100%;
+    padding-right: 0;
 }
 
 /* Khung chứa ảnh mặc định (Trái) */

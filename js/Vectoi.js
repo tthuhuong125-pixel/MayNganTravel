@@ -49,8 +49,8 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Đường dẫn đến các file ảnh con bướm trong máy của bạn (Hãy đảm bảo có ảnh trong thư mục images nhé)
     const butterflyImages = [
-        'images/buom1.png',
-        'images/buom2.png',
+        '../images/buom1.png',
+        '../images/buom2.png',
     ];
 
     function createButterfly() {
