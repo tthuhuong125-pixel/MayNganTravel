@@ -9,8 +9,8 @@
 /* ══════════════════════════════════════════════════════════
    BỐ CỤC TRANG
    ══════════════════════════════════════════════════════════ */
-.tour-page-wrapper {
-  padding-top: var(--space-lg);
+.container.tour-page-wrapper {
+  padding-top: 40px;
   padding-bottom: var(--space-2xl);
 }
 
