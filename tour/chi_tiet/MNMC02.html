@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tour Mộc Châu - Tà Xùa 3N2Đ — Mây Ngàn Travel</title>
 
-    <!-- ✅ FIX 1: Load đúng font của nhóm (Be Vietnam Pro + Inter), xóa Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <!-- ✅ FIX 2: Import CSS đúng thứ tự — variables trước, chitiet sau cùng -->
     <link rel="stylesheet" href="../../css/variables.css">
     <link rel="stylesheet" href="../../css/base.css">
     <link rel="stylesheet" href="../../css/components.css">
@@ -25,7 +23,6 @@
         data-root="../../">
     </div>
 
-    <!-- ✅ FIX 3: Bọc .container (base.css căn giữa) + .chitiet-layout (2 cột) -->
     <div class="container">
     <div class="chitiet-layout">
 
@@ -174,7 +171,6 @@
 
             <h3 class="tour-name">MỌC CHÂU | TÀ XÙA 3N2Đ</h3>
 
-            <!-- ✅ FIX 5: Thêm class "btn btn-primary" từ components.css, giữ "book-btn" để JS vẫn tìm được -->
             <button class="btn btn-primary book-btn">Đặt Ngay</button>
 
             <div class="policy">
@@ -189,7 +185,6 @@
             </div>
 
             <div class="contact">
-                <!-- ✅ FIX 6: Đổi .btn-outline → .btn-contact để tránh xung đột với components.css -->
                 <a href="tel:0395863773" class="btn-contact">
                     <i class="fa-solid fa-phone"></i>Gọi Hotline
                 </a>
@@ -199,8 +194,8 @@
             </div>
         </div>
 
-    </div><!-- /.chitiet-layout -->
-    </div><!-- /.container -->
+    </div>
+    </div>
 
 
     <!-- POPUP ĐẶT TOUR -->
@@ -266,7 +261,6 @@
             <button id="btnCloseSuccess" class="btn-close-success">Đóng</button>
         </div>
     </div>
-    <!-- data-current-id khớp với id trong tours-data.js -->
     <main data-current-id="MNMC02">
         <!-- ── TOUR TƯƠNG TỰ ── -->
         <div class="container">
@@ -276,7 +270,6 @@
                 <a href="../Trang_danh_sach_tours.html" class="similar-tours-see-all">Xem tất cả →</a>
             </div>
             <div class="similar-tours-grid" id="similarToursGrid">
-            <!-- JS tự render vào đây -->
             </div>
         </section>
         </div>
@@ -287,11 +280,10 @@
         data-root="../../">
     </div>
 
-    <!-- Cuối <body> — đúng thứ tự -->
-    <script src="../../js/tourdata.js"></script>    <!-- 1. Data trước -->
-    <script src="../../js/tourcard.js"></script>     <!-- 2. Hàm render -->
-    <script src="../../js/similartours.js"></script> <!-- 3. Logic gợi ý -->
-    <script src="../../js/main.js"></script>          <!-- 4. Header/footer -->
+    <script src="../../js/tourdata.js"></script>    
+    <script src="../../js/tourcard.js"></script>    
+    <script src="../../js/similartours.js"></script> 
+    <script src="../../js/main.js"></script>         
     
 
     <script src="../../js/chitiet.js" defer></script>
