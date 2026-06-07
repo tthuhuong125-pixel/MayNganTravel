@@ -723,3 +723,25 @@ html { scroll-behavior: smooth; }
   .similar-tours-grid { grid-template-columns: 1fr; }
   .similar-tours-header { flex-direction: column; align-items: flex-start; gap: var(--space-sm); }
 }
+@media (max-width: 900px) {
+    .chitiet-layout {
+        flex-direction: column;   /* Xếp dọc thay vì ngang */
+    }
+    .right {
+        width: 100%;              /* Bỏ width cố định 360px */
+        position: static;         /* Bỏ sticky */
+    }
+    .main-img {
+        height: 280px;            /* Giảm từ 580px */
+    }
+    .gallery img {
+        width: 80px;
+        height: 55px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-img { height: 220px; }
+    .services-container { flex-direction: column; }
+    .contact { flex-direction: column; }
+}
