@@ -720,33 +720,68 @@ html { scroll-behavior: smooth; }
   grid-column: 1 / -1;
 }
 
-
 /* ==========================================================================
    11. BỔ SUNG TOÀN DIỆN RESPONSIVE CHO TRANG TOUR CHI TIẾT
    Kế thừa hệ thống token từ variables.css & tương thích thiết bị di động
    ========================================================================== */
 
-/* ---  LAPTOP NHỎ & TABLET NGANG (Dưới 1200px) --- */
+/* --- LAPTOP NHỎ & TABLET NGANG (Dưới 1200px) --- */
 @media (max-width: 1200px) {
     /* Thu nhỏ nhẹ độ cao Slider để cân bằng thị giác */
     .main-img {
         height: 460px;
     }
+    
+    /* Tour tương tự: Giảm khoảng cách grid một chút để vừa vặn */
+    .similar-tours-grid {
+        gap: var(--space-md);
+    }
 }
 
+/* --- TABLET ĐỨNG (Dưới 992px) --- */
+@media (max-width: 992px) {
+    /* Bẻ gãy layout 2 cột dọc thành 1 cột xếp chồng */
+    .chitiet-layout {
+        flex-direction: column;
+        gap: 40px;
+        padding: 20px var(--space-md); /* Chừa lề hai bên cho thoáng */
+    }
 
-/* ---  ĐIỆN THOẠI DI ĐỘNG (Dưới 768px) --- */
+    /* Đưa cả cột trái và cột phải về tràn màn hình */
+    .left, .right {
+        width: 100%;
+        flex: none;
+        box-sizing: border-box;
+    }
+
+    /* Hủy tính năng dính (sticky) của Sidebar bên phải vì bây giờ nó đã nằm dưới */
+    .right {
+        position: static; 
+        box-shadow: var(--shadow-sm);
+    }
+
+    /* Nới rộng chiều cao Slider một chút trên màn hình máy tính bảng */
+    .main-img {
+        height: 480px;
+    }
+
+    /* Thu nhỏ các tab điều hướng để tránh bị nhảy dòng */
+    .tabs {
+        gap: 20px;
+    }
+
+    /* Tour tương tự: Chuyển từ 3 cột về dạng 2 cột trên máy tính bảng */
+    .similar-tours-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* --- ĐIỆN THOẠI DI ĐỘNG (Dưới 768px) --- */
 @media (max-width: 768px) {
     /* Giảm padding bọc ngoài layout */
     .chitiet-layout {
-        flex-direction: column; /* Bắt buộc để bẻ 2 cột ngang thành dọc */
         padding: 15px var(--space-sm);
         gap: 30px;
-    }
-    
-    .right {
-        width: 100%; /* Trả lại 100% chiều ngang cho cột phải */
-        position: static; /* Gỡ bỏ sticky trên mobile để tránh lỗi cuộn trang */
     }
 
     /* Co nhỏ kích thước Slider hình ảnh phù hợp màn hình dọc */
@@ -754,7 +789,7 @@ html { scroll-behavior: smooth; }
         height: 280px;
     }
 
-    /*  Thanh Thumbnails Gallery: Cho phép cuộn ngang vuốt tay nếu quá nhiều ảnh */
+    /* Thanh Thumbnails Gallery: Cho phép cuộn ngang vuốt tay nếu quá nhiều ảnh */
     .gallery {
         overflow-x: auto;
         padding-bottom: 8px;
@@ -767,7 +802,7 @@ html { scroll-behavior: smooth; }
         flex-shrink: 0; /* Không cho ảnh con bị bóp méo */
     }
 
-    /*  Tabs điều hướng: Cho phép vuốt ngang mượt mà trên điện thoại */
+    /* Tabs điều hướng: Cho phép vuốt ngang mượt mà trên điện thoại */
     .tabs {
         overflow-x: auto;
         white-space: nowrap;
@@ -808,6 +843,16 @@ html { scroll-behavior: smooth; }
         padding: 12px;
     }
 
+    /* Tour tương tự: Đưa về 1 cột duy nhất tràn màn hình trên điện thoại */
+    .similar-tours-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+
+    .similar-tours-title {
+        font-size: var(--text-xl);
+    }
+
     /* --- TINH CHỈNH POPUP FORM ĐẶT TOUR TRÊN MOBILE --- */
     .popup-content {
         width: 90%; /* Ép form ôm gọn 90% chiều ngang màn hình điện thoại */
@@ -816,7 +861,7 @@ html { scroll-behavior: smooth; }
     }
 
     .form-row {
-        flex-direction: column; /* Bẻ các ô nhập liệu hàng ngang (như Họ tên + SĐT) thành hàng dọc */
+        flex-direction: column; /* Bẻ các ô nhập liệu hàng ngang (Họ tên + SĐT) thành hàng dọc */
         gap: 0;
     }
 
