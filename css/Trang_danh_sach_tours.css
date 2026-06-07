@@ -1,0 +1,259 @@
+/* ==========================================================================
+   MAYNGAN TRAVEL — TRANG_DANH_SACH_TOURS.CSS
+   CSS riêng cho trang danh sách tour
+   Kế thừa: variables.css → base.css → components.css → components_additions.css
+   File này CHỈ chứa override / bố cục riêng của trang — không redefine components
+   ========================================================================== */
+
+
+/* ══════════════════════════════════════════════════════════
+   BỐ CỤC TRANG
+   ══════════════════════════════════════════════════════════ */
+.container.tour-page-wrapper {
+  padding-top: 40px;
+  padding-bottom: var(--space-2xl);
+}
+
+.page-title-block {
+  margin-bottom: var(--space-lg);
+}
+
+/* Layout 2 cột: sidebar trái + content phải */
+.layout-main {
+  display: flex;
+  gap: var(--space-xl);
+  align-items: flex-start;
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   SIDEBAR BỘ LỌC
+   ══════════════════════════════════════════════════════════ */
+.filter-sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background: #FFFDF9;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  /* Dính khi cuộn — header cao ~60px nên top: 80px */
+  position: sticky;
+  top: 80px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.filter-group {
+  border-bottom: 1px solid var(--border-color-light);
+  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+.filter-group:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.filter-group__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: var(--space-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+.filter-group__title::after {
+  content: "▾";
+  color: var(--text-light);
+  font-size: var(--text-sm);
+}
+
+.filter-group__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--text-sm);
+  color: var(--text-dark);
+  cursor: pointer;
+}
+.checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   KHU VỰC CONTENT TOUR
+   ══════════════════════════════════════════════════════════ */
+.tours-content {
+  flex: 1;
+  min-width: 0;       /* ngăn overflow trong flexbox */
+}
+
+.section-label {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--text-light);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+}
+
+/* ── Chips điểm đến ── */
+.destination-filter {
+  margin-bottom: var(--space-md);
+}
+.chips-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+/* ── Thanh sắp xếp ── */
+.sort-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+}
+.sort-bar .section-label { margin-bottom: 0; }
+
+.sort-options {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.sort-btn {
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
+  padding: 6px 14px;
+  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  border-radius: var(--radius-full);
+  color: var(--text-medium);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.sort-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.sort-btn.active {
+  background: var(--color-primary);
+  color: var(--text-white);
+  border-color: var(--color-primary);
+}
+
+/* ── Bộ đếm ── */
+.results-count {
+  font-size: var(--text-sm);
+  color: var(--text-medium);
+  margin-bottom: var(--space-md);
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   LƯỚI TOUR — khai báo DUY NHẤT ở đây
+   components_additions.css định nghĩa .tour-card (thẻ đơn)
+   File này định nghĩa .tours-grid (lưới chứa các thẻ)
+   ══════════════════════════════════════════════════════════ */
+.tours-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+/*
+  FIX 3: Bỏ "height: 190px" trên img.
+  components_additions.css dùng aspect-ratio: 16/10 trên .tour-card__img-wrap
+  và height: 100% trên .tour-card__img → chiều cao tự tính theo tỉ lệ.
+  Override height sẽ phá vỡ aspect-ratio.
+*/
+
+/* Giới hạn title 2 dòng trong lưới 3 cột */
+.tours-grid .tour-card__title {
+  font-size: var(--text-sm);
+  -webkit-line-clamp: 2;
+  min-height: 2.8em;
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   BACK TO TOP
+   ══════════════════════════════════════════════════════════ */
+.back-to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 44px;
+  height: 44px;
+  background: var(--bg-white);
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  z-index: 900;
+}
+.back-to-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+}
+.back-to-top-btn:hover {
+  background: var(--color-primary);
+  color: var(--text-white);
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════════════ */
+
+/* Màn hình < 1100px: sidebar hẹp hơn, grid 2 cột */
+@media (max-width: 1100px) {
+  .filter-sidebar { width: 200px; }
+  .tours-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Tablet < 900px: sidebar xếp lên trên */
+@media (max-width: 900px) {
+  .layout-main { flex-direction: column; }
+  .filter-sidebar {
+    width: 100%;
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+  }
+  .tours-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 680px) {
+  .tours-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 440px) {
+  .tours-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,276 @@
+/* ==========================================================================
+   MAYNGAN TRAVEL - LIENHE.CSS (BẢN CHUẨN HOÁ TOÀN DIỆN)
+   Mục đích: Định dạng bố cục Grid, Form sáng và Cột thông tin nền tối + 1 Map chung
+   ========================================================================== */
+
+/* --- KHUNG CHỨA CHUNG (CONTAINER) --- */
+.container {
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+}
+
+/* --- HEADER TRANG LIÊN HỆ --- */
+.contact-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.contact-header h1 {
+  margin-bottom: var(--space-sm);
+  color: var(--text-dark);
+  margin-top: var(--space-2xl);
+}
+
+.contact-subtitle {
+  color: var(--text-medium);
+  font-size: var(--text-lg);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- HỆ THỐNG LƯỚI CHIA 2 CỘT (DESKTOP) --- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+  margin-bottom: var(--space-2xl);
+}
+
+/* ==========================================================================
+   CỘT 1: BIỂU MẪU GỬI TIN NHẮN (NỀN TRẮNG SÁNG)
+   ========================================================================== */
+.contact-form-section {
+  background: var(--bg-white);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  border: 0.5px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+
+}
+
+.contact-form-section h2 {
+  margin-bottom: var(--space-xs);
+  color: var(--text-dark);
+}
+
+.response-time {
+  color: var(--color-primary);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.contact-form .btn-cta {
+  align-self: center; 
+  width: fit-content; 
+  padding: 12px 32px; 
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.form-group label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.form-group label .required {
+  color: var(--color-cta);
+}
+
+.form-group label .optional {
+  color: var(--text-light);
+  font-weight: 400;
+  font-size: var(--text-xs);
+}
+
+/* Các ô Input và Textarea */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px var(--space-md);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text-dark);
+  background-color: var(--bg-primary);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background-color: var(--bg-white);
+  box-shadow: 0 0 0 3px rgba(61, 122, 92, 0.1);
+}
+
+/* Xử lý Trạng thái lỗi (Validation) */
+.form-group.has-error input,
+.form-group.has-error textarea {
+  border-color: #d32f2f;
+  background-color: #fff8f8;
+}
+
+.error-message {
+  color: #d32f2f;
+  font-size: var(--text-xs);
+  display: none;
+  margin-top: 2px;
+}
+
+.form-group.has-error .error-message {
+  display: block;
+}
+
+
+/* ==========================================================================
+   CỘT 2: THÔNG TIN LIÊN HỆ ĐỐI CHIẾU THEO ẢNH THIẾT KẾ (NỀN TỐI SANG TRỌNG)
+   ========================================================================== */
+.contact-info-section {
+  background-color: var(--bg-dark); /* Màu rêu đen thương hiệu */
+  padding: var(--space-xl) var(--space-lg);
+  border-radius: var(--radius-lg);
+  color: var(--text-white);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md); /* Khoảng cách giữa các khối block bên trong */
+  box-shadow: var(--shadow-md);
+}
+
+/* Tiêu đề lớn: LIÊN HỆ */
+.contact-info-section > h2:first-child {
+  color: var(--text-white);
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+
+/* Các khối thông tin chi nhánh (Loại bỏ thuộc tính background/border thừa của info-block cũ) */
+.contact-info-section .info-block {
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+/* Tên các Chi nhánh (Hà Nội, TP. Hồ Chí Minh) */
+.branch-block h2 {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-accent); /* Màu Vàng Gold chuẩn ảnh */
+  margin-bottom: var(--space-sm);
+}
+
+/* Danh sách chi tiết địa chỉ, phone */
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.info-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.85); /* Trắng mờ nhẹ dễ chịu */
+  line-height: 1.5;
+}
+
+/* Định dạng các đường Link điện thoại, email trên nền tối */
+.info-list a {
+  color: rgba(255, 255, 255, 0.85);
+  transition: var(--transition);
+}
+
+.info-list a:hover {
+  color: var(--color-accent-light);
+  text-decoration: underline;
+}
+
+/* Căn chỉnh Tabler Icons */
+.info-icon {
+  font-size: var(--text-xl);
+  color: rgba(255, 255, 255, 0.5); /* Icon ẩn mờ đồng điệu */
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* Đường gạch ngang phân mảnh tinh tế giữa Chi nhánh 1 và Chi nhánh 2 */
+.branch-block {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: var(--space-md);
+}
+
+/* --- KHỐI BẢN ĐỒ LỚN TẬP TRUNG --- */
+.map-section-block {
+  margin: var(--space-sm) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: var(--space-md);
+}
+
+.map-container {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.map-container iframe {
+  display: block;
+}
+
+.direction-link {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-accent-light) !important;
+}
+
+.direction-link:hover {
+  text-decoration: underline !important;
+}
+
+/* Khối Hotline, Email, Giờ giấc dưới cùng */
+.general-contact-block {
+  padding-top: var(--space-xs);
+}
+
+.general-contact-block strong {
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+
+/* ==========================================================================
+   RESPONSIVE (CO GIÃN TỰ ĐỘNG TRÊN TABLET & ĐIỆN THOẠI)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .contact-grid {
+    grid-template-columns: 1fr; /* Sập về 1 cột duy nhất trên thiết bị di động */
+    gap: var(--space-lg);
+  }
+  
+  .contact-form-section,
+  .contact-info-section {
+    padding: var(--space-lg);
+  }
+}

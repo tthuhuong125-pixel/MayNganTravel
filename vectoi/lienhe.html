@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang liên hệ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;700;800&family=Inter:wght@400;500&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/Header.css">
+    <link rel="stylesheet" href="../css/Footer.css">
+    <link rel="stylesheet" href="../css/lienhe.css">
+</head>
+<body>
+
+    <div id="header-placeholder" 
+        data-path="../main/header.html" 
+        data-root="../">
+    </div>
+    <div class="container">
+      
+      <header class="contact-header">
+        <h1>Liên Hệ Với Chúng Tôi</h1>
+        <p class="contact-subtitle">Hãy để MayNgan Travel đồng hành cùng bạn trên mọi nẻo đường hành trình khám phá.</p>
+      </header>
+
+      <div class="contact-grid">
+        
+        <!-- SECTION 1: BIỂU MẪU GỬI TIN NHẮN -->
+        <section class="contact-form-section">
+          <h2>Gửi tin nhắn cho MayNgan</h2>
+          <p class="response-time">⏱ Chúng tôi sẽ phản hồi trong vòng 24 giờ.</p>
+          
+          <form id="contactForm" class="contact-form" novalidate>
+            <div class="form-group">
+              <label for="fullName">Họ tên <span class="required">*</span></label>
+              <input type="text" id="fullName" name="fullName" placeholder="Nguyễn Văn A" required>
+              <span class="error-message">Vui lòng nhập họ và tên của bạn</span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email <span class="required">*</span></label>
+              <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+              <span class="error-message">Vui lòng nhập địa chỉ email hợp lệ</span>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Số điện thoại <span class="optional">(Tùy chọn)</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="0912345678">
+              <span class="error-message">Số điện thoại không đúng định dạng</span>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Nội dung tin nhắn <span class="required">*</span></label>
+              <textarea id="message" name="message" rows="5" placeholder="Bạn cần tư vấn về tour nào? Hoặc có yêu cầu đặc biệt gì không?..." required></textarea>
+              <span class="error-message">Vui lòng nhập nội dung tin nhắn</span>
+            </div>
+
+            <button type="submit" class="btn btn-cta">Gửi tin nhắn</button>
+          </form>
+        </section>
+
+        <!-- ASIDE 2: THÔNG TIN LIÊN HỆ & BẢN ĐỒ CHUNG -->
+        <aside class="contact-info-section">
+          <h2>Liên hệ</h2>
+          
+          <!-- CHI NHÁNH HÀ NỘI -->
+          <div class="info-block branch-block">
+            <h2>Hà Nội</h2>
+            <ul class="info-list">
+              <li>
+                <i class="info-icon ti ti-map-pin"></i>
+                <div>
+                  <span>123 Đường Nguyễn Trãi, Quận Thanh Xuân</span>
+                </div>
+              </li>
+              <li>
+                <i class="info-icon ti ti-phone"></i>
+                <div>
+                  <a href="tel:02412345678">024.1234.5678</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- CHI NHÁNH TP. HỒ CHÍ MINH -->
+          <div class="info-block branch-block">
+            <h2>TP. Hồ Chí Minh</h2>
+            <ul class="info-list">
+              <li>
+                <i class="info-icon ti ti-map-pin"></i>
+                <div>
+                  <span>456 Đường Nguyễn Huệ, Quận 1</span>
+                </div>
+              </li>
+              <li>
+                <i class="info-icon ti ti-phone"></i>
+                <div>
+                  <a href="tel:02812345678">028.1234.5678</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- HỆ THỐNG BẢN ĐỒ LỚN TÍCH HỢP ĐIỂM DU LỊCH & CHI NHÁNH -->
+          <div class="info-block map-section-block">
+            <div class="map-container">
+              <!-- Bạn có thể tạo bản đồ tùy chỉnh (My Maps) trên Google để ghim cả 2 chi nhánh + các tuyến du lịch Tây Bắc/Đông Bắc rồi dán link src vào đây -->
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7449.183437560842!2d105.80164629168903!3d20.988961730079366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac9305414d45%3A0x23f66907de861ba4!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2jhu4cgR2lhbyB0aMO0bmcgVuG6rW4gdOG6o2k!5e0!3m2!1svi!2svn!4v1710000000000!5m2!1svi!2svn" 
+                width="100%" 
+                height="280" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="direction-link">
+              🗺️ Xem sơ đồ hướng dẫn lộ trình di chuyển tới các điểm du lịch
+            </a>
+          </div>
+
+          <!-- THÔNG TIN HOTLINE, EMAIL & GIỜ LÀM VIỆC -->
+          <div class="info-block general-contact-block">
+            <ul class="info-list">
+              <li>
+                <i class="info-icon ti ti-mail"></i>
+                <div>
+                  <a href="mailto:info@mayngan.vn">info@mayngan.vn</a>
+                </div>
+              </li>
+              <li>
+                <i class="info-icon ti ti-device-mobile"></i>
+                <div>
+                  <strong>Hotline: <a href="tel:0395863773">0395.863.773</a></strong>
+                </div>
+              </li>
+              <li>
+                <i class="info-icon ti ti-clock"></i>
+                <div>
+                  <span>T2 – T7 | 8:00 – 18:00</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+    <div id="header-placeholder" 
+        data-path="../main/header.html" 
+        data-root="../">
+    </div>
+    <script src="../js/main.js"></script>
+    <script src="../js/lienhe.js"></script>
+
+  
+</body>
+</html>

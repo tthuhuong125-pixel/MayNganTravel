@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Săn Ưu Đãi Giờ Vàng - Mây Ngàn Travel</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/KM.css">
+</head>
+<body>
+
+  <div id="header-placeholder" 
+      data-path="./main/header.html" 
+      data-root="./">
+    </div>
+
+  <!-- ── BANNER ── -->
+  <div class="promo-banner-container">
+    <div class="promo-banner-wrapper">
+      <img src="images/KM.png" alt="Chương trình ưu đãi du lịch Mây Ngàn">
+    </div>
+  </div>
+
+  <!-- ── TIÊU ĐỀ ── -->
+  <div class="promo-header-bar">
+    <h2 class="promo-header-title">Các Tour Đang Giảm Giá</h2>
+  </div>
+
+  <!-- ── BỘ ĐẾM ── -->
+  <div class="promo-count-bar">
+    <strong id="tourCount">0</strong> tour đang khuyến mãi
+  </div>
+
+  <!--
+    GRID TOUR — để trống hoàn toàn.
+    khuyenmai.js gọi renderTourGrid('#promoGrid', { isSale: true })
+    để inject tất cả tour có isSale:true từ TOURS_DATA vào đây.
+    Card dùng chung components.css — giao diện giống hệt trang danh sách.
+  -->
+  <main class="promo-page-wrapper">
+    <div class="promo-grid" id="promoGrid"></div>
+  </main>
+
+  <!-- ── PHÂN TRANG — nút số được sinh tự động bởi khuyenmai.js ── -->
+  <div class="promo-pagination" id="promoPagination">
+    <button class="promo-page-btn" id="prevBtn">‹</button>
+    <div class="promo-page-numbers" id="pageNumbers"></div>
+    <button class="promo-page-btn" id="nextBtn">›</button>
+  </div>
+
+  <div id="footer-placeholder" 
+      data-path="./main/footer.html" 
+      data-root="./">
+    </div>
+
+  <!--
+    THỨ TỰ LOAD SCRIPT — BẮT BUỘC đúng thứ tự:
+    1. toursdata.js  — kho dữ liệu
+    2. tourcard.js   — hàm renderTourCard / renderTourGrid
+    3. khuyenmai.js  — render sale tours + phân trang
+    4. main.js       — header/footer chung
+  -->
+  <script src="js/tourdata.js"></script>
+  <script src="js/tourcard.js"></script>
+  <script src="js/khuyenmai.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

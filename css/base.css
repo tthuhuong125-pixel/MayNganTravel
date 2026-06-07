@@ -21,7 +21,7 @@ body {
 
 /* --- 3. HEADINGS (CÁC THẺ TIÊU ĐỀ H1 -> H6) --- */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading); /* Dùng font Montserrat cho sang trọng */
+  font-family: var(--font-heading); /* Dùng font cho sang trọng */
   color: var(--text-dark);
   line-height: 1.3;                 /* Tiêu đề thì khoảng cách dòng hẹp hơn đoạn văn thường */
 }
@@ -44,7 +44,6 @@ img {
   max-width: 100%;       /* Bắt buộc: Ảnh không bao giờ bị tràn ra khỏi khung chứa nó */
   height: auto;          /* Tỉ lệ ảnh luôn được giữ nguyên */
   display: block;
-  object-fit: cover;     /* Giúp ảnh lấp đầy khung mà không bị méo (rất quan trọng cho ảnh tour) */
 }
 
 /* --- 6. LIST (DANH SÁCH UL/OL) --- */
@@ -56,21 +55,8 @@ ul, ol {
 /* Cách dùng: <div class="section"><div class="container"> Nội dung </div></div> */
 
 .container {
-  max-width: 1200px;             /* Bóp nội dung lại ở giữa màn hình (giới hạn 1200px) */
+  max-width: 1280px;             /* Bóp nội dung lại ở giữa màn hình (giới hạn 1280px) */
   margin: 0 auto;                /* Tự động căn giữa màn hình */
   padding: 0 var(--space-lg);    /* Chống dính mép màn hình khi xem trên điện thoại */
 }
 
-.section {
-  padding: var(--space-2xl) 0;   /* Tạo khoảng cách lề trên/dưới cho mỗi khu vực lớn (VD: Khu vực Tour mới, Khu vực Tin tức) */
-}
-
-.section-alt {
-  background: var(--bg-secondary); /* Dùng thêm class này nếu muốn section đó có nền kem xám cho bớt nhàm chán */
-}
-
-.section-title {
-  font-size: var(--text-2xl);
-  text-align: center;              /* Căn giữa tiêu đề của section */
-  margin-bottom: var(--space-xl);  /* Đẩy lề dưới để cách xa phần nội dung bên dưới nó */
-}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Tour - Mây Ngàn Travel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Đường dẫn lùi 1 cấp vì file nằm trong /tour/ -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/Trang_danh_sach_tours.css">
+</head>
+<body>
+
+    <div id="header-placeholder"
+         data-path="../main/header.html"
+         data-root="../"></div>
+
+    <main class="container tour-page-wrapper">
+
+        <div class="page-title-block">
+            <h2>Tổng hợp danh sách tour</h2>
+        </div>
+
+        <div class="layout-main">
+
+            <!-- ══ BỘ LỌC BÊN TRÁI ══ -->
+            <aside class="filter-sidebar">
+
+                <div class="filter-group">
+                    <div class="filter-group__title">Thời gian</div>
+                    <div class="filter-group__content">
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="filter-checkbox" data-filter="duration" value="2n1d">
+                            <span>2 ngày 1 đêm</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="filter-checkbox" data-filter="duration" value="3n2d">
+                            <span>3 ngày 2 đêm</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="filter-checkbox" data-filter="duration" value="3n3d">
+                            <span>3 ngày 3 đêm</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="filter-checkbox" data-filter="duration" value="4n3d">
+                            <span>4 ngày 3 đêm</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="filter-checkbox" data-filter="duration" value="5n4d">
+                            <span>5 ngày 4 đêm</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="filter-checkbox" data-filter="duration" value="5n5d">
+                            <span>5 ngày 5 đêm</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-group__title">Mức giá</div>
+                    <div class="filter-group__content">
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="filter-checkbox" data-filter="price" value="under-1m">
+                            <span>Dưới 1 triệu</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="filter-checkbox" data-filter="price" value="1m-3m">
+                            <span>1 – 3 triệu</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="filter-checkbox" data-filter="price" value="3m-5m">
+                            <span>3 – 5 triệu</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="filter-checkbox" data-filter="price" value="over-5m">
+                            <span>Trên 5 triệu</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-group__title">Khởi hành từ</div>
+                    <div class="filter-group__content">
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="filter-checkbox" data-filter="departure" value="hanoi">
+                            <span>Hà Nội</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="filter-checkbox" data-filter="departure" value="hcm">
+                            <span>Hồ Chí Minh</span>
+                        </label>
+                    </div>
+                </div>
+
+            </aside>
+
+            <!-- ══ NỘI DUNG TOUR BÊN PHẢI ══ -->
+            <section class="tours-content">
+
+                <!-- Chip lọc điểm đến — đủ 9 điểm, slug khớp với destSlug trong tours-data.js -->
+                <div class="destination-filter">
+                    <span class="section-label">LỌC THEO ĐIỂM ĐẾN</span>
+                    <div class="chips-group">
+                        <div class="chip chip--active" data-dest="all">Tất cả</div>
+                        <div class="chip" data-dest="sapa">Sapa</div>
+                        <div class="chip" data-dest="yty">Y Tý</div>
+                        <div class="chip" data-dest="mocchau">Mộc Châu</div>
+                        <div class="chip" data-dest="bachha">Bắc Hà</div>
+                        <div class="chip" data-dest="mcc">Mù Cang Chải</div>
+                        <div class="chip" data-dest="taxua">Tà Xùa</div>
+                        <div class="chip" data-dest="hagiang">Hà Giang</div>
+                        <div class="chip" data-dest="caobang">Cao Bằng</div>
+                        <div class="chip" data-dest="backan">Bắc Kạn</div>
+                    </div>
+                </div>
+
+                <!-- Thanh sắp xếp — "Tất cả" đứng đầu, active mặc định -->
+                <div class="sort-bar">
+                    <span class="section-label">Sắp xếp:</span>
+                    <div class="sort-options">
+                        <button class="sort-btn active" data-sort="tatca">Tất cả</button>
+                        <button class="sort-btn" data-sort="banchay">🔥 Tour Hot</button>
+                        <button class="sort-btn" data-sort="moinhat">✨ Tour Mới</button>
+                        <button class="sort-btn" data-sort="giatang">Giá ↑</button>
+                        <button class="sort-btn" data-sort="giamgiam">Giá ↓</button>
+                    </div>
+                </div>
+
+                <!-- Bộ đếm -->
+                <div class="results-count">
+                    Tìm thấy <strong id="tourCount">0</strong> tour phù hợp
+                </div>
+
+                <!-- Grid rỗng — JS inject cards vào đây -->
+                <div class="tours-grid" id="toursGrid"></div>
+
+            </section>
+        </div>
+    </main>
+
+    <button id="backToTop" class="back-to-top-btn" title="Lên đầu trang">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.5">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <div id="footer-placeholder"
+         data-path="../main/footer.html"
+         data-root="../"></div>
+
+    <!-- Đường dẫn lùi 1 cấp, đúng thứ tự -->
+    <script src="../js/tourdata.js"></script>
+    <script src="../js/tourcard.js"></script>
+    <script src="../js/Trang_danh_sach_tours.js"></script>
+    <script src="../js/main.js"></script>
+
+</body>
+</html>

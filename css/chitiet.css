@@ -1,0 +1,725 @@
+/* ==========================================================================
+   MAYNGAN TRAVEL - CHITIET.CSS
+   Trang chi tiết tour — Style riêng của Phương Anh
+   Yêu cầu import TRƯỚC: variables.css → base.css → components.css → chitiet.css
+   ========================================================================== */
+
+/* ✅ scroll-behavior giữ ở đây vì base.css chưa có — nhắc Hương thêm vào base.css */
+html { scroll-behavior: smooth; }
+
+/* ==========================================================
+   1. LAYOUT TRANG CHI TIẾT (2 CỘT)
+   ✅ FIX: Đổi từ .container → .chitiet-layout
+   Tránh xung đột với .container của base.css
+   ========================================================== */
+.chitiet-layout {
+    display: flex;
+    gap: 30px;
+    padding: 30px 0;
+    align-items: flex-start;
+}
+
+.left  { flex: 3; }
+
+/* ==========================================================
+   2. TIÊU ĐỀ & TAG HEADER
+   ========================================================== */
+
+.tour-title {
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 20px; 
+    line-height: 1.4;    
+}
+
+.tag-header {
+    display: inline-flex; 
+    vertical-align: middle; 
+    transform: translateY(-2px);
+    margin-left: 7px;     
+}
+
+/* ==========================================================
+   3. SLIDER & GALLERY
+   ========================================================== */
+.slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+}
+
+.main-img {
+    width: 100%;
+    border-radius: var(--radius-md);
+    height: 580px;
+    object-fit: cover;
+}
+
+.slider #mainImage {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.slider-transition {
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.slider .prev,
+.slider .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(31, 46, 34, 0.5);
+    color: #ffffff;
+    border: none;
+    padding: 10px 14px;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+}
+.slider .prev { left: 15px; }
+.slider .next { right: 15px; }
+
+.gallery {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.gallery img {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    opacity: 0.8;
+    transition: var(--transition);
+}
+
+.gallery img:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* ==========================================================
+   4. TABS ĐIỀU HƯỚNG NỘI DUNG
+   ========================================================== */
+.tabs {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    border-bottom: 2px solid var(--bg-secondary);
+    padding-bottom: 10px;
+}
+
+.tabs a {
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text-light); /* ✅ FIX: #7A8A80 → var(--text-light) */
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.tabs .active {
+    color: var(--text-dark); /* ✅ FIX: --text-main → --text-dark */
+    border-bottom: 3px solid var(--color-primary);
+    padding-bottom: 8px;
+}
+
+/* ==========================================================
+   5. NỘI DUNG TOUR (TỔNG QUAN, LỊCH TRÌNH...)
+   ========================================================== */
+.tour-content {
+    margin-top: 30px;
+    border-bottom: 1px solid var(--bg-secondary);
+}
+
+.tour-content h2 {
+    margin-bottom: 10px;
+    color: var(--text-dark);
+    display: flex;           /* thêm */
+    align-items: center;     /* thêm — căn giữa dọc giữa chữ h2 và tag nhỏ */
+    gap: var(--space-sm);    /* thêm — khoảng cách giữa chữ và tag */
+}
+
+.tour-content p,
+.tour-content ul,
+.timeline-content {
+    color: var(--text-dark); /* ✅ FIX */
+    text-align: justify;
+}
+
+.tour-content p  { margin: var(--space-sm) 0; }
+
+.tour-content ul {
+    padding-left: 20px;
+    margin-bottom: var(--space-sm);
+    list-style: disc; /* Hiện dấu chấm cho danh sách nội dung tour */
+}
+
+.tour-content li {
+    list-style-position: outside;
+    margin-bottom: var(--space-sm);
+}
+
+.tour-content b,
+.tour-content strong { font-weight: bold; }
+
+/* ==========================================================
+   6. SIDEBAR PHẢI — GIÁ & ĐẶT TOUR
+   ========================================================== */
+.right {
+    background: #fff;
+    padding: 28px;
+    border-radius: var(--radius-lg);
+    width: 360px;
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 20px;
+}
+
+.price {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--text-dark); /* ✅ FIX */
+}
+
+.price span {
+    color: var(--color-cta);
+    font-weight: 700;
+}
+
+.price .price__old {
+    font-size: var(--text-sm);
+    color: var(--text-light);
+    text-decoration: line-through;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.tour-info {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+
+.tour-info li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    color: var(--text-dark); /* ✅ FIX */
+    font-size: var(--text-base);
+}
+
+.tour-info i {
+    width: 22px;
+    font-size: 16px;
+    color: var(--color-primary-light); /* ✅ FIX: --color-secondary → --color-primary-light */
+}
+
+.location {
+    color: var(--color-accent);
+}
+
+.tour-name {
+    margin: 10px 0 15px 0;
+    font-weight: 600;
+    color: var(--text-dark); /* ✅ FIX */
+}
+
+/* Chỉ override kích thước — không khai lại thứ .btn đã có */
+.book-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: var(--text-lg);
+    border-radius: var(--radius-md);
+    justify-content: center; /* căn giữa chữ trong inline-flex */
+}
+
+
+/* ==========================================================
+   7. POLICY & CONTACT
+   ========================================================== */
+.policy {
+    background: var(--color-primary-bg); /* ✅ FIX: #eaf6e5 → var(--color-primary-bg), bỏ !important */
+    padding: 18px;
+    border-radius: var(--radius-lg);
+    margin-top: 15px;
+}
+
+.policy-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.policy-item:last-child { margin-bottom: 0; }
+
+.policy-item i {
+    font-size: 20px;
+    color: var(--color-primary);
+    margin-top: 3px;
+}
+
+.policy-item p {
+    margin: 0;
+    font-size: var(--text-base);
+    line-height: 1.5;
+    color: var(--text-dark); /* ✅ FIX */
+}
+
+.policy-item b { font-weight: 600; }
+
+.contact {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+/* ✅ FIX: Đổi tên .btn-outline → .btn-contact
+   Tránh xung đột với .btn-outline trong components.css (màu xanh)
+   .btn-contact dùng màu cam (CTA) phù hợp với ngữ cảnh liên hệ */
+.btn-contact {
+    flex: 1;
+    border: 1px solid var(--color-cta);
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    background: white;
+    font-size: var(--text-sm);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--color-cta);
+    transition: var(--transition);
+}
+
+.btn-contact:hover {
+    background: var(--color-cta-bg);
+}
+
+/* ==========================================================
+   8. LỊCH TRÌNH (TIMELINE ACCORDION)
+   ========================================================== */
+.timeline-item {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 28px;
+    bottom: -10px;
+    border-left: 1px dashed var(--color-primary-light); /* ✅ FIX: --color-secondary → --color-primary-light */
+}
+
+.timeline-item:last-child::before { display: none; }
+
+.timeline-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.timeline-header h3 {
+    margin: 0;
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--text-dark); /* ✅ FIX */
+}
+
+.icon-toggle {
+    font-size: 20px;
+    color: var(--color-primary-light);
+    background-color: transparent;
+    z-index: 2;
+}
+
+.timeline-content {
+    display: none;
+    padding-left: 32px;
+    margin-top: 8px;
+}
+
+.timeline-item.active .timeline-content { display: block; }
+
+/* ==========================================================
+   9. DỊCH VỤ (BAO GỒM / KHÔNG BAO GỒM)
+   ========================================================== */
+.services-container {
+    display: flex;
+    gap: 25px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.service-box {
+    flex: 1;
+    position: relative;
+    padding: 25px;
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+}
+
+.service-box h3 {
+    text-align: center;
+    font-size: var(--text-lg);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--text-dark); /* ✅ FIX */
+}
+
+.service-box ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.service-box li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: var(--space-md);
+    font-size: var(--text-sm);
+    line-height: 1.6;
+}
+
+.service-box li strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--text-dark); /* ✅ FIX */
+}
+
+.service-box li p {
+    margin: 2px 0;
+    font-size: var(--text-sm);
+    color: var(--text-dark); /* ✅ FIX */
+}
+
+.badge-icon {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 45px;
+    background-color: var(--bg-white);
+    border-radius: 50%;
+    line-height: 1;
+}
+
+.include-box {
+    background-color: #F3FAF6;
+    border-color: #E2F2EA;
+}
+.include-box .badge-icon { color: var(--color-primary); }
+.include-box li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.exclude-box {
+    background-color: #FFF5F4;
+    border-color: #FEE4E1;
+}
+.exclude-box .badge-icon { color: var(--color-cta); }
+.exclude-box li::before {
+    content: "✕";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: var(--color-cta);
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* ==========================================================
+   10. POPUP ĐẶT TOUR & FORM
+   ========================================================== */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(31, 46, 34, 0.6);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-content {
+    background-color: #fff;
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    animation: fadeInPopup 0.3s ease;
+}
+
+@keyframes fadeInPopup {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.close-popup {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: var(--transition);
+}
+.close-popup:hover { color: var(--text-dark); }
+
+.popup-content h2 {
+    text-align: center;
+    margin: 0 0 5px 0;
+    font-size: var(--text-xl);
+    color: var(--color-primary);
+}
+
+.popup-tour-name {
+    text-align: center;
+    margin: 0 0 20px 0;
+    font-weight: 600;
+    color: var(--text-dark); /* ✅ FIX */
+}
+
+.form-group { margin-bottom: 15px; }
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+.form-row .form-group { flex: 1; }
+
+.form-group label {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-dark); /* ✅ FIX */
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--bg-secondary);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    box-sizing: border-box;
+    font-family: var(--font-body);
+}
+
+.form-group input:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+#popupDate {
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid var(--bg-secondary);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    color: var(--text-dark); /* ✅ FIX */
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+    box-sizing: border-box;
+    transition: var(--transition);
+    font-family: var(--font-body);
+}
+
+#popupDate:focus { border-color: var(--color-primary); }
+
+#popupDate.input-error {
+    border-color: var(--color-cta);
+    background-color: #FFF5F4;
+}
+
+.form-price-box {
+    background-color: var(--bg-primary);
+    padding: 15px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    border: 1px dashed var(--color-primary-light); /* ✅ FIX: --color-secondary → --color-primary-light */
+}
+
+.form-price-box span {
+    font-size: var(--text-sm);
+    color: var(--text-dark); /* ✅ FIX */
+}
+
+.form-price-box strong {
+    font-size: var(--text-xl);
+    color: var(--color-cta);
+    font-weight: 700;
+}
+
+.btn-submit-booking {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: var(--font-body);
+}
+
+.btn-submit-booking:hover {
+    background-color: var(--color-primary-dark); /* ✅ FIX: #31624A → var(--color-primary-dark) */
+}
+
+.error-message {
+    color: var(--color-cta);
+    font-size: var(--text-xs);
+    margin-top: 5px;
+    display: none;
+    text-align: left;
+}
+
+.form-group input.input-error {
+    border-color: var(--color-cta);
+    background-color: #FFF5F4;
+}
+
+/* POPUP THÀNH CÔNG */
+.success-popup-content {
+    background-color: #fff;
+    width: 100%;
+    max-width: 400px;
+    padding: 35px 25px;
+    border-radius: var(--radius-lg);
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    animation: fadeInPopup 0.3s ease;
+}
+
+.success-icon-box {
+    font-size: 80px;
+    color: var(--color-primary-light);
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.success-message-text {
+    font-size: var(--text-lg);
+    font-weight: 500;
+    color: var(--text-dark); /* ✅ FIX */
+    margin: 0 0 25px 0;
+    line-height: 1.4;
+}
+
+.btn-close-success {
+    padding: 10px 30px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-close-success:hover {
+    background-color: var(--color-primary-dark); /* ✅ FIX: #31624A → var(--color-primary-dark) */
+}
+
+/* Khoảng cách riêng cho dest-tags trong trang chi tiết */
+.dest-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin: 8px 0 14px;
+}
+
+/* ── TOUR TƯƠNG TỰ ────────────────────────────────────────── */
+.similar-tours-section {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-xl);
+  border-top: 0.5px solid var(--border-color);
+  margin-bottom: var(--space-2xl);
+}
+
+.similar-tours-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+}
+
+.similar-tours-title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.similar-tours-see-all {
+  font-size: var(--text-sm);
+  color: var(--color-primary);
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.similar-tours-see-all:hover {
+  color: var(--color-primary-dark);
+}
+
+/* Grid 3 cột — giống danh sách tour */
+.similar-tours-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+
+/* Không tìm được tour nào */
+.similar-tours-empty {
+  font-size: var(--text-sm);
+  color: var(--text-light);
+  text-align: center;
+  padding: var(--space-xl) 0;
+  grid-column: 1 / -1;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .similar-tours-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .similar-tours-grid { grid-template-columns: 1fr; }
+  .similar-tours-header { flex-direction: column; align-items: flex-start; gap: var(--space-sm); }
+}
